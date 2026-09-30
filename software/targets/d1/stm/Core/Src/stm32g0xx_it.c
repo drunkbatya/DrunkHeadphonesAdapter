@@ -198,19 +198,6 @@ void DMA1_Ch4_7_DMA2_Ch1_5_DMAMUX1_OVR_IRQHandler(void)
   /* USER CODE END DMA1_Ch4_7_DMA2_Ch1_5_DMAMUX1_OVR_IRQn 1 */
 }
 
-/**
-  * @brief This function handles USART3, USART4, USART5, USART6, LPUART1 globlal Interrupts (combined with EXTI 28).
-  */
-void USART3_4_5_6_LPUART1_IRQHandler(void)
-{
-  /* USER CODE BEGIN USART3_4_5_6_LPUART1_IRQn 0 */
-
-  /* USER CODE END USART3_4_5_6_LPUART1_IRQn 0 */
-  /* USER CODE BEGIN USART3_4_5_6_LPUART1_IRQn 1 */
-
-  /* USER CODE END USART3_4_5_6_LPUART1_IRQn 1 */
-}
-
 /* USER CODE BEGIN 1 */
 
 /* USER CODE END 1 */

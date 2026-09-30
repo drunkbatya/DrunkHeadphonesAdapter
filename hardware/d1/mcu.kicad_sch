@@ -3227,16 +3227,6 @@
 		)
 		(uuid "e9f7c721-21d0-43cc-b201-02c2dd8fd860")
 	)
-	(label "UART_TX"
-		(at 83.82 58.42 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "33718141-43c2-460a-a97a-a991c36a000f")
-	)
 	(label "UCPD2_CC1"
 		(at 137.16 86.36 0)
 		(effects
@@ -3317,6 +3307,16 @@
 		)
 		(uuid "92c706d8-f301-48ab-b0e5-671a49cf21b6")
 	)
+	(label "UART_RX"
+		(at 137.16 58.42 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "92fa7140-f35a-4654-8dc8-4f9633b2d03c")
+	)
 	(label "USB_DP"
 		(at 83.82 119.38 180)
 		(effects
@@ -3347,16 +3347,6 @@
 		)
 		(uuid "a26a6fbc-aee1-4a4c-839f-10a3b8e02852")
 	)
-	(label "UART_RX"
-		(at 83.82 60.96 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "a7c6adb9-1afe-4718-a0b9-ca02cecbfce2")
-	)
 	(label "SWDIO"
 		(at 83.82 121.92 180)
 		(effects
@@ -3376,6 +3366,16 @@
 			(justify right bottom)
 		)
 		(uuid "c3f0ec96-faa6-454d-8dac-04c4ffa9a311")
+	)
+	(label "UART_TX"
+		(at 137.16 55.88 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "c7664a4f-7484-448d-9602-dae8ef884758")
 	)
 	(label "I2S2_WS"
 		(at 83.82 157.48 180)
