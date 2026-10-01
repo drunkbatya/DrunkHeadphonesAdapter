@@ -154,7 +154,7 @@
 	(footprint "JLCImport:OT7EL89CJI-111YLC-24_576M"
 		(layer "F.Cu")
 		(uuid "003e9788-f8a9-454a-acf3-22deaaf06de1")
-		(at 54.16 25.76 180)
+		(at 53.9 26.3 180)
 		(descr "-40℃~+85℃ 1.8V~3.3V 24.576MHz CMOS ±10ppm ±20ppm SMD2016-4P Crystal Oscillators ROHS")
 		(tags "C49304729 OSC-SMD_4P-L2.0-W1.6-BL_S1D25.000000E10F30T OT7EL89CJI-111YLC-24.576M YXC Crystal Oscillators")
 		(property "Reference" "X2"
@@ -328,7 +328,7 @@
 			(at 0.7 0.55 180)
 			(size 1 0.8)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "unconnected-(X2-GND-Pad2)")
+			(net "GND")
 			(pinfunction "GND_2")
 			(pintype "unspecified")
 			(uuid "4ae1e8e0-c560-42b6-aa5b-8c7bd4043ae9")
@@ -346,7 +346,7 @@
 			(at -0.7 -0.55 180)
 			(size 1 0.8)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "unconnected-(X2-VDD-Pad4)")
+			(net "Net-(X2-VDD)")
 			(pinfunction "VDD_4")
 			(pintype "unspecified")
 			(uuid "4843ecfc-e8d8-4fb2-952e-1ca7f42093f4")
@@ -355,6 +355,242 @@
 		(model "${KIPRJMOD}/JLCImport.3dshapes/OT7EL89CJI-111YLC-24_576M.wrl"
 			(offset
 				(xyz 0 0 0.01)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
+	)
+	(footprint "JLCImport:CL05A475MP5NRNC"
+		(layer "F.Cu")
+		(uuid "0a9183e8-5860-4cf0-a325-1fdd7449aaa6")
+		(at 27.44996 104.175843)
+		(descr "10V 4.7uF X5R ±20% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS")
+		(tags "C0402 C23733 CL05A475MP5NRNC Samsung Electro-Mechanics")
+		(property "Reference" "C16"
+			(at 0 -1.499618 0)
+			(layer "F.SilkS")
+			(uuid "3c7b8cb5-c373-4d29-a0f7-1c6834620d78")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Value" "4.7uF 10V X5R"
+			(at 0 1.499643 0)
+			(layer "F.Fab")
+			(uuid "296dbf95-decd-414a-af44-f0ff506b1dda")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL05A475MP5NRNC_C23733.pdf"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "be55ecdf-37d2-4987-b1c3-3572bd9db64a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "10V 4.7uF X5R ±20% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "8f770857-49a4-46c9-846f-2daf504a6398")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C23733"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "a7a22cce-dd84-487f-af41-5906f59cd59a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "ef95c116-7666-44a4-ad7f-69e3cbbd7f5d")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer Part" "CL05A475MP5NRNC"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "078ebd72-4949-47e2-a20d-9a52476ba1f7")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(path "/95ba76fd-cd0d-4fc7-9d47-f5665dc7e9c9/6c1a833d-bdf6-486f-b7fe-617266d90484")
+		(sheetname "/dac/")
+		(sheetfile "dac.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
+		(attr smd)
+		(duplicate_pad_numbers_are_jumpers no)
+		(fp_line
+			(start -0.87376 0.347243)
+			(end -0.87376 -0.345161)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "812a2755-a206-49ac-8107-ec1d24fb2a4c")
+		)
+		(fp_line
+			(start -0.72136 -0.497535)
+			(end -0.221386 -0.497535)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "bcec0112-7508-4282-803e-dbe08580e51a")
+		)
+		(fp_line
+			(start -0.221386 0.499643)
+			(end -0.72136 0.499643)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "ca8005a4-57e5-473e-905d-264ab3edbcd2")
+		)
+		(fp_line
+			(start 0.221386 -0.499618)
+			(end 0.72136 -0.499618)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "4095d8c9-025a-4480-858e-789fc2ee825c")
+		)
+		(fp_line
+			(start 0.72136 0.49751)
+			(end 0.221386 0.49751)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "2c934733-b61a-43ff-a4e6-b9369c40f4fa")
+		)
+		(fp_line
+			(start 0.87376 -0.347269)
+			(end 0.87376 0.345161)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "edb7abb8-e6a8-41b0-a0f9-5185a4a58750")
+		)
+		(fp_arc
+			(start -0.87376 -0.345161)
+			(mid -0.829148 -0.453)
+			(end -0.72136 -0.497561)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "61b34214-4e94-4d41-8782-498b6324501d")
+		)
+		(fp_arc
+			(start -0.72136 0.499643)
+			(mid -0.829148 0.455)
+			(end -0.87376 0.347243)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "59573f59-4a7a-4fb7-a865-f3e8b5076c45")
+		)
+		(fp_arc
+			(start 0.72136 -0.499643)
+			(mid 0.829148 -0.455)
+			(end 0.87376 -0.347243)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "427b267a-61b5-4652-99f1-95ad78f4a462")
+		)
+		(fp_arc
+			(start 0.87376 0.345161)
+			(mid 0.829148 0.453)
+			(end 0.72136 0.497561)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "8b4add04-0f51-4824-96bb-d3923daf7c7d")
+		)
+		(pad "1" smd rect
+			(at -0.42 0)
+			(size 0.5 0.54)
+			(layers "F.Cu" "F.Mask" "F.Paste")
+			(net "Net-(U1-VP)")
+			(pinfunction "1_1")
+			(pintype "unspecified")
+			(uuid "3869fd23-ac98-43a6-8303-8b572167e552")
+		)
+		(pad "2" smd rect
+			(at 0.42 0)
+			(size 0.5 0.54)
+			(layers "F.Cu" "F.Mask" "F.Paste")
+			(net "GND")
+			(pinfunction "2_2")
+			(pintype "unspecified")
+			(uuid "ed701f7f-851a-4332-a53d-a9130e8af48b")
+		)
+		(embedded_fonts no)
+		(model "${KIPRJMOD}/JLCImport.3dshapes/CL05A475MP5NRNC.wrl"
+			(offset
+				(xyz 0 0 0.25)
 			)
 			(scale
 				(xyz 1 1 1)
@@ -1667,6 +1903,474 @@
 			)
 		)
 	)
+	(footprint "JLCImport:CL05A225KO5NQNC"
+		(layer "F.Cu")
+		(uuid "1df8e008-5751-4d51-b519-847c6fab0472")
+		(at 51.44996 121.979215)
+		(descr "16V 2.2uF X5R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS")
+		(tags "C0402 C170151 CL05A225KO5NQNC Samsung Electro-Mechanics")
+		(property "Reference" "C31"
+			(at 0 -1.499618 0)
+			(layer "F.SilkS")
+			(uuid "c828530a-67c6-49a6-af3d-529970933b7b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Value" "2.2uF 16V X5R"
+			(at 0 1.499643 0)
+			(layer "F.Fab")
+			(uuid "85e2f533-c4c3-4992-b2bd-ca5e5aa732a2")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL05A225KO5NQNC_C170151.pdf"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "7f91fb05-5ed3-471b-a203-85331e3a8b8e")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "16V 2.2uF X5R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "c401adfe-8575-4420-8c29-9cdd1cf8c03d")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C170151"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "23da81ff-52c6-497d-8c20-556a7bd20c23")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "1ff15b90-515c-4de8-8f69-c60032563241")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer Part" "CL05A225KO5NQNC"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "4ebc8501-4587-45a9-b5c6-8b79b262777a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(path "/95ba76fd-cd0d-4fc7-9d47-f5665dc7e9c9/80f2c255-d157-4969-8a93-4e6bad48ffaf")
+		(sheetname "/dac/")
+		(sheetfile "dac.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "2" "1")
+			)
+		)
+		(attr smd)
+		(duplicate_pad_numbers_are_jumpers no)
+		(fp_line
+			(start -0.87376 0.347243)
+			(end -0.87376 -0.345161)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "8987bd82-24b1-407e-bf3d-2ab549a0e3c0")
+		)
+		(fp_line
+			(start -0.72136 -0.497535)
+			(end -0.221386 -0.497535)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "960918a8-5407-4026-89db-353d510385ea")
+		)
+		(fp_line
+			(start -0.221386 0.499643)
+			(end -0.72136 0.499643)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "34e27ca8-f1d4-41fb-abb9-c519097ac5bb")
+		)
+		(fp_line
+			(start 0.221386 -0.499618)
+			(end 0.72136 -0.499618)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "960b841b-f7c8-4df1-96df-853de3a3519c")
+		)
+		(fp_line
+			(start 0.72136 0.49751)
+			(end 0.221386 0.49751)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "f2ca2659-e1f2-43c3-8499-a576f53e65e4")
+		)
+		(fp_line
+			(start 0.87376 -0.347269)
+			(end 0.87376 0.345161)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "3b1961cd-f622-4695-a62c-82b0e230f35a")
+		)
+		(fp_arc
+			(start -0.87376 -0.345161)
+			(mid -0.829148 -0.453)
+			(end -0.72136 -0.497561)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "b97f0ab4-7c69-4c70-a5a3-bc2e7fa05225")
+		)
+		(fp_arc
+			(start -0.72136 0.499643)
+			(mid -0.829148 0.455)
+			(end -0.87376 0.347243)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "911610b1-09d7-4070-b005-19487f2c5df7")
+		)
+		(fp_arc
+			(start 0.72136 -0.499643)
+			(mid 0.829148 -0.455)
+			(end 0.87376 -0.347243)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "d94fe984-312e-43ab-8ff4-1271a58a7546")
+		)
+		(fp_arc
+			(start 0.87376 0.345161)
+			(mid 0.829148 0.453)
+			(end 0.72136 0.497561)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "133d9eea-2afa-46e3-9222-1bd01cd949f2")
+		)
+		(pad "1" smd rect
+			(at -0.42 0)
+			(size 0.5 0.54)
+			(layers "F.Cu" "F.Mask" "F.Paste")
+			(net "/dac/VCP_FILT+")
+			(pinfunction "1_1")
+			(pintype "unspecified")
+			(uuid "87530db3-84c7-43d4-8311-e5c156280cf0")
+		)
+		(pad "2" smd rect
+			(at 0.42 0)
+			(size 0.5 0.54)
+			(layers "F.Cu" "F.Mask" "F.Paste")
+			(net "/dac/GNDCP")
+			(pinfunction "2_2")
+			(pintype "unspecified")
+			(uuid "2dd25cb7-3407-45d8-aa43-f7850d38e5e3")
+		)
+		(embedded_fonts no)
+		(model "${KIPRJMOD}/JLCImport.3dshapes/CL05A225KO5NQNC.wrl"
+			(offset
+				(xyz 0 0 0.25)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
+	)
+	(footprint "JLCImport:BLM15AG601SN1D"
+		(layer "F.Cu")
+		(uuid "278d6c03-446f-4430-a08a-2b9a97954175")
+		(at 38.71554 104.16642)
+		(descr "-55℃~+125℃ 1 300mA 520mΩ 600Ω@100MHz ±25% 0402 Ferrite Beads ROHS")
+		(tags "BLM15AG601SN1D C76884 L0402 Murata Electronics")
+		(property "Reference" "L4"
+			(at 0 -1.49022 0)
+			(layer "F.SilkS")
+			(uuid "44ac138c-6dea-4d4a-b61b-6e13bbb2a912")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Value" "BLM15AG601SN1D"
+			(at 0 1.508 0)
+			(layer "F.Fab")
+			(uuid "f63abab5-63ae-4320-a134-3477b28cafbd")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Murata-Electronics-BLM15AG601SN1D_C76884.pdf"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "57c5ebed-693b-499e-a9ab-1f96ff44dce3")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "-55℃~+125℃ 1 300mA 520mΩ 600Ω@100MHz ±25% 0402 Ferrite Beads ROHS"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "192f2562-2ada-484a-9534-9d6a6d4cf7c2")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C76884"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "6ac192a7-b941-482b-b34c-cc17fdd4c16a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer" "Murata Electronics"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "1cb10a6c-7929-4105-810a-d17013dea0a4")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer Part" "BLM15AG601SN1D"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "25f1d3eb-3871-418c-b326-c755ac0105d6")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(path "/c6b936ac-23e1-4f20-8d3d-ded05833abcb/4ad6a95f-7d4d-452f-b1d5-7563402a7e49")
+		(sheetname "/mcu/")
+		(sheetfile "mcu.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
+		(attr smd)
+		(duplicate_pad_numbers_are_jumpers no)
+		(fp_line
+			(start -1.06934 -0.336779)
+			(end -0.91694 -0.489153)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "85f8e8c4-9974-432a-aaf2-fcc9998f3206")
+		)
+		(fp_line
+			(start -1.06934 0.3556)
+			(end -1.06934 -0.336779)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "305cc6d1-3311-4757-9305-865358297555")
+		)
+		(fp_line
+			(start -0.91694 -0.489153)
+			(end -0.126873 -0.489153)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "d15058ea-d77c-4185-a47a-cbbc8c652d6c")
+		)
+		(fp_line
+			(start -0.91694 0.508)
+			(end -1.06934 0.3556)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "b76c75b8-9e8f-4d01-9f17-650fa6f6c4c6")
+		)
+		(fp_line
+			(start -0.126873 0.508)
+			(end -0.91694 0.508)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "0e1eb336-8e5f-4eaf-b53d-e75ab4190e17")
+		)
+		(fp_line
+			(start 0.127127 0.508)
+			(end 0.917 0.508)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "02649ca5-1449-41ae-a5a2-e7e0f5d475de")
+		)
+		(fp_line
+			(start 0.907 -0.49022)
+			(end 0.127127 -0.49022)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "41e70e46-26bb-44af-87e6-204ace301fb9")
+		)
+		(fp_line
+			(start 0.917 0.508)
+			(end 1.069467 0.3556)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "18c7c0f0-2e51-4429-91a7-375950f73731")
+		)
+		(fp_line
+			(start 1.069467 -0.32766)
+			(end 0.907 -0.49022)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "c8265fef-ddc7-4c08-bb8f-368b6e8fcca7")
+		)
+		(fp_line
+			(start 1.069467 0.3556)
+			(end 1.069467 -0.32766)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "9bbac928-f5d4-410e-ae59-461fefbfdbdb")
+		)
+		(pad "1" smd rect
+			(at -0.42 0)
+			(size 0.54 0.54)
+			(layers "F.Cu" "F.Mask" "F.Paste")
+			(net "+1V8_D")
+			(pinfunction "1_1")
+			(pintype "unspecified")
+			(uuid "13f4ffe5-1d1f-4ebb-9025-1001b767a2b6")
+		)
+		(pad "2" smd rect
+			(at 0.42 0)
+			(size 0.54 0.54)
+			(layers "F.Cu" "F.Mask" "F.Paste")
+			(net "Net-(U2-VREF+)")
+			(pinfunction "2_2")
+			(pintype "unspecified")
+			(uuid "129c86d8-107b-4bd5-ab97-4050b24288b0")
+		)
+		(embedded_fonts no)
+		(model "${KIPRJMOD}/JLCImport.3dshapes/BLM15AG601SN1D.wrl"
+			(offset
+				(xyz 0 0 0.25)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
+	)
 	(footprint "JLCImport:CL05A105KA5NQNC"
 		(layer "F.Cu")
 		(uuid "27bf3cb8-b027-4d2b-b4ee-ac43d8e80662")
@@ -1893,6 +2597,478 @@
 		)
 		(embedded_fonts no)
 		(model "${KIPRJMOD}/JLCImport.3dshapes/CL05A105KA5NQNC.wrl"
+			(offset
+				(xyz 0 0 0.25)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
+	)
+	(footprint "JLCImport:C2012X5R1V156MT000E"
+		(layer "F.Cu")
+		(uuid "27d55eec-5333-4490-b6ce-5cae001e9c3b")
+		(at 59.229798 105.239418)
+		(descr "15uF 35V X5R ±20% 0805 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS")
+		(tags "C0805 C2012X5R1V156MT000E C5367448 TDK")
+		(property "Reference" "C27"
+			(at 0 -1.903605 0)
+			(layer "F.SilkS")
+			(uuid "f9c08134-b0db-4743-a9c5-ef38c7a082b6")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Value" "15uF 35V X5R"
+			(at 0 1.903605 0)
+			(layer "F.Fab")
+			(uuid "bfe373ad-d663-470e-b140-c9dc1ffb65e3")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" "https://item.szlcsc.com/373011.html"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "2afbc875-f944-44d9-96cc-914bab1b0f18")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "15uF 35V X5R ±20% 0805 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "33576e6b-c3f5-42e4-9976-bd45f2147c0a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C5367448"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "3b3ef7f5-902f-42a1-9d18-4bd345a11db6")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer" "TDK"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "3a4818a4-dba4-4a3e-ae65-7f0c1a4652d9")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer Part" "C2012X5R1V156MT000E"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "5b7f945b-1f27-48b1-a852-5ef8460eb048")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(path "/95ba76fd-cd0d-4fc7-9d47-f5665dc7e9c9/eafee767-6af7-47e8-9b34-171de433e507")
+		(sheetname "/dac/")
+		(sheetfile "dac.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
+		(attr smd)
+		(duplicate_pad_numbers_are_jumpers no)
+		(fp_line
+			(start -1.963598 0.751205)
+			(end -1.963598 -0.751205)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "9a93f89d-e28a-4da1-b80b-82aee10042cd")
+		)
+		(fp_line
+			(start -1.811198 -0.903605)
+			(end -0.401193 -0.903605)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "bcc3ee78-33f1-49ea-835c-31bf56b8f7d3")
+		)
+		(fp_line
+			(start -0.401193 0.903605)
+			(end -1.811198 0.903605)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "307c6cb1-9473-49a0-afeb-d2fb30b9427b")
+		)
+		(fp_line
+			(start 0.401193 0.903605)
+			(end 1.811198 0.903605)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "816630b0-dc2b-403a-9298-96c0a567b9b8")
+		)
+		(fp_line
+			(start 1.811198 -0.903605)
+			(end 0.401193 -0.903605)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "103f43a0-1e52-4fa6-af96-29603fc3de18")
+		)
+		(fp_line
+			(start 1.963598 0.751205)
+			(end 1.963598 -0.751205)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "de97757e-a3b6-44b1-84ea-2b5896f617a1")
+		)
+		(fp_arc
+			(start -1.963598 -0.751205)
+			(mid -1.919 -0.859)
+			(end -1.811198 -0.903605)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "7b68934b-ef49-461f-845a-87d24e0ecec6")
+		)
+		(fp_arc
+			(start -1.811198 0.903605)
+			(mid -1.919 0.859)
+			(end -1.963598 0.751205)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "c44cf4b1-56c1-4a2c-a29e-f8b2a9283772")
+		)
+		(fp_arc
+			(start 1.811198 -0.903605)
+			(mid 1.919 -0.859)
+			(end 1.963598 -0.751205)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "a42dc52f-f053-4c8b-b510-8d7661df1b91")
+		)
+		(fp_arc
+			(start 1.963598 0.751205)
+			(mid 1.919 0.859)
+			(end 1.811198 0.903605)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "13dc7550-6d27-4537-875c-54dc26e76501")
+		)
+		(pad "1" smd rect
+			(at -1 0)
+			(size 1.41 1.35)
+			(layers "F.Cu" "F.Mask" "F.Paste")
+			(net "/dac/-VA")
+			(pinfunction "1_1")
+			(pintype "unspecified")
+			(uuid "21e49194-86ea-4c80-892e-687d10716648")
+		)
+		(pad "2" smd rect
+			(at 1 0)
+			(size 1.41 1.35)
+			(layers "F.Cu" "F.Mask" "F.Paste")
+			(net "/dac/FILT-")
+			(pinfunction "2_2")
+			(pintype "unspecified")
+			(uuid "a0d6383f-14df-4720-8fe2-774ef973b21e")
+		)
+		(embedded_fonts no)
+		(model "${KIPRJMOD}/JLCImport.3dshapes/C2012X5R1V156MT000E.wrl"
+			(offset
+				(xyz 0 0 0.65)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
+	)
+	(footprint "JLCImport:CL05A225KO5NQNC"
+		(layer "F.Cu")
+		(uuid "298e7e57-4a71-4537-b16a-0cc0907eee17")
+		(at 55.24996 104.027529)
+		(descr "16V 2.2uF X5R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS")
+		(tags "C0402 C170151 CL05A225KO5NQNC Samsung Electro-Mechanics")
+		(property "Reference" "C25"
+			(at 0 -1.499618 0)
+			(layer "F.SilkS")
+			(uuid "b4e0a856-3dfb-44c0-a2ea-cfbf5dec3589")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Value" "2.2uF 16V X5R"
+			(at 0 1.499643 0)
+			(layer "F.Fab")
+			(uuid "eadf9067-4ef5-4278-aadc-d9732a07a9a5")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL05A225KO5NQNC_C170151.pdf"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "11248461-019f-4933-a0c8-eba99f1b3f08")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "16V 2.2uF X5R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "9ef1f9b6-d24b-4daf-8907-2ab8992531e8")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C170151"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "96449e34-94e8-4d16-ac44-af6f104bf647")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "385f06c8-21ad-44c1-a45f-4bbd417c9344")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer Part" "CL05A225KO5NQNC"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "5bf96400-4f38-4101-a1e6-0470b0220cd1")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(path "/95ba76fd-cd0d-4fc7-9d47-f5665dc7e9c9/3e272de1-df62-435c-a47a-e22c11d11f9a")
+		(sheetname "/dac/")
+		(sheetfile "dac.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "2" "1")
+			)
+		)
+		(attr smd)
+		(duplicate_pad_numbers_are_jumpers no)
+		(fp_line
+			(start -0.87376 0.347243)
+			(end -0.87376 -0.345161)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "e2cb4422-9828-4865-a86f-3fab778d3360")
+		)
+		(fp_line
+			(start -0.72136 -0.497535)
+			(end -0.221386 -0.497535)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "33158aa2-be32-482f-b7ab-6dabbcb2311c")
+		)
+		(fp_line
+			(start -0.221386 0.499643)
+			(end -0.72136 0.499643)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "f4aa4313-0eae-4112-a23f-193ccfb5a19f")
+		)
+		(fp_line
+			(start 0.221386 -0.499618)
+			(end 0.72136 -0.499618)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "80f0aaa8-7317-4ef4-a6fe-7a118aa8aee6")
+		)
+		(fp_line
+			(start 0.72136 0.49751)
+			(end 0.221386 0.49751)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "7866d9b9-6aff-4b72-831e-c9e30d1031c8")
+		)
+		(fp_line
+			(start 0.87376 -0.347269)
+			(end 0.87376 0.345161)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "1b584ae2-f256-4e4f-81fd-71ff089401bc")
+		)
+		(fp_arc
+			(start -0.87376 -0.345161)
+			(mid -0.829148 -0.453)
+			(end -0.72136 -0.497561)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "d5e91792-792b-4848-94eb-0c90471b0703")
+		)
+		(fp_arc
+			(start -0.72136 0.499643)
+			(mid -0.829148 0.455)
+			(end -0.87376 0.347243)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "9fd5c11a-5dca-4a68-bace-01417427f64e")
+		)
+		(fp_arc
+			(start 0.72136 -0.499643)
+			(mid 0.829148 -0.455)
+			(end 0.87376 -0.347243)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "d714db62-d001-46cf-9b30-321e99bb689d")
+		)
+		(fp_arc
+			(start 0.87376 0.345161)
+			(mid 0.829148 0.453)
+			(end 0.72136 0.497561)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "a42f5247-c3b1-40a6-91b5-af5d5eba4f7d")
+		)
+		(pad "1" smd rect
+			(at -0.42 0)
+			(size 0.5 0.54)
+			(layers "F.Cu" "F.Mask" "F.Paste")
+			(net "+1V8_A")
+			(pinfunction "1_1")
+			(pintype "unspecified")
+			(uuid "f8ed03c1-3e62-409e-8858-e3fdb46cee2c")
+		)
+		(pad "2" smd rect
+			(at 0.42 0)
+			(size 0.5 0.54)
+			(layers "F.Cu" "F.Mask" "F.Paste")
+			(net "GND")
+			(pinfunction "2_2")
+			(pintype "unspecified")
+			(uuid "bb792443-3094-4117-8e47-809693b3f781")
+		)
+		(embedded_fonts no)
+		(model "${KIPRJMOD}/JLCImport.3dshapes/CL05A225KO5NQNC.wrl"
 			(offset
 				(xyz 0 0 0.25)
 			)
@@ -2141,6 +3317,242 @@
 			)
 		)
 	)
+	(footprint "JLCImport:CL05B104KO5NNNC"
+		(layer "F.Cu")
+		(uuid "35cb1c22-94fc-47e8-8e81-2a65bf4860ca")
+		(at 55.24996 101.875843)
+		(descr "100nF 16V X7R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS")
+		(tags "C0402 C1525 CL05B104KO5NNNC Samsung Electro-Mechanics")
+		(property "Reference" "C24"
+			(at 0 -1.499618 0)
+			(layer "F.SilkS")
+			(uuid "c7ccab2f-d3c1-402a-aeb5-3c68f27ee51a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Value" "100nF 16V X7R"
+			(at 0 1.499643 0)
+			(layer "F.Fab")
+			(uuid "fe06bf8f-316d-4d65-a649-66c5508a4d07")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL05B104KO5NNNC_C1525.pdf"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "5fe42709-117a-4a1a-a64b-8208d3a46a20")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "100nF 16V X7R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "6a9a530c-8043-45c1-bc11-1715cdd208a6")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C1525"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "ee07fa47-0198-4031-be74-41b6cbd0104c")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "03269d26-b487-4e88-af32-9f5758da125f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer Part" "CL05B104KO5NNNC"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "54948d78-fed5-4c6e-b274-ff471d8bde7c")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(path "/95ba76fd-cd0d-4fc7-9d47-f5665dc7e9c9/0222db86-7ef1-46eb-9011-9bf180e893b1")
+		(sheetname "/dac/")
+		(sheetfile "dac.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
+		(attr smd)
+		(duplicate_pad_numbers_are_jumpers no)
+		(fp_line
+			(start -0.87376 0.347243)
+			(end -0.87376 -0.345161)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "c7a41280-7aed-41ea-927f-791dd758ed85")
+		)
+		(fp_line
+			(start -0.72136 -0.497535)
+			(end -0.221386 -0.497535)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "e431cf48-4553-4c36-8bef-2363c0a073cc")
+		)
+		(fp_line
+			(start -0.221386 0.499643)
+			(end -0.72136 0.499643)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "04b31323-79ea-4b3f-8292-7439af569a98")
+		)
+		(fp_line
+			(start 0.221386 -0.499618)
+			(end 0.72136 -0.499618)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "0f28cacf-c172-4176-870f-0a356f63a525")
+		)
+		(fp_line
+			(start 0.72136 0.49751)
+			(end 0.221386 0.49751)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "36c25297-2b1c-4bc3-a69e-e48414ec45ac")
+		)
+		(fp_line
+			(start 0.87376 -0.347269)
+			(end 0.87376 0.345161)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "826f97d2-f24d-4e20-9e52-a1f92aade9c5")
+		)
+		(fp_arc
+			(start -0.87376 -0.345161)
+			(mid -0.829148 -0.453)
+			(end -0.72136 -0.497561)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "7be83529-91dc-45fb-ae2c-a41e76517279")
+		)
+		(fp_arc
+			(start -0.72136 0.499643)
+			(mid -0.829148 0.455)
+			(end -0.87376 0.347243)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "27b189cd-6529-412c-ad26-d32a6164a4a4")
+		)
+		(fp_arc
+			(start 0.72136 -0.499643)
+			(mid 0.829148 -0.455)
+			(end 0.87376 -0.347243)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "9946a452-7395-47d7-bc2a-5a4b9a4a236b")
+		)
+		(fp_arc
+			(start 0.87376 0.345161)
+			(mid 0.829148 0.453)
+			(end 0.72136 0.497561)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "f4af34ce-f4bd-45d5-8588-65cbc093c707")
+		)
+		(pad "1" smd rect
+			(at -0.42 0)
+			(size 0.5 0.54)
+			(layers "F.Cu" "F.Mask" "F.Paste")
+			(net "Net-(U1-VD)")
+			(pinfunction "1_1")
+			(pintype "unspecified")
+			(uuid "f9bcb845-5384-46ff-a91c-d2ed83dd14ce")
+		)
+		(pad "2" smd rect
+			(at 0.42 0)
+			(size 0.5 0.54)
+			(layers "F.Cu" "F.Mask" "F.Paste")
+			(net "GND")
+			(pinfunction "2_2")
+			(pintype "unspecified")
+			(uuid "70d3a865-2538-4e18-bb12-895676817b2e")
+		)
+		(embedded_fonts no)
+		(model "${KIPRJMOD}/JLCImport.3dshapes/CL05B104KO5NNNC.wrl"
+			(offset
+				(xyz 0 0 0.25)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
+	)
 	(footprint "JLCImport:CL05B104KB54PNC"
 		(layer "F.Cu")
 		(uuid "4736dc8d-4d14-4d7d-8b22-87d83f3ff457")
@@ -2367,6 +3779,714 @@
 		)
 		(embedded_fonts no)
 		(model "${KIPRJMOD}/JLCImport.3dshapes/CL05B104KB54PNC.wrl"
+			(offset
+				(xyz 0 0 0.25)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
+	)
+	(footprint "JLCImport:CL05B104KO5NNNC"
+		(layer "F.Cu")
+		(uuid "4aa16609-6d37-4159-9fd0-8370acf93b82")
+		(at 27.44996 114.934273)
+		(descr "100nF 16V X7R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS")
+		(tags "C0402 C1525 CL05B104KO5NNNC Samsung Electro-Mechanics")
+		(property "Reference" "C23"
+			(at 0 -1.499618 0)
+			(layer "F.SilkS")
+			(uuid "517e0ff3-7be1-4519-bd72-cc275ccc8178")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Value" "100nF 16V X7R"
+			(at 0 1.499643 0)
+			(layer "F.Fab")
+			(uuid "22ffd038-83e8-45f4-9dc7-5f4bc52617b3")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL05B104KO5NNNC_C1525.pdf"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "dbe7e043-cbd8-4438-a52a-e7c21ce88386")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "100nF 16V X7R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "2ecfc1c0-863d-402d-ac16-e389f22c6aa2")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C1525"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "2dab2c9a-bb91-409a-a481-4dbb01b7011a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "34460c2f-a61a-48f0-92ee-0d8234a9b30b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer Part" "CL05B104KO5NNNC"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "ef7fbc50-1e5c-4b8e-9463-596f94ddb577")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(path "/95ba76fd-cd0d-4fc7-9d47-f5665dc7e9c9/0a7f836c-610d-4069-a228-770f06ad8f74")
+		(sheetname "/dac/")
+		(sheetfile "dac.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
+		(attr smd)
+		(duplicate_pad_numbers_are_jumpers no)
+		(fp_line
+			(start -0.87376 0.347243)
+			(end -0.87376 -0.345161)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "568515ca-bf3f-4103-90bb-4a2678eb5e5a")
+		)
+		(fp_line
+			(start -0.72136 -0.497535)
+			(end -0.221386 -0.497535)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "8051f9fd-a5a6-48f2-bf5a-16e5ba18a879")
+		)
+		(fp_line
+			(start -0.221386 0.499643)
+			(end -0.72136 0.499643)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "499309c5-53d8-4acf-8fa0-69617eff125e")
+		)
+		(fp_line
+			(start 0.221386 -0.499618)
+			(end 0.72136 -0.499618)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "365f9efc-40d3-4853-aeea-a6111f9ddc6e")
+		)
+		(fp_line
+			(start 0.72136 0.49751)
+			(end 0.221386 0.49751)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "b7343875-7bf8-4667-8ab3-4a990920e817")
+		)
+		(fp_line
+			(start 0.87376 -0.347269)
+			(end 0.87376 0.345161)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "6c459402-ff92-44fa-b809-485c1d00b244")
+		)
+		(fp_arc
+			(start -0.87376 -0.345161)
+			(mid -0.829148 -0.453)
+			(end -0.72136 -0.497561)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "947ac869-cd15-4a78-8d53-18a4516fc1d0")
+		)
+		(fp_arc
+			(start -0.72136 0.499643)
+			(mid -0.829148 0.455)
+			(end -0.87376 0.347243)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "5b363988-bc2f-48bf-ae70-e1af040cf115")
+		)
+		(fp_arc
+			(start 0.72136 -0.499643)
+			(mid 0.829148 -0.455)
+			(end 0.87376 -0.347243)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "a03302c9-922b-4ea7-b03f-eaf87e9453f4")
+		)
+		(fp_arc
+			(start 0.87376 0.345161)
+			(mid 0.829148 0.453)
+			(end 0.72136 0.497561)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "7fd7594c-5510-4e74-a75a-a2c921a7fb55")
+		)
+		(pad "1" smd rect
+			(at -0.42 0)
+			(size 0.5 0.54)
+			(layers "F.Cu" "F.Mask" "F.Paste")
+			(net "GND")
+			(pinfunction "1_1")
+			(pintype "unspecified")
+			(uuid "c1189c09-d4fc-4a60-be8c-489a22093a4d")
+		)
+		(pad "2" smd rect
+			(at 0.42 0)
+			(size 0.5 0.54)
+			(layers "F.Cu" "F.Mask" "F.Paste")
+			(net "+1V8_A")
+			(pinfunction "2_2")
+			(pintype "unspecified")
+			(uuid "851eb63b-ba37-4ff0-9cd0-6df9301f0c8e")
+		)
+		(embedded_fonts no)
+		(model "${KIPRJMOD}/JLCImport.3dshapes/CL05B104KO5NNNC.wrl"
+			(offset
+				(xyz 0 0 0.25)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
+	)
+	(footprint "JLCImport:CL05A225KO5NQNC"
+		(layer "F.Cu")
+		(uuid "537d8126-6bd5-4b96-8954-352f20f5cb6b")
+		(at 51.44996 119.827529)
+		(descr "16V 2.2uF X5R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS")
+		(tags "C0402 C170151 CL05A225KO5NQNC Samsung Electro-Mechanics")
+		(property "Reference" "C30"
+			(at 0 -1.499618 0)
+			(layer "F.SilkS")
+			(uuid "32e6b63b-00da-488b-9a40-f740b4231cb3")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Value" "2.2uF 16V X5R"
+			(at 0 1.499643 0)
+			(layer "F.Fab")
+			(uuid "b436a88b-cec4-4b37-9c21-454b456e4f82")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL05A225KO5NQNC_C170151.pdf"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "9a468e30-cd18-48ba-955b-248c2635d212")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "16V 2.2uF X5R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "4da86de2-1814-4461-a6b2-234d13f3f88e")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C170151"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "6b96dd23-633a-48bf-9639-39fd0fc9b312")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "4ac5fb1e-e65e-4227-9224-a3784a0d848f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer Part" "CL05A225KO5NQNC"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "85a4f085-b824-49f0-a8eb-7057ca6336e8")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(path "/95ba76fd-cd0d-4fc7-9d47-f5665dc7e9c9/88607c9a-ad4e-4905-a063-74e895395e3f")
+		(sheetname "/dac/")
+		(sheetfile "dac.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "2" "1")
+			)
+		)
+		(attr smd)
+		(duplicate_pad_numbers_are_jumpers no)
+		(fp_line
+			(start -0.87376 0.347243)
+			(end -0.87376 -0.345161)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "921ee006-db16-4d4c-89ae-c45ca498d4c6")
+		)
+		(fp_line
+			(start -0.72136 -0.497535)
+			(end -0.221386 -0.497535)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "d340520e-8a2f-49d2-ba25-20af738d28b8")
+		)
+		(fp_line
+			(start -0.221386 0.499643)
+			(end -0.72136 0.499643)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "4a1626d2-f117-4b48-abec-79b9e71d2687")
+		)
+		(fp_line
+			(start 0.221386 -0.499618)
+			(end 0.72136 -0.499618)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "57e09ab8-ae0d-4c82-9840-1ee9ccd6f6b3")
+		)
+		(fp_line
+			(start 0.72136 0.49751)
+			(end 0.221386 0.49751)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "084a1e67-ab46-4912-b7d0-018a75d81927")
+		)
+		(fp_line
+			(start 0.87376 -0.347269)
+			(end 0.87376 0.345161)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "15975d06-0a9a-43c4-97c5-644684c63e3c")
+		)
+		(fp_arc
+			(start -0.87376 -0.345161)
+			(mid -0.829148 -0.453)
+			(end -0.72136 -0.497561)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "37173c2f-1af8-42e5-bed6-2044ca134ca5")
+		)
+		(fp_arc
+			(start -0.72136 0.499643)
+			(mid -0.829148 0.455)
+			(end -0.87376 0.347243)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "915be8d2-bf42-4a64-9893-df4e5986c654")
+		)
+		(fp_arc
+			(start 0.72136 -0.499643)
+			(mid 0.829148 -0.455)
+			(end 0.87376 -0.347243)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "70874ddb-6f87-4697-88a7-6f68ca9c470b")
+		)
+		(fp_arc
+			(start 0.87376 0.345161)
+			(mid 0.829148 0.453)
+			(end 0.72136 0.497561)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "b45ee64e-63ba-4987-aecf-3534c30ad7c5")
+		)
+		(pad "1" smd rect
+			(at -0.42 0)
+			(size 0.5 0.54)
+			(layers "F.Cu" "F.Mask" "F.Paste")
+			(net "/dac/VCP")
+			(pinfunction "1_1")
+			(pintype "unspecified")
+			(uuid "16a39e37-b2a9-4394-bafa-2e4523bc6530")
+		)
+		(pad "2" smd rect
+			(at 0.42 0)
+			(size 0.5 0.54)
+			(layers "F.Cu" "F.Mask" "F.Paste")
+			(net "GND")
+			(pinfunction "2_2")
+			(pintype "unspecified")
+			(uuid "9bc69e75-1c89-4a1f-b0bf-07664b1f525f")
+		)
+		(embedded_fonts no)
+		(model "${KIPRJMOD}/JLCImport.3dshapes/CL05A225KO5NQNC.wrl"
+			(offset
+				(xyz 0 0 0.25)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
+	)
+	(footprint "JLCImport:CL05A225KO5NQNC"
+		(layer "F.Cu")
+		(uuid "5edf1850-a064-4c48-9b26-908bd071281c")
+		(at 51.44996 117.675843)
+		(descr "16V 2.2uF X5R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS")
+		(tags "C0402 C170151 CL05A225KO5NQNC Samsung Electro-Mechanics")
+		(property "Reference" "C29"
+			(at 0 -1.499618 0)
+			(layer "F.SilkS")
+			(uuid "0d78508e-1658-4bf2-b799-6e932338f32f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Value" "2.2uF 16V X5R"
+			(at 0 1.499643 0)
+			(layer "F.Fab")
+			(uuid "f0a84c2c-1ea4-4f17-8f7c-99604721515e")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL05A225KO5NQNC_C170151.pdf"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "2e53d4f6-6e47-4f41-aad0-701d23b53b18")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "16V 2.2uF X5R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "1ea1838a-9f17-4854-85cc-44c329bdef4b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C170151"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "f5ae7163-f244-4922-a782-0393bcf99279")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "2b21dae4-92b5-483d-9d07-310e1f1066dd")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer Part" "CL05A225KO5NQNC"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "4778e29a-20ae-413f-b263-d57d32528559")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(path "/95ba76fd-cd0d-4fc7-9d47-f5665dc7e9c9/34413809-b82e-4aa3-a1c6-110314a4fae1")
+		(sheetname "/dac/")
+		(sheetfile "dac.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "2" "1")
+			)
+		)
+		(attr smd)
+		(duplicate_pad_numbers_are_jumpers no)
+		(fp_line
+			(start -0.87376 0.347243)
+			(end -0.87376 -0.345161)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "e714f10f-2cd6-42f9-8f09-5723b61c4f32")
+		)
+		(fp_line
+			(start -0.72136 -0.497535)
+			(end -0.221386 -0.497535)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "d6dffc88-dea2-4985-b227-95843a5a05f8")
+		)
+		(fp_line
+			(start -0.221386 0.499643)
+			(end -0.72136 0.499643)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "57bba693-ac3e-4425-b60c-e9560fa11d4f")
+		)
+		(fp_line
+			(start 0.221386 -0.499618)
+			(end 0.72136 -0.499618)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "feaaa46e-334a-4d05-abf8-01e64aa73a5e")
+		)
+		(fp_line
+			(start 0.72136 0.49751)
+			(end 0.221386 0.49751)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "206079a5-36d6-4fd0-b465-e2d2cc67a926")
+		)
+		(fp_line
+			(start 0.87376 -0.347269)
+			(end 0.87376 0.345161)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "fb2773c8-8482-4da1-9c84-1d4a86d4ad78")
+		)
+		(fp_arc
+			(start -0.87376 -0.345161)
+			(mid -0.829148 -0.453)
+			(end -0.72136 -0.497561)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "0d8d87e7-1b4e-45f1-9691-caccdb3c62d7")
+		)
+		(fp_arc
+			(start -0.72136 0.499643)
+			(mid -0.829148 0.455)
+			(end -0.87376 0.347243)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "0e24dc0a-fd05-48d9-a5d2-549d95865467")
+		)
+		(fp_arc
+			(start 0.72136 -0.499643)
+			(mid 0.829148 -0.455)
+			(end 0.87376 -0.347243)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "2f4c1714-cc00-4a02-a49f-247bc1a596ec")
+		)
+		(fp_arc
+			(start 0.87376 0.345161)
+			(mid 0.829148 0.453)
+			(end 0.72136 0.497561)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "2e31c779-e40d-4bf7-a9b5-ec2d5e5bddca")
+		)
+		(pad "1" smd rect
+			(at -0.42 0)
+			(size 0.5 0.54)
+			(layers "F.Cu" "F.Mask" "F.Paste")
+			(net "/dac/FLYP_VA")
+			(pinfunction "1_1")
+			(pintype "unspecified")
+			(uuid "91d84980-7cd0-4985-b5ac-e745425b86b2")
+		)
+		(pad "2" smd rect
+			(at 0.42 0)
+			(size 0.5 0.54)
+			(layers "F.Cu" "F.Mask" "F.Paste")
+			(net "/dac/FLYN_VA")
+			(pinfunction "2_2")
+			(pintype "unspecified")
+			(uuid "f4b18916-4c2b-4519-bd7d-1a3482504ed2")
+		)
+		(embedded_fonts no)
+		(model "${KIPRJMOD}/JLCImport.3dshapes/CL05A225KO5NQNC.wrl"
 			(offset
 				(xyz 0 0 0.25)
 			)
@@ -2843,6 +4963,242 @@
 		(model "${KIPRJMOD}/JLCImport.3dshapes/CL21A226MAQNNNE.wrl"
 			(offset
 				(xyz 0 0 0.65)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
+	)
+	(footprint "JLCImport:CL05A105KA5NQNC"
+		(layer "F.Cu")
+		(uuid "67519e72-f8f4-427d-9b4c-921ff3712141")
+		(at 35.62996 104.175843)
+		(descr "1uF 25V X5R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS")
+		(tags "C0402 C52923 CL05A105KA5NQNC Samsung Electro-Mechanics")
+		(property "Reference" "C18"
+			(at 0 -1.499618 0)
+			(layer "F.SilkS")
+			(uuid "1d87b22b-fd7b-4ed1-a3ff-cdc953109f00")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Value" "1uF 25V X5R"
+			(at 0 1.499643 0)
+			(layer "F.Fab")
+			(uuid "dee71a84-b5a2-4ec6-9002-b8eb07d31d39")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL05A105KA5NQNC_C52923.pdf"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "6319187c-fc97-40f0-a399-a2dc548a5815")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "1uF 25V X5R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "fd70331c-8f23-4c92-8829-d9cdae4029ac")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C52923"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "163bef9d-7811-4ea4-a4b2-72f7934fb421")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "e724349e-560c-4237-baef-a8762c55022e")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer Part" "CL05A105KA5NQNC"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "1bb4c6ac-3f67-4ef0-89d4-60f5a79493ec")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(path "/c6b936ac-23e1-4f20-8d3d-ded05833abcb/d4753219-f3d2-4521-992b-80040b015d58")
+		(sheetname "/mcu/")
+		(sheetfile "mcu.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
+		(attr smd)
+		(duplicate_pad_numbers_are_jumpers no)
+		(fp_line
+			(start -0.87376 0.347243)
+			(end -0.87376 -0.345161)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "555fc600-ca18-42f0-9a5c-4808860d863a")
+		)
+		(fp_line
+			(start -0.72136 -0.497535)
+			(end -0.221386 -0.497535)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "5bee88eb-0db1-4d45-98e9-28b48f403020")
+		)
+		(fp_line
+			(start -0.221386 0.499643)
+			(end -0.72136 0.499643)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "9c9b5b42-80af-42a0-b946-33b3a5022f27")
+		)
+		(fp_line
+			(start 0.221386 -0.499618)
+			(end 0.72136 -0.499618)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "d9a6b239-9268-433d-9c1d-41dec639fbed")
+		)
+		(fp_line
+			(start 0.72136 0.49751)
+			(end 0.221386 0.49751)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "95f35141-1d81-4660-9d2b-42058cb6b793")
+		)
+		(fp_line
+			(start 0.87376 -0.347269)
+			(end 0.87376 0.345161)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "61347234-49c0-403b-893c-8c7bbcc0c566")
+		)
+		(fp_arc
+			(start -0.87376 -0.345161)
+			(mid -0.829148 -0.453)
+			(end -0.72136 -0.497561)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "02c35fe5-d23a-4d63-b1ca-a24fe9197477")
+		)
+		(fp_arc
+			(start -0.72136 0.499643)
+			(mid -0.829148 0.455)
+			(end -0.87376 0.347243)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "6c2ce596-9a35-4b7d-8c77-a2329a387670")
+		)
+		(fp_arc
+			(start 0.72136 -0.499643)
+			(mid 0.829148 -0.455)
+			(end 0.87376 -0.347243)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "b6775ba3-a397-44d3-bb7f-599e136fb876")
+		)
+		(fp_arc
+			(start 0.87376 0.345161)
+			(mid 0.829148 0.453)
+			(end 0.72136 0.497561)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "8c4b5874-a7ba-4afe-8854-70dbc07e020d")
+		)
+		(pad "1" smd rect
+			(at -0.42 0)
+			(size 0.5 0.54)
+			(layers "F.Cu" "F.Mask" "F.Paste")
+			(net "Net-(U2-VREF+)")
+			(pinfunction "1_1")
+			(pintype "unspecified")
+			(uuid "6de2b5a7-d5c5-4cbe-8658-d31a7ca6c85e")
+		)
+		(pad "2" smd rect
+			(at 0.42 0)
+			(size 0.5 0.54)
+			(layers "F.Cu" "F.Mask" "F.Paste")
+			(net "GND")
+			(pinfunction "2_2")
+			(pintype "unspecified")
+			(uuid "99556d83-8781-4089-a09c-1b49626c33e7")
+		)
+		(embedded_fonts no)
+		(model "${KIPRJMOD}/JLCImport.3dshapes/CL05A105KA5NQNC.wrl"
+			(offset
+				(xyz 0 0 0.25)
 			)
 			(scale
 				(xyz 1 1 1)
@@ -3331,6 +5687,478 @@
 			)
 		)
 	)
+	(footprint "JLCImport:CL05B104KO5NNNC"
+		(layer "F.Cu")
+		(uuid "6cab0c99-c37a-452d-88c6-ef3ea552d3db")
+		(at 27.44996 110.630901)
+		(descr "100nF 16V X7R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS")
+		(tags "C0402 C1525 CL05B104KO5NNNC Samsung Electro-Mechanics")
+		(property "Reference" "C21"
+			(at 0 -1.499618 0)
+			(layer "F.SilkS")
+			(uuid "524c2008-ddcd-4462-bb3f-384d2af108f9")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Value" "100nF 16V X7R"
+			(at 0 1.499643 0)
+			(layer "F.Fab")
+			(uuid "ca624113-800a-46a8-9cd9-726bf487a59f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL05B104KO5NNNC_C1525.pdf"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "b3ebff26-4432-4fed-bf80-5fab31afcc66")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "100nF 16V X7R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "bb24363e-e9ba-4741-87e0-d4272fb93c41")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C1525"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "90ea40ab-8454-4bf7-9313-c2324058ae76")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "d7077d21-b38b-43de-a195-33974b726006")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer Part" "CL05B104KO5NNNC"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "9fdf92a5-c9f2-4a0f-bbc4-8d57838d115a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(path "/95ba76fd-cd0d-4fc7-9d47-f5665dc7e9c9/cef6a09a-246e-471b-ac21-472c9926347e")
+		(sheetname "/dac/")
+		(sheetfile "dac.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
+		(attr smd)
+		(duplicate_pad_numbers_are_jumpers no)
+		(fp_line
+			(start -0.87376 0.347243)
+			(end -0.87376 -0.345161)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "63783015-5137-4e7f-8809-56e98f72af58")
+		)
+		(fp_line
+			(start -0.72136 -0.497535)
+			(end -0.221386 -0.497535)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "53672e62-276b-4b9f-8eb0-e5a43b1f90fe")
+		)
+		(fp_line
+			(start -0.221386 0.499643)
+			(end -0.72136 0.499643)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "329a0cfc-86dc-4c88-b35c-6608fe28be2f")
+		)
+		(fp_line
+			(start 0.221386 -0.499618)
+			(end 0.72136 -0.499618)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "e7e5ae7d-6429-4817-b015-78c4f3dde4af")
+		)
+		(fp_line
+			(start 0.72136 0.49751)
+			(end 0.221386 0.49751)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "af77110f-4e52-4ade-af16-40eed43aab03")
+		)
+		(fp_line
+			(start 0.87376 -0.347269)
+			(end 0.87376 0.345161)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "e491b4de-bd24-44c7-8609-ab8c284001f6")
+		)
+		(fp_arc
+			(start -0.87376 -0.345161)
+			(mid -0.829148 -0.453)
+			(end -0.72136 -0.497561)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "2fcb5ed8-df98-41ea-82e6-e2d3328cb522")
+		)
+		(fp_arc
+			(start -0.72136 0.499643)
+			(mid -0.829148 0.455)
+			(end -0.87376 0.347243)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "8eee7a95-0dff-4f2a-8933-c502a1f503af")
+		)
+		(fp_arc
+			(start 0.72136 -0.499643)
+			(mid 0.829148 -0.455)
+			(end 0.87376 -0.347243)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "de0c37bf-3fb5-4151-9b61-7afb7162f1e3")
+		)
+		(fp_arc
+			(start 0.87376 0.345161)
+			(mid 0.829148 0.453)
+			(end 0.72136 0.497561)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "f894c0b9-1811-4370-85f9-b46a5e2019ba")
+		)
+		(pad "1" smd rect
+			(at -0.42 0)
+			(size 0.5 0.54)
+			(layers "F.Cu" "F.Mask" "F.Paste")
+			(net "GND")
+			(pinfunction "1_1")
+			(pintype "unspecified")
+			(uuid "bda9a240-77b3-42a9-98d0-f42148144caa")
+		)
+		(pad "2" smd rect
+			(at 0.42 0)
+			(size 0.5 0.54)
+			(layers "F.Cu" "F.Mask" "F.Paste")
+			(net "Net-(U1-VP)")
+			(pinfunction "2_2")
+			(pintype "unspecified")
+			(uuid "8d7072f3-8eb6-4712-8abe-8581761f79d3")
+		)
+		(embedded_fonts no)
+		(model "${KIPRJMOD}/JLCImport.3dshapes/CL05B104KO5NNNC.wrl"
+			(offset
+				(xyz 0 0 0.25)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
+	)
+	(footprint "JLCImport:CL05A225KO5NQNC"
+		(layer "F.Cu")
+		(uuid "73b902b2-1b25-49c8-9998-d4bc95f69054")
+		(at 55.24996 106.179215)
+		(descr "16V 2.2uF X5R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS")
+		(tags "C0402 C170151 CL05A225KO5NQNC Samsung Electro-Mechanics")
+		(property "Reference" "C28"
+			(at 0 -1.499618 0)
+			(layer "F.SilkS")
+			(uuid "278cc694-6083-4557-a7b0-63403c34f69c")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Value" "2.2uF 16V X5R"
+			(at 0 1.499643 0)
+			(layer "F.Fab")
+			(uuid "75577de7-9362-4339-b4dc-97bb5862de54")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL05A225KO5NQNC_C170151.pdf"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "a9dba047-dd7e-4690-99ab-ae956eb85c15")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "16V 2.2uF X5R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "46a90aa0-1ae6-42ca-a440-7f1d24e7f976")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C170151"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "c37816ff-a2bb-4c21-b5a7-993b5bfdc67d")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "a5c6dede-f744-4184-bbb1-ff55e0ef5db9")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer Part" "CL05A225KO5NQNC"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "03ec1532-c4d0-48d7-9c52-8f048bc066e9")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(path "/95ba76fd-cd0d-4fc7-9d47-f5665dc7e9c9/5838fdff-ff73-4fa7-91da-b08c3cc5cc75")
+		(sheetname "/dac/")
+		(sheetfile "dac.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "2" "1")
+			)
+		)
+		(attr smd)
+		(duplicate_pad_numbers_are_jumpers no)
+		(fp_line
+			(start -0.87376 0.347243)
+			(end -0.87376 -0.345161)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "06677f99-a7da-46a4-8fd9-7b2c97ffe66b")
+		)
+		(fp_line
+			(start -0.72136 -0.497535)
+			(end -0.221386 -0.497535)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "c209cfdb-ce69-420e-8d79-0bc145fc4066")
+		)
+		(fp_line
+			(start -0.221386 0.499643)
+			(end -0.72136 0.499643)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "c473df14-e121-4cdb-8ce7-6c543278df31")
+		)
+		(fp_line
+			(start 0.221386 -0.499618)
+			(end 0.72136 -0.499618)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "fc50c918-4ad7-4304-a308-0d69e80ba35b")
+		)
+		(fp_line
+			(start 0.72136 0.49751)
+			(end 0.221386 0.49751)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "8200b313-83e4-4a5a-96ea-ed73ee858312")
+		)
+		(fp_line
+			(start 0.87376 -0.347269)
+			(end 0.87376 0.345161)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "9fe4f65d-77df-41fc-9190-4fbd0069c2f6")
+		)
+		(fp_arc
+			(start -0.87376 -0.345161)
+			(mid -0.829148 -0.453)
+			(end -0.72136 -0.497561)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "cafc3215-16a3-4cd1-beb7-5514c8b3829b")
+		)
+		(fp_arc
+			(start -0.72136 0.499643)
+			(mid -0.829148 0.455)
+			(end -0.87376 0.347243)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "da086896-9d62-456c-9e1e-142d86916002")
+		)
+		(fp_arc
+			(start 0.72136 -0.499643)
+			(mid 0.829148 -0.455)
+			(end 0.87376 -0.347243)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "94f82ebe-a6e9-4ad6-9e44-962e4d673e37")
+		)
+		(fp_arc
+			(start 0.87376 0.345161)
+			(mid 0.829148 0.453)
+			(end 0.72136 0.497561)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "54b03e3a-0084-4e65-afdc-f81b9f6a258b")
+		)
+		(pad "1" smd rect
+			(at -0.42 0)
+			(size 0.5 0.54)
+			(layers "F.Cu" "F.Mask" "F.Paste")
+			(net "/dac/-VA")
+			(pinfunction "1_1")
+			(pintype "unspecified")
+			(uuid "1277e909-26fe-461c-95b9-359e8262ee7b")
+		)
+		(pad "2" smd rect
+			(at 0.42 0)
+			(size 0.5 0.54)
+			(layers "F.Cu" "F.Mask" "F.Paste")
+			(net "GND")
+			(pinfunction "2_2")
+			(pintype "unspecified")
+			(uuid "8a9fb75b-dbe9-410d-bd83-0fecf04e9622")
+		)
+		(embedded_fonts no)
+		(model "${KIPRJMOD}/JLCImport.3dshapes/CL05A225KO5NQNC.wrl"
+			(offset
+				(xyz 0 0 0.25)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
+	)
 	(footprint "JLCImport:TPS560430XFDBVR"
 		(layer "F.Cu")
 		(uuid "7b5f1e97-36cc-4068-90e1-42f5ce1c06dd")
@@ -3542,6 +6370,474 @@
 			)
 		)
 	)
+	(footprint "JLCImport:C2012X5R1V156MT000E"
+		(layer "F.Cu")
+		(uuid "86c615f9-59e4-4392-b2f7-5d0ecf5b0672")
+		(at 59.229798 102.279805)
+		(descr "15uF 35V X5R ±20% 0805 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS")
+		(tags "C0805 C2012X5R1V156MT000E C5367448 TDK")
+		(property "Reference" "C26"
+			(at 0 -1.903605 0)
+			(layer "F.SilkS")
+			(uuid "7156995d-1295-4498-b3d9-92406120350b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Value" "15uF 35V X5R"
+			(at 0 1.903605 0)
+			(layer "F.Fab")
+			(uuid "5ce68935-390b-46f5-a8eb-bfe30589a7bf")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" "https://item.szlcsc.com/373011.html"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "50008789-cede-4d20-8cc1-91409d2c52e8")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "15uF 35V X5R ±20% 0805 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "79eff46c-ce8a-4dc5-9334-a9ae90741c99")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C5367448"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "d763959c-68cb-4cd6-b1bb-a3b14cf28c5d")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer" "TDK"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "d7315084-887a-41e9-bb6c-c9d9d64cb32a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer Part" "C2012X5R1V156MT000E"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "c8d7c9d7-dcde-4a80-89ca-bcac6918f43b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(path "/95ba76fd-cd0d-4fc7-9d47-f5665dc7e9c9/b4731363-4057-4645-a67e-7754ae738755")
+		(sheetname "/dac/")
+		(sheetfile "dac.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
+		(attr smd)
+		(duplicate_pad_numbers_are_jumpers no)
+		(fp_line
+			(start -1.963598 0.751205)
+			(end -1.963598 -0.751205)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "5528f275-6c34-44b8-b870-61024e9f1470")
+		)
+		(fp_line
+			(start -1.811198 -0.903605)
+			(end -0.401193 -0.903605)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "90d9ee40-5a93-4d94-a3b0-c695da2cdb50")
+		)
+		(fp_line
+			(start -0.401193 0.903605)
+			(end -1.811198 0.903605)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "526b7877-ea4e-40a5-bc55-e9feb83dbbe6")
+		)
+		(fp_line
+			(start 0.401193 0.903605)
+			(end 1.811198 0.903605)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "2c31c9fb-fe63-47e6-aedb-669f5cc81439")
+		)
+		(fp_line
+			(start 1.811198 -0.903605)
+			(end 0.401193 -0.903605)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "f8755a26-4890-48ca-8407-214696b126cb")
+		)
+		(fp_line
+			(start 1.963598 0.751205)
+			(end 1.963598 -0.751205)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "77791673-8bb5-48e5-9b7d-f32c55074265")
+		)
+		(fp_arc
+			(start -1.963598 -0.751205)
+			(mid -1.919 -0.859)
+			(end -1.811198 -0.903605)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "1dbcc7d1-41bb-46c9-874e-d13cbf18ce1e")
+		)
+		(fp_arc
+			(start -1.811198 0.903605)
+			(mid -1.919 0.859)
+			(end -1.963598 0.751205)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "fe27e918-7d99-455e-905c-585a8ee40d50")
+		)
+		(fp_arc
+			(start 1.811198 -0.903605)
+			(mid 1.919 -0.859)
+			(end 1.963598 -0.751205)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "5317b073-cccd-48d4-92c2-bdc0014cd047")
+		)
+		(fp_arc
+			(start 1.963598 0.751205)
+			(mid 1.919 0.859)
+			(end 1.811198 0.903605)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "2d355901-2780-4a56-ae76-ba624c2c88d1")
+		)
+		(pad "1" smd rect
+			(at -1 0)
+			(size 1.41 1.35)
+			(layers "F.Cu" "F.Mask" "F.Paste")
+			(net "/dac/FILT+")
+			(pinfunction "1_1")
+			(pintype "unspecified")
+			(uuid "266bafa7-8285-4bad-ace0-e825f9321b57")
+		)
+		(pad "2" smd rect
+			(at 1 0)
+			(size 1.41 1.35)
+			(layers "F.Cu" "F.Mask" "F.Paste")
+			(net "+1V8_A")
+			(pinfunction "2_2")
+			(pintype "unspecified")
+			(uuid "815e4fe9-67c0-4aa3-bf9a-248f6518be09")
+		)
+		(embedded_fonts no)
+		(model "${KIPRJMOD}/JLCImport.3dshapes/C2012X5R1V156MT000E.wrl"
+			(offset
+				(xyz 0 0 0.65)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
+	)
+	(footprint "JLCImport:BLM15PX601SN1D"
+		(layer "F.Cu")
+		(uuid "8a585048-4ea8-4876-bfff-47c2b4d85220")
+		(at 30.53554 108.46766)
+		(descr "-55℃~+125℃ 1 230mΩ 600Ω@100MHz 900mA ±25% 0402 Ferrite Beads ROHS")
+		(tags "BLM15PX601SN1D C160977 L0402 Murata Electronics")
+		(property "Reference" "U14"
+			(at 0 -1.49022 0)
+			(layer "F.SilkS")
+			(uuid "aadd41fc-c21b-4077-85de-1bd8cb6be5eb")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Value" "BLM15PX601SN1D"
+			(at 0 1.508 0)
+			(layer "F.Fab")
+			(uuid "a479e208-eaff-43e4-b8f4-8616ce2af3ce")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Murata-Electronics-BLM15PX601SN1D_C160977.pdf"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "df546fde-8640-496d-b83d-e98878daa4da")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "-55℃~+125℃ 1 230mΩ 600Ω@100MHz 900mA ±25% 0402 Ferrite Beads ROHS"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "d14c3660-3b7e-43fb-8f6e-04ee741948f3")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C160977"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "cf044005-d5bc-411b-b0e9-847246adf7c7")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer" "Murata Electronics"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "64d41899-7842-438a-b7bf-1ad01b22e0aa")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer Part" "BLM15PX601SN1D"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "49cc2cac-e133-4785-ba75-a6c385a7dcaf")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(path "/95ba76fd-cd0d-4fc7-9d47-f5665dc7e9c9/bf24abe1-ee17-4fb9-9c5b-163778ef202d")
+		(sheetname "/dac/")
+		(sheetfile "dac.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
+		(attr smd)
+		(duplicate_pad_numbers_are_jumpers no)
+		(fp_line
+			(start -1.06934 -0.336779)
+			(end -0.91694 -0.489153)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "11c7cc4e-5f22-4ece-a6d2-c69b70cb5c51")
+		)
+		(fp_line
+			(start -1.06934 0.3556)
+			(end -1.06934 -0.336779)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "e25db2f8-0bd0-4059-9da2-d13113bd214d")
+		)
+		(fp_line
+			(start -0.91694 -0.489153)
+			(end -0.126873 -0.489153)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "f5daf1e5-daef-4f3b-bd8b-8e374151adf5")
+		)
+		(fp_line
+			(start -0.91694 0.508)
+			(end -1.06934 0.3556)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "fba86062-6aba-4a59-a7c6-2f7352562997")
+		)
+		(fp_line
+			(start -0.126873 0.508)
+			(end -0.91694 0.508)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "b85d56bb-b057-4fdf-8bcc-7a23fe5e474e")
+		)
+		(fp_line
+			(start 0.127127 0.508)
+			(end 0.917 0.508)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "a1f756ce-493a-49b1-890f-014fee7b2536")
+		)
+		(fp_line
+			(start 0.907 -0.49022)
+			(end 0.127127 -0.49022)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "11c4e9e8-5c83-4186-85b4-a9051cfb9906")
+		)
+		(fp_line
+			(start 0.917 0.508)
+			(end 1.069467 0.3556)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "b9ec30bf-8c38-4436-9f54-bc705d2d0cce")
+		)
+		(fp_line
+			(start 1.069467 -0.32766)
+			(end 0.907 -0.49022)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "aeadd030-bb38-47e0-9ef7-b5a8dccf5db7")
+		)
+		(fp_line
+			(start 1.069467 0.3556)
+			(end 1.069467 -0.32766)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "35dbfb13-906e-45cf-8911-35eff39ad9b8")
+		)
+		(pad "1" smd rect
+			(at -0.42 0)
+			(size 0.54 0.54)
+			(layers "F.Cu" "F.Mask" "F.Paste")
+			(net "+3V8")
+			(pinfunction "1_1")
+			(pintype "unspecified")
+			(uuid "9a9c167f-3460-4447-8c05-83994e21edb1")
+		)
+		(pad "2" smd rect
+			(at 0.42 0)
+			(size 0.54 0.54)
+			(layers "F.Cu" "F.Mask" "F.Paste")
+			(net "Net-(U1-VP)")
+			(pinfunction "2_2")
+			(pintype "unspecified")
+			(uuid "0d3194f8-9356-4d83-900f-49e4646a7f34")
+		)
+		(embedded_fonts no)
+		(model "${KIPRJMOD}/JLCImport.3dshapes/BLM15PX601SN1D.wrl"
+			(offset
+				(xyz 0 0 0.25)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
+	)
 	(footprint "JLCImport:TPS7A2018PDBVR"
 		(layer "F.Cu")
 		(uuid "90f0766a-94b5-4554-90e6-192195640918")
@@ -3700,7 +6996,7 @@
 			(at -0.94996 1.147572)
 			(size 0.532 1.045)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "+3V8")
+			(net "Net-(U12-EN)")
 			(pinfunction "IN_1")
 			(pintype "unspecified")
 			(uuid "35d0283e-f257-459f-995c-0491ca091f7e")
@@ -3718,7 +7014,7 @@
 			(at 0.94996 1.147572)
 			(size 0.532 1.045)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "+3V8")
+			(net "Net-(U12-EN)")
 			(pinfunction "EN_3")
 			(pintype "unspecified")
 			(uuid "3069785f-e810-421c-b01c-038337852636")
@@ -4397,7 +7693,7 @@
 			(at -2.407539 -0.6 270)
 			(size 0.2 0.665)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "unconnected-(U1-VD-Pad4)")
+			(net "Net-(U1-VD)")
 			(pinfunction "VD_4")
 			(pintype "unspecified")
 			(uuid "bbfb620c-4eb9-4fb9-beb5-addbecae4fe0")
@@ -4406,7 +7702,7 @@
 			(at -2.407539 -0.2 270)
 			(size 0.2 0.665)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "unconnected-(U1-FILT+-Pad5)")
+			(net "/dac/FILT+")
 			(pinfunction "FILT+_5")
 			(pintype "unspecified")
 			(uuid "13254c6d-719d-49c4-a785-1c04abcda276")
@@ -4415,7 +7711,7 @@
 			(at -2.407539 0.2 270)
 			(size 0.2 0.665)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "unconnected-(U1-FILT–-Pad6)")
+			(net "/dac/FILT-")
 			(pinfunction "FILT–_6")
 			(pintype "unspecified")
 			(uuid "bc8c22da-d6b7-47bd-a2f0-8deba4a26b3f")
@@ -4424,7 +7720,7 @@
 			(at -2.407539 0.6 270)
 			(size 0.2 0.665)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "unconnected-(U1-VA-Pad7)")
+			(net "+1V8_A")
 			(pinfunction "VA_7")
 			(pintype "unspecified")
 			(uuid "6204115d-e76e-461a-ac34-a52f833b14f1")
@@ -4433,7 +7729,7 @@
 			(at -2.407539 1.000125 270)
 			(size 0.2 0.665)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "unconnected-(U1-GNDA-Pad8)")
+			(net "GND")
 			(pinfunction "GNDA_8")
 			(pintype "unspecified")
 			(uuid "cf2cd22d-b0e9-472a-afac-18bdae5bb297")
@@ -4442,7 +7738,7 @@
 			(at -2.407539 1.4 270)
 			(size 0.2 0.665)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "unconnected-(U1--VA-Pad9)")
+			(net "/dac/-VA")
 			(pinfunction "-VA_9")
 			(pintype "unspecified")
 			(uuid "33664b73-71ad-4f4f-acb0-d0068e4690c7")
@@ -4451,7 +7747,7 @@
 			(at -2.407539 1.8 270)
 			(size 0.2 0.665)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "unconnected-(U1-FLYP_VA-Pad10)")
+			(net "/dac/FLYP_VA")
 			(pinfunction "FLYP_VA_10")
 			(pintype "unspecified")
 			(uuid "e9f366cd-3769-4d21-acdb-1818d85930d1")
@@ -4460,7 +7756,7 @@
 			(at -1.8 2.407539 270)
 			(size 0.665 0.2)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "unconnected-(U1-FLYN_VA-Pad11)")
+			(net "/dac/FLYN_VA")
 			(pinfunction "FLYN_VA_11")
 			(pintype "unspecified")
 			(uuid "75005715-24f9-402b-971a-10921f444d94")
@@ -4478,7 +7774,7 @@
 			(at -1.000125 2.407539 270)
 			(size 0.665 0.2)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "/dac/JACK_SLEEVE")
+			(net "/dac/JACK_DETECTED_GND")
 			(pinfunction "HPREFA_13")
 			(pintype "unspecified")
 			(uuid "955e5454-b4d3-4d59-a157-29edb369163d")
@@ -4514,7 +7810,7 @@
 			(at 0.6 2.407539 270)
 			(size 0.665 0.2)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "/dac/JACK_SLEEVE")
+			(net "/dac/JACK_DETECTED_GND")
 			(pinfunction "HPREFB_17")
 			(pintype "unspecified")
 			(uuid "9a392b81-2d54-4fd1-804a-738a8eb18a41")
@@ -4523,7 +7819,7 @@
 			(at 0.999871 2.407539 270)
 			(size 0.665 0.2)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "unconnected-(U1-VCP_FILT–-Pad18)")
+			(net "/dac/VCP_FILT-")
 			(pinfunction "VCP_FILT–_18")
 			(pintype "unspecified")
 			(uuid "ab908ffd-9fcf-4b0a-a1cb-cdbd42ea8ddc")
@@ -4532,7 +7828,7 @@
 			(at 1.4 2.407539 270)
 			(size 0.665 0.2)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "unconnected-(U1-GNDCP-Pad19)")
+			(net "/dac/GNDCP")
 			(pinfunction "GNDCP_19")
 			(pintype "unspecified")
 			(uuid "78ab41c2-80ac-4180-9df8-b3f07abf00b6")
@@ -4541,7 +7837,7 @@
 			(at 1.8 2.407539 270)
 			(size 0.665 0.2)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "unconnected-(U1-FLYN_VCP-Pad20)")
+			(net "/dac/FLYN_VCP")
 			(pinfunction "FLYN_VCP_20")
 			(pintype "unspecified")
 			(uuid "7fe463c5-a6f7-4985-98ff-f1bfaada8c93")
@@ -4550,7 +7846,7 @@
 			(at 2.407539 1.8 270)
 			(size 0.2 0.665)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "unconnected-(U1-VCP_FILT+-Pad21)")
+			(net "/dac/VCP_FILT+")
 			(pinfunction "VCP_FILT+_21")
 			(pintype "unspecified")
 			(uuid "c202fbd0-2ad8-4588-bfd4-aeb68345c39d")
@@ -4568,7 +7864,7 @@
 			(at 2.407539 1.000125 270)
 			(size 0.2 0.665)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "unconnected-(U1-FLYC_VCP-Pad23)")
+			(net "/dac/FLYC_VCP")
 			(pinfunction "FLYC_VCP_23")
 			(pintype "unspecified")
 			(uuid "c061a332-3567-4782-9801-8b53f2b4743f")
@@ -4577,7 +7873,7 @@
 			(at 2.407539 0.6 270)
 			(size 0.2 0.665)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "unconnected-(U1-FLYP_VCP-Pad24)")
+			(net "/dac/FLYP_VCP")
 			(pinfunction "FLYP_VCP_24")
 			(pintype "unspecified")
 			(uuid "928e51da-c317-4ccf-8e54-507f2a2a4629")
@@ -4586,7 +7882,7 @@
 			(at 2.407539 0.2 270)
 			(size 0.2 0.665)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "unconnected-(U1-VCP-Pad25)")
+			(net "/dac/VCP")
 			(pinfunction "VCP_25")
 			(pintype "unspecified")
 			(uuid "f569b67f-7633-41c9-9d74-3de6c71b1363")
@@ -4595,7 +7891,7 @@
 			(at 2.407539 -0.2 270)
 			(size 0.2 0.665)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "unconnected-(U1-VP-Pad26)")
+			(net "Net-(U1-VP)")
 			(pinfunction "VP_26")
 			(pintype "unspecified")
 			(uuid "e98e3c1a-f0dd-42c7-b64c-672a3301adc5")
@@ -4613,7 +7909,7 @@
 			(at 2.407539 -0.999871 270)
 			(size 0.2 0.665)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "unconnected-(U1-RESET#-Pad28)")
+			(net "/dac/DAC_RESET")
 			(pinfunction "RESET#_28")
 			(pintype "unspecified")
 			(uuid "15c01e28-9cfe-4005-9c84-a4d3ea9ca6d5")
@@ -4640,7 +7936,7 @@
 			(at 1.8 -2.407539 270)
 			(size 0.665 0.2)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "unconnected-(U1-VL-Pad31)")
+			(net "Net-(U1-VD)")
 			(pinfunction "VL_31")
 			(pintype "unspecified")
 			(uuid "7ed7ee30-3a75-49ef-878e-7b2ebdf2a7d1")
@@ -4676,7 +7972,7 @@
 			(at 0.2 -2.407539 270)
 			(size 0.665 0.2)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "unconnected-(U1-GNDD-Pad35)")
+			(net "GND")
 			(pinfunction "GNDD_35")
 			(pintype "unspecified")
 			(uuid "bded7bbc-6262-44b7-9010-3b6f88661ed0")
@@ -4730,7 +8026,7 @@
 			(at -0.000127 0.000127 270)
 			(size 3.5 3.5)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "unconnected-(U1-EP-Pad41)")
+			(net "GND")
 			(pinfunction "EP_41")
 			(pintype "unspecified")
 			(uuid "d2661c12-1ada-4d1c-8d02-88fcfeba243d")
@@ -4985,6 +8281,714 @@
 			)
 		)
 	)
+	(footprint "JLCImport:CL05B104KO5NNNC"
+		(layer "F.Cu")
+		(uuid "ae0dfb74-f39a-4aa7-9647-85417cbd0e7b")
+		(at 27.44996 112.782587)
+		(descr "100nF 16V X7R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS")
+		(tags "C0402 C1525 CL05B104KO5NNNC Samsung Electro-Mechanics")
+		(property "Reference" "C22"
+			(at 0 -1.499618 0)
+			(layer "F.SilkS")
+			(uuid "9b4e0f5d-6644-4c7f-a522-ba8f3ae407aa")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Value" "100nF 16V X7R"
+			(at 0 1.499643 0)
+			(layer "F.Fab")
+			(uuid "e87eb473-69d8-4429-8155-2fc08660facc")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL05B104KO5NNNC_C1525.pdf"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "f109ed35-d87c-4b53-920c-20972d0d854b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "100nF 16V X7R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "6092e5bc-3b11-4fa8-85b9-d5bcf27fe3fa")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C1525"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "90beaaf9-de7b-40df-a099-766a67cd2d2a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "54274a31-ace1-4b73-bd1e-80d465480814")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer Part" "CL05B104KO5NNNC"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "1e648c13-968e-47ef-9d21-b6c477858785")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(path "/95ba76fd-cd0d-4fc7-9d47-f5665dc7e9c9/14823ca3-7a2b-42a9-91a3-c79aea3cb839")
+		(sheetname "/dac/")
+		(sheetfile "dac.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
+		(attr smd)
+		(duplicate_pad_numbers_are_jumpers no)
+		(fp_line
+			(start -0.87376 0.347243)
+			(end -0.87376 -0.345161)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "4657f1bf-a6e2-421d-9a95-bdae26f38c8a")
+		)
+		(fp_line
+			(start -0.72136 -0.497535)
+			(end -0.221386 -0.497535)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "ae9defcd-9088-495f-aa1e-33e41af157ce")
+		)
+		(fp_line
+			(start -0.221386 0.499643)
+			(end -0.72136 0.499643)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "12370c6b-6afd-4512-91b2-dace0cecef45")
+		)
+		(fp_line
+			(start 0.221386 -0.499618)
+			(end 0.72136 -0.499618)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "9e81e357-619a-4923-803b-4beafe733f25")
+		)
+		(fp_line
+			(start 0.72136 0.49751)
+			(end 0.221386 0.49751)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "d7cbff85-ac3e-478a-bc23-b53497339334")
+		)
+		(fp_line
+			(start 0.87376 -0.347269)
+			(end 0.87376 0.345161)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "82f05fcc-e976-480f-bf86-256c39bdc4fa")
+		)
+		(fp_arc
+			(start -0.87376 -0.345161)
+			(mid -0.829148 -0.453)
+			(end -0.72136 -0.497561)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "4fa7e4b6-af59-486c-a600-d3b64c6383a4")
+		)
+		(fp_arc
+			(start -0.72136 0.499643)
+			(mid -0.829148 0.455)
+			(end -0.87376 0.347243)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "19f685b1-b750-4b56-a5c5-f367d34f26c1")
+		)
+		(fp_arc
+			(start 0.72136 -0.499643)
+			(mid 0.829148 -0.455)
+			(end 0.87376 -0.347243)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "7c459d72-4711-408d-8c0c-0f906d382991")
+		)
+		(fp_arc
+			(start 0.87376 0.345161)
+			(mid 0.829148 0.453)
+			(end 0.72136 0.497561)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "48dc6299-0d36-440f-825a-0d07468be54b")
+		)
+		(pad "1" smd rect
+			(at -0.42 0)
+			(size 0.5 0.54)
+			(layers "F.Cu" "F.Mask" "F.Paste")
+			(net "Net-(U1-VD)")
+			(pinfunction "1_1")
+			(pintype "unspecified")
+			(uuid "40a57472-df06-488c-93a8-154a2354357a")
+		)
+		(pad "2" smd rect
+			(at 0.42 0)
+			(size 0.5 0.54)
+			(layers "F.Cu" "F.Mask" "F.Paste")
+			(net "GND")
+			(pinfunction "2_2")
+			(pintype "unspecified")
+			(uuid "fb653b84-f41c-4979-ba13-6fc9e68a9a2a")
+		)
+		(embedded_fonts no)
+		(model "${KIPRJMOD}/JLCImport.3dshapes/CL05B104KO5NNNC.wrl"
+			(offset
+				(xyz 0 0 0.25)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
+	)
+	(footprint "JLCImport:CL05A105KA5NQNC"
+		(layer "F.Cu")
+		(uuid "b3c2aec3-4c60-4a92-9d2a-479db8f30edb")
+		(at 27.44996 106.327529)
+		(descr "1uF 25V X5R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS")
+		(tags "C0402 C52923 CL05A105KA5NQNC Samsung Electro-Mechanics")
+		(property "Reference" "C17"
+			(at 0 -1.499618 0)
+			(layer "F.SilkS")
+			(uuid "c75b68fd-b41b-4287-9173-d883748875aa")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Value" "1uF 25V X5R"
+			(at 0 1.499643 0)
+			(layer "F.Fab")
+			(uuid "182730b0-206c-4681-88db-f928df3271f5")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL05A105KA5NQNC_C52923.pdf"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "55970939-98c7-481a-91ca-28924ac7d156")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "1uF 25V X5R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "c617fee0-0797-4e2d-b5e8-a4b1dc71a5c7")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C52923"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "53b61f00-50ce-4ec5-826a-9f7bb40350b7")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "a69b23b3-0329-4ffa-a647-8c8044aa0ac9")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer Part" "CL05A105KA5NQNC"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "b0382684-3ff7-4279-917e-1fc5416ce7dc")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(path "/95ba76fd-cd0d-4fc7-9d47-f5665dc7e9c9/32821ea9-54ab-40dc-89f8-7f1b84dfb375")
+		(sheetname "/dac/")
+		(sheetfile "dac.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
+		(attr smd)
+		(duplicate_pad_numbers_are_jumpers no)
+		(fp_line
+			(start -0.87376 0.347243)
+			(end -0.87376 -0.345161)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "9b82db0e-7396-4678-9944-b48960b49165")
+		)
+		(fp_line
+			(start -0.72136 -0.497535)
+			(end -0.221386 -0.497535)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "e3726b68-e585-4a65-aa28-fcd14c7a379a")
+		)
+		(fp_line
+			(start -0.221386 0.499643)
+			(end -0.72136 0.499643)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "c4438cbb-3ee1-406e-8843-c7a3a454003e")
+		)
+		(fp_line
+			(start 0.221386 -0.499618)
+			(end 0.72136 -0.499618)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "4a85546c-c7cd-4e49-9155-585da8f6a2d0")
+		)
+		(fp_line
+			(start 0.72136 0.49751)
+			(end 0.221386 0.49751)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "adc46458-cbcf-4daf-9d82-6b53cfc89b4a")
+		)
+		(fp_line
+			(start 0.87376 -0.347269)
+			(end 0.87376 0.345161)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "4ba50f26-b609-43c7-b8ad-5812da63c284")
+		)
+		(fp_arc
+			(start -0.87376 -0.345161)
+			(mid -0.829148 -0.453)
+			(end -0.72136 -0.497561)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "229ea186-8994-4604-8786-8d69129d8572")
+		)
+		(fp_arc
+			(start -0.72136 0.499643)
+			(mid -0.829148 0.455)
+			(end -0.87376 0.347243)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "425dafac-a9e1-49e7-a3f0-258b87b98cee")
+		)
+		(fp_arc
+			(start 0.72136 -0.499643)
+			(mid 0.829148 -0.455)
+			(end 0.87376 -0.347243)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "c038bdf8-adfc-4809-9214-754f47f2247a")
+		)
+		(fp_arc
+			(start 0.87376 0.345161)
+			(mid 0.829148 0.453)
+			(end 0.72136 0.497561)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "97d788f9-6a5c-4582-8c78-f6f295e26bf8")
+		)
+		(pad "1" smd rect
+			(at -0.42 0)
+			(size 0.5 0.54)
+			(layers "F.Cu" "F.Mask" "F.Paste")
+			(net "GND")
+			(pinfunction "1_1")
+			(pintype "unspecified")
+			(uuid "77a505fa-20db-40b3-b1c3-e56db86ded14")
+		)
+		(pad "2" smd rect
+			(at 0.42 0)
+			(size 0.5 0.54)
+			(layers "F.Cu" "F.Mask" "F.Paste")
+			(net "Net-(X2-VDD)")
+			(pinfunction "2_2")
+			(pintype "unspecified")
+			(uuid "f75c1692-1468-4443-9035-30c119020b56")
+		)
+		(embedded_fonts no)
+		(model "${KIPRJMOD}/JLCImport.3dshapes/CL05A105KA5NQNC.wrl"
+			(offset
+				(xyz 0 0 0.25)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
+	)
+	(footprint "JLCImport:CL05B104KO5NNNC"
+		(layer "F.Cu")
+		(uuid "b3eed6be-b603-4341-98d5-ada2f2fdc758")
+		(at 35.62996 106.327529)
+		(descr "100nF 16V X7R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS")
+		(tags "C0402 C1525 CL05B104KO5NNNC Samsung Electro-Mechanics")
+		(property "Reference" "C20"
+			(at 0 -1.499618 0)
+			(layer "F.SilkS")
+			(uuid "7aff93af-de6a-4e4c-8a28-cd0f549e5633")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Value" "100nF 16V X7R"
+			(at 0 1.499643 0)
+			(layer "F.Fab")
+			(uuid "5a00ea25-5b9f-45c0-8365-f8f41215b43d")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL05B104KO5NNNC_C1525.pdf"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "3898c6f7-ee73-454b-9be9-5cac2f86bc40")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "100nF 16V X7R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "84944c25-4791-43b7-8ebd-5b3cf9095c99")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C1525"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "78b77763-0a8a-425c-8398-a8606c37f488")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "6d6eca7b-2a1d-433d-905e-d6a6fbd3d816")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer Part" "CL05B104KO5NNNC"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "ac38f403-19ed-4142-a1c6-6497365dc19e")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(path "/c6b936ac-23e1-4f20-8d3d-ded05833abcb/6d027e28-6e17-4f3e-981e-d2490c862275")
+		(sheetname "/mcu/")
+		(sheetfile "mcu.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
+		(attr smd)
+		(duplicate_pad_numbers_are_jumpers no)
+		(fp_line
+			(start -0.87376 0.347243)
+			(end -0.87376 -0.345161)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "2d46474d-097e-48f1-9b5c-fef0237287ec")
+		)
+		(fp_line
+			(start -0.72136 -0.497535)
+			(end -0.221386 -0.497535)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "65cd3e10-d83f-4942-b167-391a01bf1cce")
+		)
+		(fp_line
+			(start -0.221386 0.499643)
+			(end -0.72136 0.499643)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "790b288a-1697-4bed-a0c0-a75b011bf7bc")
+		)
+		(fp_line
+			(start 0.221386 -0.499618)
+			(end 0.72136 -0.499618)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "a6a3362a-9f97-46d5-95fd-babc750a0e24")
+		)
+		(fp_line
+			(start 0.72136 0.49751)
+			(end 0.221386 0.49751)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "031c32c9-4783-49e8-81e1-ad5f4080f7e8")
+		)
+		(fp_line
+			(start 0.87376 -0.347269)
+			(end 0.87376 0.345161)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "2535ef20-1153-4f34-93f3-5f80482d710d")
+		)
+		(fp_arc
+			(start -0.87376 -0.345161)
+			(mid -0.829148 -0.453)
+			(end -0.72136 -0.497561)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "81e4ecb6-c1dc-4bd1-81ef-0450a2d8d1b1")
+		)
+		(fp_arc
+			(start -0.72136 0.499643)
+			(mid -0.829148 0.455)
+			(end -0.87376 0.347243)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "048881da-5433-4819-86ad-22fa63604c2f")
+		)
+		(fp_arc
+			(start 0.72136 -0.499643)
+			(mid 0.829148 -0.455)
+			(end 0.87376 -0.347243)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "dce4654a-90da-45d7-b773-b48e97fa3b2a")
+		)
+		(fp_arc
+			(start 0.87376 0.345161)
+			(mid 0.829148 0.453)
+			(end 0.72136 0.497561)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "5da7018b-c120-4d9f-bed9-84e17250946b")
+		)
+		(pad "1" smd rect
+			(at -0.42 0)
+			(size 0.5 0.54)
+			(layers "F.Cu" "F.Mask" "F.Paste")
+			(net "Net-(U2-VREF+)")
+			(pinfunction "1_1")
+			(pintype "unspecified")
+			(uuid "4e0b919c-f847-40c5-8f07-8cc1ffa16d16")
+		)
+		(pad "2" smd rect
+			(at 0.42 0)
+			(size 0.5 0.54)
+			(layers "F.Cu" "F.Mask" "F.Paste")
+			(net "GND")
+			(pinfunction "2_2")
+			(pintype "unspecified")
+			(uuid "4780c296-0167-48a2-aace-ccaebec44018")
+		)
+		(embedded_fonts no)
+		(model "${KIPRJMOD}/JLCImport.3dshapes/CL05B104KO5NNNC.wrl"
+			(offset
+				(xyz 0 0 0.25)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
+	)
 	(footprint "JLCImport:TPS7A2033PDBVR"
 		(layer "F.Cu")
 		(uuid "bd03ff68-6d30-4705-8c1d-045a2d06ba60")
@@ -5194,6 +9198,238 @@
 			)
 			(rotate
 				(xyz 0 0 -90)
+			)
+		)
+	)
+	(footprint "JLCImport:BLM15AG601SN1D"
+		(layer "F.Cu")
+		(uuid "c23b44de-e018-409a-8ac2-f0bd3b1f9c16")
+		(at 30.44554 96.86642)
+		(descr "-55℃~+125℃ 1 300mA 520mΩ 600Ω@100MHz ±25% 0402 Ferrite Beads ROHS")
+		(tags "BLM15AG601SN1D C76884 L0402 Murata Electronics")
+		(property "Reference" "L1"
+			(at 0 -1.49022 0)
+			(layer "F.SilkS")
+			(uuid "08c3d594-87f5-4d08-9e6f-d4cc5b36beb7")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Value" "BLM15AG601SN1D"
+			(at 0 1.508 0)
+			(layer "F.Fab")
+			(uuid "c304ce69-f14c-41a0-8a6b-47a237ed26e5")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Murata-Electronics-BLM15AG601SN1D_C76884.pdf"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "1507101f-0c2b-405b-aa77-9215e3ddc330")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "-55℃~+125℃ 1 300mA 520mΩ 600Ω@100MHz ±25% 0402 Ferrite Beads ROHS"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "26da7506-24e9-41a0-9eaa-319b81e30033")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C76884"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "d6136aa5-68d6-4a4b-92a9-f8679a203e8c")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer" "Murata Electronics"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "ccb63b98-d295-479e-b585-ef46aa1046d1")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer Part" "BLM15AG601SN1D"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "5cec0930-2e0e-4ed9-af62-8c6f43c96317")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(path "/95ba76fd-cd0d-4fc7-9d47-f5665dc7e9c9/dd4597d1-371e-4f8c-b90a-c87cae21b38b")
+		(sheetname "/dac/")
+		(sheetfile "dac.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
+		(attr smd)
+		(duplicate_pad_numbers_are_jumpers no)
+		(fp_line
+			(start -1.06934 -0.336779)
+			(end -0.91694 -0.489153)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "a25f415c-726d-45a6-9320-1cbd595ce07b")
+		)
+		(fp_line
+			(start -1.06934 0.3556)
+			(end -1.06934 -0.336779)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "f8f82c50-692d-459a-aa90-c7e1557d2076")
+		)
+		(fp_line
+			(start -0.91694 -0.489153)
+			(end -0.126873 -0.489153)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "7c20ef0c-6d52-418a-98eb-daf85a421b42")
+		)
+		(fp_line
+			(start -0.91694 0.508)
+			(end -1.06934 0.3556)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "7d258d6c-9f59-4114-a7fb-99c1b99f4ec6")
+		)
+		(fp_line
+			(start -0.126873 0.508)
+			(end -0.91694 0.508)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "44dba33c-527d-4de2-9afd-1340f54b4dea")
+		)
+		(fp_line
+			(start 0.127127 0.508)
+			(end 0.917 0.508)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "69f2cf9f-480f-4e42-8b65-ac9a1ab3a1d7")
+		)
+		(fp_line
+			(start 0.907 -0.49022)
+			(end 0.127127 -0.49022)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "f0aafa6c-15d5-4549-8208-fe8a79769318")
+		)
+		(fp_line
+			(start 0.917 0.508)
+			(end 1.069467 0.3556)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "037c0d58-8b1d-4dd8-965f-8ed30502dd60")
+		)
+		(fp_line
+			(start 1.069467 -0.32766)
+			(end 0.907 -0.49022)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "4b552178-e6da-4afb-9296-9f2b8fbb37bc")
+		)
+		(fp_line
+			(start 1.069467 0.3556)
+			(end 1.069467 -0.32766)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "c732946f-b033-404d-9316-e560e3c3c4bd")
+		)
+		(pad "1" smd rect
+			(at -0.42 0)
+			(size 0.54 0.54)
+			(layers "F.Cu" "F.Mask" "F.Paste")
+			(net "+1V8_D")
+			(pinfunction "1_1")
+			(pintype "unspecified")
+			(uuid "683f32fc-54f9-4b11-92c3-d7f148f20fae")
+		)
+		(pad "2" smd rect
+			(at 0.42 0)
+			(size 0.54 0.54)
+			(layers "F.Cu" "F.Mask" "F.Paste")
+			(net "Net-(X2-VDD)")
+			(pinfunction "2_2")
+			(pintype "unspecified")
+			(uuid "ed05abec-f3ac-4dbf-b30e-e5b95ecefb12")
+		)
+		(embedded_fonts no)
+		(model "${KIPRJMOD}/JLCImport.3dshapes/BLM15AG601SN1D.wrl"
+			(offset
+				(xyz 0 0 0.25)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
 			)
 		)
 	)
@@ -6102,13 +10338,249 @@
 			(at 0.42 0)
 			(size 0.5 0.54)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "+3V8")
+			(net "Net-(U12-EN)")
 			(pinfunction "2_2")
 			(pintype "unspecified")
 			(uuid "8cb1240f-282f-418a-a7a3-45644f7d83f2")
 		)
 		(embedded_fonts no)
 		(model "${KIPRJMOD}/JLCImport.3dshapes/CL05A105KA5NQNC.wrl"
+			(offset
+				(xyz 0 0 0.25)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
+	)
+	(footprint "JLCImport:CL05A225KO5NQNC"
+		(layer "F.Cu")
+		(uuid "cd6c62fc-349a-492d-8070-767852bc18a1")
+		(at 51.44996 128.434273)
+		(descr "16V 2.2uF X5R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS")
+		(tags "C0402 C170151 CL05A225KO5NQNC Samsung Electro-Mechanics")
+		(property "Reference" "C34"
+			(at 0 -1.499618 0)
+			(layer "F.SilkS")
+			(uuid "7e60f0ae-4cac-4cf4-bfbd-330dcf89bcc1")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Value" "2.2uF 16V X5R"
+			(at 0 1.499643 0)
+			(layer "F.Fab")
+			(uuid "331dd7da-4fe2-4547-a1b4-1a3ca084053c")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL05A225KO5NQNC_C170151.pdf"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "03a1c535-3677-4f20-ab82-1ff094a63055")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "16V 2.2uF X5R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "c8c2fd36-9573-481e-bc15-4d6d87d645d2")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C170151"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "7b860007-2566-4542-b7da-d34cf7cc84bb")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "72aa78e7-0705-4dc3-a3a3-6a3f598b1fe6")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer Part" "CL05A225KO5NQNC"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "ce816c72-47de-4e14-b0d6-aae985924e75")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(path "/95ba76fd-cd0d-4fc7-9d47-f5665dc7e9c9/aace41ea-eace-40fb-82c5-52d85d359dd3")
+		(sheetname "/dac/")
+		(sheetfile "dac.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "2" "1")
+			)
+		)
+		(attr smd)
+		(duplicate_pad_numbers_are_jumpers no)
+		(fp_line
+			(start -0.87376 0.347243)
+			(end -0.87376 -0.345161)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "315327c4-978d-4f75-ace4-2f1d440a3dcc")
+		)
+		(fp_line
+			(start -0.72136 -0.497535)
+			(end -0.221386 -0.497535)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "c714b1b0-3f44-4e25-9e00-18f333fc1c73")
+		)
+		(fp_line
+			(start -0.221386 0.499643)
+			(end -0.72136 0.499643)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "a3628333-d7b1-4411-8460-f6fac0ab68d3")
+		)
+		(fp_line
+			(start 0.221386 -0.499618)
+			(end 0.72136 -0.499618)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "265486bd-a040-4346-b83b-b3af1697c972")
+		)
+		(fp_line
+			(start 0.72136 0.49751)
+			(end 0.221386 0.49751)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "e6788035-0629-482b-8e6b-ee16112ba2b4")
+		)
+		(fp_line
+			(start 0.87376 -0.347269)
+			(end 0.87376 0.345161)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "77cba8ea-b225-4ea7-bd1a-b6ff604e3af9")
+		)
+		(fp_arc
+			(start -0.87376 -0.345161)
+			(mid -0.829148 -0.453)
+			(end -0.72136 -0.497561)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "5b11eefb-8fb5-4f68-9622-ad09c4119e8e")
+		)
+		(fp_arc
+			(start -0.72136 0.499643)
+			(mid -0.829148 0.455)
+			(end -0.87376 0.347243)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "d3cb116d-9e40-47c8-8dbf-8433afde5b3b")
+		)
+		(fp_arc
+			(start 0.72136 -0.499643)
+			(mid 0.829148 -0.455)
+			(end 0.87376 -0.347243)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "cc5c6968-9491-44fc-a1d3-a3f2c9b20bd8")
+		)
+		(fp_arc
+			(start 0.87376 0.345161)
+			(mid 0.829148 0.453)
+			(end 0.72136 0.497561)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "7e02690a-6902-4218-a85a-9e078ed2e8b7")
+		)
+		(pad "1" smd rect
+			(at -0.42 0)
+			(size 0.5 0.54)
+			(layers "F.Cu" "F.Mask" "F.Paste")
+			(net "/dac/FLYN_VCP")
+			(pinfunction "1_1")
+			(pintype "unspecified")
+			(uuid "1ccc4ae8-1bcb-425f-9f4a-addc0f6311e7")
+		)
+		(pad "2" smd rect
+			(at 0.42 0)
+			(size 0.5 0.54)
+			(layers "F.Cu" "F.Mask" "F.Paste")
+			(net "/dac/FLYC_VCP")
+			(pinfunction "2_2")
+			(pintype "unspecified")
+			(uuid "f6b2252c-89f6-40c6-a816-b455334c0b9a")
+		)
+		(embedded_fonts no)
+		(model "${KIPRJMOD}/JLCImport.3dshapes/CL05A225KO5NQNC.wrl"
 			(offset
 				(xyz 0 0 0.25)
 			)
@@ -6346,6 +10818,478 @@
 		)
 		(embedded_fonts no)
 		(model "${KIPRJMOD}/JLCImport.3dshapes/CL05A105KA5NQNC.wrl"
+			(offset
+				(xyz 0 0 0.25)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
+	)
+	(footprint "JLCImport:CL05B104KO5NNNC"
+		(layer "F.Cu")
+		(uuid "dfbb5766-d1f6-42a9-803e-28b1012cef4f")
+		(at 27.44996 108.479215)
+		(descr "100nF 16V X7R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS")
+		(tags "C0402 C1525 CL05B104KO5NNNC Samsung Electro-Mechanics")
+		(property "Reference" "C19"
+			(at 0 -1.499618 0)
+			(layer "F.SilkS")
+			(uuid "fe857cc3-269e-4068-9668-a4182a82c283")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Value" "100nF 16V X7R"
+			(at 0 1.499643 0)
+			(layer "F.Fab")
+			(uuid "a4d5bd18-19f4-4973-8e61-8e2408e52a7a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL05B104KO5NNNC_C1525.pdf"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "04add88c-388e-4f55-b51d-00cd8f0d98ff")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "100nF 16V X7R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "d165c7e5-a59f-4570-ba5e-6befb9593b34")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C1525"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "a96775be-bd85-4f6b-a658-8dda8e12693e")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "cadb1acc-a854-49a3-8f81-2be1893464f6")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer Part" "CL05B104KO5NNNC"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "13af23a8-4740-4fbc-868b-54061224ecdf")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(path "/95ba76fd-cd0d-4fc7-9d47-f5665dc7e9c9/7bb0932e-1238-43c1-83b7-cec3e88915d4")
+		(sheetname "/dac/")
+		(sheetfile "dac.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
+		(attr smd)
+		(duplicate_pad_numbers_are_jumpers no)
+		(fp_line
+			(start -0.87376 0.347243)
+			(end -0.87376 -0.345161)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "db831101-cf28-46e6-8659-b678e7cba91d")
+		)
+		(fp_line
+			(start -0.72136 -0.497535)
+			(end -0.221386 -0.497535)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "fd96e394-5e09-4978-9ce4-97fae061df3e")
+		)
+		(fp_line
+			(start -0.221386 0.499643)
+			(end -0.72136 0.499643)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "7f1be2a7-55cb-474f-bfa6-db19ee79eda1")
+		)
+		(fp_line
+			(start 0.221386 -0.499618)
+			(end 0.72136 -0.499618)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "7098a179-de12-4abe-b082-fc4fcad21baf")
+		)
+		(fp_line
+			(start 0.72136 0.49751)
+			(end 0.221386 0.49751)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "edb67a1d-ae52-4143-aa67-9b047e8e602d")
+		)
+		(fp_line
+			(start 0.87376 -0.347269)
+			(end 0.87376 0.345161)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "6d292d43-bd9a-418b-8dac-f2f6523d2e27")
+		)
+		(fp_arc
+			(start -0.87376 -0.345161)
+			(mid -0.829148 -0.453)
+			(end -0.72136 -0.497561)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "a2680de0-c382-468c-ac1e-4307199c35f7")
+		)
+		(fp_arc
+			(start -0.72136 0.499643)
+			(mid -0.829148 0.455)
+			(end -0.87376 0.347243)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "18335c22-60e5-4a05-ba6b-7c2a140eaa3f")
+		)
+		(fp_arc
+			(start 0.72136 -0.499643)
+			(mid 0.829148 -0.455)
+			(end 0.87376 -0.347243)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "ccb1bc37-45f1-4f83-bd6a-d7460cc9cde8")
+		)
+		(fp_arc
+			(start 0.87376 0.345161)
+			(mid 0.829148 0.453)
+			(end 0.72136 0.497561)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "17dea12a-06e6-402d-a37b-b29bf48e17da")
+		)
+		(pad "1" smd rect
+			(at -0.42 0)
+			(size 0.5 0.54)
+			(layers "F.Cu" "F.Mask" "F.Paste")
+			(net "Net-(X2-VDD)")
+			(pinfunction "1_1")
+			(pintype "unspecified")
+			(uuid "1d2a5486-0d6c-42f4-b3d0-dd455dffe06e")
+		)
+		(pad "2" smd rect
+			(at 0.42 0)
+			(size 0.5 0.54)
+			(layers "F.Cu" "F.Mask" "F.Paste")
+			(net "GND")
+			(pinfunction "2_2")
+			(pintype "unspecified")
+			(uuid "986c42c1-acc6-4a1b-9750-cd6c68b69e21")
+		)
+		(embedded_fonts no)
+		(model "${KIPRJMOD}/JLCImport.3dshapes/CL05B104KO5NNNC.wrl"
+			(offset
+				(xyz 0 0 0.25)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
+	)
+	(footprint "JLCImport:CL05A225KO5NQNC"
+		(layer "F.Cu")
+		(uuid "e53d21ff-35c9-4c2f-8e19-51b36a8f797d")
+		(at 51.44996 124.130901)
+		(descr "16V 2.2uF X5R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS")
+		(tags "C0402 C170151 CL05A225KO5NQNC Samsung Electro-Mechanics")
+		(property "Reference" "C32"
+			(at 0 -1.499618 0)
+			(layer "F.SilkS")
+			(uuid "247d3c5d-d95a-45e0-8931-24126030d467")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Value" "2.2uF 16V X5R"
+			(at 0 1.499643 0)
+			(layer "F.Fab")
+			(uuid "22422ebf-1812-4308-a3e3-722a6b739da9")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL05A225KO5NQNC_C170151.pdf"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "ac1c68bb-c464-4693-bdb3-9c0540721e5f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "16V 2.2uF X5R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "de77cbf2-ddef-4a8c-ae59-ca06e5d8f5f3")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C170151"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "f99653dd-a2a6-438c-8bc7-b63a9f0c3594")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "b2f816e6-0f13-4efa-8407-fa36f048b0da")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer Part" "CL05A225KO5NQNC"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "ba673e6b-ae47-4c90-a412-006150f9090d")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(path "/95ba76fd-cd0d-4fc7-9d47-f5665dc7e9c9/d8e40094-235d-465d-bc76-a359df3cb8ee")
+		(sheetname "/dac/")
+		(sheetfile "dac.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "2" "1")
+			)
+		)
+		(attr smd)
+		(duplicate_pad_numbers_are_jumpers no)
+		(fp_line
+			(start -0.87376 0.347243)
+			(end -0.87376 -0.345161)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "37704c8c-95c4-43c6-af5e-83725769dbec")
+		)
+		(fp_line
+			(start -0.72136 -0.497535)
+			(end -0.221386 -0.497535)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "0dd156e4-5e1a-4988-ae51-8ea5a7fc6f10")
+		)
+		(fp_line
+			(start -0.221386 0.499643)
+			(end -0.72136 0.499643)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "0e873b17-7e15-46a9-9bdf-d91465c69785")
+		)
+		(fp_line
+			(start 0.221386 -0.499618)
+			(end 0.72136 -0.499618)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "699ae576-f440-465b-b8ce-32d858a868ad")
+		)
+		(fp_line
+			(start 0.72136 0.49751)
+			(end 0.221386 0.49751)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "a7ec2018-5dec-46a3-85a3-1bb021361946")
+		)
+		(fp_line
+			(start 0.87376 -0.347269)
+			(end 0.87376 0.345161)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "5a496c98-7be2-4784-84d3-bcd5e2cc59cc")
+		)
+		(fp_arc
+			(start -0.87376 -0.345161)
+			(mid -0.829148 -0.453)
+			(end -0.72136 -0.497561)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "3ba55031-dd0a-4681-82e6-92899b4b1b76")
+		)
+		(fp_arc
+			(start -0.72136 0.499643)
+			(mid -0.829148 0.455)
+			(end -0.87376 0.347243)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "06e9fc97-68f7-49c5-b849-02f49cecbfea")
+		)
+		(fp_arc
+			(start 0.72136 -0.499643)
+			(mid 0.829148 -0.455)
+			(end 0.87376 -0.347243)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "291b2c0a-403d-46e6-858b-38ca25c928fe")
+		)
+		(fp_arc
+			(start 0.87376 0.345161)
+			(mid 0.829148 0.453)
+			(end 0.72136 0.497561)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "cf4df255-ff6b-49db-8059-014b3e3545d2")
+		)
+		(pad "1" smd rect
+			(at -0.42 0)
+			(size 0.5 0.54)
+			(layers "F.Cu" "F.Mask" "F.Paste")
+			(net "/dac/GNDCP")
+			(pinfunction "1_1")
+			(pintype "unspecified")
+			(uuid "d84110df-6d89-4565-bc27-cf6daca5389f")
+		)
+		(pad "2" smd rect
+			(at 0.42 0)
+			(size 0.5 0.54)
+			(layers "F.Cu" "F.Mask" "F.Paste")
+			(net "/dac/VCP_FILT-")
+			(pinfunction "2_2")
+			(pintype "unspecified")
+			(uuid "e5d3e581-3a5d-46cb-a4b0-eb07cad22844")
+		)
+		(embedded_fonts no)
+		(model "${KIPRJMOD}/JLCImport.3dshapes/CL05A225KO5NQNC.wrl"
 			(offset
 				(xyz 0 0 0.25)
 			)
@@ -7348,6 +12292,238 @@
 			)
 		)
 	)
+	(footprint "JLCImport:BLM15AG601SN1D"
+		(layer "F.Cu")
+		(uuid "e7432d27-dcd3-42c4-921c-0fafa00bc3b3")
+		(at 30.53554 106.31704)
+		(descr "-55℃~+125℃ 1 300mA 520mΩ 600Ω@100MHz ±25% 0402 Ferrite Beads ROHS")
+		(tags "BLM15AG601SN1D C76884 L0402 Murata Electronics")
+		(property "Reference" "L3"
+			(at 0 -1.49022 0)
+			(layer "F.SilkS")
+			(uuid "29ce1ade-78a7-452f-8ac8-30e22614c6f2")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Value" "BLM15AG601SN1D"
+			(at 0 1.508 0)
+			(layer "F.Fab")
+			(uuid "39f145dc-6c96-4d83-a203-f2f196018bdf")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Murata-Electronics-BLM15AG601SN1D_C76884.pdf"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "b3174c63-e23b-4399-90fa-e94b435cb63f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "-55℃~+125℃ 1 300mA 520mΩ 600Ω@100MHz ±25% 0402 Ferrite Beads ROHS"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "2c9fbb06-97eb-43f2-96a6-b397537a8d1b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C76884"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "3adb3b5f-ef90-46aa-97c2-6da9cda8f2d8")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer" "Murata Electronics"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "07ccba21-cb77-4c7f-a29e-2182e5852b4b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer Part" "BLM15AG601SN1D"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "76944ab4-8e62-46b5-a937-3a221db2a1b4")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(path "/95ba76fd-cd0d-4fc7-9d47-f5665dc7e9c9/67e85c86-c6c3-4f81-96f6-de2023fda729")
+		(sheetname "/dac/")
+		(sheetfile "dac.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
+		(attr smd)
+		(duplicate_pad_numbers_are_jumpers no)
+		(fp_line
+			(start -1.06934 -0.336779)
+			(end -0.91694 -0.489153)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "1d93e424-ed39-430e-b042-eace8e43cf7f")
+		)
+		(fp_line
+			(start -1.06934 0.3556)
+			(end -1.06934 -0.336779)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "b51c2543-52fd-430c-bb8e-67bad6601d44")
+		)
+		(fp_line
+			(start -0.91694 -0.489153)
+			(end -0.126873 -0.489153)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "7d53e271-176b-4d25-ae49-cad59300250b")
+		)
+		(fp_line
+			(start -0.91694 0.508)
+			(end -1.06934 0.3556)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "8205280a-79ab-4cca-b00b-c1c9d22367d6")
+		)
+		(fp_line
+			(start -0.126873 0.508)
+			(end -0.91694 0.508)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "fb4feb03-f2da-4b62-8cb1-ae6d574d94ec")
+		)
+		(fp_line
+			(start 0.127127 0.508)
+			(end 0.917 0.508)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "c38012ca-e4fb-45e6-86ac-fa573b4c2b47")
+		)
+		(fp_line
+			(start 0.907 -0.49022)
+			(end 0.127127 -0.49022)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "7ceac8a8-35dd-42f1-b3e1-ae7e4f42548b")
+		)
+		(fp_line
+			(start 0.917 0.508)
+			(end 1.069467 0.3556)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "7b228a25-1fb3-4bd1-958c-f8cfb4d09757")
+		)
+		(fp_line
+			(start 1.069467 -0.32766)
+			(end 0.907 -0.49022)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "58996f4d-2d58-41e7-8661-cbed5cabcfe0")
+		)
+		(fp_line
+			(start 1.069467 0.3556)
+			(end 1.069467 -0.32766)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "804b0e48-ef7b-425a-9b03-f50312aaebc2")
+		)
+		(pad "1" smd rect
+			(at -0.42 0)
+			(size 0.54 0.54)
+			(layers "F.Cu" "F.Mask" "F.Paste")
+			(net "+1V8_D")
+			(pinfunction "1_1")
+			(pintype "unspecified")
+			(uuid "bfb8a7e1-9da9-4a80-9233-3d9443660902")
+		)
+		(pad "2" smd rect
+			(at 0.42 0)
+			(size 0.54 0.54)
+			(layers "F.Cu" "F.Mask" "F.Paste")
+			(net "Net-(U1-VD)")
+			(pinfunction "2_2")
+			(pintype "unspecified")
+			(uuid "64e811d6-34ef-4449-b3a9-5dd7c6876dcc")
+		)
+		(embedded_fonts no)
+		(model "${KIPRJMOD}/JLCImport.3dshapes/BLM15AG601SN1D.wrl"
+			(offset
+				(xyz 0 0 0.25)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
+	)
 	(footprint "JLCImport:BLM15PX601SN1D"
 		(layer "F.Cu")
 		(uuid "ef458f04-b3c7-4abd-9d23-774a3fedaa9d")
@@ -7554,7 +12730,7 @@
 			(at -0.42 0)
 			(size 0.54 0.54)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "unconnected-(U10-Pad1)")
+			(net "+3V8")
 			(pinfunction "1_1")
 			(pintype "unspecified")
 			(uuid "d2609eea-1512-4518-a252-1494d4cf180f")
@@ -7563,7 +12739,7 @@
 			(at 0.42 0)
 			(size 0.54 0.54)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "unconnected-(U10-Pad2)")
+			(net "Net-(U12-EN)")
 			(pinfunction "2_2")
 			(pintype "unspecified")
 			(uuid "d98efc96-77be-4379-9b55-0224de319b9a")
@@ -8008,6 +13184,242 @@
 			)
 			(rotate
 				(xyz 0 0 -90)
+			)
+		)
+	)
+	(footprint "JLCImport:CL05A225KO5NQNC"
+		(layer "F.Cu")
+		(uuid "f4268241-4413-49f1-812c-931398c051b5")
+		(at 51.44996 126.282587)
+		(descr "16V 2.2uF X5R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS")
+		(tags "C0402 C170151 CL05A225KO5NQNC Samsung Electro-Mechanics")
+		(property "Reference" "C33"
+			(at 0 -1.499618 0)
+			(layer "F.SilkS")
+			(uuid "2d49b21f-089d-49ea-b9cb-2d14a3501e9b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Value" "2.2uF 16V X5R"
+			(at 0 1.499643 0)
+			(layer "F.Fab")
+			(uuid "c9f6eab9-33af-4243-a10e-32ffcc6600cd")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL05A225KO5NQNC_C170151.pdf"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "56bd1df7-cc51-4beb-b397-1ee327572431")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "16V 2.2uF X5R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "81d8634a-087f-496a-b90f-81f30a201b1b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C170151"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "03df0217-7e41-44d3-93a2-d2061475a993")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "4bd0ab68-57c9-4544-a260-f8dd49305a6c")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer Part" "CL05A225KO5NQNC"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "cd41e5be-902f-44d0-a40c-4b48a1ba253a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(path "/95ba76fd-cd0d-4fc7-9d47-f5665dc7e9c9/64f1e2e0-b822-4ec2-9dbc-1ca9bb434fd9")
+		(sheetname "/dac/")
+		(sheetfile "dac.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "2" "1")
+			)
+		)
+		(attr smd)
+		(duplicate_pad_numbers_are_jumpers no)
+		(fp_line
+			(start -0.87376 0.347243)
+			(end -0.87376 -0.345161)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "736252ff-4740-484e-875a-0aa1289c1369")
+		)
+		(fp_line
+			(start -0.72136 -0.497535)
+			(end -0.221386 -0.497535)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "7d2d3c6c-13a6-48ff-8758-e511a72d0eb2")
+		)
+		(fp_line
+			(start -0.221386 0.499643)
+			(end -0.72136 0.499643)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "a6c29134-5ee3-4068-b0e1-6d5fdd2969d1")
+		)
+		(fp_line
+			(start 0.221386 -0.499618)
+			(end 0.72136 -0.499618)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "f7904b8b-d6f9-4446-b272-09cd086d3629")
+		)
+		(fp_line
+			(start 0.72136 0.49751)
+			(end 0.221386 0.49751)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "517c9786-6b8f-475c-a58c-76bd6ae5fdf7")
+		)
+		(fp_line
+			(start 0.87376 -0.347269)
+			(end 0.87376 0.345161)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "c938b058-f145-4560-9d6d-7713037dbac8")
+		)
+		(fp_arc
+			(start -0.87376 -0.345161)
+			(mid -0.829148 -0.453)
+			(end -0.72136 -0.497561)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "3c164438-929e-4714-ad80-3637d01aba82")
+		)
+		(fp_arc
+			(start -0.72136 0.499643)
+			(mid -0.829148 0.455)
+			(end -0.87376 0.347243)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "dfc60f1b-bb11-474b-8f82-85626e355ff6")
+		)
+		(fp_arc
+			(start 0.72136 -0.499643)
+			(mid 0.829148 -0.455)
+			(end 0.87376 -0.347243)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "f0f7749a-c3a6-4236-b419-3b786208a03a")
+		)
+		(fp_arc
+			(start 0.87376 0.345161)
+			(mid 0.829148 0.453)
+			(end 0.72136 0.497561)
+			(stroke
+				(width 0.1524)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "ef1ef02e-e4b9-4f19-bb3a-9bf660c8a0eb")
+		)
+		(pad "1" smd rect
+			(at -0.42 0)
+			(size 0.5 0.54)
+			(layers "F.Cu" "F.Mask" "F.Paste")
+			(net "/dac/FLYP_VCP")
+			(pinfunction "1_1")
+			(pintype "unspecified")
+			(uuid "bc1a5da1-099a-4735-bb5b-f1dbfb7d4613")
+		)
+		(pad "2" smd rect
+			(at 0.42 0)
+			(size 0.5 0.54)
+			(layers "F.Cu" "F.Mask" "F.Paste")
+			(net "/dac/FLYC_VCP")
+			(pinfunction "2_2")
+			(pintype "unspecified")
+			(uuid "330c4701-831f-4ea2-b284-8cc747768987")
+		)
+		(embedded_fonts no)
+		(model "${KIPRJMOD}/JLCImport.3dshapes/CL05A225KO5NQNC.wrl"
+			(offset
+				(xyz 0 0 0.25)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
 			)
 		)
 	)
@@ -8824,386 +14236,6 @@
 			)
 		)
 	)
-	(footprint "Resistor_SMD:R_0603_1608Metric"
-		(layer "F.Cu")
-		(uuid "fc404642-3aff-44cd-814a-625bfec09d26")
-		(at 28.345 24.245)
-		(descr "Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
-		(tags "resistor")
-		(property "Reference" "R1"
-			(at 0 -1.43 0)
-			(layer "F.SilkS")
-			(uuid "64de59a7-af60-4994-859e-dd0ebeb55fdf")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Value" "10k"
-			(at 0 1.43 0)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "63a75c0c-324c-4fca-a99a-15f47239564f")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 0 0 0)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "f2655486-319d-480f-bb06-30bc82301406")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Resistor, small symbol"
-			(at 0 0 0)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "cc730c32-2df7-40f4-a71b-86ba0487463e")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property ki_fp_filters "R_*")
-		(path "/95ba76fd-cd0d-4fc7-9d47-f5665dc7e9c9/05a542b0-e2d9-4a03-8999-c6765de20e79")
-		(sheetname "/dac/")
-		(sheetfile "dac.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2")
-			)
-		)
-		(attr smd)
-		(duplicate_pad_numbers_are_jumpers no)
-		(fp_line
-			(start -0.237258 -0.5225)
-			(end 0.237258 -0.5225)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "768659c1-a443-46c2-91d8-73da3334429f")
-		)
-		(fp_line
-			(start -0.237258 0.5225)
-			(end 0.237258 0.5225)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "4f84e63f-b425-4d5b-9238-10944bc32f90")
-		)
-		(fp_rect
-			(start -1.48 -0.73)
-			(end 1.48 0.73)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(fill no)
-			(layer "F.CrtYd")
-			(uuid "0900bff8-52cd-4b77-8bea-d50feb67a213")
-		)
-		(fp_rect
-			(start -0.8 -0.4125)
-			(end 0.8 0.4125)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(fill no)
-			(layer "F.Fab")
-			(uuid "6dccd569-ad03-4ab9-a54c-ee0b31f63543")
-		)
-		(fp_text user "${REFERENCE}"
-			(at 0 0 0)
-			(layer "F.Fab")
-			(uuid "1a891cfa-ac5a-434a-bac9-8b2e57cfe6fd")
-			(effects
-				(font
-					(size 0.4 0.4)
-					(thickness 0.06)
-				)
-			)
-		)
-		(pad "1" smd roundrect
-			(at -0.825 0)
-			(size 0.8 0.95)
-			(layers "F.Cu" "F.Mask" "F.Paste")
-			(roundrect_rratio 0.25)
-			(net "unconnected-(R1-Pad1)")
-			(pintype "passive")
-			(uuid "39f5d2c1-eca4-446e-965d-bc0ed4aba27b")
-		)
-		(pad "2" smd roundrect
-			(at 0.825 0)
-			(size 0.8 0.95)
-			(layers "F.Cu" "F.Mask" "F.Paste")
-			(roundrect_rratio 0.25)
-			(net "unconnected-(R1-Pad2)")
-			(pintype "passive")
-			(uuid "a130a742-4af9-48e2-8fa6-27bd17c5ebb7")
-		)
-		(embedded_fonts no)
-		(model "${KICAD10_3DMODEL_DIR}/Resistor_SMD.3dshapes/R_0603_1608Metric.step"
-			(offset
-				(xyz 0 0 0)
-			)
-			(scale
-				(xyz 1 1 1)
-			)
-			(rotate
-				(xyz 0 0 0)
-			)
-		)
-	)
-	(footprint "JLCImport:BLM15AG601SN1D"
-		(layer "F.Cu")
-		(uuid "fef16c56-8df6-4a8d-9eac-53c3edde04ea")
-		(at 59.75539 74.292587)
-		(descr "-55℃~+125℃ 1 300mA 520mΩ 600Ω@100MHz ±25% 0402 Ferrite Beads ROHS")
-		(tags "BLM15AG601SN1D C76884 L0402 Murata Electronics")
-		(property "Reference" "L1"
-			(at 0 -1.49022 0)
-			(layer "F.SilkS")
-			(uuid "f111124c-c6fe-407b-9e2c-47ee973fec57")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Value" "BLM15AG601SN1D"
-			(at 0 1.508 0)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "d0211ec9-b3bd-4fa2-8b68-c8705a62cfc9")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Murata-Electronics-BLM15AG601SN1D_C76884.pdf"
-			(at 0 0 0)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "5d2fbd28-7b87-47e4-961d-d0e9ea29e0c8")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Description" "-55℃~+125℃ 1 300mA 520mΩ 600Ω@100MHz ±25% 0402 Ferrite Beads ROHS"
-			(at 0 0 0)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "24f723c6-2597-43ab-9e06-b4f063111f26")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "LCSC" "C76884"
-			(at 0 0 0)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "ef3fdbb7-7dc4-49e5-9822-e46cf8e4b1ac")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Manufacturer" "Murata Electronics"
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "b77e5ccd-65b9-48d8-ad27-774074589324")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Manufacturer Part" "BLM15AG601SN1D"
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "7f3e7ebb-cc9e-410b-8177-0d61f6f940b1")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(path "/bea21a31-aee1-46f9-b13e-ece764487360/b5b91fb0-cd82-4258-9f8f-6927f92375d1")
-		(sheetname "/power/")
-		(sheetfile "power.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2")
-			)
-		)
-		(attr smd)
-		(duplicate_pad_numbers_are_jumpers no)
-		(fp_line
-			(start -1.06934 -0.336779)
-			(end -0.91694 -0.489153)
-			(stroke
-				(width 0.1524)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "9bca86c2-fe62-4b5d-b913-6c5894230486")
-		)
-		(fp_line
-			(start -1.06934 0.3556)
-			(end -1.06934 -0.336779)
-			(stroke
-				(width 0.1524)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "fd077e51-f54d-45ef-aa74-5ae58ab22fd0")
-		)
-		(fp_line
-			(start -0.91694 -0.489153)
-			(end -0.126873 -0.489153)
-			(stroke
-				(width 0.1524)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "9f827dc8-993a-4771-9671-5956eca54786")
-		)
-		(fp_line
-			(start -0.91694 0.508)
-			(end -1.06934 0.3556)
-			(stroke
-				(width 0.1524)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "6463c22a-d08c-42d8-aaab-43f44ec50b61")
-		)
-		(fp_line
-			(start -0.126873 0.508)
-			(end -0.91694 0.508)
-			(stroke
-				(width 0.1524)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "bc3702e5-a026-41a8-9c86-a5c5c50f330f")
-		)
-		(fp_line
-			(start 0.127127 0.508)
-			(end 0.917 0.508)
-			(stroke
-				(width 0.1524)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "6f3acef2-70b7-4378-867c-81bc5a44f117")
-		)
-		(fp_line
-			(start 0.907 -0.49022)
-			(end 0.127127 -0.49022)
-			(stroke
-				(width 0.1524)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "f3fa99b7-c8e0-4f81-888f-990ce8b1c274")
-		)
-		(fp_line
-			(start 0.917 0.508)
-			(end 1.069467 0.3556)
-			(stroke
-				(width 0.1524)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "85fb95dc-5a33-4ffb-9c7f-8b686371d0e4")
-		)
-		(fp_line
-			(start 1.069467 -0.32766)
-			(end 0.907 -0.49022)
-			(stroke
-				(width 0.1524)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "920ac4b4-6e78-42f2-91c5-1ed73bf649e1")
-		)
-		(fp_line
-			(start 1.069467 0.3556)
-			(end 1.069467 -0.32766)
-			(stroke
-				(width 0.1524)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "dc6ef8f5-aed2-4541-ab3c-768ddc374dc2")
-		)
-		(pad "1" smd rect
-			(at -0.42 0)
-			(size 0.54 0.54)
-			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "unconnected-(L1-Pad1)")
-			(pinfunction "1_1")
-			(pintype "unspecified")
-			(uuid "a0508c7d-e367-4a07-b67a-63421f8a1343")
-		)
-		(pad "2" smd rect
-			(at 0.42 0)
-			(size 0.54 0.54)
-			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net "unconnected-(L1-Pad2)")
-			(pinfunction "2_2")
-			(pintype "unspecified")
-			(uuid "3264b669-e284-444d-bf63-7900ac298648")
-		)
-		(embedded_fonts no)
-		(model "${KIPRJMOD}/JLCImport.3dshapes/BLM15AG601SN1D.wrl"
-			(offset
-				(xyz 0 0 0.25)
-			)
-			(scale
-				(xyz 1 1 1)
-			)
-			(rotate
-				(xyz 0 0 0)
-			)
-		)
-	)
 	(footprint "JLCImport:X322516MLB4SI"
 		(layer "B.Cu")
 		(uuid "82d9c8ce-56e8-4a9d-ba84-9f36a2fade57")
@@ -9397,7 +14429,7 @@
 			(at 1.1 -0.85)
 			(size 1.4 1.2)
 			(layers "B.Cu" "B.Mask" "B.Paste")
-			(net "GND")
+			(net "Net-(X1-GND-Pad2)")
 			(pinfunction "GND_2")
 			(pintype "unspecified")
 			(uuid "b3d96dcd-f704-4396-a084-779fd64821a0")
@@ -9415,7 +14447,7 @@
 			(at -1.1 0.85)
 			(size 1.4 1.2)
 			(layers "B.Cu" "B.Mask" "B.Paste")
-			(net "GND")
+			(net "Net-(X1-GND-Pad2)")
 			(pinfunction "GND_4")
 			(pintype "unspecified")
 			(uuid "4eadbce1-6b7c-41a9-8cc9-34b3c8af8835")
@@ -9726,7 +14758,7 @@
 			(at -0.499872 -7.55 180)
 			(size 0.3 1.6)
 			(layers "B.Cu" "B.Mask" "B.Paste")
-			(net "unconnected-(U2-VREF+-Pad12)")
+			(net "Net-(U2-VREF+)")
 			(pinfunction "VREF+_12")
 			(pintype "unspecified")
 			(uuid "eb07c41a-41c1-409d-951a-10395875e041")
@@ -9744,7 +14776,7 @@
 			(at 0.500126 -7.55 180)
 			(size 0.3 1.6)
 			(layers "B.Cu" "B.Mask" "B.Paste")
-			(net "unconnected-(U2-VSS{slash}VSSA-Pad14)")
+			(net "GND")
 			(pinfunction "VSS/VSSA_14")
 			(pintype "unspecified")
 			(uuid "da6b365d-a463-4aef-aeb5-047474f3ce18")
@@ -9789,7 +14821,7 @@
 			(at 3 -7.55 180)
 			(size 0.3 1.6)
 			(layers "B.Cu" "B.Mask" "B.Paste")
-			(net "/mcu/UART_TX")
+			(net "unconnected-(U2-PF4-Pad19)")
 			(pinfunction "PF4_19")
 			(pintype "unspecified")
 			(uuid "a3990dbe-dc39-490b-9c3a-4c1220255890")
@@ -9798,7 +14830,7 @@
 			(at 3.50012 -7.55 180)
 			(size 0.3 1.6)
 			(layers "B.Cu" "B.Mask" "B.Paste")
-			(net "/mcu/UART_RX")
+			(net "unconnected-(U2-PF5-Pad20)")
 			(pinfunction "PF5_20")
 			(pintype "unspecified")
 			(uuid "1fb4fbec-ee5e-4f83-a142-e01b8236dd01")
@@ -10131,7 +15163,7 @@
 			(at 3 7.55 180)
 			(size 0.3 1.6)
 			(layers "B.Cu" "B.Mask" "B.Paste")
-			(net "unconnected-(U2-PC6-Pad57)")
+			(net "/mcu/UART_TX")
 			(pinfunction "PC6_57")
 			(pintype "unspecified")
 			(uuid "dfe4034d-8b9f-4b8c-8024-f83b96206366")
@@ -10140,7 +15172,7 @@
 			(at 2.5 7.55 180)
 			(size 0.3 1.6)
 			(layers "B.Cu" "B.Mask" "B.Paste")
-			(net "unconnected-(U2-PC7-Pad58)")
+			(net "/mcu/UART_RX")
 			(pinfunction "PC7_58")
 			(pintype "unspecified")
 			(uuid "310b2911-577b-492c-8861-d6ee89a775e8")
@@ -10185,7 +15217,7 @@
 			(at 0 7.55 180)
 			(size 0.3 1.6)
 			(layers "B.Cu" "B.Mask" "B.Paste")
-			(net "unconnected-(U2-VSS-Pad63)")
+			(net "GND")
 			(pinfunction "VSS_63")
 			(pintype "unspecified")
 			(uuid "0fda38d9-0bd2-43d1-9072-d1e5c24c595c")
@@ -10546,6 +15578,22 @@
 		(fill no)
 		(layer "Edge.Cuts")
 		(uuid "c62e4be6-0a54-4166-b0fa-386e23e6b6d5")
+	)
+	(segment
+		(start 53.44 28.532461)
+		(end 53.44 27.09)
+		(width 0.2)
+		(layer "F.Cu")
+		(net "Net-(U1-XTI{slash}MCLK)")
+		(uuid "8ee7cbaf-83fd-4528-a49d-6579fa29ab39")
+	)
+	(segment
+		(start 53.44 27.09)
+		(end 53.2 26.85)
+		(width 0.2)
+		(layer "F.Cu")
+		(net "Net-(U1-XTI{slash}MCLK)")
+		(uuid "961e6cba-fe8b-4e1f-a501-d7259752dbca")
 	)
 	(segment
 		(start 37.05 44.748432)
