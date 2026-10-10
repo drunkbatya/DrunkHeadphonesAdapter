@@ -5204,6 +5204,16 @@
 		)
 		(uuid "33de1f9f-eb71-455c-a3cb-4a71426eeb0b")
 	)
+	(label "GPIO_EXTI2"
+		(at 137.16 137.16 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "3d5e03e4-97c9-473c-b7e7-5e116a7b1821")
+	)
 	(label "VDDIO2"
 		(at 181.61 83.82 180)
 		(effects
@@ -5424,6 +5434,16 @@
 		)
 		(uuid "9437c295-2f80-4ac9-8956-8d4cfe88deab")
 	)
+	(label "GPIO_EXTI0"
+		(at 137.16 132.08 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "9761afa8-0866-4cf6-a9b0-fa89c4adb34b")
+	)
 	(label "ADC1_IN2"
 		(at 39.37 167.64 0)
 		(effects
@@ -5624,6 +5644,16 @@
 		)
 		(uuid "dfa7174b-b81a-4385-b49a-71a50234b6ad")
 	)
+	(label "GPIO_EXTI1"
+		(at 137.16 134.62 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "e35cdf59-ab3b-46d2-83d5-dde81eaa3005")
+	)
 	(label "ADC1_IN1"
 		(at 77.47 88.9 180)
 		(effects
@@ -5643,6 +5673,16 @@
 			(justify left bottom)
 		)
 		(uuid "e752129c-41cf-4d74-8a2a-60de002e875b")
+	)
+	(label "GPIO_EXTI3"
+		(at 137.16 139.7 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "ee393fea-45d3-4719-a0a5-4acf29a1c96c")
 	)
 	(label "GPIO_EXTI4"
 		(at 39.37 184.15 0)
