@@ -5,6 +5,320 @@
 	(uuid "7c4483b0-25de-4227-9fad-761ab55b6bac")
 	(paper "A4")
 	(lib_symbols
+		(symbol "JLCImport:0402WGF1002TCE"
+			(pin_names
+				(offset 1.016)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "R"
+				(at 0 3.016 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "0402WGF1002TCE"
+				(at 0 -3.016 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2411221126_UNI-ROYAL-Uniroyal-Elec-0402WGF1002TCE_C25744.pdf"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "-55℃~+155℃ 10kΩ 50V 62.5mW Thick Film Resistor ±1% ±100ppm/℃ 0402 Chip Resistor - Surface Mount ROHS"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "LCSC" "C25744"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Manufacturer Part" "0402WGF1002TCE"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "0402WGF1002TCE C25744 R0402 UNI-ROYAL(Uniroyal Elec)"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "0402WGF1002TCE_0_1"
+				(rectangle
+					(start -2.54 1.016)
+					(end 2.54 -1.016)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(pin input line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "JLCImport:0402WGF1003TCE"
+			(pin_names
+				(offset 1.016)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "R"
+				(at 0 3.016 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "0402WGF1003TCE"
+				(at 0 -3.016 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "JLCImport:0402WGF1003TCE"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2206010100_UNI-ROYAL-Uniroyal-Elec-0402WGF1003TCE_C25741.pdf"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "-55℃~+155℃ 100kΩ 50V 62.5mW Thick Film Resistor ±1% ±100ppm/℃ 0402 Chip Resistor - Surface Mount ROHS"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "LCSC" "C25741"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Manufacturer Part" "0402WGF1003TCE"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "0402WGF1003TCE C25741 R0402 UNI-ROYAL(Uniroyal Elec)"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "0402WGF1003TCE_0_1"
+				(rectangle
+					(start -2.54 1.016)
+					(end 2.54 -1.016)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(pin input line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "JLCImport:BLM15AG601SN1D"
 			(pin_names
 				(offset 1.016)
@@ -2240,7 +2554,164 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "JLCImport:OT7EL89CJI-111YLC-24_576M"
+		(symbol "JLCImport:RC0402FR-0733RL"
+			(pin_names
+				(offset 1.016)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "R"
+				(at 0 3.016 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "RC0402FR-0733RL"
+				(at 0 -3.016 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_YAGEO-RC0402FR-0733RL_C138002.pdf"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "-55℃~+155℃ 33Ω 50V 62.5mW Thick Film Resistor ±1% ±100ppm/℃ 0402 Chip Resistor - Surface Mount ROHS"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "LCSC" "C138002"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Manufacturer" "YAGEO"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Manufacturer Part" "RC0402FR-0733RL"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "C138002 R0402 RC0402FR-0733RL YAGEO"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "RC0402FR-0733RL_0_1"
+				(rectangle
+					(start -2.54 1.016)
+					(end 2.54 -1.016)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(pin input line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "JLCImport:SX2M22_5792M20F30TNN"
 			(pin_names
 				(offset 1.016)
 			)
@@ -2250,7 +2721,7 @@
 			(in_pos_files yes)
 			(duplicate_pin_numbers_are_jumpers no)
 			(property "Reference" "X"
-				(at 0 5.81 0)
+				(at 0 3.27 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
@@ -2259,8 +2730,8 @@
 					)
 				)
 			)
-			(property "Value" "OT7EL89CJI-111YLC-24_576M"
-				(at 0 -5.81 0)
+			(property "Value" "SX2M22_5792M20F30TNN"
+				(at 0 -10.89 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
@@ -2269,7 +2740,7 @@
 					)
 				)
 			)
-			(property "Footprint" "JLCImport:OT7EL89CJI-111YLC-24_576M"
+			(property "Footprint" "JLCImport:SX2M22_5792M20F30TNN"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -2280,7 +2751,7 @@
 					)
 				)
 			)
-			(property "Datasheet" "https://atta.szlcsc.com/upload/public/pdf/source/20201023/C907627_CD1CF82FE9C526AA5FB48E75E03409CA.pdf"
+			(property "Datasheet" "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2304241359_Shenzhen-SCTF-Elec-SX2M22-5792M20F30TNN_C5452663.pdf"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -2291,7 +2762,7 @@
 					)
 				)
 			)
-			(property "Description" "-40℃~+85℃ 1.8V~3.3V 24.576MHz CMOS ±10ppm ±20ppm SMD2016-4P Crystal Oscillators ROHS"
+			(property "Description" "-40℃~+85℃ 1.62V~3.63V 10mA 22.5792MHz CMOS ±20ppm ±30ppm SMD2520-4P Crystal Oscillators ROHS"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -2302,7 +2773,7 @@
 					)
 				)
 			)
-			(property "LCSC" "C49304729"
+			(property "LCSC" "C5452663"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -2313,7 +2784,7 @@
 					)
 				)
 			)
-			(property "Manufacturer" "YXC Crystal Oscillators"
+			(property "Manufacturer" "Shenzhen SCTF Elec"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -2324,7 +2795,7 @@
 					)
 				)
 			)
-			(property "Manufacturer Part" "OT7EL89CJI-111YLC-24.576M"
+			(property "Manufacturer Part" "SX2M22.5792M20F30TNN"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -2335,7 +2806,7 @@
 					)
 				)
 			)
-			(property "ki_keywords" "C49304729 OSC-SMD_4P-L2.0-W1.6-BL_S1D25.000000E10F30T OT7EL89CJI-111YLC-24.576M YXC Crystal Oscillators"
+			(property "ki_keywords" "C5452663 OSC-SMD_4P-L2.5-W2.0-BL SX2M22.5792M20F30TNN Shenzhen SCTF Elec"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -2346,9 +2817,20 @@
 					)
 				)
 			)
-			(symbol "OT7EL89CJI-111YLC-24_576M_0_1"
+			(symbol "SX2M22_5792M20F30TNN_0_1"
+				(rectangle
+					(start -7.62 1.27)
+					(end 7.62 -8.89)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type background)
+					)
+				)
 				(circle
-					(center -10.16 2.54)
+					(center -6.35 0)
 					(radius 0.381)
 					(stroke
 						(width 0.254)
@@ -2358,28 +2840,10 @@
 						(type outline)
 					)
 				)
-				(polyline
-					(pts
-						(xy 10.922 -3.81) (xy 11.0211 -3.8002) (xy 11.1164 -3.7713) (xy 11.2042 -3.7244) (xy 11.2812 -3.6612)
-						(xy 11.3444 -3.5842) (xy 11.3913 -3.4964) (xy 11.4202 -3.4011) (xy 11.43 -3.302) (xy 11.4202 3.4011)
-						(xy 11.3913 3.4964) (xy 11.3444 3.5842) (xy 11.2812 3.6612) (xy 11.2042 3.7244) (xy 11.1164 3.7713)
-						(xy 11.0211 3.8002) (xy 10.922 3.81) (xy -11.0211 3.8002) (xy -11.1164 3.7713) (xy -11.2042 3.7244)
-						(xy -11.2812 3.6612) (xy -11.3444 3.5842) (xy -11.3913 3.4964) (xy -11.4202 3.4011) (xy -11.43 3.302)
-						(xy -11.4202 -3.4011) (xy -11.3913 -3.4964) (xy -11.3444 -3.5842) (xy -11.2812 -3.6612) (xy -11.2042 -3.7244)
-						(xy -11.1164 -3.7713) (xy -11.0211 -3.8002) (xy -10.922 -3.81) (xy 10.922 -3.81)
-					)
-					(stroke
-						(width 0.254)
-						(type solid)
-					)
-					(fill
-						(type background)
-					)
-				)
 				(pin unspecified line
-					(at -13.97 1.27 0)
+					(at -10.16 -1.27 0)
 					(length 2.54)
-					(name "Tri-state"
+					(name "OE/NC"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2395,7 +2859,7 @@
 					)
 				)
 				(pin unspecified line
-					(at -13.97 -1.27 0)
+					(at -10.16 -6.35 0)
 					(length 2.54)
 					(name "GND"
 						(effects
@@ -2413,7 +2877,7 @@
 					)
 				)
 				(pin unspecified line
-					(at 13.97 -1.27 180)
+					(at 10.16 -6.35 180)
 					(length 2.54)
 					(name "OUT"
 						(effects
@@ -2431,7 +2895,7 @@
 					)
 				)
 				(pin unspecified line
-					(at 13.97 1.27 180)
+					(at 10.16 -1.27 180)
 					(length 2.54)
 					(name "VDD"
 						(effects
@@ -2451,7 +2915,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "JLCImport:PJ-3255A"
+		(symbol "JLCImport:TPS22917DBVR"
 			(pin_names
 				(offset 1.016)
 			)
@@ -2460,8 +2924,8 @@
 			(on_board yes)
 			(in_pos_files yes)
 			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "CN"
-				(at 0 9.62 0)
+			(property "Reference" "U"
+				(at 0 7.08 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
@@ -2470,8 +2934,8 @@
 					)
 				)
 			)
-			(property "Value" "PJ-3255A"
-				(at 0 -9.62 0)
+			(property "Value" "TPS22917DBVR"
+				(at 0 -7.08 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
@@ -2480,7 +2944,7 @@
 					)
 				)
 			)
-			(property "Footprint" "JLCImport:PJ-3255A"
+			(property "Footprint" "JLCImport:TPS22917DBVR"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -2491,7 +2955,7 @@
 					)
 				)
 			)
-			(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2010261706_XKB-Connection-PJ-3255A_C908447.pdf"
+			(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2303011100_Texas-Instruments-TPS22917DBVR_C2681320.pdf"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -2502,7 +2966,7 @@
 					)
 				)
 			)
-			(property "Description" "-20℃~+70℃ 3.5mm Headphone Jack 30V 500mA SMD Audio Connectors ROHS"
+			(property "Description" "-40℃~+125℃ 0V~5.5V 1 2A 80mΩ Active High Load Switch SOT-23-6 Power Distribution Switches ROHS"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -2513,7 +2977,7 @@
 					)
 				)
 			)
-			(property "LCSC" "C908447"
+			(property "LCSC" "C2681320"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -2524,7 +2988,7 @@
 					)
 				)
 			)
-			(property "Manufacturer" "XKB Connection"
+			(property "Manufacturer" "Texas Instruments"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -2535,7 +2999,7 @@
 					)
 				)
 			)
-			(property "Manufacturer Part" "PJ-3255A"
+			(property "Manufacturer Part" "TPS22917DBVR"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -2546,7 +3010,7 @@
 					)
 				)
 			)
-			(property "ki_keywords" "AUDIO-SMD_PJ-3255A C908447 PJ-3255A XKB Connection"
+			(property "ki_keywords" "C2681320 SOT-23-6_L2.9-W1.6-P0.95-LS2.8-BR TPS22917DBVR Texas Instruments"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -2557,10 +3021,28 @@
 					)
 				)
 			)
-			(symbol "PJ-3255A_0_1"
-				(rectangle
-					(start -8.382 1.016)
-					(end -6.858 -4.572)
+			(symbol "TPS22917DBVR_0_1"
+				(circle
+					(center -6.35 3.81)
+					(radius 0.381)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(polyline
+					(pts
+						(xy 7.112 -5.08) (xy 7.2111 -5.0702) (xy 7.3064 -5.0413) (xy 7.3942 -4.9944) (xy 7.4712 -4.9312)
+						(xy 7.5344 -4.8542) (xy 7.5813 -4.7664) (xy 7.6102 -4.6711) (xy 7.62 -4.572) (xy 7.6102 4.6711)
+						(xy 7.5813 4.7664) (xy 7.5344 4.8542) (xy 7.4712 4.9312) (xy 7.3942 4.9944) (xy 7.3064 5.0413)
+						(xy 7.2111 5.0702) (xy 7.112 5.08) (xy -7.2111 5.0702) (xy -7.3064 5.0413) (xy -7.3942 4.9944)
+						(xy -7.4712 4.9312) (xy -7.5344 4.8542) (xy -7.5813 4.7664) (xy -7.6102 4.6711) (xy -7.62 4.572)
+						(xy -7.6102 -4.6711) (xy -7.5813 -4.7664) (xy -7.5344 -4.8542) (xy -7.4712 -4.9312) (xy -7.3942 -4.9944)
+						(xy -7.3064 -5.0413) (xy -7.2111 -5.0702) (xy -7.112 -5.08) (xy 7.112 -5.08)
+					)
 					(stroke
 						(width 0.254)
 						(type solid)
@@ -2569,82 +3051,10 @@
 						(type background)
 					)
 				)
-				(polyline
-					(pts
-						(xy -7.62 1.016) (xy -7.62 5.08) (xy -2.54 5.08)
-					)
-					(stroke
-						(width 0.254)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -5.334 -1.016) (xy -5.334 -1.524)
-					)
-					(stroke
-						(width 0.254)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -2.54 2.54) (xy -2.54 2.54) (xy -3.302 2.54) (xy -3.556 1.524) (xy -3.81 2.54)
-					)
-					(stroke
-						(width 0.254)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -2.54 0) (xy -5.08 0) (xy -5.334 -0.762) (xy -5.588 0)
-					)
-					(stroke
-						(width 0.254)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -2.54 -2.54) (xy -5.08 -2.54) (xy -5.334 -1.778) (xy -5.588 -2.54)
-					)
-					(stroke
-						(width 0.254)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -2.54 -5.08) (xy -5.842 -5.08) (xy -6.096 -4.064) (xy -6.35 -5.08)
-					)
-					(stroke
-						(width 0.254)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
 				(pin unspecified line
-					(at 2.54 5.08 180)
-					(length 5.08)
-					(name "1"
+					(at -10.16 2.54 0)
+					(length 2.54)
+					(name "VIN"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2660,9 +3070,9 @@
 					)
 				)
 				(pin unspecified line
-					(at 2.54 -2.54 180)
-					(length 5.08)
-					(name "2"
+					(at -10.16 0 0)
+					(length 2.54)
+					(name "GND"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2678,9 +3088,9 @@
 					)
 				)
 				(pin unspecified line
-					(at 2.54 2.54 180)
-					(length 5.08)
-					(name "3"
+					(at -10.16 -2.54 0)
+					(length 2.54)
+					(name "ON"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2696,9 +3106,9 @@
 					)
 				)
 				(pin unspecified line
-					(at 2.54 -5.08 180)
-					(length 5.08)
-					(name "4"
+					(at 10.16 -2.54 180)
+					(length 2.54)
+					(name "CT"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2714,9 +3124,9 @@
 					)
 				)
 				(pin unspecified line
-					(at 2.54 0 180)
-					(length 5.08)
-					(name "5"
+					(at 10.16 0 180)
+					(length 2.54)
+					(name "QOD"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2732,9 +3142,9 @@
 					)
 				)
 				(pin unspecified line
-					(at 2.54 7.62 180)
-					(length 5.08)
-					(name "6"
+					(at 10.16 2.54 180)
+					(length 2.54)
+					(name "VOUT"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2742,24 +3152,6 @@
 						)
 					)
 					(number "6"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin unspecified line
-					(at 2.54 -7.62 180)
-					(length 5.08)
-					(name "7"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "7"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -3025,9 +3417,29 @@
 			(embedded_fonts no)
 		)
 	)
+	(text "I2C addr: 0x30"
+		(exclude_from_sim no)
+		(at 224.028 94.996 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "16453a65-2f33-4129-9f58-d16792a35747")
+	)
+	(text "Need to be two separate connections"
+		(exclude_from_sim no)
+		(at 220.98 80.264 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "169f4fa4-b9f5-4b4b-b69d-f05e8fc36e5d")
+	)
 	(text "Using oscilator"
 		(exclude_from_sim no)
-		(at 109.982 83.566 0)
+		(at 146.304 95.504 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3037,7 +3449,7 @@
 	)
 	(text "Not using now\npins has internal\npull-down"
 		(exclude_from_sim no)
-		(at 107.95 92.964 0)
+		(at 143.51 104.394 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3045,121 +3457,343 @@
 		)
 		(uuid "5ffa008e-c0af-46cd-954b-77ca9d31814d")
 	)
+	(text "Disabled by default"
+		(exclude_from_sim no)
+		(at 26.67 77.724 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "601462d8-c54a-46b0-a4df-19aa09260041")
+	)
+	(text "Disabled by default"
+		(exclude_from_sim no)
+		(at 27.686 56.642 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "ec2c5ff4-1115-4e1f-bb1e-34dd848add91")
+	)
 	(junction
-		(at 93.98 118.11)
+		(at 39.37 49.53)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "04aff788-312c-404e-8a5a-4f94e906609f")
+	)
+	(junction
+		(at 41.91 76.2)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "0f3d7582-0a83-47bc-a5b0-7be23c829c63")
+	)
+	(junction
+		(at 129.54 129.54)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "10721e24-3de4-4afd-a127-aa92b4213045")
 	)
 	(junction
-		(at 59.69 80.01)
+		(at 207.01 137.16)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "1b7d1ee6-fbaa-44ec-819d-e6f48db8daf9")
+		(uuid "1598464a-a07e-49e8-93e4-d07ffca106a2")
 	)
 	(junction
-		(at 171.45 130.81)
+		(at 207.01 142.24)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "1e395c6a-6bef-442c-92e7-d1bbdad0218c")
 	)
 	(junction
-		(at 179.07 130.81)
+		(at 41.91 54.61)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "24e100ef-658e-4939-890d-bdf251127012")
+	)
+	(junction
+		(at 96.52 49.53)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "2d945f9f-9a25-44ff-86c9-0063ffff9950")
+	)
+	(junction
+		(at 44.45 83.82)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "3b1277a2-d3de-4c0b-8a83-01cac0100082")
+	)
+	(junction
+		(at 214.63 152.4)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "415eb731-2dc1-44a3-903c-b2477c5e2871")
 	)
 	(junction
-		(at 96.52 140.97)
+		(at 106.68 71.12)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "46446448-e19d-4455-b855-e6952d948b85")
+	)
+	(junction
+		(at 68.58 60.96)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "4b81ad7b-0a91-407e-89a8-22735aba17a4")
+	)
+	(junction
+		(at 132.08 152.4)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "4c66ba7f-89ba-4a5e-8e75-b7e83333ee7f")
 	)
 	(junction
-		(at 67.31 123.19)
+		(at 76.2 83.82)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "508b221d-7787-4c66-93e7-bf010362d713")
+	)
+	(junction
+		(at 102.87 134.62)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "587a7011-e2d3-4595-bd46-20333f618e5d")
 	)
 	(junction
-		(at 73.66 68.58)
+		(at 39.37 71.12)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "5bc5987d-0b15-4f2a-82aa-c18049d33b15")
+		(uuid "5ce93266-9729-48d4-b7e1-4fb6d18b41c9")
 	)
 	(junction
-		(at 78.74 58.42)
+		(at 250.19 101.6)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "5f22c37d-25dc-4856-805a-b5d1564f3aec")
+		(uuid "5f84e245-e683-4491-bec6-3cc9246faa46")
 	)
 	(junction
-		(at 96.52 130.81)
+		(at 72.39 71.12)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "620cbd03-2b43-4477-9710-7a3f0ee08253")
+	)
+	(junction
+		(at 132.08 142.24)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "643c505c-3b06-4a28-a24d-8598cda6bcd3")
 	)
 	(junction
-		(at 96.52 115.57)
+		(at 71.12 49.53)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "65afdb03-0ed9-4d1c-b6c0-fc585db7932a")
+	)
+	(junction
+		(at 76.2 64.77)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "6eb44bae-bf29-4f77-b17a-93370782c8e1")
+	)
+	(junction
+		(at 106.68 49.53)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "7790d772-bdef-44b7-852a-2696fccbcc36")
+	)
+	(junction
+		(at 245.11 86.36)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "7b54f884-6682-4b53-9c2b-9c4262b960df")
+	)
+	(junction
+		(at 132.08 127)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "7ba68545-6e83-4e5c-ba96-986f0434b364")
 	)
 	(junction
-		(at 81.28 140.97)
+		(at 116.84 152.4)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "80cbec94-04a3-4c79-8dc7-e852fbaff7df")
 	)
 	(junction
-		(at 91.44 120.65)
+		(at 127 132.08)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "8f0985e1-8e21-4ca8-9b68-26b1ed79a2e9")
 	)
 	(junction
-		(at 72.39 123.19)
+		(at 107.95 134.62)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "90464aef-7e3b-446b-ae35-24489ae6fda5")
 	)
 	(junction
-		(at 72.39 140.97)
+		(at 238.76 106.68)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "98821b49-2838-472b-bf5a-aca9a7ef5eb4")
+	)
+	(junction
+		(at 207.01 139.7)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "9e4936a5-b352-4bc1-b5bb-d2fde19a78f5")
+	)
+	(junction
+		(at 76.2 60.96)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "a9e3dbe6-6188-4b36-8cf5-278082296246")
+	)
+	(junction
+		(at 96.52 66.04)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "ac7c8f26-2304-4a58-81db-6c73bd89ef58")
+	)
+	(junction
+		(at 76.2 43.18)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "afab4729-1b2e-4752-ba32-86d4749956c6")
+	)
+	(junction
+		(at 207.01 152.4)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "c4acd6ae-8a6a-4508-bb1b-56f1fccd6e5a")
+	)
+	(junction
+		(at 107.95 152.4)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "c648ac22-a8f2-4d94-8252-b88fe791ce4b")
 	)
 	(junction
-		(at 88.9 140.97)
+		(at 109.22 67.31)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "c7b88703-b772-4a63-982b-8308d58bd676")
+	)
+	(junction
+		(at 124.46 152.4)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "c9fb8457-9cc3-4663-90cf-cb0a645c65fd")
 	)
 	(junction
-		(at 93.98 58.42)
+		(at 39.37 45.72)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "cb8dab61-7900-459c-a51c-0652cf4e6a84")
+		(uuid "ca6df9de-0950-4376-b053-85357b407016")
+	)
+	(junction
+		(at 186.69 26.67)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "cf839d29-e505-45c8-928a-5ac3143dc1b7")
+	)
+	(junction
+		(at 44.45 60.96)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "eeb74e78-5f27-4b04-91f8-25652cd39606")
+	)
+	(junction
+		(at 96.52 71.12)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "f9a7f8b1-ee74-4477-94c7-88acf1338474")
+	)
+	(junction
+		(at 96.52 44.45)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "fa75fc20-730e-4d32-811d-b2b1dfedcc9d")
 	)
 	(no_connect
-		(at 118.11 82.55)
-		(uuid "0f271c3e-b3bc-4095-9d5d-f8a968f1bc4d")
-	)
-	(no_connect
-		(at 118.11 90.17)
+		(at 153.67 101.6)
 		(uuid "48e522e6-3760-4e75-96c0-b44fb3243c8f")
 	)
 	(no_connect
-		(at 118.11 92.71)
+		(at 153.67 104.14)
 		(uuid "80aad8d3-fde0-40cc-897e-b6edab2a7876")
 	)
 	(no_connect
-		(at 118.11 95.25)
+		(at 199.39 109.22)
+		(uuid "c50b10a4-c7f9-42b1-8f3d-a22d741fb6a1")
+	)
+	(no_connect
+		(at 68.58 54.61)
+		(uuid "cdf7d1e0-fb9b-49dd-bcd3-801ce635586f")
+	)
+	(no_connect
+		(at 68.58 76.2)
+		(uuid "ddfe9a7d-cdfd-4930-90a4-89cb1b5b53ec")
+	)
+	(no_connect
+		(at 153.67 106.68)
 		(uuid "e09e6625-288e-4326-b365-a8f9e58a5576")
 	)
 	(wire
 		(pts
-			(xy 91.44 120.65) (xy 118.11 120.65)
+			(xy 34.29 189.23) (xy 38.1 189.23)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0103afd2-28e3-4e90-87af-2b3cdcf71a57")
+	)
+	(wire
+		(pts
+			(xy 250.19 101.6) (xy 199.39 101.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "059fad97-d7c6-4cde-83d9-9ea3be527490")
+	)
+	(wire
+		(pts
+			(xy 34.29 144.78) (xy 38.1 144.78)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "05d2067b-3c2f-44d5-a704-00e4d3027f45")
+	)
+	(wire
+		(pts
+			(xy 255.27 101.6) (xy 250.19 101.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "06fd50cc-9eb8-4eb9-ab53-02dbc7472e42")
+	)
+	(wire
+		(pts
+			(xy 76.2 60.96) (xy 106.68 60.96)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "086ddc05-ce95-4b4b-8ea5-58d2f90e01ec")
+	)
+	(wire
+		(pts
+			(xy 127 132.08) (xy 153.67 132.08)
 		)
 		(stroke
 			(width 0)
@@ -3169,7 +3803,27 @@
 	)
 	(wire
 		(pts
-			(xy 74.93 114.3) (xy 74.93 120.65)
+			(xy 227.33 96.52) (xy 199.39 96.52)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0a20f78b-f6f6-42ba-a4f0-59a607f9b97d")
+	)
+	(wire
+		(pts
+			(xy 149.86 81.28) (xy 153.67 81.28)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0aeceb94-b26f-4278-b8ab-60e675737677")
+	)
+	(wire
+		(pts
+			(xy 110.49 125.73) (xy 110.49 132.08)
 		)
 		(stroke
 			(width 0)
@@ -3179,17 +3833,17 @@
 	)
 	(wire
 		(pts
-			(xy 93.98 48.26) (xy 93.98 58.42)
+			(xy 149.86 60.96) (xy 153.67 60.96)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "0eca13fa-3bd7-4d36-915b-851184d59b04")
+		(uuid "0cac8fb6-87d6-469c-89bb-7fa41eee6b29")
 	)
 	(wire
 		(pts
-			(xy 172.72 64.77) (xy 163.83 64.77)
+			(xy 208.28 76.2) (xy 199.39 76.2)
 		)
 		(stroke
 			(width 0)
@@ -3199,17 +3853,27 @@
 	)
 	(wire
 		(pts
-			(xy 93.98 58.42) (xy 93.98 77.47)
+			(xy 99.06 76.2) (xy 99.06 78.74)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "1038d0e5-5e6d-4655-a7db-0638ff441683")
+		(uuid "13fca0d3-e579-404f-bb63-48d36ad378f7")
 	)
 	(wire
 		(pts
-			(xy 163.83 140.97) (xy 171.45 140.97)
+			(xy 68.58 71.12) (xy 72.39 71.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "17f41558-9daf-464f-9bd0-ba58466411ea")
+	)
+	(wire
+		(pts
+			(xy 199.39 152.4) (xy 207.01 152.4)
 		)
 		(stroke
 			(width 0)
@@ -3219,7 +3883,27 @@
 	)
 	(wire
 		(pts
-			(xy 72.39 140.97) (xy 72.39 133.35)
+			(xy 39.37 49.53) (xy 48.26 49.53)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1ccae199-fd3a-4cef-92f1-bcc3d0684543")
+	)
+	(wire
+		(pts
+			(xy 227.33 127) (xy 227.33 96.52)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1e0fb355-01f5-42c0-92dd-8a223a2f91d3")
+	)
+	(wire
+		(pts
+			(xy 107.95 152.4) (xy 107.95 144.78)
 		)
 		(stroke
 			(width 0)
@@ -3229,7 +3913,27 @@
 	)
 	(wire
 		(pts
-			(xy 93.98 129.54) (xy 93.98 118.11)
+			(xy 34.29 175.26) (xy 38.1 175.26)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "241a7a64-9efb-4cbe-914b-582f0ef6df32")
+	)
+	(wire
+		(pts
+			(xy 72.39 73.66) (xy 72.39 71.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "25145630-11c4-4a1a-aa92-e9cf704bd1f2")
+	)
+	(wire
+		(pts
+			(xy 129.54 140.97) (xy 129.54 129.54)
 		)
 		(stroke
 			(width 0)
@@ -3239,7 +3943,7 @@
 	)
 	(wire
 		(pts
-			(xy 64.77 123.19) (xy 67.31 123.19)
+			(xy 100.33 134.62) (xy 102.87 134.62)
 		)
 		(stroke
 			(width 0)
@@ -3249,27 +3953,57 @@
 	)
 	(wire
 		(pts
-			(xy 59.69 68.58) (xy 73.66 68.58)
+			(xy 34.29 179.07) (xy 38.1 179.07)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "2eebb5ef-ce82-4480-9cfa-055f73eb99d5")
+		(uuid "29119fb2-9b01-4da9-a6c1-618abc438169")
 	)
 	(wire
 		(pts
-			(xy 170.18 128.27) (xy 163.83 128.27)
+			(xy 274.32 96.52) (xy 271.78 96.52)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "32c32113-345a-4803-90b3-d9078e0eb324")
+		(uuid "2a51571f-7ac1-428e-bdc6-367d1405fd39")
 	)
 	(wire
 		(pts
-			(xy 96.52 130.81) (xy 96.52 115.57)
+			(xy 48.26 73.66) (xy 44.45 73.66)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2f557cb4-e180-45fc-a524-a54da807e3af")
+	)
+	(wire
+		(pts
+			(xy 186.69 20.32) (xy 186.69 26.67)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2feeeac6-bc62-48de-8b81-6c21a02f3025")
+	)
+	(wire
+		(pts
+			(xy 106.68 66.04) (xy 106.68 71.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "33339f73-b41f-424d-b7f5-8a209c2f5d8f")
+	)
+	(wire
+		(pts
+			(xy 132.08 142.24) (xy 132.08 127)
 		)
 		(stroke
 			(width 0)
@@ -3279,7 +4013,7 @@
 	)
 	(wire
 		(pts
-			(xy 172.72 95.25) (xy 163.83 95.25)
+			(xy 255.27 106.68) (xy 238.76 106.68)
 		)
 		(stroke
 			(width 0)
@@ -3289,7 +4023,17 @@
 	)
 	(wire
 		(pts
-			(xy 91.44 127) (xy 91.44 120.65)
+			(xy 76.2 60.96) (xy 76.2 54.61)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "39b7893b-336d-48bb-9f94-631ec0feb414")
+	)
+	(wire
+		(pts
+			(xy 127 138.43) (xy 127 132.08)
 		)
 		(stroke
 			(width 0)
@@ -3299,7 +4043,17 @@
 	)
 	(wire
 		(pts
-			(xy 93.98 118.11) (xy 118.11 118.11)
+			(xy 34.29 149.86) (xy 38.1 149.86)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3c0d7864-0111-4bca-bfa1-1054e4925b70")
+	)
+	(wire
+		(pts
+			(xy 129.54 129.54) (xy 153.67 129.54)
 		)
 		(stroke
 			(width 0)
@@ -3309,7 +4063,7 @@
 	)
 	(wire
 		(pts
-			(xy 93.98 36.83) (xy 93.98 38.1)
+			(xy 39.37 25.4) (xy 39.37 26.67)
 		)
 		(stroke
 			(width 0)
@@ -3319,7 +4073,7 @@
 	)
 	(wire
 		(pts
-			(xy 172.72 67.31) (xy 163.83 67.31)
+			(xy 208.28 78.74) (xy 199.39 78.74)
 		)
 		(stroke
 			(width 0)
@@ -3329,7 +4083,87 @@
 	)
 	(wire
 		(pts
-			(xy 85.09 120.65) (xy 91.44 120.65)
+			(xy 199.39 139.7) (xy 207.01 139.7)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "444d0e7f-6f15-4ac4-ba17-072ca0ba5f2b")
+	)
+	(wire
+		(pts
+			(xy 44.45 83.82) (xy 76.2 83.82)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "45da839d-2022-42f8-81c9-9ba2f4b5e1b4")
+	)
+	(wire
+		(pts
+			(xy 41.91 54.61) (xy 48.26 54.61)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "481efc1d-6738-4396-90a1-ba566906315e")
+	)
+	(wire
+		(pts
+			(xy 34.29 153.67) (xy 38.1 153.67)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "494bd40d-40e8-4020-a31b-93aa012506f5")
+	)
+	(wire
+		(pts
+			(xy 44.45 64.77) (xy 41.91 64.77)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4ba98bce-1f3b-42a7-9a73-102f7b94d4b7")
+	)
+	(wire
+		(pts
+			(xy 44.45 86.36) (xy 41.91 86.36)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4bbc311d-6342-4da2-88ce-ef0f32d19dd8")
+	)
+	(wire
+		(pts
+			(xy 76.2 83.82) (xy 76.2 76.2)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4d645404-fc04-4290-ace4-e75573006005")
+	)
+	(wire
+		(pts
+			(xy 99.06 54.61) (xy 99.06 57.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4e7606d7-1ab2-41a6-97de-cf98eb32462f")
+	)
+	(wire
+		(pts
+			(xy 120.65 132.08) (xy 127 132.08)
 		)
 		(stroke
 			(width 0)
@@ -3339,7 +4173,7 @@
 	)
 	(wire
 		(pts
-			(xy 67.31 140.97) (xy 72.39 140.97)
+			(xy 102.87 152.4) (xy 107.95 152.4)
 		)
 		(stroke
 			(width 0)
@@ -3349,7 +4183,27 @@
 	)
 	(wire
 		(pts
-			(xy 172.72 69.85) (xy 172.72 72.39)
+			(xy 106.68 60.96) (xy 106.68 49.53)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5824718d-b69d-49b7-890a-bbd2919b3866")
+	)
+	(wire
+		(pts
+			(xy 96.52 64.77) (xy 96.52 66.04)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "59f23b2d-a42c-4635-b0e7-0a301878c346")
+	)
+	(wire
+		(pts
+			(xy 208.28 81.28) (xy 208.28 83.82)
 		)
 		(stroke
 			(width 0)
@@ -3359,7 +4213,27 @@
 	)
 	(wire
 		(pts
-			(xy 67.31 123.19) (xy 118.11 123.19)
+			(xy 44.45 60.96) (xy 44.45 64.77)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5c8082f2-ffad-4fd6-82b8-5ccbfef0c283")
+	)
+	(wire
+		(pts
+			(xy 96.52 43.18) (xy 96.52 44.45)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5f9c1adf-29fd-43bf-a3dd-43f499815624")
+	)
+	(wire
+		(pts
+			(xy 102.87 134.62) (xy 153.67 134.62)
 		)
 		(stroke
 			(width 0)
@@ -3369,7 +4243,7 @@
 	)
 	(wire
 		(pts
-			(xy 114.3 140.97) (xy 118.11 140.97)
+			(xy 149.86 152.4) (xy 153.67 152.4)
 		)
 		(stroke
 			(width 0)
@@ -3379,17 +4253,37 @@
 	)
 	(wire
 		(pts
-			(xy 73.66 68.58) (xy 78.74 68.58)
+			(xy 250.19 96.52) (xy 250.19 101.6)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "65680ffb-e7de-4d28-a8c8-c115202fc78e")
+		(uuid "63dc9d32-63e8-4e70-a75c-9a4a6b830e9c")
 	)
 	(wire
 		(pts
-			(xy 172.72 92.71) (xy 163.83 92.71)
+			(xy 71.12 43.18) (xy 76.2 43.18)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "649b1b44-46cd-4575-8d64-4952218dea84")
+	)
+	(wire
+		(pts
+			(xy 252.73 96.52) (xy 252.73 99.06)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "65e68253-1c82-4a3e-b672-dacc3e81d0ae")
+	)
+	(wire
+		(pts
+			(xy 208.28 104.14) (xy 199.39 104.14)
 		)
 		(stroke
 			(width 0)
@@ -3399,7 +4293,7 @@
 	)
 	(wire
 		(pts
-			(xy 88.9 129.54) (xy 93.98 129.54)
+			(xy 124.46 140.97) (xy 129.54 140.97)
 		)
 		(stroke
 			(width 0)
@@ -3409,17 +4303,27 @@
 	)
 	(wire
 		(pts
-			(xy 179.07 125.73) (xy 179.07 130.81)
+			(xy 39.37 71.12) (xy 48.26 71.12)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "6d827925-8fbf-43e1-b73b-17cf0560a98a")
+		(uuid "6b0bf43d-2a4f-43e5-90ab-7a967f904c7d")
 	)
 	(wire
 		(pts
-			(xy 172.72 69.85) (xy 163.83 69.85)
+			(xy 44.45 60.96) (xy 76.2 60.96)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6b43bcf2-1a35-4e19-96cf-d4ee9475b57e")
+	)
+	(wire
+		(pts
+			(xy 208.28 81.28) (xy 199.39 81.28)
 		)
 		(stroke
 			(width 0)
@@ -3429,7 +4333,7 @@
 	)
 	(wire
 		(pts
-			(xy 96.52 115.57) (xy 118.11 115.57)
+			(xy 132.08 127) (xy 153.67 127)
 		)
 		(stroke
 			(width 0)
@@ -3439,17 +4343,27 @@
 	)
 	(wire
 		(pts
-			(xy 163.83 125.73) (xy 179.07 125.73)
+			(xy 109.22 67.31) (xy 109.22 78.74)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "71eab2de-8829-407d-97b4-1837330b59c3")
+		(uuid "73a6c418-017b-4794-b452-c5b76fb5f9f5")
 	)
 	(wire
 		(pts
-			(xy 91.44 120.65) (xy 91.44 118.11)
+			(xy 76.2 64.77) (xy 96.52 64.77)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "748bf326-bfa9-47d0-a4b7-742e82916ca7")
+	)
+	(wire
+		(pts
+			(xy 127 132.08) (xy 127 129.54)
 		)
 		(stroke
 			(width 0)
@@ -3459,7 +4373,17 @@
 	)
 	(wire
 		(pts
-			(xy 114.3 133.35) (xy 118.11 133.35)
+			(xy 72.39 64.77) (xy 76.2 64.77)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "77bcb191-36ef-4a5b-82b6-35db7a317df7")
+	)
+	(wire
+		(pts
+			(xy 149.86 144.78) (xy 153.67 144.78)
 		)
 		(stroke
 			(width 0)
@@ -3469,17 +4393,187 @@
 	)
 	(wire
 		(pts
-			(xy 93.98 77.47) (xy 91.44 77.47)
+			(xy 106.68 44.45) (xy 106.68 49.53)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "7ac9b8b4-8717-4f5c-b1ca-2fe0c34513c7")
+		(uuid "797ceeca-f9eb-4efe-be26-402d16b75d75")
 	)
 	(wire
 		(pts
-			(xy 172.72 74.93) (xy 163.83 74.93)
+			(xy 96.52 44.45) (xy 96.52 49.53)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7a3f8c26-e72a-47dd-b995-e24942477ddd")
+	)
+	(wire
+		(pts
+			(xy 96.52 66.04) (xy 96.52 71.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7b02e721-9246-4c92-923f-7ca78b2dae8f")
+	)
+	(wire
+		(pts
+			(xy 34.29 184.15) (xy 38.1 184.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7b30d463-b48f-4e3d-b921-2a97ee0c6a59")
+	)
+	(wire
+		(pts
+			(xy 149.86 71.12) (xy 153.67 71.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7c100fd6-a5a6-4075-aa7e-259b6d9257e6")
+	)
+	(wire
+		(pts
+			(xy 34.29 158.75) (xy 38.1 158.75)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7c3e06d8-1d40-4a6d-9795-2889a9fb3d5a")
+	)
+	(wire
+		(pts
+			(xy 41.91 76.2) (xy 48.26 76.2)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7fcf43b4-951d-4912-9f1e-f8e11b94e7fa")
+	)
+	(wire
+		(pts
+			(xy 149.86 63.5) (xy 153.67 63.5)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "82e9d593-82c2-4038-9f0d-2f0860afa90d")
+	)
+	(wire
+		(pts
+			(xy 261.62 96.52) (xy 252.73 96.52)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "83093706-4aec-4e78-8170-3132daf2e842")
+	)
+	(wire
+		(pts
+			(xy 149.86 73.66) (xy 153.67 73.66)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8407e397-78ea-4538-9c54-fcbcee69e287")
+	)
+	(wire
+		(pts
+			(xy 34.29 186.69) (xy 38.1 186.69)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8540f1e6-1de0-41c2-b08f-98f54f770ec9")
+	)
+	(wire
+		(pts
+			(xy 39.37 45.72) (xy 39.37 49.53)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "86f15f6c-c309-4c67-986e-a6532d46593f")
+	)
+	(wire
+		(pts
+			(xy 76.2 64.77) (xy 76.2 71.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "87408dda-cadd-4d88-8ab7-b1585d75c58c")
+	)
+	(wire
+		(pts
+			(xy 76.2 83.82) (xy 106.68 83.82)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8c36c166-6edb-434c-b6a9-a4f9e87b927d")
+	)
+	(wire
+		(pts
+			(xy 149.86 83.82) (xy 153.67 83.82)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8d0661b7-8069-4fbd-a189-411b0259108f")
+	)
+	(wire
+		(pts
+			(xy 39.37 36.83) (xy 39.37 45.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8f86022a-42eb-4614-b46e-165c95e5e4b1")
+	)
+	(wire
+		(pts
+			(xy 207.01 133.35) (xy 207.01 137.16)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "90fa5d7a-d2a0-4fcc-be9b-6cc11c024e83")
+	)
+	(wire
+		(pts
+			(xy 207.01 137.16) (xy 207.01 139.7)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "93426559-dc2a-4e07-9e1a-8a639ef854be")
+	)
+	(wire
+		(pts
+			(xy 208.28 86.36) (xy 199.39 86.36)
 		)
 		(stroke
 			(width 0)
@@ -3489,7 +4583,27 @@
 	)
 	(wire
 		(pts
-			(xy 114.3 107.95) (xy 118.11 107.95)
+			(xy 34.29 171.45) (xy 38.1 171.45)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "99bba308-82ae-4089-a983-54f0c378d973")
+	)
+	(wire
+		(pts
+			(xy 135.89 67.31) (xy 135.89 91.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9ae22ba8-40f1-43e1-b0d3-18f324e684e7")
+	)
+	(wire
+		(pts
+			(xy 149.86 119.38) (xy 153.67 119.38)
 		)
 		(stroke
 			(width 0)
@@ -3499,17 +4613,27 @@
 	)
 	(wire
 		(pts
-			(xy 63.5 80.01) (xy 59.69 80.01)
+			(xy 207.01 139.7) (xy 207.01 142.24)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "9e8f71ed-2c4e-4336-bfac-b04a10273450")
+		(uuid "9fa6bee8-31e4-42c6-bcae-af5f58a665fa")
 	)
 	(wire
 		(pts
-			(xy 96.52 130.81) (xy 102.87 130.81)
+			(xy 71.12 49.53) (xy 71.12 52.07)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a0757dd2-2e1c-4418-aacc-f5b5914a04bc")
+	)
+	(wire
+		(pts
+			(xy 132.08 142.24) (xy 138.43 142.24)
 		)
 		(stroke
 			(width 0)
@@ -3519,7 +4643,67 @@
 	)
 	(wire
 		(pts
-			(xy 48.26 123.19) (xy 54.61 123.19)
+			(xy 34.29 191.77) (xy 38.1 191.77)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a651a289-5a8b-4ab7-be5c-cc0ce18e29f2")
+	)
+	(wire
+		(pts
+			(xy 72.39 64.77) (xy 72.39 71.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a66635a4-2904-452f-81bf-b0019571a090")
+	)
+	(wire
+		(pts
+			(xy 48.26 52.07) (xy 44.45 52.07)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a6fd6f66-d13c-4e3d-8628-06b2529f8dbf")
+	)
+	(wire
+		(pts
+			(xy 106.68 83.82) (xy 106.68 71.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a897c9bf-a213-485b-8579-12fb8a019b3f")
+	)
+	(wire
+		(pts
+			(xy 76.2 43.18) (xy 96.52 43.18)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "aa515b62-5bcd-44f6-a72d-eb01c3248e7c")
+	)
+	(wire
+		(pts
+			(xy 44.45 52.07) (xy 44.45 60.96)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "aaa8fa9f-ed68-4bb9-a4e8-5de06ff00b1a")
+	)
+	(wire
+		(pts
+			(xy 83.82 134.62) (xy 90.17 134.62)
 		)
 		(stroke
 			(width 0)
@@ -3529,17 +4713,27 @@
 	)
 	(wire
 		(pts
-			(xy 59.69 80.01) (xy 59.69 68.58)
+			(xy 71.12 52.07) (xy 68.58 52.07)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "b31d205c-c4b1-4e3a-ac53-8051c8f2ff2e")
+		(uuid "ab9cf546-a991-4be0-b262-4004fe2db395")
 	)
 	(wire
 		(pts
-			(xy 114.3 105.41) (xy 118.11 105.41)
+			(xy 245.11 86.36) (xy 238.76 86.36)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b2d8d898-b845-4990-91a3-76d71f2bd4d0")
+	)
+	(wire
+		(pts
+			(xy 149.86 116.84) (xy 153.67 116.84)
 		)
 		(stroke
 			(width 0)
@@ -3549,7 +4743,7 @@
 	)
 	(wire
 		(pts
-			(xy 114.3 130.81) (xy 118.11 130.81)
+			(xy 149.86 142.24) (xy 153.67 142.24)
 		)
 		(stroke
 			(width 0)
@@ -3559,7 +4753,17 @@
 	)
 	(wire
 		(pts
-			(xy 171.45 130.81) (xy 163.83 130.81)
+			(xy 109.22 57.15) (xy 109.22 67.31)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b44c9840-4d9a-4c53-9a86-d929187ab143")
+	)
+	(wire
+		(pts
+			(xy 207.01 142.24) (xy 199.39 142.24)
 		)
 		(stroke
 			(width 0)
@@ -3569,7 +4773,17 @@
 	)
 	(wire
 		(pts
-			(xy 88.9 140.97) (xy 96.52 140.97)
+			(xy 238.76 106.68) (xy 199.39 106.68)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b8991860-16ac-4ff3-8f0c-102064060488")
+	)
+	(wire
+		(pts
+			(xy 124.46 152.4) (xy 132.08 152.4)
 		)
 		(stroke
 			(width 0)
@@ -3579,7 +4793,7 @@
 	)
 	(wire
 		(pts
-			(xy 81.28 127) (xy 81.28 130.81)
+			(xy 116.84 138.43) (xy 116.84 142.24)
 		)
 		(stroke
 			(width 0)
@@ -3589,7 +4803,47 @@
 	)
 	(wire
 		(pts
-			(xy 96.52 140.97) (xy 102.87 140.97)
+			(xy 109.22 67.31) (xy 135.89 67.31)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bb32c548-70c7-4d20-8654-6c4f2463b667")
+	)
+	(wire
+		(pts
+			(xy 238.76 96.52) (xy 238.76 106.68)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bb4f5790-2e2d-452b-956c-57c64f868dff")
+	)
+	(wire
+		(pts
+			(xy 31.75 54.61) (xy 41.91 54.61)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bdc65d28-72e2-46d6-883e-c7cbd5456b7f")
+	)
+	(wire
+		(pts
+			(xy 71.12 49.53) (xy 68.58 49.53)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bde6b8a1-e64e-40f8-ae68-a4252f91cbfc")
+	)
+	(wire
+		(pts
+			(xy 132.08 152.4) (xy 138.43 152.4)
 		)
 		(stroke
 			(width 0)
@@ -3599,7 +4853,27 @@
 	)
 	(wire
 		(pts
-			(xy 72.39 140.97) (xy 81.28 140.97)
+			(xy 96.52 54.61) (xy 99.06 54.61)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bfd6b8c9-a8a3-4e87-8e05-514349b4484b")
+	)
+	(wire
+		(pts
+			(xy 68.58 73.66) (xy 72.39 73.66)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c05e16b3-e4e4-4bfa-b7ce-064ad5373106")
+	)
+	(wire
+		(pts
+			(xy 107.95 152.4) (xy 116.84 152.4)
 		)
 		(stroke
 			(width 0)
@@ -3609,7 +4883,17 @@
 	)
 	(wire
 		(pts
-			(xy 172.72 72.39) (xy 163.83 72.39)
+			(xy 153.67 93.98) (xy 132.08 93.98)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c4c1e0b0-bdba-4e0b-ac22-1940ad5aeda4")
+	)
+	(wire
+		(pts
+			(xy 208.28 83.82) (xy 199.39 83.82)
 		)
 		(stroke
 			(width 0)
@@ -3619,17 +4903,67 @@
 	)
 	(wire
 		(pts
-			(xy 91.44 80.01) (xy 118.11 80.01)
+			(xy 34.29 162.56) (xy 38.1 162.56)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "cdc6544b-f95b-4032-b79e-3640ff1f2475")
+		(uuid "cbef285b-ec30-44f0-9185-9b97d118e665")
 	)
 	(wire
 		(pts
-			(xy 172.72 82.55) (xy 163.83 82.55)
+			(xy 76.2 43.18) (xy 76.2 49.53)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cd96f848-1c5a-44e9-b556-68d9857f8ebf")
+	)
+	(wire
+		(pts
+			(xy 199.39 99.06) (xy 252.73 99.06)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ce3e203a-1cdf-4d4c-92b5-18151f00f788")
+	)
+	(wire
+		(pts
+			(xy 31.75 76.2) (xy 41.91 76.2)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cea95f15-0a19-4134-b81b-827611b6ab8b")
+	)
+	(wire
+		(pts
+			(xy 184.15 26.67) (xy 186.69 26.67)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d1177691-f072-4778-98ac-439d167e7ae3")
+	)
+	(wire
+		(pts
+			(xy 135.89 91.44) (xy 153.67 91.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d2a3c6b8-e432-47b8-803f-826ea0cd92c7")
+	)
+	(wire
+		(pts
+			(xy 208.28 93.98) (xy 199.39 93.98)
 		)
 		(stroke
 			(width 0)
@@ -3639,7 +4973,7 @@
 	)
 	(wire
 		(pts
-			(xy 114.3 102.87) (xy 118.11 102.87)
+			(xy 149.86 114.3) (xy 153.67 114.3)
 		)
 		(stroke
 			(width 0)
@@ -3649,7 +4983,27 @@
 	)
 	(wire
 		(pts
-			(xy 179.07 130.81) (xy 171.45 130.81)
+			(xy 39.37 49.53) (xy 39.37 71.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d4cfe6ae-40da-453b-9977-5b12237ef4b5")
+	)
+	(wire
+		(pts
+			(xy 214.63 127) (xy 214.63 152.4)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d8d51a8a-9ca7-417e-bdd0-142715e42507")
+	)
+	(wire
+		(pts
+			(xy 214.63 152.4) (xy 207.01 152.4)
 		)
 		(stroke
 			(width 0)
@@ -3659,7 +5013,27 @@
 	)
 	(wire
 		(pts
-			(xy 114.3 138.43) (xy 118.11 138.43)
+			(xy 245.11 86.36) (xy 250.19 86.36)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ddad91f9-c308-4a02-94f2-7861ac433bcf")
+	)
+	(wire
+		(pts
+			(xy 199.39 137.16) (xy 207.01 137.16)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "decb0773-7f8b-4382-b5e5-89f3767e65e1")
+	)
+	(wire
+		(pts
+			(xy 149.86 149.86) (xy 153.67 149.86)
 		)
 		(stroke
 			(width 0)
@@ -3669,7 +5043,7 @@
 	)
 	(wire
 		(pts
-			(xy 91.44 118.11) (xy 93.98 118.11)
+			(xy 127 129.54) (xy 129.54 129.54)
 		)
 		(stroke
 			(width 0)
@@ -3679,7 +5053,7 @@
 	)
 	(wire
 		(pts
-			(xy 81.28 140.97) (xy 88.9 140.97)
+			(xy 116.84 152.4) (xy 124.46 152.4)
 		)
 		(stroke
 			(width 0)
@@ -3689,7 +5063,27 @@
 	)
 	(wire
 		(pts
-			(xy 114.3 135.89) (xy 118.11 135.89)
+			(xy 96.52 76.2) (xy 99.06 76.2)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e7eda579-1115-4b82-97f6-c5272bb15f21")
+	)
+	(wire
+		(pts
+			(xy 34.29 166.37) (xy 38.1 166.37)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e8ba9821-afc3-4a35-af73-cd02028b4f6a")
+	)
+	(wire
+		(pts
+			(xy 149.86 147.32) (xy 153.67 147.32)
 		)
 		(stroke
 			(width 0)
@@ -3699,27 +5093,27 @@
 	)
 	(wire
 		(pts
-			(xy 73.66 58.42) (xy 78.74 58.42)
+			(xy 44.45 73.66) (xy 44.45 83.82)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "ef664cb2-bc10-4b99-935c-afb194169d41")
+		(uuid "eda53c7d-f9aa-4c05-92a5-2f4d362b1f2b")
 	)
 	(wire
 		(pts
-			(xy 78.74 58.42) (xy 93.98 58.42)
+			(xy 214.63 127) (xy 227.33 127)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "f1819790-4ed4-4169-b90b-0b04988c44a4")
+		(uuid "ee85972c-8818-4352-866f-d488800c16b4")
 	)
 	(wire
 		(pts
-			(xy 88.9 130.81) (xy 88.9 129.54)
+			(xy 124.46 142.24) (xy 124.46 140.97)
 		)
 		(stroke
 			(width 0)
@@ -3729,7 +5123,27 @@
 	)
 	(wire
 		(pts
-			(xy 81.28 127) (xy 91.44 127)
+			(xy 44.45 83.82) (xy 44.45 86.36)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f63502d3-a634-4789-aa5c-9c016ce6be89")
+	)
+	(wire
+		(pts
+			(xy 71.12 49.53) (xy 71.12 43.18)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f811eca7-05d9-438c-a15a-998dd5713565")
+	)
+	(wire
+		(pts
+			(xy 116.84 138.43) (xy 127 138.43)
 		)
 		(stroke
 			(width 0)
@@ -3739,17 +5153,7 @@
 	)
 	(wire
 		(pts
-			(xy 59.69 80.01) (xy 55.88 80.01)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "fb119459-6351-4d83-b551-f2da30f9dcab")
-	)
-	(wire
-		(pts
-			(xy 171.45 140.97) (xy 171.45 130.81)
+			(xy 207.01 152.4) (xy 207.01 142.24)
 		)
 		(stroke
 			(width 0)
@@ -3759,7 +5163,7 @@
 	)
 	(wire
 		(pts
-			(xy 67.31 140.97) (xy 67.31 133.35)
+			(xy 102.87 152.4) (xy 102.87 144.78)
 		)
 		(stroke
 			(width 0)
@@ -3777,8 +5181,18 @@
 		)
 		(uuid "07c80f80-1fee-4e74-b851-27b6d949eba6")
 	)
+	(label "JACK_RING_1"
+		(at 38.1 186.69 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "07eadbed-d996-4475-886c-9ec2d4657c81")
+	)
 	(label "-VA"
-		(at 172.72 82.55 0)
+		(at 208.28 93.98 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3797,6 +5211,16 @@
 		)
 		(uuid "1c7a3074-e9dd-4d97-9dd6-2f5bd2a9b5dc")
 	)
+	(label "CLOCK_EN_24_576"
+		(at 31.75 54.61 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "1ddf45fb-f9fd-44d0-bf56-55d6a84661e5")
+	)
 	(label "FILT-"
 		(at 135.89 26.67 180)
 		(effects
@@ -3808,7 +5232,17 @@
 		(uuid "21bc40ce-5707-4507-ba74-5196095bb3bb")
 	)
 	(label "I2S_CK"
-		(at 118.11 62.23 180)
+		(at 38.1 158.75 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "23bad2ee-64f9-4d1a-8921-06608e1de8ad")
+	)
+	(label "I2S_CK"
+		(at 149.86 73.66 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3837,6 +5271,36 @@
 		)
 		(uuid "2b528a4c-6c62-4f37-8916-f63c148c02ab")
 	)
+	(label "CLOCK_EN_24_576"
+		(at 38.1 153.67 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "37f2466e-239d-4811-b282-0004b7582ac9")
+	)
+	(label "{slash}INT"
+		(at 255.27 101.6 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "3f526e9b-a665-4935-b465-78d3c78eb3b8")
+	)
+	(label "{slash}INT"
+		(at 38.1 144.78 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "443f8844-8ded-40a7-8986-9b5086ffe842")
+	)
 	(label "FLYP_VA"
 		(at 168.91 26.67 0)
 		(effects
@@ -3858,7 +5322,7 @@
 		(uuid "4a0cd529-1006-4874-917b-68df594ba4c4")
 	)
 	(label "VCP_FILT-"
-		(at 114.3 107.95 180)
+		(at 149.86 119.38 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3868,7 +5332,7 @@
 		(uuid "4fdee9f4-c468-440b-93cd-80b36da98627")
 	)
 	(label "JACK_TIP_DETECT"
-		(at 172.72 74.93 0)
+		(at 208.28 86.36 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3878,7 +5342,7 @@
 		(uuid "541cf19f-709b-467c-b632-078cb59f58c0")
 	)
 	(label "VCP_FILT+"
-		(at 114.3 105.41 180)
+		(at 149.86 116.84 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3888,7 +5352,7 @@
 		(uuid "566177d9-4ec5-462f-849c-5519683725c4")
 	)
 	(label "JACK_TIP"
-		(at 172.72 64.77 0)
+		(at 208.28 76.2 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3898,7 +5362,7 @@
 		(uuid "5c6dba9c-ea47-4c58-a202-4c227d410cb8")
 	)
 	(label "I2S_WS"
-		(at 172.72 92.71 0)
+		(at 208.28 104.14 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3908,7 +5372,7 @@
 		(uuid "68da8c5d-7395-408b-9865-ea49f792758a")
 	)
 	(label "VCP"
-		(at 114.3 102.87 180)
+		(at 149.86 114.3 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3928,7 +5392,7 @@
 		(uuid "6d43e239-7a5e-4ff9-a15a-3efff71cfefb")
 	)
 	(label "VA"
-		(at 107.95 115.57 90)
+		(at 143.51 127 90)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3936,6 +5400,16 @@
 			(justify left bottom)
 		)
 		(uuid "6d7fdefb-af07-4106-b2a3-7e0647ad49f2")
+	)
+	(label "CLKOUT"
+		(at 38.1 179.07 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "6e3f900b-1d97-4bd9-aa5d-c64d12fd6386")
 	)
 	(label "VCP_FILT+"
 		(at 215.9 21.59 180)
@@ -3948,7 +5422,7 @@
 		(uuid "6ee1f6c7-e0f2-4f2b-838b-19f41bfe700b")
 	)
 	(label "FLYP_VA"
-		(at 114.3 138.43 180)
+		(at 149.86 149.86 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3956,6 +5430,16 @@
 			(justify right bottom)
 		)
 		(uuid "6fb8bc9e-0429-4262-a459-80745cd123fa")
+	)
+	(label "JACK_TIP"
+		(at 38.1 184.15 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "7a403de7-bd26-44fc-ad83-b475991e7cd7")
 	)
 	(label "FLYC_VCP"
 		(at 256.54 21.59 0)
@@ -3968,7 +5452,7 @@
 		(uuid "7d7ecc0f-8be8-4dbf-8bcc-5dce36688834")
 	)
 	(label "DAC_RESET"
-		(at 172.72 95.25 0)
+		(at 255.27 106.68 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3978,7 +5462,7 @@
 		(uuid "8070db83-d97e-4ef5-ad55-4b20a3942aee")
 	)
 	(label "FLYN_VCP"
-		(at 114.3 135.89 180)
+		(at 149.86 147.32 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3986,6 +5470,16 @@
 			(justify right bottom)
 		)
 		(uuid "8132ef77-7f73-4724-9c34-8acd1052d05c")
+	)
+	(label "I2S_SD"
+		(at 38.1 162.56 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "84e1bcbf-89a1-4bb4-94ea-cff51682d20b")
 	)
 	(label "FLYN_VA"
 		(at 158.75 26.67 180)
@@ -3997,8 +5491,28 @@
 		)
 		(uuid "8b839441-1f34-4056-a852-6ac2647d7ccb")
 	)
+	(label "JACK_RING_2"
+		(at 38.1 189.23 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "9a63ec17-a77a-4ac5-a05f-7f04e927cfbc")
+	)
+	(label "CLOCK_EN_22_5792"
+		(at 38.1 149.86 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "9aaa93b2-c1a9-4030-b22b-e73af2a28d7b")
+	)
 	(label "FLYN_VA"
-		(at 114.3 133.35 180)
+		(at 149.86 144.78 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4017,8 +5531,18 @@
 		)
 		(uuid "a7481ae3-b3a4-4cf7-bf77-0c5d39f5d828")
 	)
+	(label "JACK_TIP_DETECT"
+		(at 38.1 191.77 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "a997ff8f-7225-4868-8602-fae0580fb8fc")
+	)
 	(label "FILT+"
-		(at 118.11 49.53 180)
+		(at 149.86 60.96 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4038,7 +5562,7 @@
 		(uuid "adaeaa1e-90f8-4f23-908d-b78903436a56")
 	)
 	(label "FILT-"
-		(at 118.11 52.07 180)
+		(at 149.86 63.5 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4046,6 +5570,16 @@
 			(justify right bottom)
 		)
 		(uuid "ae123ab0-85f5-494c-837e-480345ec53a8")
+	)
+	(label "I2S_WS"
+		(at 38.1 166.37 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "b0ffaef2-0a27-4083-87f9-568bd04b1e03")
 	)
 	(label "-VA"
 		(at 158.75 21.59 180)
@@ -4058,7 +5592,7 @@
 		(uuid "b5256efb-5d01-4ecb-8bf1-3cfa7ee353da")
 	)
 	(label "I2C_SCL"
-		(at 118.11 59.69 180)
+		(at 149.86 71.12 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4068,7 +5602,7 @@
 		(uuid "beeedc9c-f0ed-40c3-9c31-92acbc9d0ca4")
 	)
 	(label "JACK_RING_1"
-		(at 172.72 67.31 0)
+		(at 208.28 78.74 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4077,8 +5611,8 @@
 		)
 		(uuid "bfa29e25-fb26-48bd-971f-e1a1457028ec")
 	)
-	(label "JACK_DETECTED_GND"
-		(at 172.72 72.39 0)
+	(label "JACK_RING_2"
+		(at 208.28 83.82 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4088,7 +5622,7 @@
 		(uuid "c292804c-71c8-4b57-96be-1e530874e8ee")
 	)
 	(label "I2C_SDA"
-		(at 118.11 69.85 180)
+		(at 149.86 81.28 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4108,7 +5642,7 @@
 		(uuid "cf03bf35-d328-4927-8ea0-d01358d05190")
 	)
 	(label "FLYP_VCP"
-		(at 114.3 140.97 180)
+		(at 149.86 152.4 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4118,17 +5652,27 @@
 		(uuid "d12b3313-3873-4555-bb56-4562ec7bde91")
 	)
 	(label "GNDCP"
-		(at 170.18 128.27 0)
+		(at 207.01 133.35 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "ed1e6009-63f1-4ef2-8d43-227003180b45")
+	)
+	(label "CLKOUT"
+		(at 274.32 96.52 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left bottom)
 		)
-		(uuid "ed1e6009-63f1-4ef2-8d43-227003180b45")
+		(uuid "edc89336-fec9-4dc1-ada9-607e5c96f009")
 	)
 	(label "VCP"
-		(at 186.69 21.59 180)
+		(at 184.15 26.67 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4137,8 +5681,28 @@
 		)
 		(uuid "ef314dda-786d-44eb-8fcb-d3cb9acbfc45")
 	)
+	(label "CLOCK_EN_22_5792"
+		(at 31.75 76.2 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "f0443d4b-fcec-45f0-b7d0-2dfdafeaceeb")
+	)
+	(label "I2C_SDA"
+		(at 38.1 175.26 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "f36af76e-f726-4075-ac27-5a32f61f6bc8")
+	)
 	(label "FLYC_VCP"
-		(at 114.3 130.81 180)
+		(at 149.86 142.24 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4148,7 +5712,7 @@
 		(uuid "f6040308-a021-4c6f-a6d8-530180c4a67a")
 	)
 	(label "I2S_SD"
-		(at 118.11 72.39 180)
+		(at 149.86 83.82 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4157,9 +5721,241 @@
 		)
 		(uuid "f8a464f6-8762-4380-8bdc-d4a67350923b")
 	)
+	(label "I2C_SCL"
+		(at 38.1 171.45 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "f9be7c34-cf1b-4d07-ae84-859c23b4438b")
+	)
+	(hierarchical_label "CLOCK_EN_22_5792"
+		(shape input)
+		(at 34.29 149.86 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "0620edd2-b1f7-4a16-a22b-83653f616d33")
+	)
+	(hierarchical_label "JACK_RING_2"
+		(shape bidirectional)
+		(at 34.29 189.23 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "0c906beb-123f-4a35-be4b-0f4db7652806")
+	)
+	(hierarchical_label "I2S_CK"
+		(shape bidirectional)
+		(at 34.29 158.75 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "17988f5a-d279-4ef0-ab5f-7d796328d886")
+	)
+	(hierarchical_label "I2S_WS"
+		(shape bidirectional)
+		(at 34.29 166.37 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "4865de01-c519-416c-831a-c593a864357d")
+	)
+	(hierarchical_label "{slash}INT"
+		(shape output)
+		(at 34.29 144.78 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "52f46787-7866-416a-84ad-1fb6f7334266")
+	)
+	(hierarchical_label "I2C_SDA"
+		(shape bidirectional)
+		(at 34.29 175.26 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "76f18b4a-f494-4e6c-b589-3bbe11bcf95a")
+	)
+	(hierarchical_label "JACK_TIP"
+		(shape output)
+		(at 34.29 184.15 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "81416941-fb5f-4f3b-8bde-efa34cab3ffb")
+	)
+	(hierarchical_label "JACK_RING_1"
+		(shape output)
+		(at 34.29 186.69 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "86042c3c-9bb4-463b-9ca5-0f32c93145f5")
+	)
+	(hierarchical_label "JACK_TIP_DETECT"
+		(shape input)
+		(at 34.29 191.77 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "8f373270-4f03-481e-a80a-c7678c0f11d3")
+	)
+	(hierarchical_label "I2C_SCL"
+		(shape bidirectional)
+		(at 34.29 171.45 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "cb3f7af9-336d-45b0-9146-e73564abb4af")
+	)
+	(hierarchical_label "CLOCK_EN_24_576"
+		(shape input)
+		(at 34.29 153.67 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "d91a52b9-b474-484e-91d7-57f04f994d70")
+	)
+	(hierarchical_label "CLKOUT"
+		(shape output)
+		(at 34.29 179.07 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "e78040cf-cb99-46bd-b0e3-7e96b206b4dd")
+	)
+	(hierarchical_label "I2S_SD"
+		(shape bidirectional)
+		(at 34.29 162.56 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "edaf8708-471b-473f-a8b5-dd4dc41bdc93")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 132.08 93.98 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "018001d5-d23a-4911-9cec-90d52b65d81a")
+		(property "Reference" "#PWR072"
+			(at 125.73 93.98 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 128.27 93.9799 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 132.08 93.98 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 132.08 93.98 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 132.08 93.98 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "316ebf82-54a4-4aaa-b5cb-f96a483351a0")
+		)
+		(instances
+			(project "DrunkEarPhoneAdapter"
+				(path "/df940915-8af0-46f9-b18a-23d4684ae671/95ba76fd-cd0d-4fc7-9d47-f5665dc7e9c9"
+					(reference "#PWR072")
+					(unit 1)
+				)
+			)
+		)
+	)
 	(symbol
 		(lib_id "JLCImport:CL05B104KO5NNNC")
-		(at 88.9 135.89 270)
+		(at 124.46 147.32 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4169,7 +5965,7 @@
 		(dnp no)
 		(uuid "0222db86-7ef1-46eb-9011-9bf180e893b1")
 		(property "Reference" "C24"
-			(at 84.328 134.112 90)
+			(at 119.888 145.542 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4180,7 +5976,7 @@
 			)
 		)
 		(property "Value" "100nF 16V X7R"
-			(at 88.9 142.494 0)
+			(at 124.46 153.924 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4191,7 +5987,7 @@
 			)
 		)
 		(property "Footprint" "JLCImport:CL05B104KO5NNNC"
-			(at 88.9 135.89 0)
+			(at 124.46 147.32 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4202,7 +5998,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL05B104KO5NNNC_C1525.pdf"
-			(at 88.9 135.89 0)
+			(at 124.46 147.32 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4213,7 +6009,7 @@
 			)
 		)
 		(property "Description" "100nF 16V X7R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 88.9 135.89 0)
+			(at 124.46 147.32 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4224,7 +6020,7 @@
 			)
 		)
 		(property "LCSC" "C1525"
-			(at 88.9 135.89 0)
+			(at 124.46 147.32 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4235,7 +6031,7 @@
 			)
 		)
 		(property "Manufacturer" "Samsung Electro-Mechanics"
-			(at 88.9 135.89 0)
+			(at 124.46 147.32 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4246,7 +6042,7 @@
 			)
 		)
 		(property "Manufacturer Part" "CL05B104KO5NNNC"
-			(at 88.9 135.89 0)
+			(at 124.46 147.32 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4273,7 +6069,7 @@
 	)
 	(symbol
 		(lib_id "power:+3V8")
-		(at 96.52 115.57 0)
+		(at 132.08 127 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4284,7 +6080,7 @@
 		(fields_autoplaced yes)
 		(uuid "071b84f5-b109-4f6a-8807-74eb43543161")
 		(property "Reference" "#PWR025"
-			(at 96.52 119.38 0)
+			(at 132.08 130.81 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4295,7 +6091,7 @@
 			)
 		)
 		(property "Value" "+1V8_A"
-			(at 96.52 110.49 0)
+			(at 132.08 121.92 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4305,7 +6101,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 96.52 115.57 0)
+			(at 132.08 127 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4316,7 +6112,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 96.52 115.57 0)
+			(at 132.08 127 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4327,7 +6123,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3V8\""
-			(at 96.52 115.57 0)
+			(at 132.08 127 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4351,7 +6147,7 @@
 	)
 	(symbol
 		(lib_id "JLCImport:CL05B104KO5NNNC")
-		(at 96.52 135.89 90)
+		(at 132.08 147.32 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4361,7 +6157,7 @@
 		(dnp no)
 		(uuid "0a7f836c-610d-4069-a228-770f06ad8f74")
 		(property "Reference" "C23"
-			(at 95.758 133.858 90)
+			(at 131.318 145.288 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4372,7 +6168,7 @@
 			)
 		)
 		(property "Value" "100nF 16V X7R"
-			(at 96.52 156.972 0)
+			(at 132.08 168.402 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4383,7 +6179,7 @@
 			)
 		)
 		(property "Footprint" "JLCImport:CL05B104KO5NNNC"
-			(at 96.52 135.89 0)
+			(at 132.08 147.32 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4394,7 +6190,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL05B104KO5NNNC_C1525.pdf"
-			(at 96.52 135.89 0)
+			(at 132.08 147.32 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4405,7 +6201,7 @@
 			)
 		)
 		(property "Description" "100nF 16V X7R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 96.52 135.89 0)
+			(at 132.08 147.32 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4416,7 +6212,7 @@
 			)
 		)
 		(property "LCSC" "C1525"
-			(at 96.52 135.89 0)
+			(at 132.08 147.32 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4427,7 +6223,7 @@
 			)
 		)
 		(property "Manufacturer" "Samsung Electro-Mechanics"
-			(at 96.52 135.89 0)
+			(at 132.08 147.32 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4438,7 +6234,7 @@
 			)
 		)
 		(property "Manufacturer Part" "CL05B104KO5NNNC"
-			(at 96.52 135.89 0)
+			(at 132.08 147.32 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4464,8 +6260,86 @@
 		)
 	)
 	(symbol
+		(lib_id "power:+3V8")
+		(at 110.49 125.73 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "0cf73f17-214b-4ed1-b667-b5036c019c57")
+		(property "Reference" "#PWR024"
+			(at 110.49 129.54 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+1V8_D"
+			(at 110.49 120.65 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 110.49 125.73 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 110.49 125.73 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3V8\""
+			(at 110.49 125.73 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "0d4746fe-9857-4550-9ef8-f88dc2fac021")
+		)
+		(instances
+			(project "DrunkEarPhoneAdapter"
+				(path "/df940915-8af0-46f9-b18a-23d4684ae671/95ba76fd-cd0d-4fc7-9d47-f5665dc7e9c9"
+					(reference "#PWR024")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "JLCImport:CL05B104KO5NNNC")
-		(at 81.28 135.89 270)
+		(at 116.84 147.32 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4475,7 +6349,7 @@
 		(dnp no)
 		(uuid "14823ca3-7a2b-42a9-91a3-c79aea3cb839")
 		(property "Reference" "C22"
-			(at 76.708 134.112 90)
+			(at 112.268 145.542 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4486,7 +6360,7 @@
 			)
 		)
 		(property "Value" "100nF 16V X7R"
-			(at 81.026 142.24 0)
+			(at 116.586 153.67 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4497,7 +6371,7 @@
 			)
 		)
 		(property "Footprint" "JLCImport:CL05B104KO5NNNC"
-			(at 81.28 135.89 0)
+			(at 116.84 147.32 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4508,7 +6382,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL05B104KO5NNNC_C1525.pdf"
-			(at 81.28 135.89 0)
+			(at 116.84 147.32 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4519,7 +6393,7 @@
 			)
 		)
 		(property "Description" "100nF 16V X7R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 81.28 135.89 0)
+			(at 116.84 147.32 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4530,7 +6404,7 @@
 			)
 		)
 		(property "LCSC" "C1525"
-			(at 81.28 135.89 0)
+			(at 116.84 147.32 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4541,7 +6415,7 @@
 			)
 		)
 		(property "Manufacturer" "Samsung Electro-Mechanics"
-			(at 81.28 135.89 0)
+			(at 116.84 147.32 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4552,7 +6426,7 @@
 			)
 		)
 		(property "Manufacturer Part" "CL05B104KO5NNNC"
-			(at 81.28 135.89 0)
+			(at 116.84 147.32 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4579,7 +6453,7 @@
 	)
 	(symbol
 		(lib_id "power:+3V8")
-		(at 48.26 123.19 0)
+		(at 186.69 20.32 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4588,9 +6462,9 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "229ab9af-68fd-4f1f-b74c-cd54ef1c4d00")
-		(property "Reference" "#PWR023"
-			(at 48.26 127 0)
+		(uuid "180fd84b-42a2-4266-8369-d5f5866722a5")
+		(property "Reference" "#PWR033"
+			(at 186.69 24.13 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4600,8 +6474,8 @@
 				)
 			)
 		)
-		(property "Value" "+3V8"
-			(at 48.26 118.11 0)
+		(property "Value" "+1V8_CP"
+			(at 186.69 15.24 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4611,7 +6485,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 48.26 123.19 0)
+			(at 186.69 20.32 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4622,7 +6496,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 48.26 123.19 0)
+			(at 186.69 20.32 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4633,7 +6507,163 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3V8\""
-			(at 48.26 123.19 0)
+			(at 186.69 20.32 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "77e1c48d-e0c8-4f45-acd8-a1cc7edf0585")
+		)
+		(instances
+			(project "DrunkEarPhoneAdapter"
+				(path "/df940915-8af0-46f9-b18a-23d4684ae671/95ba76fd-cd0d-4fc7-9d47-f5665dc7e9c9"
+					(reference "#PWR033")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3V8")
+		(at 245.11 86.36 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "1fb48cd6-7490-491d-ac48-9644f90aeb9f")
+		(property "Reference" "#PWR040"
+			(at 245.11 90.17 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+1V8_D"
+			(at 245.11 81.28 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 245.11 86.36 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 245.11 86.36 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3V8\""
+			(at 245.11 86.36 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "f7428b21-d391-4b25-b225-dbb5d605638d")
+		)
+		(instances
+			(project "DrunkEarPhoneAdapter"
+				(path "/df940915-8af0-46f9-b18a-23d4684ae671/95ba76fd-cd0d-4fc7-9d47-f5665dc7e9c9"
+					(reference "#PWR040")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3V8")
+		(at 83.82 134.62 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "229ab9af-68fd-4f1f-b74c-cd54ef1c4d00")
+		(property "Reference" "#PWR023"
+			(at 83.82 138.43 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+3V8"
+			(at 83.82 129.54 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 83.82 134.62 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 83.82 134.62 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3V8\""
+			(at 83.82 134.62 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4650,120 +6680,6 @@
 			(project "DrunkEarPhoneAdapter"
 				(path "/df940915-8af0-46f9-b18a-23d4684ae671/95ba76fd-cd0d-4fc7-9d47-f5665dc7e9c9"
 					(reference "#PWR023")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "JLCImport:CL05A105KA5NQNC")
-		(at 78.74 63.5 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "32821ea9-54ab-40dc-89f8-7f1b84dfb375")
-		(property "Reference" "C17"
-			(at 79.756 61.214 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "1uF 25V X5R"
-			(at 80.264 65.532 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "JLCImport:CL05A105KA5NQNC"
-			(at 78.74 63.5 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL05A105KA5NQNC_C52923.pdf"
-			(at 78.74 63.5 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "1uF 25V X5R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 78.74 63.5 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C52923"
-			(at 78.74 63.5 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer" "Samsung Electro-Mechanics"
-			(at 78.74 63.5 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer Part" "CL05A105KA5NQNC"
-			(at 78.74 63.5 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "675dda54-766a-4357-87ea-107d9963a69f")
-		)
-		(pin "1"
-			(uuid "c8d1b568-fff8-414a-9c6c-7b89bc717fa4")
-		)
-		(instances
-			(project "DrunkEarPhoneAdapter"
-				(path "/df940915-8af0-46f9-b18a-23d4684ae671/95ba76fd-cd0d-4fc7-9d47-f5665dc7e9c9"
-					(reference "C17")
 					(unit 1)
 				)
 			)
@@ -4885,7 +6801,7 @@
 	)
 	(symbol
 		(lib_id "JLCImport:CL05A225KO5NQNC")
-		(at 102.87 135.89 90)
+		(at 138.43 147.32 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4895,7 +6811,7 @@
 		(dnp no)
 		(uuid "3e272de1-df62-435c-a47a-e22c11d11f9a")
 		(property "Reference" "C25"
-			(at 98.552 133.858 90)
+			(at 134.112 145.288 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4906,7 +6822,7 @@
 			)
 		)
 		(property "Value" "2.2uF 16V X5R"
-			(at 102.616 141.986 0)
+			(at 138.176 153.416 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4917,7 +6833,7 @@
 			)
 		)
 		(property "Footprint" "JLCImport:CL05A225KO5NQNC"
-			(at 102.87 135.89 0)
+			(at 138.43 147.32 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4928,7 +6844,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL05A225KO5NQNC_C170151.pdf"
-			(at 102.87 135.89 0)
+			(at 138.43 147.32 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4939,7 +6855,7 @@
 			)
 		)
 		(property "Description" "16V 2.2uF X5R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 102.87 135.89 0)
+			(at 138.43 147.32 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4950,7 +6866,7 @@
 			)
 		)
 		(property "LCSC" "C170151"
-			(at 102.87 135.89 0)
+			(at 138.43 147.32 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4961,7 +6877,7 @@
 			)
 		)
 		(property "Manufacturer" "Samsung Electro-Mechanics"
-			(at 102.87 135.89 0)
+			(at 138.43 147.32 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4972,7 +6888,7 @@
 			)
 		)
 		(property "Manufacturer Part" "CL05A225KO5NQNC"
-			(at 102.87 135.89 0)
+			(at 138.43 147.32 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4998,39 +6914,19 @@
 		)
 	)
 	(symbol
-		(lib_id "JLCImport:PJ-3255A")
-		(at 33.02 177.8 0)
+		(lib_id "power:GND")
+		(at 76.2 83.82 0)
 		(unit 1)
 		(body_style 1)
-		(exclude_from_sim yes)
-		(in_bom no)
-		(on_board no)
-		(in_pos_files no)
-		(dnp yes)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "54a738c1-6b11-4f12-a338-359d2bab8b21")
-		(property "Reference" "CN1"
-			(at 27.559 165.1 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "PJ-3255A"
-			(at 27.559 167.64 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "JLCImport:PJ-3255A"
-			(at 33.02 177.8 0)
+		(uuid "49750316-fe45-4483-9e3b-85ae6a0d1994")
+		(property "Reference" "#PWR028"
+			(at 76.2 90.17 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5040,8 +6936,18 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2010261706_XKB-Connection-PJ-3255A_C908447.pdf"
-			(at 33.02 177.8 0)
+		(property "Value" "GND"
+			(at 76.2 88.9 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 76.2 83.82 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5051,8 +6957,8 @@
 				)
 			)
 		)
-		(property "Description" "-20℃~+70℃ 3.5mm Headphone Jack 30V 500mA SMD Audio Connectors ROHS"
-			(at 33.02 177.8 0)
+		(property "Datasheet" ""
+			(at 76.2 83.82 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5062,8 +6968,8 @@
 				)
 			)
 		)
-		(property "LCSC" "C908447"
-			(at 33.02 177.8 0)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 76.2 83.82 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5072,54 +6978,480 @@
 					(size 1.27 1.27)
 				)
 			)
-		)
-		(property "Manufacturer" "XKB Connection"
-			(at 33.02 177.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer Part" "PJ-3255A"
-			(at 33.02 177.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "7"
-			(uuid "a1860e4d-3e41-4514-a2cd-424a798aabcd")
-		)
-		(pin "6"
-			(uuid "525d60ee-0fae-43ad-994a-10aa93bdf1ed")
 		)
 		(pin "1"
-			(uuid "a69fa412-d407-454d-bd20-252745919608")
-		)
-		(pin "3"
-			(uuid "6a15edb2-1e18-4ef3-8703-2f53560cbb41")
-		)
-		(pin "5"
-			(uuid "ec08a142-9110-4f2c-872a-32e6cfb96e62")
-		)
-		(pin "4"
-			(uuid "aac4035e-f917-45e5-b3d1-9827d577ad97")
-		)
-		(pin "2"
-			(uuid "bc8c7e03-a0d1-4431-83df-8601799c4fd6")
+			(uuid "99be53e3-bd09-49e8-90af-bd09bd43119b")
 		)
 		(instances
 			(project "DrunkEarPhoneAdapter"
 				(path "/df940915-8af0-46f9-b18a-23d4684ae671/95ba76fd-cd0d-4fc7-9d47-f5665dc7e9c9"
-					(reference "CN1")
+					(reference "#PWR028")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "JLCImport:TPS22917DBVR")
+		(at 58.42 73.66 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "4b0d40be-8207-4ede-8a1a-8e7a62f8a365")
+		(property "Reference" "U19"
+			(at 58.42 67.31 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "TPS22917DBVR"
+			(at 58.42 80.264 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "JLCImport:TPS22917DBVR"
+			(at 58.42 73.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2303011100_Texas-Instruments-TPS22917DBVR_C2681320.pdf"
+			(at 58.42 73.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "-40℃~+125℃ 0V~5.5V 1 2A 80mΩ Active High Load Switch SOT-23-6 Power Distribution Switches ROHS"
+			(at 58.42 73.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C2681320"
+			(at 58.42 73.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Texas Instruments"
+			(at 58.42 73.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer Part" "TPS22917DBVR"
+			(at 58.42 73.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "9b07a6e6-9e9d-4d54-b37d-4e428029ba09")
+		)
+		(pin "3"
+			(uuid "dda8c1c6-cf2d-406c-8abe-adf148bbf970")
+		)
+		(pin "1"
+			(uuid "dd385188-0121-4ad9-8778-d898568f3e52")
+		)
+		(pin "5"
+			(uuid "ab2f738a-0319-41ff-8922-543dff3e843b")
+		)
+		(pin "6"
+			(uuid "820ad5f1-d8c7-490a-bbad-95b2a65a6e09")
+		)
+		(pin "4"
+			(uuid "116086ac-4744-4828-96f3-dbe154885c07")
+		)
+		(instances
+			(project "DrunkEarPhoneAdapter"
+				(path "/df940915-8af0-46f9-b18a-23d4684ae671/95ba76fd-cd0d-4fc7-9d47-f5665dc7e9c9"
+					(reference "U19")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "JLCImport:CL05B104KO5NNNC")
+		(at 101.6 71.12 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "4b13abe9-3fae-4e35-8f3f-044ace0c05c1")
+		(property "Reference" "C77"
+			(at 99.822 75.692 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100nF 16V X7R"
+			(at 103.378 73.66 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "JLCImport:CL05B104KO5NNNC"
+			(at 101.6 71.12 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL05B104KO5NNNC_C1525.pdf"
+			(at 101.6 71.12 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "100nF 16V X7R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+			(at 101.6 71.12 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C1525"
+			(at 101.6 71.12 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 101.6 71.12 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer Part" "CL05B104KO5NNNC"
+			(at 101.6 71.12 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "f18ab4c5-2f20-46d5-8c55-13e6993e105c")
+		)
+		(pin "1"
+			(uuid "b66a1049-b8cd-4606-b0b2-0ee9561d5941")
+		)
+		(instances
+			(project "DrunkEarPhoneAdapter"
+				(path "/df940915-8af0-46f9-b18a-23d4684ae671/95ba76fd-cd0d-4fc7-9d47-f5665dc7e9c9"
+					(reference "C77")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "JLCImport:RC0402FR-0733RL")
+		(at 266.7 96.52 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "4e7ba054-9b36-46a9-8a6a-b6aab2f1f314")
+		(property "Reference" "R9"
+			(at 266.7 90.17 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "33Ω"
+			(at 266.7 92.71 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+			(at 266.7 96.52 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_YAGEO-RC0402FR-0733RL_C138002.pdf"
+			(at 266.7 96.52 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "-55℃~+155℃ 33Ω 50V 62.5mW Thick Film Resistor ±1% ±100ppm/℃ 0402 Chip Resistor - Surface Mount ROHS"
+			(at 266.7 96.52 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C138002"
+			(at 266.7 96.52 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 266.7 96.52 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer Part" "RC0402FR-0733RL"
+			(at 266.7 96.52 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "44b94183-d441-44b4-be62-c9b02b3f1028")
+		)
+		(pin "1"
+			(uuid "2820a4fe-7b65-4299-bc4a-ab5bf5ee4d27")
+		)
+		(instances
+			(project "DrunkEarPhoneAdapter"
+				(path "/df940915-8af0-46f9-b18a-23d4684ae671/95ba76fd-cd0d-4fc7-9d47-f5665dc7e9c9"
+					(reference "R9")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "JLCImport:0402WGF1003TCE")
+		(at 238.76 91.44 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "4eea4940-b597-4ec5-a006-e990343d6a82")
+		(property "Reference" "R4"
+			(at 241.3 90.1699 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "100kΩ"
+			(at 241.3 92.7099 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "JLCImport:0402WGF1003TCE"
+			(at 238.76 91.44 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2206010100_UNI-ROYAL-Uniroyal-Elec-0402WGF1003TCE_C25741.pdf"
+			(at 238.76 91.44 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "-55℃~+155℃ 100kΩ 50V 62.5mW Thick Film Resistor ±1% ±100ppm/℃ 0402 Chip Resistor - Surface Mount ROHS"
+			(at 238.76 91.44 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C25741"
+			(at 238.76 91.44 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
+			(at 238.76 91.44 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer Part" "0402WGF1003TCE"
+			(at 238.76 91.44 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "9499c2bb-bc18-408a-b9e9-da4c7198e96f")
+		)
+		(pin "1"
+			(uuid "d8a60172-5d2e-4b07-a358-00862d87233b")
+		)
+		(instances
+			(project "DrunkEarPhoneAdapter"
+				(path "/df940915-8af0-46f9-b18a-23d4684ae671/95ba76fd-cd0d-4fc7-9d47-f5665dc7e9c9"
+					(reference "R4")
 					(unit 1)
 				)
 			)
@@ -5234,6 +7566,204 @@
 			(project "DrunkEarPhoneAdapter"
 				(path "/df940915-8af0-46f9-b18a-23d4684ae671/95ba76fd-cd0d-4fc7-9d47-f5665dc7e9c9"
 					(reference "C28")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "JLCImport:SX2M22_5792M20F30TNN")
+		(at 86.36 48.26 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "5aa85401-2f5f-4638-b65a-64ded0ae6179")
+		(property "Reference" "X3"
+			(at 86.36 41.91 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "24.576MHz"
+			(at 86.36 44.45 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "JLCImport:SX2M22_5792M20F30TNN"
+			(at 86.36 48.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/product-detail/crystal-oscillators_shenzhen-sctf-elec-sx2m24-576m20f30tnn_C5452664.html"
+			(at 86.36 48.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "XTAL OSC 24.576MHz CMOS SMD"
+			(at 86.36 48.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C5452664"
+			(at 86.36 48.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Shenzhen SCTF Elec"
+			(at 86.36 48.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer Part" "SX2M24.576M20F30TNN"
+			(at 86.36 48.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "ec0b9b20-3e69-4e50-bfe5-183303aa8f62")
+		)
+		(pin "4"
+			(uuid "6bb4618e-c599-4db7-bdac-1e772b85b2b7")
+		)
+		(pin "1"
+			(uuid "c90fd08d-9ef8-4a50-b43d-73fa9b1529c2")
+		)
+		(pin "3"
+			(uuid "98b795f8-dcfa-4759-9228-11a3169e3de8")
+		)
+		(instances
+			(project "DrunkEarPhoneAdapter"
+				(path "/df940915-8af0-46f9-b18a-23d4684ae671/95ba76fd-cd0d-4fc7-9d47-f5665dc7e9c9"
+					(reference "X3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 29.21 45.72 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "5ea4b630-037a-4631-a952-576a112ba9cb")
+		(property "Reference" "#PWR073"
+			(at 22.86 45.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 25.4 45.7199 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 29.21 45.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 29.21 45.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 29.21 45.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "99388124-6b56-4bdf-b7ce-016f1094424e")
+		)
+		(instances
+			(project "DrunkEarPhoneAdapter"
+				(path "/df940915-8af0-46f9-b18a-23d4684ae671/95ba76fd-cd0d-4fc7-9d47-f5665dc7e9c9"
+					(reference "#PWR073")
 					(unit 1)
 				)
 			)
@@ -5355,7 +7885,7 @@
 	)
 	(symbol
 		(lib_id "JLCImport:BLM15AG601SN1D")
-		(at 80.01 120.65 0)
+		(at 115.57 132.08 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -5366,7 +7896,7 @@
 		(fields_autoplaced yes)
 		(uuid "67e85c86-c6c3-4f81-96f6-de2023fda729")
 		(property "Reference" "L3"
-			(at 79.9833 114.3 0)
+			(at 115.5433 125.73 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5376,7 +7906,7 @@
 			)
 		)
 		(property "Value" "BLM15AG601SN1D"
-			(at 79.9833 116.84 0)
+			(at 115.5433 128.27 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5386,7 +7916,7 @@
 			)
 		)
 		(property "Footprint" "JLCImport:BLM15AG601SN1D"
-			(at 80.01 120.65 0)
+			(at 115.57 132.08 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5397,7 +7927,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Murata-Electronics-BLM15AG601SN1D_C76884.pdf"
-			(at 80.01 120.65 0)
+			(at 115.57 132.08 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5408,7 +7938,7 @@
 			)
 		)
 		(property "Description" "-55℃~+125℃ 1 300mA 520mΩ 600Ω@100MHz ±25% 0402 Ferrite Beads ROHS"
-			(at 80.01 120.65 0)
+			(at 115.57 132.08 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5419,7 +7949,7 @@
 			)
 		)
 		(property "LCSC" "C76884"
-			(at 80.01 120.65 0)
+			(at 115.57 132.08 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5430,7 +7960,7 @@
 			)
 		)
 		(property "Manufacturer" "Murata Electronics"
-			(at 80.01 120.65 0)
+			(at 115.57 132.08 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5441,7 +7971,7 @@
 			)
 		)
 		(property "Manufacturer Part" "BLM15AG601SN1D"
-			(at 80.01 120.65 0)
+			(at 115.57 132.08 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5467,8 +7997,120 @@
 		)
 	)
 	(symbol
+		(lib_id "JLCImport:RC0402FR-0733RL")
+		(at 104.14 57.15 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "6b4604ed-be8c-4446-b030-5ec50b2545c1")
+		(property "Reference" "R7"
+			(at 107.95 59.944 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "33Ω"
+			(at 103.886 59.69 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+			(at 104.14 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_YAGEO-RC0402FR-0733RL_C138002.pdf"
+			(at 104.14 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "-55℃~+155℃ 33Ω 50V 62.5mW Thick Film Resistor ±1% ±100ppm/℃ 0402 Chip Resistor - Surface Mount ROHS"
+			(at 104.14 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C138002"
+			(at 104.14 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 104.14 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer Part" "RC0402FR-0733RL"
+			(at 104.14 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "e9b32c17-c7fe-4962-be4a-ff65fb48d5bc")
+		)
+		(pin "1"
+			(uuid "c73a7f40-6faf-4d77-b17e-f551e49b8d12")
+		)
+		(instances
+			(project "DrunkEarPhoneAdapter"
+				(path "/df940915-8af0-46f9-b18a-23d4684ae671/95ba76fd-cd0d-4fc7-9d47-f5665dc7e9c9"
+					(reference "R7")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "JLCImport:CL05A475MP5NRNC")
-		(at 67.31 128.27 270)
+		(at 102.87 139.7 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -5478,7 +8120,7 @@
 		(dnp no)
 		(uuid "6c1a833d-bdf6-486f-b7fe-617266d90484")
 		(property "Reference" "C16"
-			(at 66.294 130.302 90)
+			(at 101.854 141.732 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5489,7 +8131,7 @@
 			)
 		)
 		(property "Value" "4.7uF 10V X5R"
-			(at 66.04 125.984 90)
+			(at 101.6 137.414 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5500,7 +8142,7 @@
 			)
 		)
 		(property "Footprint" "JLCImport:CL05A475MP5NRNC"
-			(at 67.31 128.27 0)
+			(at 102.87 139.7 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5511,7 +8153,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL05A475MP5NRNC_C23733.pdf"
-			(at 67.31 128.27 0)
+			(at 102.87 139.7 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5522,7 +8164,7 @@
 			)
 		)
 		(property "Description" "10V 4.7uF X5R ±20% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 67.31 128.27 0)
+			(at 102.87 139.7 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5533,7 +8175,7 @@
 			)
 		)
 		(property "LCSC" "C23733"
-			(at 67.31 128.27 0)
+			(at 102.87 139.7 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5544,7 +8186,7 @@
 			)
 		)
 		(property "Manufacturer" "Samsung Electro-Mechanics"
-			(at 67.31 128.27 0)
+			(at 102.87 139.7 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5555,7 +8197,7 @@
 			)
 		)
 		(property "Manufacturer Part" "CL05A475MP5NRNC"
-			(at 67.31 128.27 0)
+			(at 102.87 139.7 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5575,6 +8217,232 @@
 			(project "DrunkEarPhoneAdapter"
 				(path "/df940915-8af0-46f9-b18a-23d4684ae671/95ba76fd-cd0d-4fc7-9d47-f5665dc7e9c9"
 					(reference "C16")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "JLCImport:RC0402FR-0733RL")
+		(at 104.14 78.74 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "6e180fd7-9dca-4e7e-bb9a-cfa3a7733db4")
+		(property "Reference" "R1"
+			(at 107.95 81.534 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "33Ω"
+			(at 103.886 81.28 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+			(at 104.14 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_YAGEO-RC0402FR-0733RL_C138002.pdf"
+			(at 104.14 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "-55℃~+155℃ 33Ω 50V 62.5mW Thick Film Resistor ±1% ±100ppm/℃ 0402 Chip Resistor - Surface Mount ROHS"
+			(at 104.14 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C138002"
+			(at 104.14 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 104.14 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer Part" "RC0402FR-0733RL"
+			(at 104.14 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "b43e3556-477b-446e-8983-aacbe6599332")
+		)
+		(pin "1"
+			(uuid "5ecafba9-d0fc-430d-b236-4b4fe589fea9")
+		)
+		(instances
+			(project "DrunkEarPhoneAdapter"
+				(path "/df940915-8af0-46f9-b18a-23d4684ae671/95ba76fd-cd0d-4fc7-9d47-f5665dc7e9c9"
+					(reference "R1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "JLCImport:CL05B104KO5NNNC")
+		(at 34.29 45.72 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "72f793f6-7fb2-4eb0-9bb4-15632d58a8d7")
+		(property "Reference" "C78"
+			(at 36.068 41.148 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100nF 16V X7R"
+			(at 32.512 43.18 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "JLCImport:CL05B104KO5NNNC"
+			(at 34.29 45.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL05B104KO5NNNC_C1525.pdf"
+			(at 34.29 45.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "100nF 16V X7R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+			(at 34.29 45.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C1525"
+			(at 34.29 45.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 34.29 45.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer Part" "CL05B104KO5NNNC"
+			(at 34.29 45.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "3bd267ac-ec19-4329-8188-218994ec3b95")
+		)
+		(pin "1"
+			(uuid "3ae10afa-d882-4359-b302-1c76300d64ef")
+		)
+		(instances
+			(project "DrunkEarPhoneAdapter"
+				(path "/df940915-8af0-46f9-b18a-23d4684ae671/95ba76fd-cd0d-4fc7-9d47-f5665dc7e9c9"
+					(reference "C78")
 					(unit 1)
 				)
 			)
@@ -5660,122 +8528,8 @@
 		)
 	)
 	(symbol
-		(lib_id "JLCImport:CL05B104KO5NNNC")
-		(at 73.66 63.5 270)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "7bb0932e-1238-43c1-83b7-cec3e88915d4")
-		(property "Reference" "C19"
-			(at 69.088 61.722 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "100nF 16V X7R"
-			(at 57.912 65.532 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "JLCImport:CL05B104KO5NNNC"
-			(at 73.66 63.5 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL05B104KO5NNNC_C1525.pdf"
-			(at 73.66 63.5 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "100nF 16V X7R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 73.66 63.5 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C1525"
-			(at 73.66 63.5 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer" "Samsung Electro-Mechanics"
-			(at 73.66 63.5 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer Part" "CL05B104KO5NNNC"
-			(at 73.66 63.5 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "0ecde1eb-32a6-4538-8220-d27a94f72a9d")
-		)
-		(pin "1"
-			(uuid "d7fc3290-236f-4052-bdd7-fa2523ad35c3")
-		)
-		(instances
-			(project "DrunkEarPhoneAdapter"
-				(path "/df940915-8af0-46f9-b18a-23d4684ae671/95ba76fd-cd0d-4fc7-9d47-f5665dc7e9c9"
-					(reference "C19")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+3V8")
-		(at 93.98 36.83 0)
+		(lib_id "power:GND")
+		(at 29.21 71.12 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -5784,9 +8538,9 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "7c1f10b3-de2e-44cb-a183-506331eabbc3")
-		(property "Reference" "#PWR026"
-			(at 93.98 40.64 0)
+		(uuid "74e40152-8952-4a3b-b4db-535f31c543d8")
+		(property "Reference" "#PWR074"
+			(at 22.86 71.12 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5796,18 +8550,19 @@
 				)
 			)
 		)
-		(property "Value" "+1V8_D"
-			(at 93.98 31.75 0)
+		(property "Value" "GND"
+			(at 25.4 71.1199 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
 		(property "Footprint" ""
-			(at 93.98 36.83 0)
+			(at 29.21 71.12 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5818,7 +8573,85 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 93.98 36.83 0)
+			(at 29.21 71.12 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 29.21 71.12 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "ea45e2fb-4f2c-472a-a0b7-3a2d9f63b2a0")
+		)
+		(instances
+			(project "DrunkEarPhoneAdapter"
+				(path "/df940915-8af0-46f9-b18a-23d4684ae671/95ba76fd-cd0d-4fc7-9d47-f5665dc7e9c9"
+					(reference "#PWR074")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3V8")
+		(at 39.37 25.4 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "7c1f10b3-de2e-44cb-a183-506331eabbc3")
+		(property "Reference" "#PWR026"
+			(at 39.37 29.21 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+1V8_D"
+			(at 39.37 20.32 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 39.37 25.4 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 39.37 25.4 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5829,7 +8662,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3V8\""
-			(at 93.98 36.83 0)
+			(at 39.37 25.4 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5853,7 +8686,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 72.39 140.97 0)
+		(at 107.95 152.4 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -5864,7 +8697,7 @@
 		(fields_autoplaced yes)
 		(uuid "7f1e08d6-487c-4ff3-807f-2635cfd36e33")
 		(property "Reference" "#PWR029"
-			(at 72.39 147.32 0)
+			(at 107.95 158.75 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5875,7 +8708,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 72.39 146.05 0)
+			(at 107.95 157.48 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5885,7 +8718,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 72.39 140.97 0)
+			(at 107.95 152.4 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5896,7 +8729,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 72.39 140.97 0)
+			(at 107.95 152.4 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5907,7 +8740,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 72.39 140.97 0)
+			(at 107.95 152.4 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5924,6 +8757,84 @@
 			(project "DrunkEarPhoneAdapter"
 				(path "/df940915-8af0-46f9-b18a-23d4684ae671/95ba76fd-cd0d-4fc7-9d47-f5665dc7e9c9"
 					(reference "#PWR029")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 68.58 60.96 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "80a7b69b-90c6-4c10-befe-74191e87e0df")
+		(property "Reference" "#PWR075"
+			(at 68.58 67.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 68.58 66.04 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 68.58 60.96 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 68.58 60.96 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 68.58 60.96 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "abef2505-0d61-43ab-b214-ef457e562ec0")
+		)
+		(instances
+			(project "DrunkEarPhoneAdapter"
+				(path "/df940915-8af0-46f9-b18a-23d4684ae671/95ba76fd-cd0d-4fc7-9d47-f5665dc7e9c9"
+					(reference "#PWR075")
 					(unit 1)
 				)
 			)
@@ -6044,127 +8955,8 @@
 		)
 	)
 	(symbol
-		(lib_id "JLCImport:OT7EL89CJI-111YLC-24_576M")
-		(at 77.47 78.74 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "812c55d0-14a6-4900-b491-1e9413fee5dc")
-		(property "Reference" "X2"
-			(at 77.47 69.85 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "OT7EL89CJI-111YLC-24_576M"
-			(at 77.47 72.39 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "JLCImport:OT7EL89CJI-111YLC-24_576M"
-			(at 77.47 78.74 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://atta.szlcsc.com/upload/public/pdf/source/20201023/C907627_CD1CF82FE9C526AA5FB48E75E03409CA.pdf"
-			(at 77.47 78.74 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "-40℃~+85℃ 1.8V~3.3V 24.576MHz CMOS ±10ppm ±20ppm SMD2016-4P Crystal Oscillators ROHS"
-			(at 77.47 78.74 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C49304729"
-			(at 77.47 78.74 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer" "YXC Crystal Oscillators"
-			(at 77.47 78.74 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer Part" "OT7EL89CJI-111YLC-24.576M"
-			(at 77.47 78.74 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "4"
-			(uuid "73383944-f809-41d2-8c99-989ffb3d98fe")
-		)
-		(pin "1"
-			(uuid "dec6b50d-f6b4-49dd-b784-1712344dd3a4")
-		)
-		(pin "3"
-			(uuid "c4a77791-a724-4596-8480-13dd2924e3b3")
-		)
-		(pin "2"
-			(uuid "272a94d3-ab55-4b8a-bdcb-1c97eed3fe22")
-		)
-		(instances
-			(project "DrunkEarPhoneAdapter"
-				(path "/df940915-8af0-46f9-b18a-23d4684ae671/95ba76fd-cd0d-4fc7-9d47-f5665dc7e9c9"
-					(reference "X2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "JLCImport:CL05A225KO5NQNC")
-		(at 191.77 21.59 180)
+		(at 191.77 26.67 180)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -6174,7 +8966,7 @@
 		(dnp no)
 		(uuid "88607c9a-ad4e-4905-a063-74e895395e3f")
 		(property "Reference" "C30"
-			(at 190.246 15.748 0)
+			(at 190.246 20.828 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6185,7 +8977,7 @@
 			)
 		)
 		(property "Value" "2.2uF 16V X5R"
-			(at 185.42 18.034 0)
+			(at 185.42 23.114 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6196,7 +8988,7 @@
 			)
 		)
 		(property "Footprint" "JLCImport:CL05A225KO5NQNC"
-			(at 191.77 21.59 0)
+			(at 191.77 26.67 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6207,7 +8999,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL05A225KO5NQNC_C170151.pdf"
-			(at 191.77 21.59 0)
+			(at 191.77 26.67 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6218,7 +9010,7 @@
 			)
 		)
 		(property "Description" "16V 2.2uF X5R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 191.77 21.59 0)
+			(at 191.77 26.67 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6229,7 +9021,7 @@
 			)
 		)
 		(property "LCSC" "C170151"
-			(at 191.77 21.59 0)
+			(at 191.77 26.67 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6240,7 +9032,7 @@
 			)
 		)
 		(property "Manufacturer" "Samsung Electro-Mechanics"
-			(at 191.77 21.59 0)
+			(at 191.77 26.67 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6251,7 +9043,7 @@
 			)
 		)
 		(property "Manufacturer Part" "CL05A225KO5NQNC"
-			(at 191.77 21.59 0)
+			(at 191.77 26.67 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6278,7 +9070,7 @@
 	)
 	(symbol
 		(lib_id "JLCImport:CS43131-CNZR")
-		(at 140.97 95.25 0)
+		(at 176.53 106.68 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -6289,7 +9081,7 @@
 		(fields_autoplaced yes)
 		(uuid "a77ba819-0ca8-41e5-863f-65cfb3907d95")
 		(property "Reference" "U1"
-			(at 140.97 41.91 0)
+			(at 176.53 53.34 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6299,7 +9091,7 @@
 			)
 		)
 		(property "Value" "CS43131-CNZR"
-			(at 140.97 44.45 0)
+			(at 176.53 55.88 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6309,7 +9101,7 @@
 			)
 		)
 		(property "Footprint" "JLCImport:CS43131-CNZR"
-			(at 140.97 95.25 0)
+			(at 176.53 106.68 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6320,7 +9112,7 @@
 			)
 		)
 		(property "Datasheet" "https://pdf1.alldatasheetcn.com/datasheet-pdf/view/393547/INTERSIL/ISL62883CHRTZ.html"
-			(at 140.97 95.25 0)
+			(at 176.53 106.68 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6331,7 +9123,7 @@
 			)
 		)
 		(property "Description" "LQFN-40-EP(5x5) Digital to Analog Converters (DAC) ROHS"
-			(at 140.97 95.25 0)
+			(at 176.53 106.68 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6342,7 +9134,7 @@
 			)
 		)
 		(property "LCSC" "C965907"
-			(at 140.97 95.25 0)
+			(at 176.53 106.68 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6353,7 +9145,7 @@
 			)
 		)
 		(property "Manufacturer" "Cirrus Logic"
-			(at 140.97 95.25 0)
+			(at 176.53 106.68 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6364,7 +9156,7 @@
 			)
 		)
 		(property "Manufacturer Part" "CS43131-CNZR"
-			(at 140.97 95.25 0)
+			(at 176.53 106.68 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6621,6 +9413,120 @@
 		)
 	)
 	(symbol
+		(lib_id "JLCImport:0402WGF1002TCE")
+		(at 41.91 59.69 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "abf6ad9f-15c5-443d-a841-0bf4c4efced0")
+		(property "Reference" "R5"
+			(at 38.1 58.42 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "10kΩ"
+			(at 35.814 60.96 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+			(at 41.91 59.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2411221126_UNI-ROYAL-Uniroyal-Elec-0402WGF1002TCE_C25744.pdf"
+			(at 41.91 59.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "-55℃~+155℃ 10kΩ 50V 62.5mW Thick Film Resistor ±1% ±100ppm/℃ 0402 Chip Resistor - Surface Mount ROHS"
+			(at 41.91 59.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C25744"
+			(at 41.91 59.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
+			(at 41.91 59.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer Part" "0402WGF1002TCE"
+			(at 41.91 59.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "a5dc3868-88d0-41f7-86d3-57eae292f747")
+		)
+		(pin "1"
+			(uuid "bad0202b-9d2f-401c-af9f-edc43d8a8839")
+		)
+		(instances
+			(project "DrunkEarPhoneAdapter"
+				(path "/df940915-8af0-46f9-b18a-23d4684ae671/95ba76fd-cd0d-4fc7-9d47-f5665dc7e9c9"
+					(reference "R5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "JLCImport:C2012X5R1V156MT000E")
 		(at 140.97 21.59 0)
 		(unit 1)
@@ -6734,8 +9640,8 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 55.88 80.01 0)
+		(lib_id "JLCImport:CL05A105KA5NQNC")
+		(at 101.6 44.45 180)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -6743,10 +9649,31 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "b67346e1-ea26-4328-82d7-0cab1ae3f891")
-		(property "Reference" "#PWR028"
-			(at 55.88 86.36 0)
+		(uuid "b48cbe23-b4b1-40c8-badf-0131422481b8")
+		(property "Reference" "C17"
+			(at 99.314 43.434 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "1uF 25V X5R"
+			(at 103.378 41.656 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "JLCImport:CL05A105KA5NQNC"
+			(at 101.6 44.45 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6756,18 +9683,8 @@
 				)
 			)
 		)
-		(property "Value" "GND"
-			(at 55.88 85.09 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 55.88 80.01 0)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL05A105KA5NQNC_C52923.pdf"
+			(at 101.6 44.45 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6777,8 +9694,8 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
-			(at 55.88 80.01 0)
+		(property "Description" "1uF 25V X5R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+			(at 101.6 44.45 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6788,8 +9705,8 @@
 				)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 55.88 80.01 0)
+		(property "LCSC" "C52923"
+			(at 101.6 44.45 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6798,14 +9715,39 @@
 					(size 1.27 1.27)
 				)
 			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 101.6 44.45 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer Part" "CL05A105KA5NQNC"
+			(at 101.6 44.45 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "256f99c2-3582-4360-bd29-98446e93cd09")
 		)
 		(pin "1"
-			(uuid "4b136d40-7d49-4229-9303-79de66119688")
+			(uuid "2532c5bd-0c8c-4c91-bc82-79be4a589987")
 		)
 		(instances
 			(project "DrunkEarPhoneAdapter"
 				(path "/df940915-8af0-46f9-b18a-23d4684ae671/95ba76fd-cd0d-4fc7-9d47-f5665dc7e9c9"
-					(reference "#PWR028")
+					(reference "C17")
 					(unit 1)
 				)
 			)
@@ -6813,7 +9755,7 @@
 	)
 	(symbol
 		(lib_id "JLCImport:BLM15PX601SN1D")
-		(at 59.69 123.19 0)
+		(at 95.25 134.62 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -6824,7 +9766,7 @@
 		(fields_autoplaced yes)
 		(uuid "bf24abe1-ee17-4fb9-9c5b-163778ef202d")
 		(property "Reference" "U14"
-			(at 59.6623 116.84 0)
+			(at 95.2223 128.27 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6834,7 +9776,7 @@
 			)
 		)
 		(property "Value" "BLM15PX601SN1D"
-			(at 59.6623 119.38 0)
+			(at 95.2223 130.81 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6844,7 +9786,7 @@
 			)
 		)
 		(property "Footprint" "JLCImport:BLM15PX601SN1D"
-			(at 59.69 123.19 0)
+			(at 95.25 134.62 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6855,7 +9797,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Murata-Electronics-BLM15PX601SN1D_C160977.pdf"
-			(at 59.69 123.19 0)
+			(at 95.25 134.62 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6866,7 +9808,7 @@
 			)
 		)
 		(property "Description" "-55℃~+125℃ 1 230mΩ 600Ω@100MHz 900mA ±25% 0402 Ferrite Beads ROHS"
-			(at 59.69 123.19 0)
+			(at 95.25 134.62 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6877,7 +9819,7 @@
 			)
 		)
 		(property "LCSC" "C160977"
-			(at 59.69 123.19 0)
+			(at 95.25 134.62 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6888,7 +9830,7 @@
 			)
 		)
 		(property "Manufacturer" "Murata Electronics"
-			(at 59.69 123.19 0)
+			(at 95.25 134.62 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6899,7 +9841,7 @@
 			)
 		)
 		(property "Manufacturer Part" "BLM15PX601SN1D"
-			(at 59.69 123.19 0)
+			(at 95.25 134.62 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6926,7 +9868,7 @@
 	)
 	(symbol
 		(lib_id "JLCImport:CL05B104KO5NNNC")
-		(at 72.39 128.27 90)
+		(at 101.6 49.53 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -6934,9 +9876,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "cef6a09a-246e-471b-ac21-472c9926347e")
-		(property "Reference" "C21"
-			(at 76.962 130.048 90)
+		(uuid "c8cf21a0-b230-4e7b-8f90-018a55ff9d68")
+		(property "Reference" "C19"
+			(at 99.822 54.102 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6947,7 +9889,7 @@
 			)
 		)
 		(property "Value" "100nF 16V X7R"
-			(at 88.138 126.238 90)
+			(at 103.378 52.07 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6958,7 +9900,7 @@
 			)
 		)
 		(property "Footprint" "JLCImport:CL05B104KO5NNNC"
-			(at 72.39 128.27 0)
+			(at 101.6 49.53 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6969,7 +9911,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL05B104KO5NNNC_C1525.pdf"
-			(at 72.39 128.27 0)
+			(at 101.6 49.53 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6980,7 +9922,7 @@
 			)
 		)
 		(property "Description" "100nF 16V X7R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 72.39 128.27 0)
+			(at 101.6 49.53 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6991,7 +9933,7 @@
 			)
 		)
 		(property "LCSC" "C1525"
-			(at 72.39 128.27 0)
+			(at 101.6 49.53 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7002,7 +9944,7 @@
 			)
 		)
 		(property "Manufacturer" "Samsung Electro-Mechanics"
-			(at 72.39 128.27 0)
+			(at 101.6 49.53 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7013,7 +9955,235 @@
 			)
 		)
 		(property "Manufacturer Part" "CL05B104KO5NNNC"
-			(at 72.39 128.27 0)
+			(at 101.6 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "62a379f0-808e-4e07-8195-d3bf919b42b8")
+		)
+		(pin "1"
+			(uuid "11a0b5ac-bd47-47b1-9e3d-5ce68142fe0e")
+		)
+		(instances
+			(project "DrunkEarPhoneAdapter"
+				(path "/df940915-8af0-46f9-b18a-23d4684ae671/95ba76fd-cd0d-4fc7-9d47-f5665dc7e9c9"
+					(reference "C19")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "JLCImport:CL05B104KO5NNNC")
+		(at 34.29 71.12 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "cdd0e538-96a3-4818-b429-a21579cbefb9")
+		(property "Reference" "C79"
+			(at 36.068 66.548 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100nF 16V X7R"
+			(at 32.512 68.58 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "JLCImport:CL05B104KO5NNNC"
+			(at 34.29 71.12 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL05B104KO5NNNC_C1525.pdf"
+			(at 34.29 71.12 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "100nF 16V X7R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+			(at 34.29 71.12 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C1525"
+			(at 34.29 71.12 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 34.29 71.12 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer Part" "CL05B104KO5NNNC"
+			(at 34.29 71.12 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "13af0d64-10e3-4b36-b70f-84a03e76d8c3")
+		)
+		(pin "1"
+			(uuid "94340229-8774-4fc5-8e6b-7042dcab4e3d")
+		)
+		(instances
+			(project "DrunkEarPhoneAdapter"
+				(path "/df940915-8af0-46f9-b18a-23d4684ae671/95ba76fd-cd0d-4fc7-9d47-f5665dc7e9c9"
+					(reference "C79")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "JLCImport:CL05B104KO5NNNC")
+		(at 107.95 139.7 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "cef6a09a-246e-471b-ac21-472c9926347e")
+		(property "Reference" "C21"
+			(at 112.522 141.478 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100nF 16V X7R"
+			(at 123.698 137.668 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "JLCImport:CL05B104KO5NNNC"
+			(at 107.95 139.7 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL05B104KO5NNNC_C1525.pdf"
+			(at 107.95 139.7 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "100nF 16V X7R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+			(at 107.95 139.7 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C1525"
+			(at 107.95 139.7 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 107.95 139.7 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer Part" "CL05B104KO5NNNC"
+			(at 107.95 139.7 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7033,83 +10203,6 @@
 			(project "DrunkEarPhoneAdapter"
 				(path "/df940915-8af0-46f9-b18a-23d4684ae671/95ba76fd-cd0d-4fc7-9d47-f5665dc7e9c9"
 					(reference "C21")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+3V8")
-		(at 74.93 114.3 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "d14142ba-03ff-40ec-9adf-00c080920e27")
-		(property "Reference" "#PWR024"
-			(at 74.93 118.11 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "+1V8_D"
-			(at 27.94 189.23 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 74.93 114.3 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 74.93 114.3 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+3V8\""
-			(at 74.93 114.3 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "235b4d90-32a9-44fe-b4a9-a5408cb83839")
-		)
-		(instances
-			(project "DrunkEarPhoneAdapter"
-				(path "/df940915-8af0-46f9-b18a-23d4684ae671/95ba76fd-cd0d-4fc7-9d47-f5665dc7e9c9"
-					(reference "#PWR024")
 					(unit 1)
 				)
 			)
@@ -7231,7 +10324,7 @@
 	)
 	(symbol
 		(lib_id "JLCImport:BLM15AG601SN1D")
-		(at 93.98 43.18 270)
+		(at 39.37 31.75 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -7242,7 +10335,7 @@
 		(fields_autoplaced yes)
 		(uuid "dd4597d1-371e-4f8c-b90a-c87cae21b38b")
 		(property "Reference" "L1"
-			(at 96.52 41.8832 90)
+			(at 41.91 30.4532 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7253,7 +10346,7 @@
 			)
 		)
 		(property "Value" "BLM15AG601SN1D"
-			(at 96.52 44.4232 90)
+			(at 41.91 32.9932 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7264,7 +10357,7 @@
 			)
 		)
 		(property "Footprint" "JLCImport:BLM15AG601SN1D"
-			(at 93.98 43.18 0)
+			(at 39.37 31.75 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7275,7 +10368,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Murata-Electronics-BLM15AG601SN1D_C76884.pdf"
-			(at 93.98 43.18 0)
+			(at 39.37 31.75 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7286,7 +10379,7 @@
 			)
 		)
 		(property "Description" "-55℃~+125℃ 1 300mA 520mΩ 600Ω@100MHz ±25% 0402 Ferrite Beads ROHS"
-			(at 93.98 43.18 0)
+			(at 39.37 31.75 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7297,7 +10390,7 @@
 			)
 		)
 		(property "LCSC" "C76884"
-			(at 93.98 43.18 0)
+			(at 39.37 31.75 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7308,7 +10401,7 @@
 			)
 		)
 		(property "Manufacturer" "Murata Electronics"
-			(at 93.98 43.18 0)
+			(at 39.37 31.75 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7319,7 +10412,7 @@
 			)
 		)
 		(property "Manufacturer Part" "BLM15AG601SN1D"
-			(at 93.98 43.18 0)
+			(at 39.37 31.75 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7459,7 +10552,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 179.07 130.81 0)
+		(at 214.63 152.4 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -7470,7 +10563,7 @@
 		(fields_autoplaced yes)
 		(uuid "f6b418d3-182f-44f4-9fce-083c85bb3d8b")
 		(property "Reference" "#PWR032"
-			(at 179.07 137.16 0)
+			(at 214.63 158.75 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7481,7 +10574,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 179.07 135.89 0)
+			(at 214.63 157.48 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7491,7 +10584,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 179.07 130.81 0)
+			(at 214.63 152.4 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7502,7 +10595,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 179.07 130.81 0)
+			(at 214.63 152.4 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7513,7 +10606,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 179.07 130.81 0)
+			(at 214.63 152.4 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7536,8 +10629,122 @@
 		)
 	)
 	(symbol
+		(lib_id "JLCImport:CL05A105KA5NQNC")
+		(at 101.6 66.04 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "f7d40d9b-a0ff-43c2-b926-b7476bc3241f")
+		(property "Reference" "C76"
+			(at 99.314 65.024 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "1uF 25V X5R"
+			(at 103.378 63.246 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "JLCImport:CL05A105KA5NQNC"
+			(at 101.6 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL05A105KA5NQNC_C52923.pdf"
+			(at 101.6 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "1uF 25V X5R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+			(at 101.6 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C52923"
+			(at 101.6 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 101.6 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer Part" "CL05A105KA5NQNC"
+			(at 101.6 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "8a3fa6f6-ae1e-47a7-9d9f-1650d5f8afb1")
+		)
+		(pin "1"
+			(uuid "cdc9c709-a0d0-4fa1-a45c-490e74b40251")
+		)
+		(instances
+			(project "DrunkEarPhoneAdapter"
+				(path "/df940915-8af0-46f9-b18a-23d4684ae671/95ba76fd-cd0d-4fc7-9d47-f5665dc7e9c9"
+					(reference "C76")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
-		(at 196.85 21.59 90)
+		(at 196.85 26.67 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -7548,7 +10755,7 @@
 		(fields_autoplaced yes)
 		(uuid "f8279e14-3a15-4c6e-a39c-92e0a65e1475")
 		(property "Reference" "#PWR031"
-			(at 203.2 21.59 0)
+			(at 203.2 26.67 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7559,7 +10766,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 200.66 21.5899 90)
+			(at 200.66 26.6699 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7570,7 +10777,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 196.85 21.59 0)
+			(at 196.85 26.67 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7581,7 +10788,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 196.85 21.59 0)
+			(at 196.85 26.67 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7592,7 +10799,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 196.85 21.59 0)
+			(at 196.85 26.67 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7609,6 +10816,480 @@
 			(project "DrunkEarPhoneAdapter"
 				(path "/df940915-8af0-46f9-b18a-23d4684ae671/95ba76fd-cd0d-4fc7-9d47-f5665dc7e9c9"
 					(reference "#PWR031")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "JLCImport:0402WGF1003TCE")
+		(at 250.19 91.44 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "f83fb6fd-9cbf-43a6-a3f9-ff4d520b136e")
+		(property "Reference" "R6"
+			(at 252.73 90.1699 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "100kΩ"
+			(at 252.73 92.7099 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "JLCImport:0402WGF1003TCE"
+			(at 250.19 91.44 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2206010100_UNI-ROYAL-Uniroyal-Elec-0402WGF1003TCE_C25741.pdf"
+			(at 250.19 91.44 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "-55℃~+155℃ 100kΩ 50V 62.5mW Thick Film Resistor ±1% ±100ppm/℃ 0402 Chip Resistor - Surface Mount ROHS"
+			(at 250.19 91.44 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C25741"
+			(at 250.19 91.44 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
+			(at 250.19 91.44 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer Part" "0402WGF1003TCE"
+			(at 250.19 91.44 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "cf555000-23d8-4901-88ce-068844b68685")
+		)
+		(pin "1"
+			(uuid "4befcee6-1257-45cf-907b-b1f9c4911803")
+		)
+		(instances
+			(project "DrunkEarPhoneAdapter"
+				(path "/df940915-8af0-46f9-b18a-23d4684ae671/95ba76fd-cd0d-4fc7-9d47-f5665dc7e9c9"
+					(reference "R6")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "JLCImport:0402WGF1002TCE")
+		(at 41.91 81.28 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "f9fe3946-f484-4078-b09a-88ac8cfd9f0f")
+		(property "Reference" "R8"
+			(at 44.45 80.0099 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "10kΩ"
+			(at 44.45 82.5499 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+			(at 41.91 81.28 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2411221126_UNI-ROYAL-Uniroyal-Elec-0402WGF1002TCE_C25744.pdf"
+			(at 41.91 81.28 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "-55℃~+155℃ 10kΩ 50V 62.5mW Thick Film Resistor ±1% ±100ppm/℃ 0402 Chip Resistor - Surface Mount ROHS"
+			(at 41.91 81.28 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C25744"
+			(at 41.91 81.28 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
+			(at 41.91 81.28 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer Part" "0402WGF1002TCE"
+			(at 41.91 81.28 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "24a55d84-d160-4cff-8bfb-250ed84f4bf3")
+		)
+		(pin "1"
+			(uuid "1e27f6d7-09c8-47f8-a8b7-f2c1804363b6")
+		)
+		(instances
+			(project "DrunkEarPhoneAdapter"
+				(path "/df940915-8af0-46f9-b18a-23d4684ae671/95ba76fd-cd0d-4fc7-9d47-f5665dc7e9c9"
+					(reference "R8")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "JLCImport:TPS22917DBVR")
+		(at 58.42 52.07 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "fbd4ce5d-cd60-44b1-adf1-3d510721cd7b")
+		(property "Reference" "U18"
+			(at 58.42 41.91 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "TPS22917DBVR"
+			(at 58.42 44.45 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "JLCImport:TPS22917DBVR"
+			(at 58.42 52.07 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2303011100_Texas-Instruments-TPS22917DBVR_C2681320.pdf"
+			(at 58.42 52.07 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "-40℃~+125℃ 0V~5.5V 1 2A 80mΩ Active High Load Switch SOT-23-6 Power Distribution Switches ROHS"
+			(at 58.42 52.07 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C2681320"
+			(at 58.42 52.07 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Texas Instruments"
+			(at 58.42 52.07 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer Part" "TPS22917DBVR"
+			(at 58.42 52.07 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "f9969d64-e945-40c2-a5ff-c2bdce9863de")
+		)
+		(pin "3"
+			(uuid "598a9f71-0da1-4974-a45a-8f1417894e49")
+		)
+		(pin "1"
+			(uuid "6a883a8a-edba-4b77-a752-06c0e3ac9ea1")
+		)
+		(pin "5"
+			(uuid "18af653f-2880-4716-89ab-cdf7b54caa20")
+		)
+		(pin "6"
+			(uuid "985509a1-3414-4587-b8b4-1151405d5366")
+		)
+		(pin "4"
+			(uuid "9f36071f-2a2e-4aa9-a8f2-cb15c3ed970c")
+		)
+		(instances
+			(project "DrunkEarPhoneAdapter"
+				(path "/df940915-8af0-46f9-b18a-23d4684ae671/95ba76fd-cd0d-4fc7-9d47-f5665dc7e9c9"
+					(reference "U18")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "JLCImport:SX2M22_5792M20F30TNN")
+		(at 86.36 69.85 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "fc9d3b66-bdc7-4a9e-809c-5cbf44219780")
+		(property "Reference" "X1"
+			(at 86.36 63.5 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "22.5792MHz"
+			(at 86.36 66.04 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "JLCImport:SX2M22_5792M20F30TNN"
+			(at 86.36 69.85 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2304241359_Shenzhen-SCTF-Elec-SX2M22-5792M20F30TNN_C5452663.pdf"
+			(at 86.36 69.85 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "-40℃~+85℃ 1.62V~3.63V 10mA 22.5792MHz CMOS ±20ppm ±30ppm SMD2520-4P Crystal Oscillators ROHS"
+			(at 86.36 69.85 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C5452663"
+			(at 86.36 69.85 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Shenzhen SCTF Elec"
+			(at 86.36 69.85 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer Part" "SX2M22.5792M20F30TNN"
+			(at 86.36 69.85 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "1b5cdd3c-d051-4e44-9c31-73892a435c99")
+		)
+		(pin "4"
+			(uuid "a878f445-d4b9-4f4f-85d3-37ecacadb120")
+		)
+		(pin "1"
+			(uuid "811c94d6-8bcc-4ad5-82ad-f3fd1bb6aa2a")
+		)
+		(pin "3"
+			(uuid "edbed810-896b-4afd-bf91-08ac3d252566")
+		)
+		(instances
+			(project "DrunkEarPhoneAdapter"
+				(path "/df940915-8af0-46f9-b18a-23d4684ae671/95ba76fd-cd0d-4fc7-9d47-f5665dc7e9c9"
+					(reference "X1")
 					(unit 1)
 				)
 			)

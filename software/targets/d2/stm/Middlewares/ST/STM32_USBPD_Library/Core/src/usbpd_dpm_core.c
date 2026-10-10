@@ -20,9 +20,6 @@
 
 #define __USBPD_DPM_CORE_C
 
-#define OS_TASK_IS_SUSPENDED(TaskID)  (eTaskGetState(TaskID) == eSuspended)
-#define OS_TASK_KILL(TaskID)          vTaskDelete(TaskID)
-
 /* Includes ------------------------------------------------------------------*/
 #include "usbpd_core.h"
 #include "usbpd_trace.h"

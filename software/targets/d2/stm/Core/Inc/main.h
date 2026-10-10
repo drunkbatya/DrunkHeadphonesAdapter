@@ -33,7 +33,6 @@ extern "C" {
 #include "stm32g0xx_ll_i2c.h"
 #include "stm32g0xx_ll_spi.h"
 #include "stm32g0xx_ll_rcc.h"
-#include "stm32g0xx_ll_lpuart.h"
 #include "stm32g0xx_ll_bus.h"
 #include "stm32g0xx_ll_crs.h"
 #include "stm32g0xx_ll_system.h"

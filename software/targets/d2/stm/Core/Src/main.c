@@ -18,7 +18,6 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "cmsis_os.h"
 #include "usbpd.h"
 #include "usb_device.h"
 
@@ -44,13 +43,6 @@
 
 /* Private variables ---------------------------------------------------------*/
 
-/* Definitions for defaultTask */
-osThreadId_t defaultTaskHandle;
-const osThreadAttr_t defaultTask_attributes = {
-  .name = "defaultTask",
-  .priority = (osPriority_t) osPriorityNormal,
-  .stack_size = 128 * 4
-};
 /* USER CODE BEGIN PV */
 
 /* USER CODE END PV */
@@ -64,9 +56,6 @@ static void MX_I2S1_Init(void);
 static void MX_I2S2_Init(void);
 static void MX_UCPD1_Init(void);
 static void MX_UCPD2_Init(void);
-static void MX_LPUART1_UART_Init(void);
-void StartDefaultTask(void *argument);
-
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -111,54 +100,20 @@ int main(void)
   MX_I2S2_Init();
   MX_UCPD1_Init();
   MX_UCPD2_Init();
-  MX_LPUART1_UART_Init();
+  MX_USB_Device_Init();
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */
 
-  /* Init scheduler */
-  osKernelInitialize();
   /* USBPD initialisation ---------------------------------*/
   MX_USBPD_Init();
-
-  /* USER CODE BEGIN RTOS_MUTEX */
-  /* add mutexes, ... */
-  /* USER CODE END RTOS_MUTEX */
-
-  /* USER CODE BEGIN RTOS_SEMAPHORES */
-  /* add semaphores, ... */
-  /* USER CODE END RTOS_SEMAPHORES */
-
-  /* USER CODE BEGIN RTOS_TIMERS */
-  /* start timers, add new ones, ... */
-  /* USER CODE END RTOS_TIMERS */
-
-  /* USER CODE BEGIN RTOS_QUEUES */
-  /* add queues, ... */
-  /* USER CODE END RTOS_QUEUES */
-
-  /* Create the thread(s) */
-  /* creation of defaultTask */
-  defaultTaskHandle = osThreadNew(StartDefaultTask, NULL, &defaultTask_attributes);
-
-  /* USER CODE BEGIN RTOS_THREADS */
-  /* add threads, ... */
-  /* USER CODE END RTOS_THREADS */
-
-  /* USER CODE BEGIN RTOS_EVENTS */
-  /* add events, ... */
-  /* USER CODE END RTOS_EVENTS */
-
-  /* Start scheduler */
-  osKernelStart();
-
-  /* We should never get here as control is now taken by the scheduler */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
     /* USER CODE END WHILE */
+    USBPD_DPM_Run();
 
     /* USER CODE BEGIN 3 */
   }
@@ -261,7 +216,7 @@ static void MX_I2C1_Init(void)
   LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_I2C1);
 
   /* I2C1 interrupt Init */
-  NVIC_SetPriority(I2C1_IRQn, 3);
+  NVIC_SetPriority(I2C1_IRQn, 0);
   NVIC_EnableIRQ(I2C1_IRQn);
 
   /* USER CODE BEGIN I2C1_Init 1 */
@@ -314,19 +269,10 @@ static void MX_I2S1_Init(void)
   LL_IOP_GRP1_EnableClock(LL_IOP_GRP1_PERIPH_GPIOB);
   /**I2S1 GPIO Configuration
   PA1   ------> I2S1_CK
-  PA6   ------> I2S1_MCK
   PA7   ------> I2S1_SD
   PB0   ------> I2S1_WS
   */
   GPIO_InitStruct.Pin = LL_GPIO_PIN_1;
-  GPIO_InitStruct.Mode = LL_GPIO_MODE_ALTERNATE;
-  GPIO_InitStruct.Speed = LL_GPIO_SPEED_FREQ_LOW;
-  GPIO_InitStruct.OutputType = LL_GPIO_OUTPUT_PUSHPULL;
-  GPIO_InitStruct.Pull = LL_GPIO_PULL_NO;
-  GPIO_InitStruct.Alternate = LL_GPIO_AF_0;
-  LL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-
-  GPIO_InitStruct.Pin = LL_GPIO_PIN_6;
   GPIO_InitStruct.Mode = LL_GPIO_MODE_ALTERNATE;
   GPIO_InitStruct.Speed = LL_GPIO_SPEED_FREQ_LOW;
   GPIO_InitStruct.OutputType = LL_GPIO_OUTPUT_PUSHPULL;
@@ -353,11 +299,11 @@ static void MX_I2S1_Init(void)
   /* USER CODE BEGIN I2S1_Init 1 */
 
   /* USER CODE END I2S1_Init 1 */
-  I2S_InitStruct.Mode = LL_I2S_MODE_MASTER_TX;
+  I2S_InitStruct.Mode = LL_I2S_MODE_SLAVE_TX;
   I2S_InitStruct.Standard = LL_I2S_STANDARD_PHILIPS;
-  I2S_InitStruct.DataFormat = LL_I2S_DATAFORMAT_16B;
-  I2S_InitStruct.MCLKOutput = LL_I2S_MCLK_OUTPUT_ENABLE;
-  I2S_InitStruct.AudioFreq = LL_I2S_AUDIOFREQ_8K;
+  I2S_InitStruct.DataFormat = LL_I2S_DATAFORMAT_32B;
+  I2S_InitStruct.MCLKOutput = LL_I2S_MCLK_OUTPUT_DISABLE;
+  I2S_InitStruct.AudioFreq = LL_I2S_AUDIOFREQ_96K;
   I2S_InitStruct.ClockPolarity = LL_I2S_POLARITY_LOW;
   LL_I2S_Init(SPI1, &I2S_InitStruct);
   /* USER CODE BEGIN I2S1_Init 2 */
@@ -389,12 +335,10 @@ static void MX_I2S2_Init(void)
 
   LL_IOP_GRP1_EnableClock(LL_IOP_GRP1_PERIPH_GPIOB);
   LL_IOP_GRP1_EnableClock(LL_IOP_GRP1_PERIPH_GPIOA);
-  LL_IOP_GRP1_EnableClock(LL_IOP_GRP1_PERIPH_GPIOD);
   /**I2S2 GPIO Configuration
   PB9   ------> I2S2_WS
   PA0   ------> I2S2_CK
   PA4   ------> I2S2_SD
-  PD3   ------> I2S2_MCK
   */
   GPIO_InitStruct.Pin = LL_GPIO_PIN_9;
   GPIO_InitStruct.Mode = LL_GPIO_MODE_ALTERNATE;
@@ -420,104 +364,19 @@ static void MX_I2S2_Init(void)
   GPIO_InitStruct.Alternate = LL_GPIO_AF_1;
   LL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-  GPIO_InitStruct.Pin = LL_GPIO_PIN_3;
-  GPIO_InitStruct.Mode = LL_GPIO_MODE_ALTERNATE;
-  GPIO_InitStruct.Speed = LL_GPIO_SPEED_FREQ_LOW;
-  GPIO_InitStruct.OutputType = LL_GPIO_OUTPUT_PUSHPULL;
-  GPIO_InitStruct.Pull = LL_GPIO_PULL_NO;
-  GPIO_InitStruct.Alternate = LL_GPIO_AF_1;
-  LL_GPIO_Init(GPIOD, &GPIO_InitStruct);
-
   /* USER CODE BEGIN I2S2_Init 1 */
 
   /* USER CODE END I2S2_Init 1 */
-  I2S_InitStruct.Mode = LL_I2S_MODE_MASTER_TX;
+  I2S_InitStruct.Mode = LL_I2S_MODE_SLAVE_TX;
   I2S_InitStruct.Standard = LL_I2S_STANDARD_PHILIPS;
-  I2S_InitStruct.DataFormat = LL_I2S_DATAFORMAT_16B;
-  I2S_InitStruct.MCLKOutput = LL_I2S_MCLK_OUTPUT_ENABLE;
-  I2S_InitStruct.AudioFreq = LL_I2S_AUDIOFREQ_8K;
+  I2S_InitStruct.DataFormat = LL_I2S_DATAFORMAT_24B;
+  I2S_InitStruct.MCLKOutput = LL_I2S_MCLK_OUTPUT_DISABLE;
+  I2S_InitStruct.AudioFreq = LL_I2S_AUDIOFREQ_96K;
   I2S_InitStruct.ClockPolarity = LL_I2S_POLARITY_LOW;
   LL_I2S_Init(SPI2, &I2S_InitStruct);
   /* USER CODE BEGIN I2S2_Init 2 */
 
   /* USER CODE END I2S2_Init 2 */
-
-}
-
-/**
-  * @brief LPUART1 Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_LPUART1_UART_Init(void)
-{
-
-  /* USER CODE BEGIN LPUART1_Init 0 */
-
-  /* USER CODE END LPUART1_Init 0 */
-
-  LL_LPUART_InitTypeDef LPUART_InitStruct = {0};
-
-  LL_GPIO_InitTypeDef GPIO_InitStruct = {0};
-
-  LL_RCC_SetLPUARTClockSource(LL_RCC_LPUART1_CLKSOURCE_PCLK1);
-
-  /* Peripheral clock enable */
-  LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_LPUART1);
-
-  LL_IOP_GRP1_EnableClock(LL_IOP_GRP1_PERIPH_GPIOA);
-  /**LPUART1 GPIO Configuration
-  PA2   ------> LPUART1_TX
-  PA3   ------> LPUART1_RX
-  */
-  GPIO_InitStruct.Pin = LL_GPIO_PIN_2;
-  GPIO_InitStruct.Mode = LL_GPIO_MODE_ALTERNATE;
-  GPIO_InitStruct.Speed = LL_GPIO_SPEED_FREQ_LOW;
-  GPIO_InitStruct.OutputType = LL_GPIO_OUTPUT_PUSHPULL;
-  GPIO_InitStruct.Pull = LL_GPIO_PULL_NO;
-  GPIO_InitStruct.Alternate = LL_GPIO_AF_6;
-  LL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-
-  GPIO_InitStruct.Pin = LL_GPIO_PIN_3;
-  GPIO_InitStruct.Mode = LL_GPIO_MODE_ALTERNATE;
-  GPIO_InitStruct.Speed = LL_GPIO_SPEED_FREQ_LOW;
-  GPIO_InitStruct.OutputType = LL_GPIO_OUTPUT_PUSHPULL;
-  GPIO_InitStruct.Pull = LL_GPIO_PULL_NO;
-  GPIO_InitStruct.Alternate = LL_GPIO_AF_6;
-  LL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-
-  /* LPUART1 interrupt Init */
-  NVIC_SetPriority(USART3_4_5_6_LPUART1_IRQn, 3);
-  NVIC_EnableIRQ(USART3_4_5_6_LPUART1_IRQn);
-
-  /* USER CODE BEGIN LPUART1_Init 1 */
-
-  /* USER CODE END LPUART1_Init 1 */
-  LPUART_InitStruct.PrescalerValue = LL_LPUART_PRESCALER_DIV1;
-  LPUART_InitStruct.BaudRate = 115200;
-  LPUART_InitStruct.DataWidth = LL_LPUART_DATAWIDTH_8B;
-  LPUART_InitStruct.StopBits = LL_LPUART_STOPBITS_1;
-  LPUART_InitStruct.Parity = LL_LPUART_PARITY_NONE;
-  LPUART_InitStruct.TransferDirection = LL_LPUART_DIRECTION_TX_RX;
-  LPUART_InitStruct.HardwareFlowControl = LL_LPUART_HWCONTROL_NONE;
-  LL_LPUART_Init(LPUART1, &LPUART_InitStruct);
-  LL_LPUART_SetTXFIFOThreshold(LPUART1, LL_LPUART_FIFOTHRESHOLD_1_8);
-  LL_LPUART_SetRXFIFOThreshold(LPUART1, LL_LPUART_FIFOTHRESHOLD_1_8);
-  LL_LPUART_DisableFIFO(LPUART1);
-
-  /* USER CODE BEGIN WKUPType LPUART1 */
-
-  /* USER CODE END WKUPType LPUART1 */
-
-  LL_LPUART_Enable(LPUART1);
-
-  /* Polling LPUART1 initialisation */
-  while((!(LL_LPUART_IsActiveFlag_TEACK(LPUART1))) || (!(LL_LPUART_IsActiveFlag_REACK(LPUART1))))
-  {
-  }
-  /* USER CODE BEGIN LPUART1_Init 2 */
-
-  /* USER CODE END LPUART1_Init 2 */
 
 }
 
@@ -591,7 +450,7 @@ static void MX_UCPD1_Init(void)
   LL_DMA_SetMemorySize(DMA1, LL_DMA_CHANNEL_2, LL_DMA_MDATAALIGN_BYTE);
 
   /* UCPD1 interrupt Init */
-  NVIC_SetPriority(USB_UCPD1_2_IRQn, 3);
+  NVIC_SetPriority(USB_UCPD1_2_IRQn, 0);
   NVIC_EnableIRQ(USB_UCPD1_2_IRQn);
 
   /* USER CODE BEGIN UCPD1_Init 1 */
@@ -672,7 +531,7 @@ static void MX_UCPD2_Init(void)
   LL_DMA_SetMemorySize(DMA1, LL_DMA_CHANNEL_4, LL_DMA_MDATAALIGN_BYTE);
 
   /* UCPD2 interrupt Init */
-  NVIC_SetPriority(USB_UCPD1_2_IRQn, 3);
+  NVIC_SetPriority(USB_UCPD1_2_IRQn, 0);
   NVIC_EnableIRQ(USB_UCPD1_2_IRQn);
 
   /* USER CODE BEGIN UCPD2_Init 1 */
@@ -696,13 +555,13 @@ static void MX_DMA_Init(void)
 
   /* DMA interrupt init */
   /* DMA1_Channel1_IRQn interrupt configuration */
-  NVIC_SetPriority(DMA1_Channel1_IRQn, 3);
+  NVIC_SetPriority(DMA1_Channel1_IRQn, 0);
   NVIC_EnableIRQ(DMA1_Channel1_IRQn);
   /* DMA1_Channel2_3_IRQn interrupt configuration */
-  NVIC_SetPriority(DMA1_Channel2_3_IRQn, 3);
+  NVIC_SetPriority(DMA1_Channel2_3_IRQn, 0);
   NVIC_EnableIRQ(DMA1_Channel2_3_IRQn);
   /* DMA1_Ch4_7_DMA2_Ch1_5_DMAMUX1_OVR_IRQn interrupt configuration */
-  NVIC_SetPriority(DMA1_Ch4_7_DMA2_Ch1_5_DMAMUX1_OVR_IRQn, 3);
+  NVIC_SetPriority(DMA1_Ch4_7_DMA2_Ch1_5_DMAMUX1_OVR_IRQn, 0);
   NVIC_EnableIRQ(DMA1_Ch4_7_DMA2_Ch1_5_DMAMUX1_OVR_IRQn);
 
 }
@@ -731,26 +590,6 @@ static void MX_GPIO_Init(void)
 /* USER CODE BEGIN 4 */
 
 /* USER CODE END 4 */
-
-/* USER CODE BEGIN Header_StartDefaultTask */
-/**
-  * @brief  Function implementing the defaultTask thread.
-  * @param  argument: Not used
-  * @retval None
-  */
-/* USER CODE END Header_StartDefaultTask */
-void StartDefaultTask(void *argument)
-{
-  /* init code for USB_Device */
-  MX_USB_Device_Init();
-  /* USER CODE BEGIN 5 */
-  /* Infinite loop */
-  for(;;)
-  {
-    osDelay(1);
-  }
-  /* USER CODE END 5 */
-}
 
 /**
   * @brief  This function is executed in case of error occurrence.
