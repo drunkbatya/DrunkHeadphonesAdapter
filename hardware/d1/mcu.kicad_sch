@@ -5,6 +5,251 @@
 	(uuid "23b908c2-6e28-4b3e-8bfb-ddda1091f149")
 	(paper "A4")
 	(lib_symbols
+		(symbol "Connector_Generic:Conn_01x05"
+			(pin_names
+				(offset 1.016)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "J"
+				(at 0 7.62 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "Conn_01x05"
+				(at 0 -7.62 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Generic connector, single row, 01x05, script generated (kicad-library-utils/schlib/autogen/connector/)"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "connector"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "Connector*:*_1x??_*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "Conn_01x05_1_1"
+				(rectangle
+					(start -1.27 6.35)
+					(end 1.27 -6.35)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(rectangle
+					(start -1.27 5.207)
+					(end 0 4.953)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.27 2.667)
+					(end 0 2.413)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.27 0.127)
+					(end 0 -0.127)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.27 -2.413)
+					(end 0 -2.667)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.27 -4.953)
+					(end 0 -5.207)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin passive line
+					(at -5.08 5.08 0)
+					(length 3.81)
+					(name "Pin_1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 2.54 0)
+					(length 3.81)
+					(name "Pin_2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 0 0)
+					(length 3.81)
+					(name "Pin_3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -2.54 0)
+					(length 3.81)
+					(name "Pin_4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -5.08 0)
+					(length 3.81)
+					(name "Pin_5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "JLCImport:0402WGF1003TCE"
 			(pin_names
 				(offset 1.016)
@@ -3494,10 +3739,16 @@
 		(uuid "9c8202be-ee6b-46c6-9497-90079a2c206b")
 	)
 	(junction
-		(at 59.69 45.72)
+		(at 199.39 34.29)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "1006c7f8-3ba4-4fc2-b117-cf7bb6742ea3")
+		(uuid "00fff083-e83e-4da8-a86d-8da471158742")
+	)
+	(junction
+		(at 63.5 45.72)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "13ca38d8-ca70-4e4d-9f28-ee709fc4d8ec")
 	)
 	(junction
 		(at 257.81 41.91)
@@ -3506,16 +3757,22 @@
 		(uuid "147fd188-be91-4a72-a850-50ade4674d1a")
 	)
 	(junction
-		(at 199.39 34.29)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "38fec418-52b7-446c-bfe8-e0a3b9a1b6a2")
-	)
-	(junction
 		(at 44.45 35.56)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "526a326a-ca79-4472-a704-80dcd4dd417f")
+	)
+	(junction
+		(at 63.5 55.88)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "55e71515-2268-4e4e-89c0-55f6ca77805f")
+	)
+	(junction
+		(at 78.74 38.1)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "5e34c8c5-0953-4299-91c9-252a883b7436")
 	)
 	(junction
 		(at 33.02 86.36)
@@ -3530,12 +3787,6 @@
 		(uuid "60662760-c51c-4e7b-87e4-64b0c5f4e4f7")
 	)
 	(junction
-		(at 205.74 146.05)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "60a8f247-1662-405f-8a7d-da09c494b877")
-	)
-	(junction
 		(at 257.81 31.75)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -3546,6 +3797,18 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "6b371255-4fc7-4e12-a31e-2544d7c2b103")
+	)
+	(junction
+		(at 209.55 146.05)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "79aac0b2-b34e-4b03-8c87-38c9be83fbfb")
+	)
+	(junction
+		(at 215.9 146.05)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "7efb62ad-f98f-43d9-b8d8-2fca81e726e9")
 	)
 	(junction
 		(at 257.81 36.83)
@@ -3566,10 +3829,16 @@
 		(uuid "a621657b-f32e-4e77-9e42-65b8cf6f4d13")
 	)
 	(junction
-		(at 220.98 146.05)
+		(at 213.36 146.05)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "abae0866-0d53-4b68-a289-3ed0aa925638")
+	)
+	(junction
+		(at 44.45 45.72)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "ad7159b6-6ff2-4749-ae5d-ada87d5efece")
 	)
 	(junction
 		(at 49.53 35.56)
@@ -3578,10 +3847,22 @@
 		(uuid "cb6e1764-0a8c-4396-980e-d30ae696e1d9")
 	)
 	(junction
+		(at 111.76 19.05)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "ec4d8b8f-98f6-4013-8e44-547d5279af04")
+	)
+	(junction
 		(at 215.9 156.21)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "ed49826f-6c92-4594-8e8e-0d4301ee8d86")
+	)
+	(junction
+		(at 63.5 35.56)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "ffeb917f-4e06-4b50-b130-f7da7bf2f98d")
 	)
 	(no_connect
 		(at 83.82 48.26)
@@ -3601,23 +3882,23 @@
 	)
 	(wire
 		(pts
-			(xy 205.74 146.05) (xy 209.55 146.05)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "00667a75-9b7b-4be7-9646-788945db3452")
-	)
-	(wire
-		(pts
-			(xy 71.12 40.64) (xy 83.82 40.64)
+			(xy 78.74 40.64) (xy 83.82 40.64)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "00dae995-959e-41e9-bf33-3da640af80ef")
+	)
+	(wire
+		(pts
+			(xy 109.22 19.05) (xy 111.76 19.05)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0394a781-3206-4afa-a814-4b16a0f568e8")
 	)
 	(wire
 		(pts
@@ -3641,7 +3922,7 @@
 	)
 	(wire
 		(pts
-			(xy 49.53 35.56) (xy 71.12 35.56)
+			(xy 49.53 35.56) (xy 63.5 35.56)
 		)
 		(stroke
 			(width 0)
@@ -3701,6 +3982,16 @@
 	)
 	(wire
 		(pts
+			(xy 63.5 35.56) (xy 78.74 35.56)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1a68683a-2ac5-428b-bb57-30c95d728a6e")
+	)
+	(wire
+		(pts
 			(xy 77.47 124.46) (xy 83.82 124.46)
 		)
 		(stroke
@@ -3728,6 +4019,16 @@
 			(type default)
 		)
 		(uuid "2362b66e-be1f-4584-b0bd-f69a4ab049e9")
+	)
+	(wire
+		(pts
+			(xy 71.12 53.34) (xy 83.82 53.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2592a2c5-9c48-407c-af4b-f74e05d295c4")
 	)
 	(wire
 		(pts
@@ -3851,6 +4152,16 @@
 	)
 	(wire
 		(pts
+			(xy 209.55 146.05) (xy 223.52 146.05)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "41313a44-02d5-4c67-9221-a6172cf34877")
+	)
+	(wire
+		(pts
 			(xy 35.56 129.54) (xy 39.37 129.54)
 		)
 		(stroke
@@ -3881,6 +4192,16 @@
 	)
 	(wire
 		(pts
+			(xy 199.39 34.29) (xy 204.47 34.29)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4dd869a7-158c-46bf-bf6b-c2d9825a3c3c")
+	)
+	(wire
+		(pts
 			(xy 147.32 88.9) (xy 137.16 88.9)
 		)
 		(stroke
@@ -3901,6 +4222,16 @@
 	)
 	(wire
 		(pts
+			(xy 44.45 45.72) (xy 63.5 45.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "59bf703c-bc4f-4607-963b-504d830e202c")
+	)
+	(wire
+		(pts
 			(xy 77.47 101.6) (xy 83.82 101.6)
 		)
 		(stroke
@@ -3918,6 +4249,16 @@
 			(type default)
 		)
 		(uuid "5cb24b1e-42e9-4621-9d07-2944d45c505f")
+	)
+	(wire
+		(pts
+			(xy 78.74 38.1) (xy 78.74 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "65d47b66-3335-4038-baaa-8a07f12b3892")
 	)
 	(wire
 		(pts
@@ -3951,13 +4292,13 @@
 	)
 	(wire
 		(pts
-			(xy 220.98 146.05) (xy 223.52 146.05)
+			(xy 57.15 55.88) (xy 63.5 55.88)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "73875535-060a-42c2-b17b-ded2df7a6e97")
+		(uuid "71f63802-2dca-4ae2-a8b2-022764bca21c")
 	)
 	(wire
 		(pts
@@ -3968,16 +4309,6 @@
 			(type default)
 		)
 		(uuid "73ad9661-0af7-40fd-a242-9b8a7dc1a7a3")
-	)
-	(wire
-		(pts
-			(xy 59.69 45.72) (xy 78.74 45.72)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "74f7d8a0-c5b6-4367-95e3-0454f23f749d")
 	)
 	(wire
 		(pts
@@ -4031,16 +4362,6 @@
 	)
 	(wire
 		(pts
-			(xy 199.39 34.29) (xy 204.47 34.29)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8309b40e-2284-4aa7-932a-975754268b89")
-	)
-	(wire
-		(pts
 			(xy 35.56 176.53) (xy 39.37 176.53)
 		)
 		(stroke
@@ -4048,16 +4369,6 @@
 			(type default)
 		)
 		(uuid "842f6606-4f7d-46ce-83e0-c3628e7e8129")
-	)
-	(wire
-		(pts
-			(xy 67.31 58.42) (xy 67.31 53.34)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "86698953-2c99-4168-9977-3e92eec0c8d5")
 	)
 	(wire
 		(pts
@@ -4121,16 +4432,6 @@
 	)
 	(wire
 		(pts
-			(xy 78.74 45.72) (xy 78.74 38.1)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9a42c413-d5e1-40fd-9c85-db6eaa3f1c57")
-	)
-	(wire
-		(pts
 			(xy 35.56 148.59) (xy 39.37 148.59)
 		)
 		(stroke
@@ -4141,7 +4442,7 @@
 	)
 	(wire
 		(pts
-			(xy 71.12 35.56) (xy 71.12 40.64)
+			(xy 78.74 35.56) (xy 78.74 38.1)
 		)
 		(stroke
 			(width 0)
@@ -4201,16 +4502,6 @@
 	)
 	(wire
 		(pts
-			(xy 215.9 146.05) (xy 220.98 146.05)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ab6f81c5-a8b7-4f7a-a51d-8189b4dd0756")
-	)
-	(wire
-		(pts
 			(xy 257.81 26.67) (xy 251.46 26.67)
 		)
 		(stroke
@@ -4228,6 +4519,16 @@
 			(type default)
 		)
 		(uuid "abfa7707-768e-4707-88b4-b3a1e88ad953")
+	)
+	(wire
+		(pts
+			(xy 68.58 71.12) (xy 83.82 71.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ad8b9d88-bb94-4000-a18c-cd1edf240fce")
 	)
 	(wire
 		(pts
@@ -4321,16 +4622,6 @@
 	)
 	(wire
 		(pts
-			(xy 201.93 146.05) (xy 205.74 146.05)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "bafbe83a-dea8-470b-9f40-7b7330cf2cc0")
-	)
-	(wire
-		(pts
 			(xy 257.81 36.83) (xy 257.81 31.75)
 		)
 		(stroke
@@ -4391,6 +4682,16 @@
 	)
 	(wire
 		(pts
+			(xy 63.5 55.88) (xy 71.12 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c8c8c1b8-d199-4ef2-8f07-a73114e81b93")
+	)
+	(wire
+		(pts
 			(xy 146.05 134.62) (xy 137.16 134.62)
 		)
 		(stroke
@@ -4408,16 +4709,6 @@
 			(type default)
 		)
 		(uuid "c9c7098d-d0bd-4053-a0a2-0e79319ff3a4")
-	)
-	(wire
-		(pts
-			(xy 67.31 53.34) (xy 83.82 53.34)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "cbf75ccb-8b77-4212-b009-5b1df1a47f0d")
 	)
 	(wire
 		(pts
@@ -4471,6 +4762,16 @@
 	)
 	(wire
 		(pts
+			(xy 201.93 146.05) (xy 209.55 146.05)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e042f57c-af64-410a-b05d-705ad9267657")
+	)
+	(wire
+		(pts
 			(xy 77.47 96.52) (xy 83.82 96.52)
 		)
 		(stroke
@@ -4511,6 +4812,26 @@
 	)
 	(wire
 		(pts
+			(xy 35.56 186.69) (xy 39.37 186.69)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ee06226c-321c-4b96-9c3d-2012c3f0df9a")
+	)
+	(wire
+		(pts
+			(xy 71.12 55.88) (xy 71.12 53.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ee8d5d2e-1f34-4346-9b1a-dfc274de091e")
+	)
+	(wire
+		(pts
 			(xy 77.47 119.38) (xy 83.82 119.38)
 		)
 		(stroke
@@ -4538,16 +4859,6 @@
 			(type default)
 		)
 		(uuid "f19af48a-bb1c-4e33-b3de-4fcd9b810831")
-	)
-	(wire
-		(pts
-			(xy 102.87 19.05) (xy 109.22 19.05)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f33fabca-9d85-49d2-ab01-a1d546697008")
 	)
 	(wire
 		(pts
@@ -4649,6 +4960,16 @@
 		)
 		(uuid "10f52476-8ccb-4764-b8f9-ad33ad9ba201")
 	)
+	(label "PHONE_EN"
+		(at 39.37 186.69 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "16867dfc-920d-4c99-9299-6408d78e92d7")
+	)
 	(label "VDDIO2"
 		(at 111.76 19.05 0)
 		(effects
@@ -4668,6 +4989,16 @@
 			(justify right bottom)
 		)
 		(uuid "21612839-580a-4254-9b36-5bda9a4869f1")
+	)
+	(label "PHONE_EN"
+		(at 68.58 71.12 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "284baf9d-7c55-4482-9cfa-aa3fb1397ada")
 	)
 	(label "UCPD2_DBCC2"
 		(at 241.3 41.91 180)
@@ -4719,6 +5050,16 @@
 		)
 		(uuid "42cae4d9-a070-41a8-b881-749bef0fba0a")
 	)
+	(label "SWDIO"
+		(at 243.84 63.5 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "42d06d9c-e4cd-4f50-9c9a-0aaee6257549")
+	)
 	(label "UCPD2_CC1"
 		(at 147.32 86.36 0)
 		(effects
@@ -4748,6 +5089,16 @@
 			(justify left bottom)
 		)
 		(uuid "483a4c10-f013-46de-adce-e2930ff67fcd")
+	)
+	(label "UART_TX"
+		(at 243.84 90.17 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "4a60874f-115c-476e-91cf-17869e533017")
 	)
 	(label "I2S1_CK"
 		(at 39.37 124.46 0)
@@ -4989,6 +5340,16 @@
 		)
 		(uuid "980bf4c0-68fc-4837-a5d1-6518b277186e")
 	)
+	(label "SWCLK"
+		(at 243.84 66.04 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "9d35d246-157e-4ff6-9677-2ae6614725c9")
+	)
 	(label "I2S1_SD"
 		(at 77.47 106.68 180)
 		(effects
@@ -5048,6 +5409,16 @@
 			(justify left bottom)
 		)
 		(uuid "a971351a-9f68-476a-9e98-aeb457ec4dfe")
+	)
+	(label "NRST"
+		(at 57.15 55.88 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "abc92689-f505-4d4f-8af3-bfa5d8f44a57")
 	)
 	(label "UCPD1_CC2"
 		(at 39.37 154.94 0)
@@ -5189,6 +5560,16 @@
 		)
 		(uuid "d63fbf13-93d5-4abd-ba1f-d191f8117bf2")
 	)
+	(label "NRST"
+		(at 243.84 68.58 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "d6f236b8-fa5d-4ac5-bffb-96bae78d08c6")
+	)
 	(label "UCPD1_DBCC1"
 		(at 77.47 111.76 180)
 		(effects
@@ -5278,6 +5659,16 @@
 			(justify left bottom)
 		)
 		(uuid "f3559a2c-6551-42e4-9b02-1266fe882b47")
+	)
+	(label "UART_RX"
+		(at 243.84 87.63 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "f607deb0-5bf6-4d50-adc3-40ad2276f70b")
 	)
 	(label "GPIO_EXTI0"
 		(at 39.37 176.53 0)
@@ -5376,6 +5767,17 @@
 			(justify right)
 		)
 		(uuid "359b9662-a4ce-472e-a681-bf5db1497977")
+	)
+	(hierarchical_label "PHONE_EN"
+		(shape output)
+		(at 35.56 186.69 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "486a1891-e724-40cb-9adc-bb6c570fb548")
 	)
 	(hierarchical_label "GPIO_EXTI1"
 		(shape input)
@@ -5690,6 +6092,84 @@
 		)
 	)
 	(symbol
+		(lib_id "power:+3V8")
+		(at 243.84 85.09 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "15087dfe-0b26-4062-bf22-b2e3f397b1cb")
+		(property "Reference" "#PWR058"
+			(at 243.84 88.9 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+3V3_D"
+			(at 243.84 80.01 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 243.84 85.09 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 243.84 85.09 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3V8\""
+			(at 243.84 85.09 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "8ed1092c-f85c-44fd-863f-0f0bb5c34c45")
+		)
+		(instances
+			(project "DrunkEarPhoneAdapter"
+				(path "/df940915-8af0-46f9-b18a-23d4684ae671/c6b936ac-23e1-4f20-8d3d-ded05833abcb"
+					(reference "#PWR058")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "JLCImport:CL05B103KB5NNNC")
 		(at 29.21 81.28 90)
 		(unit 1)
@@ -5805,7 +6285,7 @@
 	)
 	(symbol
 		(lib_id "JLCImport:CL05B104KO5NNNC")
-		(at 67.31 63.5 270)
+		(at 63.5 50.8 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -5815,7 +6295,7 @@
 		(dnp no)
 		(uuid "1eb853e4-b029-4eda-a42d-d987a7b3bdfd")
 		(property "Reference" "C56"
-			(at 62.738 61.722 90)
+			(at 58.928 49.022 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5826,7 +6306,7 @@
 			)
 		)
 		(property "Value" "100nF 16V X7R"
-			(at 51.562 65.532 90)
+			(at 47.752 52.832 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5837,7 +6317,7 @@
 			)
 		)
 		(property "Footprint" "JLCImport:CL05B104KO5NNNC"
-			(at 67.31 63.5 0)
+			(at 63.5 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5848,7 +6328,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL05B104KO5NNNC_C1525.pdf"
-			(at 67.31 63.5 0)
+			(at 63.5 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5859,7 +6339,7 @@
 			)
 		)
 		(property "Description" "100nF 16V X7R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 67.31 63.5 0)
+			(at 63.5 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5870,7 +6350,7 @@
 			)
 		)
 		(property "LCSC" "C1525"
-			(at 67.31 63.5 0)
+			(at 63.5 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5881,7 +6361,7 @@
 			)
 		)
 		(property "Manufacturer" "Samsung Electro-Mechanics"
-			(at 67.31 63.5 0)
+			(at 63.5 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5892,7 +6372,7 @@
 			)
 		)
 		(property "Manufacturer Part" "CL05B104KO5NNNC"
-			(at 67.31 63.5 0)
+			(at 63.5 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6031,7 +6511,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 59.69 55.88 0)
+		(at 243.84 71.12 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -6039,10 +6519,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "23cd4463-ee75-4347-9253-8aafd25ca841")
-		(property "Reference" "#PWR057"
-			(at 59.69 62.23 0)
+		(uuid "36415f4a-0b4b-4d91-b7e6-09b1e564d91b")
+		(property "Reference" "#PWR082"
+			(at 243.84 77.47 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6053,7 +6532,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 59.69 60.96 0)
+			(at 243.332 74.93 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6063,7 +6542,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 59.69 55.88 0)
+			(at 243.84 71.12 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6074,7 +6553,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 59.69 55.88 0)
+			(at 243.84 71.12 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6085,7 +6564,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 59.69 55.88 0)
+			(at 243.84 71.12 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6096,12 +6575,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "6a6e7682-e3b8-4a96-bd6c-d19db43cc3d7")
+			(uuid "4ef2e8d3-fc8a-4c7f-827b-11b47ccbf4ec")
 		)
 		(instances
 			(project "DrunkEarPhoneAdapter"
 				(path "/df940915-8af0-46f9-b18a-23d4684ae671/c6b936ac-23e1-4f20-8d3d-ded05833abcb"
-					(reference "#PWR057")
+					(reference "#PWR082")
 					(unit 1)
 				)
 			)
@@ -6118,8 +6597,8 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "488dfdd0-67d0-4de7-8035-095a6e897676")
-		(property "Reference" "#PWR045"
+		(uuid "3df8e221-2d14-48ae-ac26-9a9dacad5c75")
+		(property "Reference" "#PWR036"
 			(at 199.39 38.1 0)
 			(hide yes)
 			(show_name no)
@@ -6130,7 +6609,7 @@
 				)
 			)
 		)
-		(property "Value" "+1V8_D"
+		(property "Value" "+3V3_D"
 			(at 199.39 29.21 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6174,12 +6653,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "a17bf703-e136-4833-b166-2a5fe39cf734")
+			(uuid "51805888-c803-4d7b-b2e7-a7d2c32113e9")
 		)
 		(instances
 			(project "DrunkEarPhoneAdapter"
 				(path "/df940915-8af0-46f9-b18a-23d4684ae671/c6b936ac-23e1-4f20-8d3d-ded05833abcb"
-					(reference "#PWR045")
+					(reference "#PWR036")
 					(unit 1)
 				)
 			)
@@ -6456,6 +6935,83 @@
 	)
 	(symbol
 		(lib_id "power:GND")
+		(at 243.84 95.25 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "5aaaa313-700f-4a16-abb5-2aac020858fb")
+		(property "Reference" "#PWR083"
+			(at 243.84 101.6 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 243.332 99.06 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 243.84 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 243.84 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 243.84 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "85d5d99a-1613-4357-ab05-ff374a2a439a")
+		)
+		(instances
+			(project "DrunkEarPhoneAdapter"
+				(path "/df940915-8af0-46f9-b18a-23d4684ae671/c6b936ac-23e1-4f20-8d3d-ded05833abcb"
+					(reference "#PWR083")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
 		(at 110.49 191.77 0)
 		(unit 1)
 		(body_style 1)
@@ -6527,84 +7083,6 @@
 			(project "DrunkEarPhoneAdapter"
 				(path "/df940915-8af0-46f9-b18a-23d4684ae671/c6b936ac-23e1-4f20-8d3d-ded05833abcb"
 					(reference "#PWR018")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+3V8")
-		(at 49.53 25.4 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "6561d0a3-26cd-49e0-8986-80bb1e986189")
-		(property "Reference" "#PWR027"
-			(at 49.53 29.21 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "+1V8_D"
-			(at 49.53 20.32 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 49.53 25.4 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 49.53 25.4 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+3V8\""
-			(at 49.53 25.4 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "04255dca-ec08-4bf3-8c6a-702a02ac7449")
-		)
-		(instances
-			(project "DrunkEarPhoneAdapter"
-				(path "/df940915-8af0-46f9-b18a-23d4684ae671/c6b936ac-23e1-4f20-8d3d-ded05833abcb"
-					(reference "#PWR027")
 					(unit 1)
 				)
 			)
@@ -6804,7 +7282,7 @@
 	)
 	(symbol
 		(lib_id "power:+3V8")
-		(at 205.74 146.05 0)
+		(at 243.84 60.96 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -6813,9 +7291,9 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "84f47c09-555f-4c51-be3d-2737180cc8fa")
-		(property "Reference" "#PWR053"
-			(at 205.74 149.86 0)
+		(uuid "7903338f-7aef-4019-97bd-f10e1b4f10d4")
+		(property "Reference" "#PWR048"
+			(at 243.84 64.77 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6825,8 +7303,8 @@
 				)
 			)
 		)
-		(property "Value" "+1V8_D"
-			(at 205.74 140.97 0)
+		(property "Value" "+3V3_D"
+			(at 243.84 55.88 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6836,7 +7314,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 205.74 146.05 0)
+			(at 243.84 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6847,7 +7325,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 205.74 146.05 0)
+			(at 243.84 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6858,7 +7336,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3V8\""
-			(at 205.74 146.05 0)
+			(at 243.84 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6869,12 +7347,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "0070bfc9-a8da-45c7-9212-37798a5b182d")
+			(uuid "c229cb6b-e44b-4ed6-bd6e-9a50b547e25e")
 		)
 		(instances
 			(project "DrunkEarPhoneAdapter"
 				(path "/df940915-8af0-46f9-b18a-23d4684ae671/c6b936ac-23e1-4f20-8d3d-ded05833abcb"
-					(reference "#PWR053")
+					(reference "#PWR048")
 					(unit 1)
 				)
 			)
@@ -6997,85 +7475,7 @@
 	)
 	(symbol
 		(lib_id "power:+3V8")
-		(at 59.69 45.72 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "935e5315-f0c9-4162-8498-05f116a23929")
-		(property "Reference" "#PWR056"
-			(at 59.69 49.53 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "+1V8_D"
-			(at 59.69 40.64 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 59.69 45.72 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 59.69 45.72 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+3V8\""
-			(at 59.69 45.72 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "4b369ec7-030b-4bac-a9bd-d542e3de515c")
-		)
-		(instances
-			(project "DrunkEarPhoneAdapter"
-				(path "/df940915-8af0-46f9-b18a-23d4684ae671/c6b936ac-23e1-4f20-8d3d-ded05833abcb"
-					(reference "#PWR056")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+3V8")
-		(at 220.98 146.05 0)
+		(at 213.36 146.05 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -7086,7 +7486,7 @@
 		(fields_autoplaced yes)
 		(uuid "94a87b9d-1269-412b-b171-8438fcd35c4d")
 		(property "Reference" "#PWR054"
-			(at 220.98 149.86 0)
+			(at 213.36 149.86 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7097,7 +7497,7 @@
 			)
 		)
 		(property "Value" "+3V3_D"
-			(at 220.98 140.97 0)
+			(at 213.36 140.97 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7107,7 +7507,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 220.98 146.05 0)
+			(at 213.36 146.05 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7118,7 +7518,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 220.98 146.05 0)
+			(at 213.36 146.05 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7129,7 +7529,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3V8\""
-			(at 220.98 146.05 0)
+			(at 213.36 146.05 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7457,6 +7857,97 @@
 		)
 	)
 	(symbol
+		(lib_id "Connector_Generic:Conn_01x05")
+		(at 248.92 90.17 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "a3cc3e32-4d78-44bd-9d85-5e5885e4eb99")
+		(property "Reference" "J4"
+			(at 251.46 88.8999 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "UART"
+			(at 251.46 91.4399 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "JLCImport:Conn_1x5_1.27"
+			(at 248.92 90.17 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 248.92 90.17 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x05, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 248.92 90.17 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "4"
+			(uuid "e557ce26-d88d-4a9f-8591-31c7ea5b2e4d")
+		)
+		(pin "5"
+			(uuid "4e551741-8bb4-4ca2-a327-f1196a1a09d7")
+		)
+		(pin "2"
+			(uuid "b1dbb287-f015-4aa4-afb0-31d67a712409")
+		)
+		(pin "3"
+			(uuid "93b0a389-ef18-44c2-b1dd-afb5ce72845d")
+		)
+		(pin "1"
+			(uuid "ae3c9c3f-069a-452c-ad4b-c15da1714aa8")
+		)
+		(instances
+			(project "DrunkEarPhoneAdapter"
+				(path "/df940915-8af0-46f9-b18a-23d4684ae671/c6b936ac-23e1-4f20-8d3d-ded05833abcb"
+					(reference "J4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "JLCImport:0402WGF2201TCE")
 		(at 204.47 39.37 270)
 		(unit 1)
@@ -7572,8 +8063,86 @@
 		)
 	)
 	(symbol
+		(lib_id "power:+3V8")
+		(at 49.53 25.4 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "a5d798ba-465c-432d-a25d-03f1b7ab25d2")
+		(property "Reference" "#PWR045"
+			(at 49.53 29.21 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+3V3_D"
+			(at 49.53 20.32 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 49.53 25.4 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 49.53 25.4 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3V8\""
+			(at 49.53 25.4 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "5590a423-cb71-4351-bd05-00ae70ad7789")
+		)
+		(instances
+			(project "DrunkEarPhoneAdapter"
+				(path "/df940915-8af0-46f9-b18a-23d4684ae671/c6b936ac-23e1-4f20-8d3d-ded05833abcb"
+					(reference "#PWR045")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "JLCImport:CL05B104KO5NNNC")
-		(at 59.69 50.8 270)
+		(at 63.5 40.64 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -7583,7 +8152,7 @@
 		(dnp no)
 		(uuid "a684aae9-af7a-47b5-8851-a1832fea4823")
 		(property "Reference" "C52"
-			(at 55.118 49.022 90)
+			(at 58.928 38.862 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7594,7 +8163,7 @@
 			)
 		)
 		(property "Value" "100nF 16V X7R"
-			(at 43.942 52.832 90)
+			(at 47.752 42.672 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7605,7 +8174,7 @@
 			)
 		)
 		(property "Footprint" "JLCImport:CL05B104KO5NNNC"
-			(at 59.69 50.8 0)
+			(at 63.5 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7616,7 +8185,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL05B104KO5NNNC_C1525.pdf"
-			(at 59.69 50.8 0)
+			(at 63.5 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7627,7 +8196,7 @@
 			)
 		)
 		(property "Description" "100nF 16V X7R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 59.69 50.8 0)
+			(at 63.5 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7638,7 +8207,7 @@
 			)
 		)
 		(property "LCSC" "C1525"
-			(at 59.69 50.8 0)
+			(at 63.5 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7649,7 +8218,7 @@
 			)
 		)
 		(property "Manufacturer" "Samsung Electro-Mechanics"
-			(at 59.69 50.8 0)
+			(at 63.5 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7660,7 +8229,7 @@
 			)
 		)
 		(property "Manufacturer Part" "CL05B104KO5NNNC"
-			(at 59.69 50.8 0)
+			(at 63.5 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8324,84 +8893,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 67.31 68.58 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "ce468555-07da-4261-9f9f-50999fdf0302")
-		(property "Reference" "#PWR058"
-			(at 67.31 74.93 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 67.31 73.66 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 67.31 68.58 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 67.31 68.58 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 67.31 68.58 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "86755f71-985c-474b-90dd-0b05d7b51a51")
-		)
-		(instances
-			(project "DrunkEarPhoneAdapter"
-				(path "/df940915-8af0-46f9-b18a-23d4684ae671/c6b936ac-23e1-4f20-8d3d-ded05833abcb"
-					(reference "#PWR058")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "JLCImport:0402WGF2201TCE")
 		(at 194.31 39.37 270)
 		(unit 1)
@@ -8511,6 +9002,97 @@
 			(project "DrunkEarPhoneAdapter"
 				(path "/df940915-8af0-46f9-b18a-23d4684ae671/c6b936ac-23e1-4f20-8d3d-ded05833abcb"
 					(reference "R11")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector_Generic:Conn_01x05")
+		(at 248.92 66.04 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "d15fae2d-5bbc-469a-9b1b-e5c3a0220efb")
+		(property "Reference" "J3"
+			(at 251.46 64.7699 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "SWD"
+			(at 251.46 67.3099 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "JLCImport:Conn_1x5_1.27"
+			(at 248.92 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 248.92 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x05, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 248.92 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "4"
+			(uuid "2a94566a-ea77-4edd-a27e-44ac4de7cd1b")
+		)
+		(pin "5"
+			(uuid "86f51dc1-59ce-4f69-ab6c-26dbecd50be5")
+		)
+		(pin "2"
+			(uuid "129f14ae-3296-4c40-8b81-9730de42c726")
+		)
+		(pin "3"
+			(uuid "64700d03-d41b-4cc4-b146-0575c68e82ce")
+		)
+		(pin "1"
+			(uuid "3c158b25-adbc-4ffc-918d-038c1363b514")
+		)
+		(instances
+			(project "DrunkEarPhoneAdapter"
+				(path "/df940915-8af0-46f9-b18a-23d4684ae671/c6b936ac-23e1-4f20-8d3d-ded05833abcb"
+					(reference "J3")
 					(unit 1)
 				)
 			)
@@ -8851,85 +9433,6 @@
 			(project "DrunkEarPhoneAdapter"
 				(path "/df940915-8af0-46f9-b18a-23d4684ae671/c6b936ac-23e1-4f20-8d3d-ded05833abcb"
 					(reference "C54")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+3V8")
-		(at 102.87 19.05 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "e4378d5b-d98f-42f4-9263-5927e0ce0ae5")
-		(property "Reference" "#PWR036"
-			(at 106.68 19.05 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "+1V8_D"
-			(at 99.06 19.0499 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 102.87 19.05 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 102.87 19.05 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+3V8\""
-			(at 102.87 19.05 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "73f0de30-d6b5-4fb5-9e1d-f4fd575f5c2d")
-		)
-		(instances
-			(project "DrunkEarPhoneAdapter"
-				(path "/df940915-8af0-46f9-b18a-23d4684ae671/c6b936ac-23e1-4f20-8d3d-ded05833abcb"
-					(reference "#PWR036")
 					(unit 1)
 				)
 			)

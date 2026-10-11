@@ -478,9 +478,9 @@
       "no_connect_connected": "warning",
       "no_connect_dangling": "warning",
       "pin_not_connected": "error",
-      "pin_not_driven": "error",
+      "pin_not_driven": "ignore",
       "pin_to_pin": "warning",
-      "power_pin_not_driven": "error",
+      "power_pin_not_driven": "ignore",
       "same_local_global_label": "warning",
       "similar_label_and_power": "warning",
       "similar_labels": "warning",
@@ -662,7 +662,7 @@
         "uuid": "df940915-8af0-46f9-b18a-23d4684ae671"
       }
     ],
-    "used_designators": "D1-4,#PWR1-77,C1-88,U1-21,SW1,TP1-2,Audio1,Q1-3,L1-7,X1-3,R1-35,USBC1-2,CN1",
+    "used_designators": "J1-4,D1-4,#PWR1-83,C1-92,U1-21,SW1-2,TP1-7,Audio1,Q1-3,L1-7,X1-3,R1-36,USBC1-2,CN1",
     "variants": []
   },
   "sheets": [

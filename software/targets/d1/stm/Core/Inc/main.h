@@ -34,6 +34,8 @@ extern "C" {
 #include "stm32g0xx_ll_i2c.h"
 #include "stm32g0xx_ll_spi.h"
 #include "stm32g0xx_ll_rcc.h"
+#include "stm32g0xx_ll_iwdg.h"
+#include "stm32g0xx_ll_lpuart.h"
 #include "stm32g0xx_ll_bus.h"
 #include "stm32g0xx_ll_crs.h"
 #include "stm32g0xx_ll_system.h"
@@ -78,6 +80,8 @@ void Error_Handler(void);
 #define CLK_EN2_GPIO_Port GPIOD
 #define CS_RESET__Pin LL_GPIO_PIN_7
 #define CS_RESET__GPIO_Port GPIOD
+#define PHONE_EN_Pin LL_GPIO_PIN_9
+#define PHONE_EN_GPIO_Port GPIOF
 
 /* USER CODE BEGIN Private defines */
 

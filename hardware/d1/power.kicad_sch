@@ -5,6 +5,129 @@
 	(uuid "1b9bfec2-91fd-4fc7-9f97-0554922d9ed2")
 	(paper "A4")
 	(lib_symbols
+		(symbol "Connector:TestPoint"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0.762)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "TP"
+				(at 0 6.858 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "TestPoint"
+				(at 0 5.08 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 5.08 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 5.08 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "test point"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "test point tp"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "Pin* Test*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "TestPoint_0_1"
+				(circle
+					(center 0 3.302)
+					(radius 0.762)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "TestPoint_1_1"
+				(pin passive line
+					(at 0 0 90)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "JLCImport:0402WGF2202TCE"
 			(pin_names
 				(offset 1.016)
@@ -269,163 +392,6 @@
 				)
 			)
 			(symbol "0402WGF6202TCE_0_1"
-				(rectangle
-					(start -2.54 1.016)
-					(end 2.54 -1.016)
-					(stroke
-						(width 0.254)
-						(type solid)
-					)
-					(fill
-						(type background)
-					)
-				)
-				(pin input line
-					(at -5.08 0 0)
-					(length 2.54)
-					(name "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin input line
-					(at 5.08 0 180)
-					(length 2.54)
-					(name "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "JLCImport:0805W8F330JT5E"
-			(pin_names
-				(offset 1.016)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "R"
-				(at 0 3.016 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "0805W8F330JT5E"
-				(at 0 -3.016 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2205311830_UNI-ROYAL-Uniroyal-Elec-0805W8F330JT5E_C17634.pdf"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Description" "-55℃~+155℃ 125mW 150V 33Ω Thick Film Resistor ±1% ±200ppm/℃ 0805 Chip Resistor - Surface Mount ROHS"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "LCSC" "C17634"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Manufacturer Part" "0805W8F330JT5E"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_keywords" "0805W8F330JT5E C17634 R0805 UNI-ROYAL(Uniroyal Elec)"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "0805W8F330JT5E_0_1"
 				(rectangle
 					(start -2.54 1.016)
 					(end 2.54 -1.016)
@@ -2004,6 +1970,163 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "JLCImport:SR1206JR-7W100RL"
+			(pin_names
+				(offset 1.016)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "R"
+				(at 0 3.27 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "SR1206JR-7W100RL"
+				(at 0 -3.27 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2012221940_YAGEO-SR1206JR-7W100RL_C874066.pdf"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "-55℃~+155℃ 100Ω 200V 500mW Thick Film Resistor ±100ppm/℃ ±5% 1206 Chip Resistor - Surface Mount ROHS"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "LCSC" "C874066"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Manufacturer" "YAGEO"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Manufacturer Part" "SR1206JR-7W100RL"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "C874066 R1206 SR1206JR-7W100RL YAGEO"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "SR1206JR-7W100RL_0_1"
+				(rectangle
+					(start -2.54 1.27)
+					(end 2.54 -1.27)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(pin unspecified line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin unspecified line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "JLCImport:SWPA4020S150MT"
 			(pin_names
 				(offset 1.016)
@@ -3307,7 +3430,7 @@
 		)
 		(uuid "15f15e5a-931a-4f85-9640-d661eb1c7e5e")
 	)
-	(text "LDO 3.3V for STM32 VDDIO2 (USB)\nES8327 DVDD, TCPP VCC_VCONN"
+	(text "LDO 3.3V for STM32, ES8327, shifters"
 		(exclude_from_sim no)
 		(at 57.658 83.82 0)
 		(effects
@@ -3347,7 +3470,7 @@
 		)
 		(uuid "c26e16cc-54d2-4542-b2b3-343f9772ff61")
 	)
-	(text "LDO 1.8V for STM32 VDD/VDDA/VREF+,\nCS43131 VL+VD, ES8327 PVDD\nOscilator\n"
+	(text "LDO 1.8V for CS43131 VL+VD, Oscilators, shifters\n"
 		(exclude_from_sim no)
 		(at 123.444 82.296 0)
 		(effects
@@ -3382,12 +3505,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "0c3dd835-b6df-4bca-a91e-6a6d90f656ed")
-	)
-	(junction
-		(at 118.11 36.83)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "0ed1ec18-bd6a-4cb2-b545-c1d4b63a92e6")
 	)
 	(junction
 		(at 24.13 45.72)
@@ -3438,16 +3555,16 @@
 		(uuid "35c74449-772d-4ffa-96bd-b252412de074")
 	)
 	(junction
+		(at 114.3 36.83)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "3913e7d8-d780-4c95-8a10-75cbc7ad2add")
+	)
+	(junction
 		(at 166.37 36.83)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "3b405aae-64d1-4e0b-a20e-4494c672415f")
-	)
-	(junction
-		(at 45.72 101.6)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "47a35461-3ae6-4295-a67a-c183681498cb")
 	)
 	(junction
 		(at 69.85 102.87)
@@ -3492,10 +3609,22 @@
 		(uuid "5918db35-ca3e-4e3e-a1bd-2182a6a710e1")
 	)
 	(junction
+		(at 128.27 46.99)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "5c7a8248-e146-483d-a6ea-5fd74cd59bb4")
+	)
+	(junction
 		(at 72.39 48.26)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "60e3015f-d8a6-4369-b3c7-c5fb5dca9069")
+	)
+	(junction
+		(at 76.2 36.83)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "61372699-3e64-429c-8257-865a69534230")
 	)
 	(junction
 		(at 87.63 49.53)
@@ -3600,6 +3729,12 @@
 		(uuid "9728c587-7e8b-4e82-a713-6addb599a7a8")
 	)
 	(junction
+		(at 69.85 95.25)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "985c4039-72c2-4d63-b620-554aa2e1de8b")
+	)
+	(junction
 		(at 153.67 36.83)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -3636,6 +3771,18 @@
 		(uuid "b5853043-ee4f-49c0-ab29-8d0b110a9abb")
 	)
 	(junction
+		(at 191.77 92.71)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "b9dfdd83-bf87-4922-9cf2-890ebf90ae78")
+	)
+	(junction
+		(at 44.45 101.6)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "bbeb6611-f864-48b9-9eff-d216075acb5e")
+	)
+	(junction
 		(at 162.56 97.79)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -3646,6 +3793,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "c2995b18-0ab3-47e6-beba-6948fae0bb70")
+	)
+	(junction
+		(at 93.98 50.8)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "c86c7b8b-f85b-4f68-9a5a-61047ca2417f")
 	)
 	(junction
 		(at 111.76 165.1)
@@ -3688,6 +3841,24 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "dac674cc-c48c-43d1-9f44-372253207199")
+	)
+	(junction
+		(at 137.16 148.59)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "dd8ff679-a030-4420-9c64-e23fae5da05f")
+	)
+	(junction
+		(at 138.43 93.98)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "dfdd100f-5f4d-49a5-926e-aea07ce7dc06")
+	)
+	(junction
+		(at 68.58 148.59)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "e424c3d5-17dd-4d5a-b410-5690fb603ea0")
 	)
 	(junction
 		(at 124.46 165.1)
@@ -3747,16 +3918,6 @@
 	)
 	(wire
 		(pts
-			(xy 45.72 101.6) (xy 48.26 101.6)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "01e80db0-4055-49b5-8bab-9d59186196d4")
-	)
-	(wire
-		(pts
 			(xy 41.91 113.03) (xy 45.72 113.03)
 		)
 		(stroke
@@ -3777,7 +3938,17 @@
 	)
 	(wire
 		(pts
-			(xy 113.03 36.83) (xy 118.11 36.83)
+			(xy 114.3 25.4) (xy 115.57 25.4)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0dc2d6f3-4cdd-46b6-b503-6c7a24ec2f81")
+	)
+	(wire
+		(pts
+			(xy 109.22 36.83) (xy 116.84 36.83)
 		)
 		(stroke
 			(width 0)
@@ -3827,7 +3998,7 @@
 	)
 	(wire
 		(pts
-			(xy 41.91 101.6) (xy 45.72 101.6)
+			(xy 41.91 101.6) (xy 44.45 101.6)
 		)
 		(stroke
 			(width 0)
@@ -3837,7 +4008,7 @@
 	)
 	(wire
 		(pts
-			(xy 118.11 25.4) (xy 118.11 36.83)
+			(xy 114.3 25.4) (xy 114.3 36.83)
 		)
 		(stroke
 			(width 0)
@@ -3937,7 +4108,7 @@
 	)
 	(wire
 		(pts
-			(xy 137.16 144.78) (xy 137.16 154.94)
+			(xy 137.16 144.78) (xy 137.16 148.59)
 		)
 		(stroke
 			(width 0)
@@ -3997,7 +4168,7 @@
 	)
 	(wire
 		(pts
-			(xy 45.72 92.71) (xy 45.72 101.6)
+			(xy 44.45 92.71) (xy 44.45 101.6)
 		)
 		(stroke
 			(width 0)
@@ -4077,7 +4248,7 @@
 	)
 	(wire
 		(pts
-			(xy 69.85 92.71) (xy 69.85 102.87)
+			(xy 69.85 92.71) (xy 69.85 95.25)
 		)
 		(stroke
 			(width 0)
@@ -4094,6 +4265,16 @@
 			(type default)
 		)
 		(uuid "4000357e-0d4b-4ca3-86be-2f5fb4d72b2b")
+	)
+	(wire
+		(pts
+			(xy 191.77 92.71) (xy 191.77 100.33)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "41f3e2bb-9937-4b83-a3a7-862c6deff670")
 	)
 	(wire
 		(pts
@@ -4167,6 +4348,16 @@
 	)
 	(wire
 		(pts
+			(xy 69.85 95.25) (xy 69.85 102.87)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4db09322-b061-4dff-a900-4b617e772c7e")
+	)
+	(wire
+		(pts
 			(xy 111.76 165.1) (xy 137.16 165.1)
 		)
 		(stroke
@@ -4224,6 +4415,16 @@
 			(type default)
 		)
 		(uuid "5821e1a3-d90d-43e9-be59-a808a11b27f1")
+	)
+	(wire
+		(pts
+			(xy 44.45 101.6) (xy 48.26 101.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5d5f8f96-dd4d-40b6-af4d-396db3345f15")
 	)
 	(wire
 		(pts
@@ -4307,7 +4508,7 @@
 	)
 	(wire
 		(pts
-			(xy 76.2 44.45) (xy 76.2 48.26)
+			(xy 76.2 36.83) (xy 76.2 48.26)
 		)
 		(stroke
 			(width 0)
@@ -4324,16 +4525,6 @@
 			(type default)
 		)
 		(uuid "7227f451-0417-4a8d-915b-d8da14e49e19")
-	)
-	(wire
-		(pts
-			(xy 35.56 106.68) (xy 48.26 106.68)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7455b48e-f100-42d2-9b62-ceea55392489")
 	)
 	(wire
 		(pts
@@ -4357,7 +4548,7 @@
 	)
 	(wire
 		(pts
-			(xy 138.43 91.44) (xy 138.43 101.6)
+			(xy 138.43 91.44) (xy 138.43 93.98)
 		)
 		(stroke
 			(width 0)
@@ -4454,6 +4645,16 @@
 			(type default)
 		)
 		(uuid "847560f5-2a14-4bcd-8011-45a1e09f4295")
+	)
+	(wire
+		(pts
+			(xy 191.77 92.71) (xy 198.12 92.71)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "85d9298c-f081-4fc7-823f-f94e52283f3d")
 	)
 	(wire
 		(pts
@@ -4577,6 +4778,16 @@
 	)
 	(wire
 		(pts
+			(xy 128.27 25.4) (xy 125.73 25.4)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "97e226a2-7f7b-4049-8c47-33716f7c59eb")
+	)
+	(wire
+		(pts
 			(xy 137.16 154.94) (xy 133.35 154.94)
 		)
 		(stroke
@@ -4584,6 +4795,16 @@
 			(type default)
 		)
 		(uuid "99525bde-9946-4163-a58e-e73828b4a44d")
+	)
+	(wire
+		(pts
+			(xy 68.58 148.59) (xy 74.93 148.59)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9ce75a78-803b-4c24-aadb-12783739abc1")
 	)
 	(wire
 		(pts
@@ -4627,6 +4848,16 @@
 	)
 	(wire
 		(pts
+			(xy 137.16 148.59) (xy 137.16 154.94)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "aca62192-ba9b-4155-b757-38bce83a33eb")
+	)
+	(wire
+		(pts
 			(xy 81.28 50.8) (xy 81.28 54.61)
 		)
 		(stroke
@@ -4644,16 +4875,6 @@
 			(type default)
 		)
 		(uuid "aeba346c-a1d5-4ca5-848f-da4f1200cebb")
-	)
-	(wire
-		(pts
-			(xy 35.56 102.87) (xy 35.56 106.68)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b043868c-03eb-497a-a09a-3edd75766677")
 	)
 	(wire
 		(pts
@@ -4697,7 +4918,7 @@
 	)
 	(wire
 		(pts
-			(xy 68.58 146.05) (xy 68.58 156.21)
+			(xy 68.58 146.05) (xy 68.58 148.59)
 		)
 		(stroke
 			(width 0)
@@ -4797,6 +5018,16 @@
 	)
 	(wire
 		(pts
+			(xy 68.58 148.59) (xy 68.58 156.21)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c7cb0daa-010b-4ba9-8601-9c00ee890d7d")
+	)
+	(wire
+		(pts
 			(xy 158.75 107.95) (xy 166.37 107.95)
 		)
 		(stroke
@@ -4827,6 +5058,16 @@
 	)
 	(wire
 		(pts
+			(xy 137.16 148.59) (xy 143.51 148.59)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c987a2eb-ce17-4d54-96b4-a558779c2fab")
+	)
+	(wire
+		(pts
 			(xy 36.83 45.72) (xy 36.83 53.34)
 		)
 		(stroke
@@ -4834,6 +5075,26 @@
 			(type default)
 		)
 		(uuid "cb59a884-c4a0-4dbc-adc1-1a7ee8bc687b")
+	)
+	(wire
+		(pts
+			(xy 138.43 93.98) (xy 144.78 93.98)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cbdc194d-3a5f-4587-8b0a-88b2d2cb4b49")
+	)
+	(wire
+		(pts
+			(xy 128.27 46.99) (xy 153.67 46.99)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cdc901bb-be9e-4a39-bdf0-3177eb2dfc58")
 	)
 	(wire
 		(pts
@@ -4867,7 +5128,27 @@
 	)
 	(wire
 		(pts
-			(xy 113.03 46.99) (xy 153.67 46.99)
+			(xy 127 36.83) (xy 128.27 36.83)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d5659331-d778-4805-8485-18c72c9c8c3c")
+	)
+	(wire
+		(pts
+			(xy 44.45 106.68) (xy 44.45 101.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d60d7bf2-433b-46a4-8d58-31eb44df9b3e")
+	)
+	(wire
+		(pts
+			(xy 109.22 46.99) (xy 128.27 46.99)
 		)
 		(stroke
 			(width 0)
@@ -4887,13 +5168,23 @@
 	)
 	(wire
 		(pts
-			(xy 93.98 50.8) (xy 87.63 50.8)
+			(xy 87.63 50.8) (xy 96.52 50.8)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "d9de3de6-f918-45f2-aa12-297324f2811b")
+	)
+	(wire
+		(pts
+			(xy 48.26 106.68) (xy 44.45 106.68)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "db326dbf-4922-45f4-82dd-e93ce4132174")
 	)
 	(wire
 		(pts
@@ -4914,6 +5205,16 @@
 			(type default)
 		)
 		(uuid "df559806-d2c9-4239-81d5-a05d6474437e")
+	)
+	(wire
+		(pts
+			(xy 138.43 93.98) (xy 138.43 101.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e00f9981-eff2-45f2-a2ae-1cd169b0a3e9")
 	)
 	(wire
 		(pts
@@ -4967,6 +5268,16 @@
 	)
 	(wire
 		(pts
+			(xy 69.85 95.25) (xy 76.2 95.25)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "edfeae43-d75c-4f5e-b7c6-c10895a7d5e1")
+	)
+	(wire
+		(pts
 			(xy 191.77 111.76) (xy 179.07 111.76)
 		)
 		(stroke
@@ -4987,7 +5298,17 @@
 	)
 	(wire
 		(pts
-			(xy 191.77 90.17) (xy 191.77 100.33)
+			(xy 76.2 36.83) (xy 82.55 36.83)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f0239689-b351-4388-8b4b-19afc0580357")
+	)
+	(wire
+		(pts
+			(xy 191.77 90.17) (xy 191.77 92.71)
 		)
 		(stroke
 			(width 0)
@@ -5877,6 +6198,85 @@
 		)
 	)
 	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 198.12 92.71 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "1a77b4e9-749f-4725-afe0-659e1cc39fe3")
+		(property "Reference" "TP3"
+			(at 200.66 88.1379 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "1V8_CP"
+			(at 200.66 90.6779 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_1.0x1.0mm"
+			(at 203.2 92.71 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 203.2 92.71 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 198.12 92.71 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "28ab4698-a8b1-4715-81a3-57bac868da61")
+		)
+		(instances
+			(project "DrunkEarPhoneAdapter"
+				(path "/df940915-8af0-46f9-b18a-23d4684ae671/bea21a31-aee1-46f9-b13e-ece764487360"
+					(reference "TP3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "JLCImport:TPS7A2018PDBVR")
 		(at 124.46 104.14 0)
 		(unit 1)
@@ -6391,84 +6791,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:+3V8")
-		(at 35.56 102.87 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "348cca8c-fa62-4d0a-8e92-b8389052aa12")
-		(property "Reference" "#PWR017"
-			(at 35.56 106.68 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "+1V8_D"
-			(at 35.56 97.79 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 35.56 102.87 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 35.56 102.87 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+3V8\""
-			(at 35.56 102.87 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "0f509367-9918-42ef-b259-38dd74753d91")
-		)
-		(instances
-			(project "DrunkEarPhoneAdapter"
-				(path "/df940915-8af0-46f9-b18a-23d4684ae671/bea21a31-aee1-46f9-b13e-ece764487360"
-					(reference "#PWR017")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "JLCImport:TPS7A2018PDBVR")
 		(at 177.8 102.87 0)
 		(unit 1)
@@ -6976,6 +7298,85 @@
 		)
 	)
 	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 143.51 148.59 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "3ce4b793-41da-4122-8f51-bd82e8b05be3")
+		(property "Reference" "TP4"
+			(at 146.05 144.0179 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "1V8_VA"
+			(at 146.05 146.5579 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_1.0x1.0mm"
+			(at 148.59 148.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 148.59 148.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 143.51 148.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "1847c94d-d95b-4e78-b39b-585b17d62562")
+		)
+		(instances
+			(project "DrunkEarPhoneAdapter"
+				(path "/df940915-8af0-46f9-b18a-23d4684ae671/bea21a31-aee1-46f9-b13e-ece764487360"
+					(reference "TP4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "JLCImport:CL21A226MAQNNNE")
 		(at 166.37 41.91 90)
 		(unit 1)
@@ -7317,8 +7718,8 @@
 		)
 	)
 	(symbol
-		(lib_id "JLCImport:0805W8F330JT5E")
-		(at 123.19 36.83 0)
+		(lib_id "Connector:TestPoint")
+		(at 144.78 93.98 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -7327,29 +7728,31 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "496d1908-f124-41f3-a013-1eae5ba5ed6d")
-		(property "Reference" "R16"
-			(at 123.19 30.48 0)
+		(uuid "4a1d67b6-3b98-4a1c-8d52-96d915bfee19")
+		(property "Reference" "TP2"
+			(at 147.32 89.4079 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
-		(property "Value" "33Ω 0805"
-			(at 123.19 33.02 0)
+		(property "Value" "1V8_D"
+			(at 147.32 91.9479 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
-			(at 123.19 36.83 0)
+		(property "Footprint" "TestPoint:TestPoint_Pad_1.0x1.0mm"
+			(at 149.86 93.98 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7359,8 +7762,8 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2205311830_UNI-ROYAL-Uniroyal-Elec-0805W8F330JT5E_C17634.pdf"
-			(at 123.19 36.83 0)
+		(property "Datasheet" ""
+			(at 149.86 93.98 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7370,8 +7773,8 @@
 				)
 			)
 		)
-		(property "Description" "-55℃~+155℃ 125mW 150V 33Ω Thick Film Resistor ±1% ±200ppm/℃ 0805 Chip Resistor - Surface Mount ROHS"
-			(at 123.19 36.83 0)
+		(property "Description" "test point"
+			(at 144.78 93.98 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7380,50 +7783,14 @@
 					(size 1.27 1.27)
 				)
 			)
-		)
-		(property "LCSC" "C17634"
-			(at 123.19 36.83 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
-			(at 123.19 36.83 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer Part" "0805W8F330JT5E"
-			(at 123.19 36.83 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "6d57b0ec-441b-4b0e-92c1-e2628eccd9e9")
 		)
 		(pin "1"
-			(uuid "d089cc05-3b97-4f2c-b5e7-0cb5c167904c")
+			(uuid "a10a1638-f88f-4ba1-8193-f47032051a44")
 		)
 		(instances
 			(project "DrunkEarPhoneAdapter"
 				(path "/df940915-8af0-46f9-b18a-23d4684ae671/bea21a31-aee1-46f9-b13e-ece764487360"
-					(reference "R16")
+					(reference "TP2")
 					(unit 1)
 				)
 			)
@@ -7622,8 +7989,8 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 113.03 46.99 0)
+		(lib_id "Connector:TestPoint")
+		(at 82.55 36.83 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -7632,30 +7999,31 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "61150402-0f3f-4571-b328-f8e9eb25492a")
-		(property "Reference" "#PWR060"
-			(at 113.03 53.34 0)
-			(hide yes)
+		(uuid "4c915102-b1b7-452f-9018-26629c4ff8ff")
+		(property "Reference" "TP6"
+			(at 85.09 32.2579 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
-		(property "Value" "GND"
-			(at 113.03 52.07 0)
+		(property "Value" "3V8"
+			(at 85.09 34.7979 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
-		(property "Footprint" ""
-			(at 113.03 46.99 0)
+		(property "Footprint" "TestPoint:TestPoint_Pad_1.0x1.0mm"
+			(at 87.63 36.83 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7666,7 +8034,85 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 113.03 46.99 0)
+			(at 87.63 36.83 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 82.55 36.83 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "de0633df-e8c0-462b-9bb4-a853b61d9986")
+		)
+		(instances
+			(project "DrunkEarPhoneAdapter"
+				(path "/df940915-8af0-46f9-b18a-23d4684ae671/bea21a31-aee1-46f9-b13e-ece764487360"
+					(reference "TP6")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 109.22 46.99 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "61150402-0f3f-4571-b328-f8e9eb25492a")
+		(property "Reference" "#PWR060"
+			(at 109.22 53.34 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 109.22 52.07 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 109.22 46.99 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 109.22 46.99 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7677,7 +8123,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 113.03 46.99 0)
+			(at 109.22 46.99 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8050,7 +8496,7 @@
 	)
 	(symbol
 		(lib_id "power:+3V8")
-		(at 76.2 44.45 0)
+		(at 76.2 36.83 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -8061,7 +8507,7 @@
 		(fields_autoplaced yes)
 		(uuid "79a7036a-7f13-4a73-beec-5517b4444e54")
 		(property "Reference" "#PWR019"
-			(at 76.2 48.26 0)
+			(at 76.2 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8072,7 +8518,7 @@
 			)
 		)
 		(property "Value" "+3V8"
-			(at 76.2 39.37 0)
+			(at 76.2 31.75 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8082,7 +8528,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 76.2 44.45 0)
+			(at 76.2 36.83 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8093,7 +8539,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 76.2 44.45 0)
+			(at 76.2 36.83 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8104,7 +8550,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3V8\""
-			(at 76.2 44.45 0)
+			(at 76.2 36.83 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8128,7 +8574,7 @@
 	)
 	(symbol
 		(lib_id "power:+5V")
-		(at 113.03 36.83 0)
+		(at 109.22 36.83 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -8139,7 +8585,7 @@
 		(fields_autoplaced yes)
 		(uuid "7bbe735c-7706-4def-b8be-c506e83ffe90")
 		(property "Reference" "#PWR059"
-			(at 113.03 40.64 0)
+			(at 109.22 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8150,7 +8596,7 @@
 			)
 		)
 		(property "Value" "PWR_IN"
-			(at 113.03 31.75 0)
+			(at 109.22 31.75 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8160,7 +8606,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 113.03 36.83 0)
+			(at 109.22 36.83 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8171,7 +8617,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 113.03 36.83 0)
+			(at 109.22 36.83 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8182,7 +8628,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 113.03 36.83 0)
+			(at 109.22 36.83 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8425,6 +8871,85 @@
 			(project "DrunkEarPhoneAdapter"
 				(path "/df940915-8af0-46f9-b18a-23d4684ae671/bea21a31-aee1-46f9-b13e-ece764487360"
 					(reference "C61")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 76.2 95.25 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "85006199-07a4-4133-a77b-0deb3b243961")
+		(property "Reference" "TP1"
+			(at 78.74 90.6779 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "3V3_D"
+			(at 78.74 93.2179 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_1.0x1.0mm"
+			(at 81.28 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 81.28 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 76.2 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "de963d8a-9008-4561-aa05-57378f77a301")
+		)
+		(instances
+			(project "DrunkEarPhoneAdapter"
+				(path "/df940915-8af0-46f9-b18a-23d4684ae671/bea21a31-aee1-46f9-b13e-ece764487360"
+					(reference "TP1")
 					(unit 1)
 				)
 			)
@@ -9280,6 +9805,119 @@
 		)
 	)
 	(symbol
+		(lib_id "JLCImport:SR1206JR-7W100RL")
+		(at 121.92 36.83 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "a2c523b1-e302-4e4d-8881-c66d4b93da4e")
+		(property "Reference" "R1"
+			(at 121.92 30.48 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "100Ω 1206"
+			(at 121.92 33.02 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
+			(at 121.92 36.83 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2012221940_YAGEO-SR1206JR-7W100RL_C874066.pdf"
+			(at 121.92 36.83 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "-55℃~+155℃ 100Ω 200V 500mW Thick Film Resistor ±100ppm/℃ ±5% 1206 Chip Resistor - Surface Mount ROHS"
+			(at 121.92 36.83 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C874066"
+			(at 121.92 36.83 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 121.92 36.83 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer Part" "SR1206JR-7W100RL"
+			(at 121.92 36.83 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "5f268f5f-f19a-4d1f-afec-0de901956d5b")
+		)
+		(pin "2"
+			(uuid "d1dbfc8d-2263-42c0-8e56-e9df7fccd878")
+		)
+		(instances
+			(project "DrunkEarPhoneAdapter"
+				(path "/df940915-8af0-46f9-b18a-23d4684ae671/bea21a31-aee1-46f9-b13e-ece764487360"
+					(reference "R1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "JLCImport:CL21A226MAQNNNE")
 		(at 134.62 41.91 90)
 		(unit 1)
@@ -9503,6 +10141,85 @@
 			(project "DrunkEarPhoneAdapter"
 				(path "/df940915-8af0-46f9-b18a-23d4684ae671/bea21a31-aee1-46f9-b13e-ece764487360"
 					(reference "C13")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 74.93 148.59 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "a5ffd54f-ab5a-419d-9f9b-db678324de22")
+		(property "Reference" "TP5"
+			(at 77.47 144.0179 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "3V3_VA"
+			(at 77.47 146.5579 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_1.0x1.0mm"
+			(at 80.01 148.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 80.01 148.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 74.93 148.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "c393d632-aca7-425f-8854-b903cbeba152")
+		)
+		(instances
+			(project "DrunkEarPhoneAdapter"
+				(path "/df940915-8af0-46f9-b18a-23d4684ae671/bea21a31-aee1-46f9-b13e-ece764487360"
+					(reference "TP5")
 					(unit 1)
 				)
 			)
@@ -9780,7 +10497,7 @@
 	)
 	(symbol
 		(lib_id "JLCImport:PMEG4010CEH_115")
-		(at 123.19 25.4 0)
+		(at 120.65 25.4 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -9790,7 +10507,7 @@
 		(dnp no)
 		(uuid "b75ccd7d-57f8-49db-9779-ae1845c5007e")
 		(property "Reference" "D2"
-			(at 126.492 26.924 0)
+			(at 125.222 26.924 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9800,7 +10517,7 @@
 			)
 		)
 		(property "Value" "PMEG4010CEH_115"
-			(at 122.936 22.606 0)
+			(at 120.396 22.606 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9810,7 +10527,7 @@
 			)
 		)
 		(property "Footprint" "Diode_SMD:D_SOD-123F"
-			(at 123.19 25.4 0)
+			(at 120.65 25.4 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9821,7 +10538,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_1810121043_Nexperia-PMEG4010CEH-115_C193342.pdf"
-			(at 123.19 25.4 0)
+			(at 120.65 25.4 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9832,7 +10549,7 @@
 			)
 		)
 		(property "Description" "1 Independent 1A 40V 50uA@40V 570mV@1A 9A SOD-123F Schottky Diodes ROHS"
-			(at 123.19 25.4 0)
+			(at 120.65 25.4 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9843,7 +10560,7 @@
 			)
 		)
 		(property "LCSC" "C193342"
-			(at 123.19 25.4 0)
+			(at 120.65 25.4 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9854,7 +10571,7 @@
 			)
 		)
 		(property "Manufacturer" "Nexperia"
-			(at 123.19 25.4 0)
+			(at 120.65 25.4 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9865,7 +10582,7 @@
 			)
 		)
 		(property "Manufacturer Part" "PMEG4010CEH,115"
-			(at 123.19 25.4 0)
+			(at 120.65 25.4 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10275,8 +10992,8 @@
 		)
 	)
 	(symbol
-		(lib_id "power:+3V8")
-		(at 45.72 92.71 0)
+		(lib_id "Connector:TestPoint")
+		(at 96.52 50.8 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -10285,30 +11002,31 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "c97b67ee-04d7-4970-b401-d2af07f12255")
-		(property "Reference" "#PWR02"
-			(at 45.72 96.52 0)
-			(hide yes)
+		(uuid "c4898038-d585-40ba-8ae7-c69cc28f4aaa")
+		(property "Reference" "TP7"
+			(at 99.06 46.2279 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
-		(property "Value" "+3V8"
-			(at 45.72 87.63 0)
+		(property "Value" "PWR_IN"
+			(at 99.06 48.7679 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
-		(property "Footprint" ""
-			(at 45.72 92.71 0)
+		(property "Footprint" "TestPoint:TestPoint_Pad_1.0x1.0mm"
+			(at 101.6 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10319,7 +11037,85 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 45.72 92.71 0)
+			(at 101.6 50.8 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 96.52 50.8 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "6ba77762-51f0-452c-9aac-ee199a98e19b")
+		)
+		(instances
+			(project "DrunkEarPhoneAdapter"
+				(path "/df940915-8af0-46f9-b18a-23d4684ae671/bea21a31-aee1-46f9-b13e-ece764487360"
+					(reference "TP7")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3V8")
+		(at 44.45 92.71 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "c97b67ee-04d7-4970-b401-d2af07f12255")
+		(property "Reference" "#PWR02"
+			(at 44.45 96.52 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+3V8"
+			(at 44.45 87.63 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 44.45 92.71 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 44.45 92.71 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10330,7 +11126,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3V8\""
-			(at 45.72 92.71 0)
+			(at 44.45 92.71 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
