@@ -1119,6 +1119,200 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "JLCImport:CC0402KRX7R9BB104"
+			(pin_names
+				(offset 1.016)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "C"
+				(at 0 2 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "CC0402KRX7R9BB104"
+				(at 0 -2 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_YAGEO-CC0402KRX7R9BB104_C131394.pdf"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "100nF 50V X7R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "LCSC" "C131394"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Manufacturer" "YAGEO"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Manufacturer Part" "CC0402KRX7R9BB104"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "C0402 C131394 CC0402KRX7R9BB104 YAGEO"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "CC0402KRX7R9BB104_0_1"
+				(polyline
+					(pts
+						(xy -2.54 0) (xy -1.778 0)
+					)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.778 2.032) (xy -1.778 -2.032)
+					)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.762 2.032) (xy -0.762 -2.032)
+					)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.762 0) (xy 0 0)
+					)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin input line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at 2.54 0 180)
+					(length 2.54)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "JLCImport:CC0805KKX7R9BB225"
 			(pin_names
 				(offset 1.016)
@@ -1226,6 +1420,200 @@
 				)
 			)
 			(symbol "CC0805KKX7R9BB225_0_1"
+				(polyline
+					(pts
+						(xy -1.27 0) (xy -0.508 0)
+					)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.508 2.032) (xy -0.508 -2.032)
+					)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.508 2.032) (xy 0.508 -2.032)
+					)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.508 0) (xy 1.27 0)
+					)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin input line
+					(at -3.81 0 0)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at 3.81 0 180)
+					(length 2.54)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "JLCImport:CL05B102KB5NNNC"
+			(pin_names
+				(offset 1.016)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "C"
+				(at 0 2 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "CL05B102KB5NNNC"
+				(at 0 -2 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL05B102KB5NNNC_C14442.pdf"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "1nF 50V X7R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "LCSC" "C14442"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Manufacturer" "Samsung Electro-Mechanics"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Manufacturer Part" "CL05B102KB5NNNC"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "C0402 C14442 CL05B102KB5NNNC Samsung Electro-Mechanics"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "CL05B102KB5NNNC_0_1"
 				(polyline
 					(pts
 						(xy -1.27 0) (xy -0.508 0)
@@ -1488,200 +1876,6 @@
 				)
 				(pin input line
 					(at 3.81 0 180)
-					(length 2.54)
-					(name "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "JLCImport:CL05B104KB54PNC"
-			(pin_names
-				(offset 1.016)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "C"
-				(at 0 2 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "CL05B104KB54PNC"
-				(at 0 -2 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "JLCImport:CL05B104KB54PNC"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL05B104KB54PNC_C307331.pdf"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Description" "100nF 50V X7R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "LCSC" "C307331"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Manufacturer" "Samsung Electro-Mechanics"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Manufacturer Part" "CL05B104KB54PNC"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_keywords" "C0402 C307331 CL05B104KB54PNC Samsung Electro-Mechanics"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "CL05B104KB54PNC_0_1"
-				(polyline
-					(pts
-						(xy -0.508 2.032) (xy -0.508 -2.032)
-					)
-					(stroke
-						(width 0.254)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -0.508 0) (xy -2.54 0)
-					)
-					(stroke
-						(width 0.254)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.508 -2.032) (xy 0.508 2.032)
-					)
-					(stroke
-						(width 0.254)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.54 0) (xy 0.508 0)
-					)
-					(stroke
-						(width 0.254)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(pin unspecified line
-					(at -5.08 0 0)
-					(length 2.54)
-					(name "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin unspecified line
-					(at 5.08 0 180)
 					(length 2.54)
 					(name "2"
 						(effects
@@ -4622,6 +4816,12 @@
 		(uuid "08c3c400-2deb-4535-a8f1-5a67cdda2532")
 	)
 	(junction
+		(at 157.48 143.51)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "0a503998-e0bf-420f-ad8e-779aaf3b402c")
+	)
+	(junction
 		(at 109.22 130.81)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -4646,7 +4846,7 @@
 		(uuid "26d94e35-8744-41f2-99d3-e07b82d6b176")
 	)
 	(junction
-		(at 163.83 149.86)
+		(at 148.59 143.51)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "284d0924-297c-4fd7-a9d5-d860df04c3d9")
@@ -4674,12 +4874,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "318ee38a-10ac-4757-9abc-4381bd78b1eb")
-	)
-	(junction
-		(at 107.95 107.95)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "33cb8ad3-faa7-4829-a542-31a93f02a493")
 	)
 	(junction
 		(at 63.5 118.11)
@@ -4712,13 +4906,25 @@
 		(uuid "3ddbbb87-6314-47a9-9528-81de7290689a")
 	)
 	(junction
+		(at 33.02 95.25)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "3e1a501d-f755-4015-83ce-5f0d2cdf427b")
+	)
+	(junction
 		(at 27.94 124.46)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "429bf1bc-f006-4d12-b980-5c0b338bc564")
 	)
 	(junction
-		(at 177.8 139.7)
+		(at 152.4 90.17)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "42dc4c97-90a7-45ea-9b4e-0808a4464542")
+	)
+	(junction
+		(at 162.56 133.35)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "45e78d4f-7733-48e3-a45e-2ec8638681cc")
@@ -4728,6 +4934,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "471e6072-7c5e-47b0-a34a-27e250cb7555")
+	)
+	(junction
+		(at 168.91 111.76)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "4c68e47c-ff09-4903-b46b-7ace0f2ccbd6")
 	)
 	(junction
 		(at 123.19 53.34)
@@ -4766,7 +4978,7 @@
 		(uuid "638cbc57-565f-4087-8b39-20ce54c8f2cb")
 	)
 	(junction
-		(at 177.8 129.54)
+		(at 162.56 123.19)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "66e380e4-3c2d-4dc0-ad9a-ed6341ea6c8f")
@@ -4832,13 +5044,13 @@
 		(uuid "9ac383d1-f74c-4dd3-a2be-ed901c687366")
 	)
 	(junction
-		(at 163.83 129.54)
+		(at 148.59 123.19)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "a713220f-3730-4b8a-a547-2d4f7220aab5")
 	)
 	(junction
-		(at 152.4 139.7)
+		(at 137.16 133.35)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "abd2e7ca-0293-4a36-959d-79e6f77721f1")
@@ -4854,6 +5066,18 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "b47dec88-e0fe-44e1-aca9-399423e9e001")
+	)
+	(junction
+		(at 17.78 87.63)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "baabf304-f597-4c23-a613-ee88d7986e57")
+	)
+	(junction
+		(at 36.83 144.78)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "bdab22ed-5879-4a6b-9f43-f6426f3e31e8")
 	)
 	(junction
 		(at 101.6 36.83)
@@ -4982,6 +5206,16 @@
 	(no_connect
 		(at 97.79 161.29)
 		(uuid "d6a4f9b1-83b2-4506-b4eb-1e31453c6a0c")
+	)
+	(wire
+		(pts
+			(xy 157.48 133.35) (xy 162.56 133.35)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "00390400-d95c-481a-8141-4373ff3dff4e")
 	)
 	(wire
 		(pts
@@ -5215,7 +5449,7 @@
 	)
 	(wire
 		(pts
-			(xy 177.8 129.54) (xy 177.8 130.81)
+			(xy 162.56 123.19) (xy 162.56 124.46)
 		)
 		(stroke
 			(width 0)
@@ -5535,7 +5769,7 @@
 	)
 	(wire
 		(pts
-			(xy 107.95 107.95) (xy 107.95 105.41)
+			(xy 107.95 105.41) (xy 107.95 118.11)
 		)
 		(stroke
 			(width 0)
@@ -5575,7 +5809,7 @@
 	)
 	(wire
 		(pts
-			(xy 27.94 144.78) (xy 41.91 144.78)
+			(xy 27.94 144.78) (xy 36.83 144.78)
 		)
 		(stroke
 			(width 0)
@@ -5652,6 +5886,16 @@
 			(type default)
 		)
 		(uuid "5418cd96-be43-426d-9810-ac0e9598a79d")
+	)
+	(wire
+		(pts
+			(xy 152.4 85.09) (xy 152.4 90.17)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5463732f-ac2b-41f1-ad05-d48ea2d5957b")
 	)
 	(wire
 		(pts
@@ -5765,6 +6009,16 @@
 	)
 	(wire
 		(pts
+			(xy 36.83 137.16) (xy 36.83 134.62)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "625b9409-23fe-4bff-8228-fe6132abfe08")
+	)
+	(wire
+		(pts
 			(xy 109.22 179.07) (xy 109.22 184.15)
 		)
 		(stroke
@@ -5825,13 +6079,33 @@
 	)
 	(wire
 		(pts
-			(xy 254 109.22) (xy 254 111.76)
+			(xy 254 106.68) (xy 254 111.76)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "7025104a-70e1-4ebd-b201-458546d0b1bf")
+	)
+	(wire
+		(pts
+			(xy 15.24 95.25) (xy 33.02 95.25)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "70281694-f65f-4ff5-8b4c-4e2231c7f56d")
+	)
+	(wire
+		(pts
+			(xy 17.78 82.55) (xy 17.78 87.63)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "70497500-d31f-41b1-9809-b422f73a22a7")
 	)
 	(wire
 		(pts
@@ -5945,7 +6219,7 @@
 	)
 	(wire
 		(pts
-			(xy 182.88 139.7) (xy 177.8 139.7)
+			(xy 167.64 133.35) (xy 162.56 133.35)
 		)
 		(stroke
 			(width 0)
@@ -5972,16 +6246,6 @@
 			(type default)
 		)
 		(uuid "8cad5b08-fde6-42c5-9629-5e9d88829cd5")
-	)
-	(wire
-		(pts
-			(xy 107.95 107.95) (xy 107.95 118.11)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8f81915b-c265-432a-88a6-1fe9926ef43a")
 	)
 	(wire
 		(pts
@@ -6025,13 +6289,23 @@
 	)
 	(wire
 		(pts
-			(xy 163.83 127) (xy 163.83 129.54)
+			(xy 148.59 120.65) (xy 148.59 123.19)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "95483a52-0302-44b4-b8a0-3e2671f96746")
+	)
+	(wire
+		(pts
+			(xy 36.83 144.78) (xy 41.91 144.78)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "96db2cfb-3265-42dc-8b3b-bfdb95db10f9")
 	)
 	(wire
 		(pts
@@ -6102,6 +6376,16 @@
 			(type default)
 		)
 		(uuid "9ebecc96-27be-4203-b4bc-32f88b3b358f")
+	)
+	(wire
+		(pts
+			(xy 36.83 134.62) (xy 41.91 134.62)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9ef43817-abd4-4979-be4c-c395cc21d260")
 	)
 	(wire
 		(pts
@@ -6235,6 +6519,16 @@
 	)
 	(wire
 		(pts
+			(xy 157.48 135.89) (xy 157.48 133.35)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b1459331-a3ee-45fa-be77-03e703ba416b")
+	)
+	(wire
+		(pts
 			(xy 232.41 99.06) (xy 254 99.06)
 		)
 		(stroke
@@ -6255,13 +6549,23 @@
 	)
 	(wire
 		(pts
-			(xy 156.21 139.7) (xy 152.4 139.7)
+			(xy 140.97 133.35) (xy 137.16 133.35)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "b4a96659-3461-4fe4-86a9-e89d117e4d64")
+	)
+	(wire
+		(pts
+			(xy 152.4 97.79) (xy 152.4 111.76)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b4cc83f8-911e-4161-9f29-0a0874505435")
 	)
 	(wire
 		(pts
@@ -6295,7 +6599,7 @@
 	)
 	(wire
 		(pts
-			(xy 163.83 149.86) (xy 177.8 149.86)
+			(xy 148.59 143.51) (xy 157.48 143.51)
 		)
 		(stroke
 			(width 0)
@@ -6325,7 +6629,7 @@
 	)
 	(wire
 		(pts
-			(xy 152.4 129.54) (xy 163.83 129.54)
+			(xy 137.16 123.19) (xy 148.59 123.19)
 		)
 		(stroke
 			(width 0)
@@ -6435,7 +6739,7 @@
 	)
 	(wire
 		(pts
-			(xy 152.4 149.86) (xy 163.83 149.86)
+			(xy 137.16 143.51) (xy 148.59 143.51)
 		)
 		(stroke
 			(width 0)
@@ -6535,6 +6839,16 @@
 	)
 	(wire
 		(pts
+			(xy 152.4 111.76) (xy 168.91 111.76)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "dce17a67-24a3-445c-845e-98aea82720db")
+	)
+	(wire
+		(pts
 			(xy 181.61 90.17) (xy 181.61 91.44)
 		)
 		(stroke
@@ -6545,7 +6859,7 @@
 	)
 	(wire
 		(pts
-			(xy 163.83 129.54) (xy 177.8 129.54)
+			(xy 148.59 123.19) (xy 162.56 123.19)
 		)
 		(stroke
 			(width 0)
@@ -6575,6 +6889,16 @@
 	)
 	(wire
 		(pts
+			(xy 157.48 143.51) (xy 162.56 143.51)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ed935078-d763-4a63-ab44-0780c51ed8c1")
+	)
+	(wire
+		(pts
 			(xy 86.36 36.83) (xy 82.55 36.83)
 		)
 		(stroke
@@ -6592,6 +6916,16 @@
 			(type default)
 		)
 		(uuid "f255d7c3-0eeb-4a2a-9628-aa3922a49ca7")
+	)
+	(wire
+		(pts
+			(xy 15.24 87.63) (xy 17.78 87.63)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f2cf625b-fc21-417a-8d7d-81feeaa58315")
 	)
 	(wire
 		(pts
@@ -7014,7 +7348,7 @@
 		(uuid "762be72c-53d6-4a49-ba22-b6067e7c2102")
 	)
 	(label "USB_CHR_VBUS"
-		(at 163.83 127 0)
+		(at 148.59 120.65 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7164,7 +7498,7 @@
 		(uuid "9bd5cb97-0754-441f-a9ec-41fe669e90d8")
 	)
 	(label "ADC_PHONE_IANA"
-		(at 17.78 87.63 90)
+		(at 17.78 82.55 90)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7174,7 +7508,7 @@
 		(uuid "a3108bc7-8404-4c51-9234-f8499b370d46")
 	)
 	(label "VSENSE_CHR"
-		(at 156.21 139.7 0)
+		(at 140.97 133.35 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7314,7 +7648,7 @@
 		(uuid "dd0216eb-52f6-417a-82c4-a8da5f21fe0d")
 	)
 	(label "ADC_CHR_VBUS"
-		(at 182.88 139.7 0)
+		(at 167.64 133.35 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7354,7 +7688,7 @@
 		(uuid "f1f81242-01ed-412c-97ac-eab8a57e6fb6")
 	)
 	(label "ADC_CHR_IANA"
-		(at 152.4 90.17 90)
+		(at 152.4 85.09 90)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7795,120 +8129,6 @@
 		)
 	)
 	(symbol
-		(lib_id "JLCImport:CL05B104KB54PNC")
-		(at 107.95 102.87 270)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "09989283-aa87-42b9-ae30-3268c8754774")
-		(property "Reference" "C69"
-			(at 108.458 100.838 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "100nF 50V X7R"
-			(at 111.506 102.362 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "JLCImport:CL05B104KB54PNC"
-			(at 107.95 102.87 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL05B104KB54PNC_C307331.pdf"
-			(at 107.95 102.87 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "100nF 50V X7R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 107.95 102.87 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C307331"
-			(at 107.95 102.87 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer" "Samsung Electro-Mechanics"
-			(at 107.95 102.87 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer Part" "CL05B104KB54PNC"
-			(at 107.95 102.87 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "d5bd051c-91c4-4c65-8162-a00b7d86dacc")
-		)
-		(pin "1"
-			(uuid "0384bbf6-208e-419e-ac14-be40786542be")
-		)
-		(instances
-			(project "DrunkEarPhoneAdapter"
-				(path "/df940915-8af0-46f9-b18a-23d4684ae671/5c561383-fdd0-44ae-83ac-568aac0f03a9"
-					(reference "C69")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "JLCImport:0402WGF4702TCE")
 		(at 91.44 76.2 90)
 		(unit 1)
@@ -8018,6 +8238,120 @@
 			(project "DrunkEarPhoneAdapter"
 				(path "/df940915-8af0-46f9-b18a-23d4684ae671/5c561383-fdd0-44ae-83ac-568aac0f03a9"
 					(reference "R24")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "JLCImport:CC0402KRX7R9BB104")
+		(at 107.95 100.33 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "0c961222-7339-4b8e-bee0-b0520aaf57f5")
+		(property "Reference" "C87"
+			(at 108.966 99.822 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "100nF 50V X7R"
+			(at 109.728 103.378 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+			(at 107.95 100.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_YAGEO-CC0402KRX7R9BB104_C131394.pdf"
+			(at 107.95 100.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "100nF 50V X7R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+			(at 107.95 100.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C131394"
+			(at 107.95 100.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 107.95 100.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer Part" "CC0402KRX7R9BB104"
+			(at 107.95 100.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "b9d98d98-5fa7-4612-a89c-b9e8e87be6da")
+		)
+		(pin "1"
+			(uuid "04151560-505e-419b-b016-bf4833e29902")
+		)
+		(instances
+			(project "DrunkEarPhoneAdapter"
+				(path "/df940915-8af0-46f9-b18a-23d4684ae671/5c561383-fdd0-44ae-83ac-568aac0f03a9"
+					(reference "C87")
 					(unit 1)
 				)
 			)
@@ -8138,122 +8472,8 @@
 		)
 	)
 	(symbol
-		(lib_id "JLCImport:CL05B104KB54PNC")
-		(at 254 104.14 270)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "1792d992-3c08-470d-909e-16d738cdffd6")
-		(property "Reference" "C75"
-			(at 254.508 102.108 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "100nF 50V X7R"
-			(at 257.556 103.632 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "JLCImport:CL05B104KB54PNC"
-			(at 254 104.14 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL05B104KB54PNC_C307331.pdf"
-			(at 254 104.14 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "100nF 50V X7R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 254 104.14 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C307331"
-			(at 254 104.14 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer" "Samsung Electro-Mechanics"
-			(at 254 104.14 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer Part" "CL05B104KB54PNC"
-			(at 254 104.14 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "ad7f2782-f888-4478-9c47-d7779a0ef398")
-		)
-		(pin "1"
-			(uuid "2af72977-d29e-4623-9b3c-86d99c4bfc15")
-		)
-		(instances
-			(project "DrunkEarPhoneAdapter"
-				(path "/df940915-8af0-46f9-b18a-23d4684ae671/5c561383-fdd0-44ae-83ac-568aac0f03a9"
-					(reference "C75")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
-		(at 163.83 149.86 0)
+		(at 148.59 143.51 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -8264,7 +8484,7 @@
 		(fields_autoplaced yes)
 		(uuid "1cfdfcdf-6552-4db2-9434-24456db3e65c")
 		(property "Reference" "#PWR071"
-			(at 163.83 156.21 0)
+			(at 148.59 149.86 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8275,7 +8495,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 163.83 154.94 0)
+			(at 148.59 148.59 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8285,7 +8505,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 163.83 149.86 0)
+			(at 148.59 143.51 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8296,7 +8516,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 163.83 149.86 0)
+			(at 148.59 143.51 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8307,7 +8527,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 163.83 149.86 0)
+			(at 148.59 143.51 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8361,7 +8581,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Diode_SMD:D_SOD-110"
+		(property "Footprint" "Diode_SMD:D_SOD-123F"
 			(at 91.44 36.83 0)
 			(hide yes)
 			(show_name no)
@@ -8943,6 +9163,120 @@
 		)
 	)
 	(symbol
+		(lib_id "JLCImport:CL05B102KB5NNNC")
+		(at 157.48 139.7 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "43c8fc1f-65f0-48d3-aa31-cecf8c42b6f2")
+		(property "Reference" "C80"
+			(at 158.75 141.224 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "1nF 50V X7R"
+			(at 154.686 140.716 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+			(at 157.48 139.7 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL05B102KB5NNNC_C14442.pdf"
+			(at 157.48 139.7 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "1nF 50V X7R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+			(at 157.48 139.7 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C14442"
+			(at 157.48 139.7 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 157.48 139.7 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer Part" "CL05B102KB5NNNC"
+			(at 157.48 139.7 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "c9320f57-82b7-43b1-a7e3-411785a9d114")
+		)
+		(pin "1"
+			(uuid "1cf87e05-51cf-480e-b55f-e1dc025d8fff")
+		)
+		(instances
+			(project "DrunkEarPhoneAdapter"
+				(path "/df940915-8af0-46f9-b18a-23d4684ae671/5c561383-fdd0-44ae-83ac-568aac0f03a9"
+					(reference "C80")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "JLCImport:CL05C331JB5NNNC")
 		(at 209.55 142.24 90)
 		(unit 1)
@@ -9051,6 +9385,120 @@
 			(project "DrunkEarPhoneAdapter"
 				(path "/df940915-8af0-46f9-b18a-23d4684ae671/5c561383-fdd0-44ae-83ac-568aac0f03a9"
 					(reference "C71")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "JLCImport:CL05B102KB5NNNC")
+		(at 36.83 140.97 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "4d30968a-7424-4b17-b334-1139991bf64d")
+		(property "Reference" "C81"
+			(at 33.528 139.446 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "1nF 50V X7R"
+			(at 34.798 147.066 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+			(at 36.83 140.97 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL05B102KB5NNNC_C14442.pdf"
+			(at 36.83 140.97 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "1nF 50V X7R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+			(at 36.83 140.97 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C14442"
+			(at 36.83 140.97 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 36.83 140.97 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer Part" "CL05B102KB5NNNC"
+			(at 36.83 140.97 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "e5a1267c-9bf0-4582-a95c-7c0e4e8ef931")
+		)
+		(pin "1"
+			(uuid "18bce155-912a-441d-81b7-31e9c78ddea5")
+		)
+		(instances
+			(project "DrunkEarPhoneAdapter"
+				(path "/df940915-8af0-46f9-b18a-23d4684ae671/5c561383-fdd0-44ae-83ac-568aac0f03a9"
+					(reference "C81")
 					(unit 1)
 				)
 			)
@@ -9222,7 +9670,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Diode_SMD:D_SOD-110"
+		(property "Footprint" "Diode_SMD:D_SOD-123F"
 			(at 91.44 48.26 0)
 			(hide yes)
 			(show_name no)
@@ -9298,6 +9746,120 @@
 			(project "DrunkEarPhoneAdapter"
 				(path "/df940915-8af0-46f9-b18a-23d4684ae671/5c561383-fdd0-44ae-83ac-568aac0f03a9"
 					(reference "D3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "JLCImport:CL05B102KB5NNNC")
+		(at 152.4 93.98 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "5361d5c5-c79c-4bea-9309-3e2441035591")
+		(property "Reference" "C83"
+			(at 153.67 95.504 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "1nF 50V X7R"
+			(at 149.606 94.996 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+			(at 152.4 93.98 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL05B102KB5NNNC_C14442.pdf"
+			(at 152.4 93.98 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "1nF 50V X7R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+			(at 152.4 93.98 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C14442"
+			(at 152.4 93.98 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 152.4 93.98 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer Part" "CL05B102KB5NNNC"
+			(at 152.4 93.98 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "3d777f02-21a6-46d2-8f6f-40b8d2a70d59")
+		)
+		(pin "1"
+			(uuid "a4c2bf27-19d0-4847-9db9-8aafb2cb461d")
+		)
+		(instances
+			(project "DrunkEarPhoneAdapter"
+				(path "/df940915-8af0-46f9-b18a-23d4684ae671/5c561383-fdd0-44ae-83ac-568aac0f03a9"
+					(reference "C83")
 					(unit 1)
 				)
 			)
@@ -9653,7 +10215,7 @@
 	)
 	(symbol
 		(lib_id "JLCImport:0402WGF1002TCE")
-		(at 152.4 134.62 90)
+		(at 137.16 128.27 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -9664,7 +10226,7 @@
 		(fields_autoplaced yes)
 		(uuid "760feded-3831-49b9-a7e1-3aad26f53070")
 		(property "Reference" "R26"
-			(at 154.94 133.3499 90)
+			(at 139.7 126.9999 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9675,7 +10237,7 @@
 			)
 		)
 		(property "Value" "10kΩ"
-			(at 154.94 135.8899 90)
+			(at 139.7 129.5399 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9686,7 +10248,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 152.4 134.62 0)
+			(at 137.16 128.27 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9697,7 +10259,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2411221126_UNI-ROYAL-Uniroyal-Elec-0402WGF1002TCE_C25744.pdf"
-			(at 152.4 134.62 0)
+			(at 137.16 128.27 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9708,7 +10270,7 @@
 			)
 		)
 		(property "Description" "-55℃~+155℃ 10kΩ 50V 62.5mW Thick Film Resistor ±1% ±100ppm/℃ 0402 Chip Resistor - Surface Mount ROHS"
-			(at 152.4 134.62 0)
+			(at 137.16 128.27 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9719,7 +10281,7 @@
 			)
 		)
 		(property "LCSC" "C25744"
-			(at 152.4 134.62 0)
+			(at 137.16 128.27 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9730,7 +10292,7 @@
 			)
 		)
 		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
-			(at 152.4 134.62 0)
+			(at 137.16 128.27 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9741,7 +10303,7 @@
 			)
 		)
 		(property "Manufacturer Part" "0402WGF1002TCE"
-			(at 152.4 134.62 0)
+			(at 137.16 128.27 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10208,7 +10770,7 @@
 	)
 	(symbol
 		(lib_id "JLCImport:RC0402FR-07130KL")
-		(at 177.8 134.62 90)
+		(at 162.56 128.27 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -10219,7 +10781,7 @@
 		(fields_autoplaced yes)
 		(uuid "7fe1d1b0-c505-439b-bcc2-2184929a7610")
 		(property "Reference" "R28"
-			(at 180.34 133.3499 90)
+			(at 165.1 126.9999 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -10230,7 +10792,7 @@
 			)
 		)
 		(property "Value" "130kΩ"
-			(at 180.34 135.8899 90)
+			(at 165.1 129.5399 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -10241,7 +10803,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 177.8 134.62 0)
+			(at 162.56 128.27 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10252,7 +10814,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_YAGEO-RC0402FR-07130KL_C93946.pdf"
-			(at 177.8 134.62 0)
+			(at 162.56 128.27 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10263,7 +10825,7 @@
 			)
 		)
 		(property "Description" "-55℃~+155℃ 130kΩ 50V 62.5mW Thick Film Resistor ±1% ±100ppm/℃ 0402 Chip Resistor - Surface Mount ROHS"
-			(at 177.8 134.62 0)
+			(at 162.56 128.27 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10274,7 +10836,7 @@
 			)
 		)
 		(property "LCSC" "C93946"
-			(at 177.8 134.62 0)
+			(at 162.56 128.27 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10285,7 +10847,7 @@
 			)
 		)
 		(property "Manufacturer" "YAGEO"
-			(at 177.8 134.62 0)
+			(at 162.56 128.27 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10296,7 +10858,7 @@
 			)
 		)
 		(property "Manufacturer Part" "RC0402FR-07130KL"
-			(at 177.8 134.62 0)
+			(at 162.56 128.27 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11487,7 +12049,7 @@
 	)
 	(symbol
 		(lib_id "JLCImport:0402WGF5600TCE")
-		(at 152.4 144.78 90)
+		(at 137.16 138.43 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -11498,7 +12060,7 @@
 		(fields_autoplaced yes)
 		(uuid "dbee2d0f-e8d7-4b64-bb06-4467c114154d")
 		(property "Reference" "R27"
-			(at 154.94 143.5099 90)
+			(at 139.7 137.1599 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -11509,7 +12071,7 @@
 			)
 		)
 		(property "Value" "560Ω"
-			(at 154.94 146.0499 90)
+			(at 139.7 139.6999 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -11520,7 +12082,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 152.4 144.78 0)
+			(at 137.16 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11531,7 +12093,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2205311900_UNI-ROYAL-Uniroyal-Elec-0402WGF5600TCE_C25126.pdf"
-			(at 152.4 144.78 0)
+			(at 137.16 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11542,7 +12104,7 @@
 			)
 		)
 		(property "Description" "-55℃~+155℃ 50V 560Ω 62.5mW Thick Film Resistor ±1% ±100ppm/℃ 0402 Chip Resistor - Surface Mount ROHS"
-			(at 152.4 144.78 0)
+			(at 137.16 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11553,7 +12115,7 @@
 			)
 		)
 		(property "LCSC" "C25126"
-			(at 152.4 144.78 0)
+			(at 137.16 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11564,7 +12126,7 @@
 			)
 		)
 		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
-			(at 152.4 144.78 0)
+			(at 137.16 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11575,7 +12137,7 @@
 			)
 		)
 		(property "Manufacturer Part" "0402WGF5600TCE"
-			(at 152.4 144.78 0)
+			(at 137.16 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11710,6 +12272,120 @@
 			(project "DrunkEarPhoneAdapter"
 				(path "/df940915-8af0-46f9-b18a-23d4684ae671/5c561383-fdd0-44ae-83ac-568aac0f03a9"
 					(reference "R20")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "JLCImport:CL05B102KB5NNNC")
+		(at 15.24 91.44 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "de3b5491-76ae-4879-8ace-33520c6de634")
+		(property "Reference" "C82"
+			(at 16.51 92.964 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "1nF 50V X7R"
+			(at 14.224 98.044 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+			(at 15.24 91.44 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL05B102KB5NNNC_C14442.pdf"
+			(at 15.24 91.44 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "1nF 50V X7R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+			(at 15.24 91.44 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C14442"
+			(at 15.24 91.44 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 15.24 91.44 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer Part" "CL05B102KB5NNNC"
+			(at 15.24 91.44 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "1abf9c3a-164e-4c09-993c-c1b9e846498f")
+		)
+		(pin "1"
+			(uuid "acb6341e-081f-4fb3-863d-32d7c1d5b55a")
+		)
+		(instances
+			(project "DrunkEarPhoneAdapter"
+				(path "/df940915-8af0-46f9-b18a-23d4684ae671/5c561383-fdd0-44ae-83ac-568aac0f03a9"
+					(reference "C82")
 					(unit 1)
 				)
 			)
@@ -12394,6 +13070,120 @@
 		)
 	)
 	(symbol
+		(lib_id "JLCImport:CC0402KRX7R9BB104")
+		(at 254 101.6 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "f0760715-f4d3-4931-a247-92f77a299a08")
+		(property "Reference" "C88"
+			(at 255.016 101.092 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "100nF 50V X7R"
+			(at 255.778 104.648 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+			(at 254 101.6 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_YAGEO-CC0402KRX7R9BB104_C131394.pdf"
+			(at 254 101.6 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "100nF 50V X7R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+			(at 254 101.6 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C131394"
+			(at 254 101.6 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 254 101.6 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer Part" "CC0402KRX7R9BB104"
+			(at 254 101.6 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "475847d5-bbdc-4082-a201-2cbf2c3419c9")
+		)
+		(pin "1"
+			(uuid "74d2c9af-3da8-4a83-8096-3538f957138a")
+		)
+		(instances
+			(project "DrunkEarPhoneAdapter"
+				(path "/df940915-8af0-46f9-b18a-23d4684ae671/5c561383-fdd0-44ae-83ac-568aac0f03a9"
+					(reference "C88")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "JLCImport:RC0402FR-070RL")
 		(at 22.86 87.63 0)
 		(unit 1)
@@ -12586,7 +13376,7 @@
 	)
 	(symbol
 		(lib_id "JLCImport:0402WGF1002TCE")
-		(at 177.8 144.78 90)
+		(at 162.56 138.43 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -12597,7 +13387,7 @@
 		(fields_autoplaced yes)
 		(uuid "f496b947-b211-492b-a23c-59580fed0a5a")
 		(property "Reference" "R29"
-			(at 180.34 143.5099 90)
+			(at 165.1 137.1599 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -12608,7 +13398,7 @@
 			)
 		)
 		(property "Value" "10kΩ"
-			(at 180.34 146.0499 90)
+			(at 165.1 139.6999 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -12619,7 +13409,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 177.8 144.78 0)
+			(at 162.56 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12630,7 +13420,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2411221126_UNI-ROYAL-Uniroyal-Elec-0402WGF1002TCE_C25744.pdf"
-			(at 177.8 144.78 0)
+			(at 162.56 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12641,7 +13431,7 @@
 			)
 		)
 		(property "Description" "-55℃~+155℃ 10kΩ 50V 62.5mW Thick Film Resistor ±1% ±100ppm/℃ 0402 Chip Resistor - Surface Mount ROHS"
-			(at 177.8 144.78 0)
+			(at 162.56 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12652,7 +13442,7 @@
 			)
 		)
 		(property "LCSC" "C25744"
-			(at 177.8 144.78 0)
+			(at 162.56 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12663,7 +13453,7 @@
 			)
 		)
 		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
-			(at 177.8 144.78 0)
+			(at 162.56 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12674,7 +13464,7 @@
 			)
 		)
 		(property "Manufacturer Part" "0402WGF1002TCE"
-			(at 177.8 144.78 0)
+			(at 162.56 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)

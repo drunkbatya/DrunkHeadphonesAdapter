@@ -137,12 +137,6 @@ void SystemClock_Config(void)
   {
   }
 
-  /* HSE configuration and activation */
-  LL_RCC_HSE_Enable();
-  while(LL_RCC_HSE_IsReady() != 1)
-  {
-  }
-
   /* HSI configuration and activation */
   LL_RCC_HSI_Enable();
   while(LL_RCC_HSI_IsReady() != 1)
@@ -157,7 +151,7 @@ void SystemClock_Config(void)
   }
 
   /* Main PLL configuration and activation */
-  LL_RCC_PLL_ConfigDomain_SYS(LL_RCC_PLLSOURCE_HSE, LL_RCC_PLLM_DIV_1, 8, LL_RCC_PLLR_DIV_2);
+  LL_RCC_PLL_ConfigDomain_SYS(LL_RCC_PLLSOURCE_HSI, LL_RCC_PLLM_DIV_1, 8, LL_RCC_PLLR_DIV_2);
   LL_RCC_PLL_Enable();
   LL_RCC_PLL_EnableDomain_SYS();
   while(LL_RCC_PLL_IsReady() != 1)
@@ -780,16 +774,115 @@ static void MX_DMA_Init(void)
   */
 static void MX_GPIO_Init(void)
 {
+  LL_EXTI_InitTypeDef EXTI_InitStruct = {0};
+  LL_GPIO_InitTypeDef GPIO_InitStruct = {0};
   /* USER CODE BEGIN MX_GPIO_Init_1 */
 
   /* USER CODE END MX_GPIO_Init_1 */
 
   /* GPIO Ports Clock Enable */
   LL_IOP_GRP1_EnableClock(LL_IOP_GRP1_PERIPH_GPIOB);
-  LL_IOP_GRP1_EnableClock(LL_IOP_GRP1_PERIPH_GPIOF);
   LL_IOP_GRP1_EnableClock(LL_IOP_GRP1_PERIPH_GPIOC);
   LL_IOP_GRP1_EnableClock(LL_IOP_GRP1_PERIPH_GPIOA);
   LL_IOP_GRP1_EnableClock(LL_IOP_GRP1_PERIPH_GPIOD);
+  LL_IOP_GRP1_EnableClock(LL_IOP_GRP1_PERIPH_GPIOE);
+
+  /**/
+  LL_GPIO_ResetOutputPin(CLK_EN1_GPIO_Port, CLK_EN1_Pin);
+
+  /**/
+  LL_GPIO_ResetOutputPin(CLK_EN2_GPIO_Port, CLK_EN2_Pin);
+
+  /**/
+  LL_GPIO_ResetOutputPin(CS_RESET__GPIO_Port, CS_RESET__Pin);
+
+  /**/
+  GPIO_InitStruct.Pin = CLK_EN1_Pin;
+  GPIO_InitStruct.Mode = LL_GPIO_MODE_OUTPUT;
+  GPIO_InitStruct.Speed = LL_GPIO_SPEED_FREQ_LOW;
+  GPIO_InitStruct.OutputType = LL_GPIO_OUTPUT_PUSHPULL;
+  GPIO_InitStruct.Pull = LL_GPIO_PULL_NO;
+  LL_GPIO_Init(CLK_EN1_GPIO_Port, &GPIO_InitStruct);
+
+  /**/
+  GPIO_InitStruct.Pin = CLK_EN2_Pin;
+  GPIO_InitStruct.Mode = LL_GPIO_MODE_OUTPUT;
+  GPIO_InitStruct.Speed = LL_GPIO_SPEED_FREQ_LOW;
+  GPIO_InitStruct.OutputType = LL_GPIO_OUTPUT_PUSHPULL;
+  GPIO_InitStruct.Pull = LL_GPIO_PULL_NO;
+  LL_GPIO_Init(CLK_EN2_GPIO_Port, &GPIO_InitStruct);
+
+  /**/
+  GPIO_InitStruct.Pin = CS_RESET__Pin;
+  GPIO_InitStruct.Mode = LL_GPIO_MODE_OUTPUT;
+  GPIO_InitStruct.Speed = LL_GPIO_SPEED_FREQ_LOW;
+  GPIO_InitStruct.OutputType = LL_GPIO_OUTPUT_PUSHPULL;
+  GPIO_InitStruct.Pull = LL_GPIO_PULL_NO;
+  LL_GPIO_Init(CS_RESET__GPIO_Port, &GPIO_InitStruct);
+
+  /**/
+  LL_EXTI_SetEXTISource(LL_EXTI_CONFIG_PORTE, LL_EXTI_CONFIG_LINE0);
+
+  /**/
+  LL_EXTI_SetEXTISource(LL_EXTI_CONFIG_PORTE, LL_EXTI_CONFIG_LINE1);
+
+  /**/
+  LL_EXTI_SetEXTISource(LL_EXTI_CONFIG_PORTE, LL_EXTI_CONFIG_LINE2);
+
+  /**/
+  LL_EXTI_SetEXTISource(LL_EXTI_CONFIG_PORTE, LL_EXTI_CONFIG_LINE3);
+
+  /**/
+  EXTI_InitStruct.Line_0_31 = LL_EXTI_LINE_0;
+  EXTI_InitStruct.LineCommand = ENABLE;
+  EXTI_InitStruct.Mode = LL_EXTI_MODE_IT;
+  EXTI_InitStruct.Trigger = LL_EXTI_TRIGGER_RISING;
+  LL_EXTI_Init(&EXTI_InitStruct);
+
+  /**/
+  EXTI_InitStruct.Line_0_31 = LL_EXTI_LINE_1;
+  EXTI_InitStruct.LineCommand = ENABLE;
+  EXTI_InitStruct.Mode = LL_EXTI_MODE_IT;
+  EXTI_InitStruct.Trigger = LL_EXTI_TRIGGER_RISING;
+  LL_EXTI_Init(&EXTI_InitStruct);
+
+  /**/
+  EXTI_InitStruct.Line_0_31 = LL_EXTI_LINE_2;
+  EXTI_InitStruct.LineCommand = ENABLE;
+  EXTI_InitStruct.Mode = LL_EXTI_MODE_IT;
+  EXTI_InitStruct.Trigger = LL_EXTI_TRIGGER_RISING;
+  LL_EXTI_Init(&EXTI_InitStruct);
+
+  /**/
+  EXTI_InitStruct.Line_0_31 = LL_EXTI_LINE_3;
+  EXTI_InitStruct.LineCommand = ENABLE;
+  EXTI_InitStruct.Mode = LL_EXTI_MODE_IT;
+  EXTI_InitStruct.Trigger = LL_EXTI_TRIGGER_RISING;
+  LL_EXTI_Init(&EXTI_InitStruct);
+
+  /**/
+  LL_GPIO_SetPinPull(GPIOE, LL_GPIO_PIN_0, LL_GPIO_PULL_NO);
+
+  /**/
+  LL_GPIO_SetPinPull(GPIOE, LL_GPIO_PIN_1, LL_GPIO_PULL_NO);
+
+  /**/
+  LL_GPIO_SetPinPull(GPIOE, LL_GPIO_PIN_2, LL_GPIO_PULL_NO);
+
+  /**/
+  LL_GPIO_SetPinPull(GPIOE, LL_GPIO_PIN_3, LL_GPIO_PULL_NO);
+
+  /**/
+  LL_GPIO_SetPinMode(GPIOE, LL_GPIO_PIN_0, LL_GPIO_MODE_INPUT);
+
+  /**/
+  LL_GPIO_SetPinMode(GPIOE, LL_GPIO_PIN_1, LL_GPIO_MODE_INPUT);
+
+  /**/
+  LL_GPIO_SetPinMode(GPIOE, LL_GPIO_PIN_2, LL_GPIO_MODE_INPUT);
+
+  /**/
+  LL_GPIO_SetPinMode(GPIOE, LL_GPIO_PIN_3, LL_GPIO_MODE_INPUT);
 
   /* USER CODE BEGIN MX_GPIO_Init_2 */
 

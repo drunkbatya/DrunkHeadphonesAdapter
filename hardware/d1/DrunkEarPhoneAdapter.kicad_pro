@@ -662,7 +662,7 @@
         "uuid": "df940915-8af0-46f9-b18a-23d4684ae671"
       }
     ],
-    "used_designators": "TP1-2,C1-79,U1-19,SW1,X1-3,L1-7,R1-32,USBC1-2,Audio1,Q1-3,D1-3,#PWR1-75,CN1",
+    "used_designators": "D1-4,#PWR1-77,C1-88,U1-19,SW1,TP1-2,Audio1,Q1-3,L1-7,X1-3,R1-35,USBC1-2,CN1",
     "variants": []
   },
   "sheets": [

@@ -163,6 +163,16 @@
 	)
 	(wire
 		(pts
+			(xy 179.07 106.68) (xy 179.07 140.97)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2e46046c-7180-4c75-9f7e-d7e3efc9efaf")
+	)
+	(wire
+		(pts
 			(xy 148.59 63.5) (xy 148.59 45.72)
 		)
 		(stroke
@@ -363,13 +373,23 @@
 	)
 	(wire
 		(pts
-			(xy 184.15 101.6) (xy 184.15 140.97)
+			(xy 133.35 45.72) (xy 133.35 57.15)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "76f54f70-f629-44d9-88c9-5374f8f5536a")
+		(uuid "72440a0d-7e34-42eb-95be-c6ddc269f4c9")
+	)
+	(wire
+		(pts
+			(xy 176.53 109.22) (xy 176.53 140.97)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "74862920-06ee-47b2-82d9-f80a4c4fe05b")
 	)
 	(wire
 		(pts
@@ -390,6 +410,16 @@
 			(type default)
 		)
 		(uuid "77f3332f-5364-4c10-b085-e818cbba11d0")
+	)
+	(wire
+		(pts
+			(xy 133.35 57.15) (xy 78.74 57.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "79020b46-73f3-48f3-9bc3-a2e3c2aa88c0")
 	)
 	(wire
 		(pts
@@ -430,16 +460,6 @@
 			(type default)
 		)
 		(uuid "8d75c4c1-09d2-44d0-a68a-d62ff40b38fc")
-	)
-	(wire
-		(pts
-			(xy 176.53 109.22) (xy 176.53 140.97)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8eb96b35-434f-4c8b-8933-7a42486dabe3")
 	)
 	(wire
 		(pts
@@ -500,6 +520,16 @@
 			(type default)
 		)
 		(uuid "a088dd47-f04d-4c6c-8277-5e0bea3e080a")
+	)
+	(wire
+		(pts
+			(xy 181.61 104.14) (xy 181.61 140.97)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a2fdf3de-b0bc-45a7-8977-1c7b35224117")
 	)
 	(wire
 		(pts
@@ -663,16 +693,6 @@
 	)
 	(wire
 		(pts
-			(xy 181.61 104.14) (xy 181.61 140.97)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "cae26ed5-1db6-4ae6-8ff1-a49698be0a79")
-	)
-	(wire
-		(pts
 			(xy 194.31 120.65) (xy 78.74 120.65)
 		)
 		(stroke
@@ -703,6 +723,16 @@
 	)
 	(wire
 		(pts
+			(xy 184.15 101.6) (xy 184.15 140.97)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "da7ce967-5565-4295-8c6d-598e2a0609e9")
+	)
+	(wire
+		(pts
 			(xy 200.66 140.97) (xy 200.66 132.08)
 		)
 		(stroke
@@ -710,16 +740,6 @@
 			(type default)
 		)
 		(uuid "dd6f6db9-6268-4723-8ecf-67a668bf6701")
-	)
-	(wire
-		(pts
-			(xy 179.07 106.68) (xy 179.07 140.97)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e4f23e18-e512-4788-be6f-d6faec7129d8")
 	)
 	(wire
 		(pts
@@ -840,7 +860,7 @@
 			)
 		)
 		(pin "ADC_CHR_IANA" output
-			(at 176.53 140.97 90)
+			(at 179.07 140.97 90)
 			(uuid "3fdcdcb0-7fc9-4741-b550-afb9175f05b7")
 			(effects
 				(font
@@ -850,7 +870,7 @@
 			)
 		)
 		(pin "ADC_CHR_VBUS" output
-			(at 179.07 140.97 90)
+			(at 176.53 140.97 90)
 			(uuid "b091e87b-d9a6-45a0-aacf-896a52553ef1")
 			(effects
 				(font
@@ -860,7 +880,7 @@
 			)
 		)
 		(pin "ADC_PHONE_IANA" output
-			(at 181.61 140.97 90)
+			(at 184.15 140.97 90)
 			(uuid "503910e3-8ec8-4899-9f94-5a6dda6c0602")
 			(effects
 				(font
@@ -870,7 +890,7 @@
 			)
 		)
 		(pin "ADC_PHONE_VBUS" output
-			(at 184.15 140.97 90)
+			(at 181.61 140.97 90)
 			(uuid "6714e07f-cda2-47e4-935a-f62dc1991ffd")
 			(effects
 				(font
@@ -1385,6 +1405,16 @@
 				(justify left)
 			)
 		)
+		(pin "DAC_RESET{slash}" input
+			(at 133.35 45.72 270)
+			(uuid "acf14b81-5811-44fb-b570-bcc2ae4c6255")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
 		(instances
 			(project "DrunkEarPhoneAdapter"
 				(path "/df940915-8af0-46f9-b18a-23d4684ae671"
@@ -1607,7 +1637,7 @@
 				(justify right)
 			)
 		)
-		(pin "ADC1_IN1" input
+		(pin "ADC1_IN0" input
 			(at 78.74 101.6 0)
 			(uuid "25569d7e-ab08-4210-9fb1-cb4e7b462c01")
 			(effects
@@ -1617,7 +1647,7 @@
 				(justify right)
 			)
 		)
-		(pin "ADC1_IN2" input
+		(pin "ADC1_IN1" input
 			(at 78.74 104.14 0)
 			(uuid "a08cf5f3-04bb-4dc5-bd00-84127ec30271")
 			(effects
@@ -1627,7 +1657,7 @@
 				(justify right)
 			)
 		)
-		(pin "ADC1_IN3" input
+		(pin "ADC1_IN2" input
 			(at 78.74 106.68 0)
 			(uuid "20ef812c-35e3-46c6-bce0-abf14ed1676e")
 			(effects
@@ -1637,7 +1667,7 @@
 				(justify right)
 			)
 		)
-		(pin "ADC1_IN4" input
+		(pin "ADC1_IN3" input
 			(at 78.74 109.22 0)
 			(uuid "1decd304-5a75-47a2-ad96-af82bea2801c")
 			(effects
@@ -1647,7 +1677,7 @@
 				(justify right)
 			)
 		)
-		(pin "GPIO_EXTI1" input
+		(pin "GPIO_EXTI0" input
 			(at 78.74 113.03 0)
 			(uuid "55d10f38-39f2-43d8-9b13-c62cdb1f0eec")
 			(effects
@@ -1657,7 +1687,7 @@
 				(justify right)
 			)
 		)
-		(pin "GPIO_EXTI2" input
+		(pin "GPIO_EXTI1" input
 			(at 78.74 115.57 0)
 			(uuid "c85f3066-6aea-473d-8164-577c66d2a1de")
 			(effects
@@ -1667,7 +1697,7 @@
 				(justify right)
 			)
 		)
-		(pin "GPIO_EXTI3" input
+		(pin "GPIO_EXTI2" input
 			(at 78.74 118.11 0)
 			(uuid "f1679858-f0fa-472d-a405-79e8e92d3a77")
 			(effects
@@ -1677,7 +1707,7 @@
 				(justify right)
 			)
 		)
-		(pin "GPIO_EXTI4" input
+		(pin "GPIO_EXTI3" input
 			(at 78.74 120.65 0)
 			(uuid "e39742cc-f287-41be-96f8-928edea159d2")
 			(effects
@@ -1720,6 +1750,16 @@
 		(pin "UCPD2_CC2" input
 			(at 78.74 132.08 0)
 			(uuid "5a543959-7056-4686-8b7f-d9b8b8c6c595")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "CS_RESET{slash}" input
+			(at 78.74 57.15 0)
+			(uuid "c9906b54-343c-4eb3-82d4-fdde58a92725")
 			(effects
 				(font
 					(size 1.27 1.27)
