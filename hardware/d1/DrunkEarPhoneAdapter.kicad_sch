@@ -37,6 +37,16 @@
 	)
 	(wire
 		(pts
+			(xy 255.27 182.88) (xy 255.27 196.85)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "011191b1-04df-4475-8f65-ceeaf0734e08")
+	)
+	(wire
+		(pts
 			(xy 276.86 97.79) (xy 195.58 97.79)
 		)
 		(stroke
@@ -704,6 +714,16 @@
 			(type default)
 		)
 		(uuid "ba6591ba-d3c0-4233-a164-4f60c9191de0")
+	)
+	(wire
+		(pts
+			(xy 116.84 182.88) (xy 255.27 182.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "be5abfff-6aaf-4642-b4d6-acaa92abe7ef")
 	)
 	(wire
 		(pts
@@ -1874,6 +1894,16 @@
 		(pin "PHONE_EN" output
 			(at 116.84 180.34 0)
 			(uuid "4ce13b6e-9e45-46ce-83a0-d96a039dc5ba")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "USB_DIR" output
+			(at 116.84 182.88 0)
+			(uuid "4dd93f86-2612-414d-8171-18723fe41028")
 			(effects
 				(font
 					(size 1.27 1.27)

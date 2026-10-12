@@ -476,7 +476,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "JLCImport:0603WAJ0511T5E"
+		(symbol "JLCImport:0603WAF5490T5E"
 			(pin_numbers
 				(hide yes)
 			)
@@ -499,7 +499,7 @@
 					)
 				)
 			)
-			(property "Value" "0603WAJ0511T5E"
+			(property "Value" "0603WAF5490T5E"
 				(at 0 -3.016 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -520,7 +520,7 @@
 					)
 				)
 			)
-			(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2205311845_UNI-ROYAL-Uniroyal-Elec-0603WAJ0511T5E_C25245.pdf"
+			(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2206010116_UNI-ROYAL-Uniroyal-Elec-0603WAF5490T5E_C23079.pdf"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -531,7 +531,7 @@
 					)
 				)
 			)
-			(property "Description" "-55℃~+155℃ 100mW 510Ω 75V Thick Film Resistor ±100ppm/℃ ±5% 0603 Chip Resistor - Surface Mount ROHS"
+			(property "Description" "-55℃~+155℃ 100mW 549Ω 75V Thick Film Resistor ±1% ±100ppm/℃ 0603 Chip Resistor - Surface Mount ROHS"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -542,7 +542,7 @@
 					)
 				)
 			)
-			(property "LCSC" "C25245"
+			(property "LCSC" "C23079"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -564,7 +564,7 @@
 					)
 				)
 			)
-			(property "Manufacturer Part" "0603WAJ0511T5E"
+			(property "Manufacturer Part" "0603WAF5490T5E"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -575,7 +575,7 @@
 					)
 				)
 			)
-			(property "ki_keywords" "0603WAJ0511T5E C25245 R0603 UNI-ROYAL(Uniroyal Elec)"
+			(property "ki_keywords" "0603WAF5490T5E C23079 R0603 UNI-ROYAL(Uniroyal Elec)"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -586,7 +586,7 @@
 					)
 				)
 			)
-			(symbol "0603WAJ0511T5E_0_1"
+			(symbol "0603WAF5490T5E_0_1"
 				(rectangle
 					(start -2.54 1.016)
 					(end 2.54 -1.016)
@@ -5773,6 +5773,12 @@
 		(uuid "33d367a7-db4e-4ee4-b6b6-847e27ef462a")
 	)
 	(junction
+		(at 137.16 133.35)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "34f9b023-40a7-4d04-92da-90a7a90d9821")
+	)
+	(junction
 		(at 35.56 48.26)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -5801,12 +5807,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "3e1a501d-f755-4015-83ce-5f0d2cdf427b")
-	)
-	(junction
-		(at 137.16 133.35)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "401413e6-21f6-4c14-9c35-b19dc5381c80")
 	)
 	(junction
 		(at 27.94 124.46)
@@ -5965,12 +5965,6 @@
 		(uuid "b47dec88-e0fe-44e1-aca9-399423e9e001")
 	)
 	(junction
-		(at 16.51 134.62)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "b62bbb4b-962b-4669-9fed-cbe0a7bc2c33")
-	)
-	(junction
 		(at 17.78 87.63)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -5987,6 +5981,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "ce96cf36-6524-485e-81d1-1b167aabb40b")
+	)
+	(junction
+		(at 16.51 134.62)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "d2b164c1-49a8-4379-a9bf-bc4f74d00a73")
 	)
 	(junction
 		(at 59.69 48.26)
@@ -9989,8 +9989,8 @@
 		)
 	)
 	(symbol
-		(lib_id "JLCImport:0603WAJ0511T5E")
-		(at 16.51 139.7 90)
+		(lib_id "JLCImport:0603WAF5490T5E")
+		(at 137.16 138.43 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -9999,9 +9999,9 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "117bac3f-f206-4d73-9299-ce1398f3e5ea")
-		(property "Reference" "R19"
-			(at 19.05 138.4299 90)
+		(uuid "19728d9f-8ede-4560-a11a-ff7a0aaf28aa")
+		(property "Reference" "R20"
+			(at 139.7 137.1599 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -10011,8 +10011,8 @@
 				(justify right)
 			)
 		)
-		(property "Value" "510Ω"
-			(at 19.05 140.9699 90)
+		(property "Value" "549Ω"
+			(at 139.7 139.6999 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -10023,7 +10023,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 16.51 139.7 0)
+			(at 137.16 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10033,8 +10033,8 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2205311845_UNI-ROYAL-Uniroyal-Elec-0603WAJ0511T5E_C25245.pdf"
-			(at 16.51 139.7 0)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2206010116_UNI-ROYAL-Uniroyal-Elec-0603WAF5490T5E_C23079.pdf"
+			(at 137.16 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10044,8 +10044,8 @@
 				)
 			)
 		)
-		(property "Description" "-55℃~+155℃ 100mW 510Ω 75V Thick Film Resistor ±100ppm/℃ ±5% 0603 Chip Resistor - Surface Mount ROHS"
-			(at 16.51 139.7 0)
+		(property "Description" "-55℃~+155℃ 100mW 549Ω 75V Thick Film Resistor ±1% ±100ppm/℃ 0603 Chip Resistor - Surface Mount ROHS"
+			(at 137.16 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10055,8 +10055,8 @@
 				)
 			)
 		)
-		(property "LCSC" "C25245"
-			(at 16.51 139.7 0)
+		(property "LCSC" "C23079"
+			(at 137.16 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10067,7 +10067,7 @@
 			)
 		)
 		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
-			(at 16.51 139.7 0)
+			(at 137.16 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10077,8 +10077,8 @@
 				)
 			)
 		)
-		(property "Manufacturer Part" "0603WAJ0511T5E"
-			(at 16.51 139.7 0)
+		(property "Manufacturer Part" "0603WAF5490T5E"
+			(at 137.16 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10089,15 +10089,15 @@
 			)
 		)
 		(pin "2"
-			(uuid "22153eef-15b6-449d-ac1a-6e3c0cadedbb")
+			(uuid "26c5a16e-44c2-4671-a4ec-457c925c987d")
 		)
 		(pin "1"
-			(uuid "8dc16afe-5bfb-4610-9c73-0f632d637728")
+			(uuid "a843cc73-52c4-402b-8b0a-a337ed8effac")
 		)
 		(instances
 			(project "DrunkEarPhoneAdapter"
 				(path "/df940915-8af0-46f9-b18a-23d4684ae671/5c561383-fdd0-44ae-83ac-568aac0f03a9"
-					(reference "R19")
+					(reference "R20")
 					(unit 1)
 				)
 			)
@@ -11359,6 +11359,121 @@
 			(project "DrunkEarPhoneAdapter"
 				(path "/df940915-8af0-46f9-b18a-23d4684ae671/5c561383-fdd0-44ae-83ac-568aac0f03a9"
 					(reference "C71")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "JLCImport:0603WAF5490T5E")
+		(at 16.51 139.7 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "4c403bda-7f17-464a-8a64-8fcff4078d76")
+		(property "Reference" "R19"
+			(at 19.05 138.4299 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "549Ω"
+			(at 19.05 140.9699 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 16.51 139.7 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2206010116_UNI-ROYAL-Uniroyal-Elec-0603WAF5490T5E_C23079.pdf"
+			(at 16.51 139.7 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "-55℃~+155℃ 100mW 549Ω 75V Thick Film Resistor ±1% ±100ppm/℃ 0603 Chip Resistor - Surface Mount ROHS"
+			(at 16.51 139.7 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C23079"
+			(at 16.51 139.7 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
+			(at 16.51 139.7 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer Part" "0603WAF5490T5E"
+			(at 16.51 139.7 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "91714627-2164-426d-9719-8dc3782ea274")
+		)
+		(pin "1"
+			(uuid "b5e64d00-e4db-45a9-97a1-02b096491b60")
+		)
+		(instances
+			(project "DrunkEarPhoneAdapter"
+				(path "/df940915-8af0-46f9-b18a-23d4684ae671/5c561383-fdd0-44ae-83ac-568aac0f03a9"
+					(reference "R19")
 					(unit 1)
 				)
 			)
@@ -13841,121 +13956,6 @@
 			(project "DrunkEarPhoneAdapter"
 				(path "/df940915-8af0-46f9-b18a-23d4684ae671/5c561383-fdd0-44ae-83ac-568aac0f03a9"
 					(reference "R22")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "JLCImport:0603WAJ0511T5E")
-		(at 137.16 138.43 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "b4e64025-1477-4b79-8d47-2df9d92801a8")
-		(property "Reference" "R20"
-			(at 139.7 137.1599 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "510Ω"
-			(at 139.7 139.6999 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 137.16 138.43 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2205311845_UNI-ROYAL-Uniroyal-Elec-0603WAJ0511T5E_C25245.pdf"
-			(at 137.16 138.43 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "-55℃~+155℃ 100mW 510Ω 75V Thick Film Resistor ±100ppm/℃ ±5% 0603 Chip Resistor - Surface Mount ROHS"
-			(at 137.16 138.43 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C25245"
-			(at 137.16 138.43 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
-			(at 137.16 138.43 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer Part" "0603WAJ0511T5E"
-			(at 137.16 138.43 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "7dde92ce-710e-44e7-8230-7652c0f828e1")
-		)
-		(pin "1"
-			(uuid "3b447649-1f54-4024-838a-2056f86be8d1")
-		)
-		(instances
-			(project "DrunkEarPhoneAdapter"
-				(path "/df940915-8af0-46f9-b18a-23d4684ae671/5c561383-fdd0-44ae-83ac-568aac0f03a9"
-					(reference "R20")
 					(unit 1)
 				)
 			)
