@@ -58,7 +58,6 @@ static void MX_UCPD2_Init(void);
 static void MX_I2C1_Init(void);
 static void MX_ADC1_Init(void);
 static void MX_LPUART2_UART_Init(void);
-static void MX_IWDG_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -106,7 +105,6 @@ int main(void)
   MX_I2C1_Init();
   MX_ADC1_Init();
   MX_LPUART2_UART_Init();
-  MX_IWDG_Init();
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */
@@ -140,12 +138,6 @@ void SystemClock_Config(void)
   /* HSI configuration and activation */
   LL_RCC_HSI_Enable();
   while(LL_RCC_HSI_IsReady() != 1)
-  {
-  }
-
-  /* LSI configuration and activation */
-  LL_RCC_LSI_Enable();
-  while(LL_RCC_LSI_IsReady() != 1)
   {
   }
 
@@ -701,36 +693,6 @@ static void MX_I2S2_Init(void)
 }
 
 /**
-  * @brief IWDG Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_IWDG_Init(void)
-{
-
-  /* USER CODE BEGIN IWDG_Init 0 */
-
-  /* USER CODE END IWDG_Init 0 */
-
-  /* USER CODE BEGIN IWDG_Init 1 */
-
-  /* USER CODE END IWDG_Init 1 */
-  LL_IWDG_Enable(IWDG);
-  LL_IWDG_EnableWriteAccess(IWDG);
-  LL_IWDG_SetPrescaler(IWDG, LL_IWDG_PRESCALER_32);
-  LL_IWDG_SetReloadCounter(IWDG, 1000);
-  while (LL_IWDG_IsReady(IWDG) != 1)
-  {
-  }
-
-  LL_IWDG_ReloadCounter(IWDG);
-  /* USER CODE BEGIN IWDG_Init 2 */
-
-  /* USER CODE END IWDG_Init 2 */
-
-}
-
-/**
   * @brief LPUART2 Initialization Function
   * @param None
   * @retval None
@@ -776,8 +738,8 @@ static void MX_LPUART2_UART_Init(void)
 
   /* USER CODE END LPUART2_Init 1 */
   LPUART_InitStruct.PrescalerValue = LL_LPUART_PRESCALER_DIV1;
-  LPUART_InitStruct.BaudRate = 209700;
-  LPUART_InitStruct.DataWidth = LL_LPUART_DATAWIDTH_7B;
+  LPUART_InitStruct.BaudRate = 115200;
+  LPUART_InitStruct.DataWidth = LL_LPUART_DATAWIDTH_8B;
   LPUART_InitStruct.StopBits = LL_LPUART_STOPBITS_1;
   LPUART_InitStruct.Parity = LL_LPUART_PARITY_NONE;
   LPUART_InitStruct.TransferDirection = LL_LPUART_DIRECTION_TX_RX;
@@ -1011,6 +973,9 @@ static void MX_GPIO_Init(void)
   LL_IOP_GRP1_EnableClock(LL_IOP_GRP1_PERIPH_GPIOE);
 
   /**/
+  LL_GPIO_ResetOutputPin(USB_DIR_GPIO_Port, USB_DIR_Pin);
+
+  /**/
   LL_GPIO_ResetOutputPin(CLK_EN1_GPIO_Port, CLK_EN1_Pin);
 
   /**/
@@ -1021,6 +986,20 @@ static void MX_GPIO_Init(void)
 
   /**/
   LL_GPIO_ResetOutputPin(PHONE_EN_GPIO_Port, PHONE_EN_Pin);
+
+  /**/
+  GPIO_InitStruct.Pin = USB_DIR_Pin;
+  GPIO_InitStruct.Mode = LL_GPIO_MODE_OUTPUT;
+  GPIO_InitStruct.Speed = LL_GPIO_SPEED_FREQ_LOW;
+  GPIO_InitStruct.OutputType = LL_GPIO_OUTPUT_PUSHPULL;
+  GPIO_InitStruct.Pull = LL_GPIO_PULL_NO;
+  LL_GPIO_Init(USB_DIR_GPIO_Port, &GPIO_InitStruct);
+
+  /**/
+  GPIO_InitStruct.Pin = USB_DIR_SW_Pin;
+  GPIO_InitStruct.Mode = LL_GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = LL_GPIO_PULL_NO;
+  LL_GPIO_Init(USB_DIR_SW_GPIO_Port, &GPIO_InitStruct);
 
   /**/
   GPIO_InitStruct.Pin = CLK_EN1_Pin;

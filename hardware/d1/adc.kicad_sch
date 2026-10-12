@@ -2882,6 +2882,16 @@
 		)
 		(uuid "3f18af48-b450-4563-9887-9e52864e3ae1")
 	)
+	(label "HP_GND"
+		(at 38.1 151.13 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "4564dc76-3417-454d-bd2b-4c5026401099")
+	)
 	(label "I2C_SDA"
 		(at 165.1 78.74 0)
 		(effects
@@ -2951,16 +2961,6 @@
 			(justify right bottom)
 		)
 		(uuid "6024656f-d9c8-47e0-b6d5-25a341359ee7")
-	)
-	(label "JACK_RING_2"
-		(at 38.1 151.13 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "648b12d1-3134-44d4-b765-72a44e0deab2")
 	)
 	(label "GMS0"
 		(at 236.22 43.18 180)
@@ -3062,6 +3062,16 @@
 		)
 		(uuid "ae8f26be-c8ec-43cd-b1be-8b85568c482f")
 	)
+	(label "HP_GND"
+		(at 248.92 43.18 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "bb34a6d1-41ec-45ae-b88c-49921ff73510")
+	)
 	(label "I2S_WS"
 		(at 38.1 170.18 0)
 		(effects
@@ -3071,16 +3081,6 @@
 			(justify left bottom)
 		)
 		(uuid "c1428165-efdb-4cd5-afc9-6f4a7b5724be")
-	)
-	(label "JACK_RING_2"
-		(at 248.92 43.18 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "c1d6f9b0-bd65-428a-812a-91761fb7f3f7")
 	)
 	(label "I2S_SD"
 		(at 92.71 93.98 180)
@@ -3134,7 +3134,7 @@
 		)
 		(uuid "257e0ace-cb8c-4b00-9ecb-9a1482716abf")
 	)
-	(hierarchical_label "JACK_RING_2"
+	(hierarchical_label "HP_GND"
 		(shape bidirectional)
 		(at 34.29 151.13 180)
 		(effects

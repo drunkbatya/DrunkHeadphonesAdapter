@@ -34,7 +34,6 @@ extern "C" {
 #include "stm32g0xx_ll_i2c.h"
 #include "stm32g0xx_ll_spi.h"
 #include "stm32g0xx_ll_rcc.h"
-#include "stm32g0xx_ll_iwdg.h"
 #include "stm32g0xx_ll_lpuart.h"
 #include "stm32g0xx_ll_bus.h"
 #include "stm32g0xx_ll_crs.h"
@@ -74,6 +73,10 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define USB_DIR_Pin LL_GPIO_PIN_8
+#define USB_DIR_GPIO_Port GPIOD
+#define USB_DIR_SW_Pin LL_GPIO_PIN_9
+#define USB_DIR_SW_GPIO_Port GPIOD
 #define CLK_EN1_Pin LL_GPIO_PIN_5
 #define CLK_EN1_GPIO_Port GPIOD
 #define CLK_EN2_Pin LL_GPIO_PIN_6

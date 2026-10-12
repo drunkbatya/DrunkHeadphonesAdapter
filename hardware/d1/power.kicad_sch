@@ -5,6 +5,204 @@
 	(uuid "1b9bfec2-91fd-4fc7-9f97-0554922d9ed2")
 	(paper "A4")
 	(lib_symbols
+		(symbol "CL21A226MAQNNNE_1"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 1.016)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "C"
+				(at 0 2 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "CL21A226MAQNNNE"
+				(at 0 -2 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "JLCImport:CL21A226MAQNNNE"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL21A226MAQNNNE_C45783.pdf"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "22uF 25V X5R ±20% 0805 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "LCSC" "C45783"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Manufacturer" "Samsung Electro-Mechanics"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Manufacturer Part" "CL21A226MAQNNNE"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "C0805 C45783 CL21A226MAQNNNE Samsung Electro-Mechanics"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "CL21A226MAQNNNE_1_0_1"
+				(polyline
+					(pts
+						(xy -0.508 0) (xy -2.54 0)
+					)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.508 -2.032) (xy -0.508 2.032)
+					)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.508 2.032) (xy 0.508 -2.032)
+					)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.54 0) (xy 0.508 0)
+					)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin unspecified line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin unspecified line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "Connector:TestPoint"
 			(pin_numbers
 				(hide yes)
@@ -636,9 +834,211 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "JLCImport:CC0402KRX7R9BB104"
+		(symbol "JLCImport:C3216X5R1E476MTJ00E"
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
 				(offset 1.016)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "C"
+				(at 0 2 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "C3216X5R1E476MTJ00E"
+				(at 0 -2 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_TDK-C3216X5R1E476MTJ00E_C76659.pdf"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "25V 47uF X5R ±20% 1206 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "LCSC" "C76659"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Manufacturer" "TDK"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Manufacturer Part" "C3216X5R1E476MTJ00E"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "C1206 C3216X5R1E476MTJ00E C76659 TDK"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "C3216X5R1E476MTJ00E_0_1"
+				(polyline
+					(pts
+						(xy -1.27 0) (xy -0.508 0)
+					)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.508 2.032) (xy -0.508 -2.032)
+					)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.508 2.032) (xy 0.508 -2.032)
+					)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.508 0) (xy 1.27 0)
+					)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin input line
+					(at -3.81 0 0)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at 3.81 0 180)
+					(length 2.54)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "JLCImport:CC0402KRX7R9BB104"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 1.016)
+				(hide yes)
 			)
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -1606,9 +2006,207 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "JLCImport:CL21A226MAQNNNE"
+		(symbol "JLCImport:CL10A475KP8NNNC"
 			(pin_names
 				(offset 1.016)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "C"
+				(at 0 2 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "CL10A475KP8NNNC"
+				(at 0 -2 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL10A475KP8NNNC_C1705.pdf"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "10V 4.7uF X5R ±10% 0603 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "LCSC" "C1705"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Manufacturer" "Samsung Electro-Mechanics"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Manufacturer Part" "CL10A475KP8NNNC"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "C0603 C1705 CL10A475KP8NNNC Samsung Electro-Mechanics"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "CL10A475KP8NNNC_0_1"
+				(polyline
+					(pts
+						(xy -1.27 0) (xy -0.508 0)
+					)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.508 2.032) (xy -0.508 -2.032)
+					)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.508 2.032) (xy 0.508 -2.032)
+					)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.508 0) (xy 1.27 0)
+					)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin input line
+					(at -3.81 0 0)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at 3.81 0 180)
+					(length 2.54)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "JLCImport:CL21A226MAQNNNE"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 1.016)
+				(hide yes)
 			)
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -1781,6 +2379,204 @@
 				)
 				(pin unspecified line
 					(at 5.08 0 180)
+					(length 2.54)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "JLCImport:CL31B225KBHNNNE"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 1.016)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "C"
+				(at 0 2 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "CL31B225KBHNNNE"
+				(at 0 -2 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL31B225KBHNNNE_C50254.pdf"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "2.2uF 50V X7R ±10% 1206 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "LCSC" "C50254"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Manufacturer" "Samsung Electro-Mechanics"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Manufacturer Part" "CL31B225KBHNNNE"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "C1206 C50254 CL31B225KBHNNNE Samsung Electro-Mechanics"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "CL31B225KBHNNNE_0_1"
+				(polyline
+					(pts
+						(xy -1.27 0) (xy -0.508 0)
+					)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.508 2.032) (xy -0.508 -2.032)
+					)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.508 2.032) (xy 0.508 -2.032)
+					)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.508 0) (xy 1.27 0)
+					)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin input line
+					(at -3.81 0 0)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at 3.81 0 180)
 					(length 2.54)
 					(name "2"
 						(effects
@@ -3501,16 +4297,22 @@
 		(uuid "cb66e9c7-1de6-4a16-9af9-61d1c1cd9e8d")
 	)
 	(junction
-		(at 134.62 36.83)
+		(at 162.56 36.83)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "0c3dd835-b6df-4bca-a91e-6a6d90f656ed")
+		(uuid "061174aa-7d63-4900-82f7-aa61a5a9e627")
 	)
 	(junction
 		(at 24.13 45.72)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "170e2a88-49cc-4870-b024-60fd44c50c22")
+	)
+	(junction
+		(at 72.39 53.34)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "175e7837-daf1-4e3d-a8b2-879ce2a111ea")
 	)
 	(junction
 		(at 113.03 99.06)
@@ -3531,10 +4333,16 @@
 		(uuid "1fd53e39-197a-45ca-b3f2-0338305c0032")
 	)
 	(junction
-		(at 172.72 46.99)
+		(at 157.48 44.45)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "2779b60b-20c3-4e2d-bcb2-ccc017b91c20")
+		(uuid "235d4668-5941-483d-a1b0-0a387e849d1d")
+	)
+	(junction
+		(at 132.08 44.45)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "284e65e0-2abc-4cff-8067-fcb090a83e07")
 	)
 	(junction
 		(at 107.95 154.94)
@@ -3543,28 +4351,16 @@
 		(uuid "2c5314c5-c6ea-41d4-813c-10d34bc565d1")
 	)
 	(junction
-		(at 166.37 46.99)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "32ff4cec-d937-4760-a960-716a1cfd339c")
-	)
-	(junction
-		(at 138.43 101.6)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "35c74449-772d-4ffa-96bd-b252412de074")
-	)
-	(junction
 		(at 114.3 36.83)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "3913e7d8-d780-4c95-8a10-75cbc7ad2add")
 	)
 	(junction
-		(at 166.37 36.83)
+		(at 138.43 101.6)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "3b405aae-64d1-4e0b-a20e-4494c672415f")
+		(uuid "3b0349d3-3f57-4dce-9aed-2fa8840184ef")
 	)
 	(junction
 		(at 69.85 102.87)
@@ -3573,16 +4369,22 @@
 		(uuid "4d017e1e-4f05-426c-9af4-c6ad83585b57")
 	)
 	(junction
+		(at 167.64 36.83)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "4d01b1d6-ba29-4217-922e-28a2e11f3bf9")
+	)
+	(junction
 		(at 166.37 107.95)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "4d877806-ae64-4372-b26c-884e09dd605d")
 	)
 	(junction
-		(at 191.77 46.99)
+		(at 152.4 44.45)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "4dc93b93-a435-4fbb-9660-a7722a383da6")
+		(uuid "51dfeffb-4837-49b0-af4e-7e19d2648636")
 	)
 	(junction
 		(at 87.63 63.5)
@@ -3603,16 +4405,10 @@
 		(uuid "54671d65-bf3e-4fa4-9c0f-c9a9a35a2fc0")
 	)
 	(junction
-		(at 185.42 46.99)
+		(at 142.24 44.45)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "5918db35-ca3e-4e3e-a1bd-2182a6a710e1")
-	)
-	(junction
-		(at 128.27 46.99)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "5c7a8248-e146-483d-a6ea-5fd74cd59bb4")
+		(uuid "5ec8c919-0e06-4c97-9f66-fcb4756c09aa")
 	)
 	(junction
 		(at 72.39 48.26)
@@ -3639,16 +4435,10 @@
 		(uuid "6454b146-a8a9-43a1-ae53-0fdb66e6b9a9")
 	)
 	(junction
-		(at 191.77 36.83)
+		(at 142.24 36.83)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "6619df5b-0414-437b-9d02-9d74d2fa230b")
-	)
-	(junction
-		(at 140.97 46.99)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "689a75a5-3377-4508-a4c0-2e1134870b23")
+		(uuid "68b57f27-068f-48eb-a4b2-1412fb76d67a")
 	)
 	(junction
 		(at 191.77 100.33)
@@ -3657,46 +4447,22 @@
 		(uuid "6af79992-56a6-4ba2-bf8e-948af1aa0b33")
 	)
 	(junction
-		(at 147.32 36.83)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "6f261950-0e75-4650-97a4-14a4077101c4")
-	)
-	(junction
-		(at 147.32 46.99)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "70d22c09-2ec1-4b7f-abed-3e6968d5fb79")
-	)
-	(junction
-		(at 185.42 36.83)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "7255eb64-a25f-437b-a2f4-bace41d688b4")
-	)
-	(junction
-		(at 160.02 36.83)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "73e32c65-78b8-4d35-bc14-668de1a3631f")
-	)
-	(junction
 		(at 40.64 152.4)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "7a524b29-a580-4ca6-93ac-19ac6a3086fa")
 	)
 	(junction
+		(at 67.31 63.5)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "7d58daf2-febe-4a91-8fd6-75cb4b103530")
+	)
+	(junction
 		(at 109.22 99.06)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "8008dede-212b-415b-a079-0f332cad3c28")
-	)
-	(junction
-		(at 179.07 46.99)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "80e6c7a5-a0f7-4870-9616-a65df4fb1c85")
 	)
 	(junction
 		(at 166.37 97.79)
@@ -3717,10 +4483,22 @@
 		(uuid "8f629b94-dee9-453b-88ce-418aa5ee0b41")
 	)
 	(junction
-		(at 179.07 36.83)
+		(at 137.16 36.83)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "914f5735-4e76-4c8a-b8d0-cc32120f0b14")
+		(uuid "8fe33cf4-7e5a-445e-8408-20dd50cfbc4d")
+	)
+	(junction
+		(at 147.32 36.83)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "92444f94-8bd3-48e6-a0b9-a488666886e7")
+	)
+	(junction
+		(at 157.48 36.83)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "93074d8e-d2f8-464a-a0ab-92541a0c8dfc")
 	)
 	(junction
 		(at 45.72 113.03)
@@ -3735,16 +4513,16 @@
 		(uuid "985c4039-72c2-4d63-b620-554aa2e1de8b")
 	)
 	(junction
-		(at 153.67 36.83)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "a4f5c770-38df-4a76-a302-7ca43461a217")
-	)
-	(junction
 		(at 59.69 50.8)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "a624b845-6197-478a-aaf4-493606ce066d")
+	)
+	(junction
+		(at 137.16 44.45)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "a69e1fd0-f9ac-4a6e-a0a2-db92bedb658a")
 	)
 	(junction
 		(at 81.28 50.8)
@@ -3759,6 +4537,12 @@
 		(uuid "afe32e4d-6c08-49c9-8871-e4426fc3017f")
 	)
 	(junction
+		(at 147.32 44.45)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "b08209ee-0d4b-4dcc-8bed-f37425c9607d")
+	)
+	(junction
 		(at 34.29 57.15)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -3769,6 +4553,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "b5853043-ee4f-49c0-ab29-8d0b110a9abb")
+	)
+	(junction
+		(at 167.64 44.45)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "b589bd9c-aeb0-416c-b3c8-fe2d0b25c2b3")
 	)
 	(junction
 		(at 191.77 92.71)
@@ -3783,6 +4573,12 @@
 		(uuid "bbeb6611-f864-48b9-9eff-d216075acb5e")
 	)
 	(junction
+		(at 132.08 36.83)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "bebf29d4-96e3-4fb5-be46-324f9c669db8")
+	)
+	(junction
 		(at 162.56 97.79)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -3793,6 +4589,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "c2995b18-0ab3-47e6-beba-6948fae0bb70")
+	)
+	(junction
+		(at 162.56 44.45)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "c6d5c391-d09c-4b49-bd33-12abfa32a592")
 	)
 	(junction
 		(at 93.98 50.8)
@@ -3813,22 +4615,10 @@
 		(uuid "cabb2d8c-79ce-407f-af7a-fe113c9ac026")
 	)
 	(junction
-		(at 172.72 36.83)
+		(at 152.4 36.83)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "d2b57b5c-d8f8-4637-b862-be8202fabf3e")
-	)
-	(junction
-		(at 134.62 46.99)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "d3136156-da22-4a7b-93a3-a438627a1f71")
-	)
-	(junction
-		(at 140.97 36.83)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "d314adbb-b739-45c4-ab2c-6137d88dbfce")
+		(uuid "d3391939-ecf8-4436-ae0a-0b17acc3d817")
 	)
 	(junction
 		(at 113.03 111.76)
@@ -3865,18 +4655,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "e7819d91-7856-4fc5-99fa-8c308aaddfd3")
-	)
-	(junction
-		(at 153.67 46.99)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "eda95af6-60ae-4d2a-ba6d-eca599fa99a1")
-	)
-	(junction
-		(at 160.02 46.99)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "ee8978a7-dafc-49fc-86e1-71c1b49741f5")
 	)
 	(junction
 		(at 57.15 63.5)
@@ -3918,6 +4696,16 @@
 	)
 	(wire
 		(pts
+			(xy 152.4 44.45) (xy 157.48 44.45)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "05f1e188-a669-40e5-a8e8-240b52682a59")
+	)
+	(wire
+		(pts
 			(xy 41.91 113.03) (xy 45.72 113.03)
 		)
 		(stroke
@@ -3925,16 +4713,6 @@
 			(type default)
 		)
 		(uuid "06bc8f68-f52a-4f58-989a-bf92f4bfc3a8")
-	)
-	(wire
-		(pts
-			(xy 153.67 46.99) (xy 160.02 46.99)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "075a2b34-09be-4a19-a0df-43ed193f7ade")
 	)
 	(wire
 		(pts
@@ -4018,16 +4796,6 @@
 	)
 	(wire
 		(pts
-			(xy 191.77 36.83) (xy 196.85 36.83)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "14b778dc-485b-4f3c-9323-57c37e3eff27")
-	)
-	(wire
-		(pts
 			(xy 59.69 50.8) (xy 81.28 50.8)
 		)
 		(stroke
@@ -4035,16 +4803,6 @@
 			(type default)
 		)
 		(uuid "14f5aff9-269b-4eaa-b6be-9fb21240b653")
-	)
-	(wire
-		(pts
-			(xy 160.02 36.83) (xy 166.37 36.83)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "192f9703-9a0a-49b1-8a10-d1d4e2e22096")
 	)
 	(wire
 		(pts
@@ -4118,13 +4876,13 @@
 	)
 	(wire
 		(pts
-			(xy 185.42 36.83) (xy 191.77 36.83)
+			(xy 167.64 44.45) (xy 172.72 44.45)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "2ca9f72f-ba01-402a-a259-ae2ec8f7f3b4")
+		(uuid "29727314-cb06-45c3-a31f-93b41a17d357")
 	)
 	(wire
 		(pts
@@ -4188,6 +4946,16 @@
 	)
 	(wire
 		(pts
+			(xy 138.43 109.22) (xy 138.43 111.76)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "332fd7c4-549b-4f08-ac2f-85f995822f88")
+	)
+	(wire
+		(pts
 			(xy 34.29 57.15) (xy 34.29 63.5)
 		)
 		(stroke
@@ -4218,6 +4986,16 @@
 	)
 	(wire
 		(pts
+			(xy 157.48 44.45) (xy 162.56 44.45)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "38896544-c6f4-402b-be09-d574deb2afc6")
+	)
+	(wire
+		(pts
 			(xy 39.37 38.1) (xy 39.37 48.26)
 		)
 		(stroke
@@ -4225,16 +5003,6 @@
 			(type default)
 		)
 		(uuid "39961dc7-ab39-4472-865a-8e16f65eeaf6")
-	)
-	(wire
-		(pts
-			(xy 172.72 36.83) (xy 179.07 36.83)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3ac2c067-a61c-4dd6-a095-a716d5be2b62")
 	)
 	(wire
 		(pts
@@ -4318,16 +5086,6 @@
 	)
 	(wire
 		(pts
-			(xy 179.07 36.83) (xy 185.42 36.83)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "47018025-1cc0-49e9-9b01-82d29868b059")
-	)
-	(wire
-		(pts
 			(xy 107.95 154.94) (xy 107.95 152.4)
 		)
 		(stroke
@@ -4355,6 +5113,16 @@
 			(type default)
 		)
 		(uuid "4db09322-b061-4dff-a900-4b617e772c7e")
+	)
+	(wire
+		(pts
+			(xy 137.16 36.83) (xy 142.24 36.83)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4e1ab77b-b776-4d69-9316-1b6723625e1a")
 	)
 	(wire
 		(pts
@@ -4428,16 +5196,6 @@
 	)
 	(wire
 		(pts
-			(xy 153.67 36.83) (xy 160.02 36.83)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5f10a6b6-be1d-4947-81fa-8e5e619a2916")
-	)
-	(wire
-		(pts
 			(xy 72.39 48.26) (xy 72.39 53.34)
 		)
 		(stroke
@@ -4498,6 +5256,26 @@
 	)
 	(wire
 		(pts
+			(xy 147.32 44.45) (xy 152.4 44.45)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "696540b4-bf23-41f6-9e41-379240694e83")
+	)
+	(wire
+		(pts
+			(xy 162.56 36.83) (xy 167.64 36.83)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6ef9f9ee-245d-4919-8ee5-6aebc24ff529")
+	)
+	(wire
+		(pts
 			(xy 44.45 166.37) (xy 55.88 166.37)
 		)
 		(stroke
@@ -4528,6 +5306,16 @@
 	)
 	(wire
 		(pts
+			(xy 67.31 63.5) (xy 81.28 63.5)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "74aaf301-8330-4087-b864-0ff2ee15fd13")
+	)
+	(wire
+		(pts
 			(xy 24.13 45.72) (xy 24.13 46.99)
 		)
 		(stroke
@@ -4555,16 +5343,6 @@
 			(type default)
 		)
 		(uuid "7d365485-7555-4d7f-8a6e-60df30c2efd5")
-	)
-	(wire
-		(pts
-			(xy 179.07 46.99) (xy 185.42 46.99)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7d8f0f5e-8c17-4a89-b306-6ffd8396b0d3")
 	)
 	(wire
 		(pts
@@ -4718,16 +5496,6 @@
 	)
 	(wire
 		(pts
-			(xy 185.42 46.99) (xy 191.77 46.99)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "90a245d1-bae2-4c72-9e42-fd841f004cab")
-	)
-	(wire
-		(pts
 			(xy 191.77 110.49) (xy 191.77 111.76)
 		)
 		(stroke
@@ -4758,26 +5526,6 @@
 	)
 	(wire
 		(pts
-			(xy 172.72 46.99) (xy 179.07 46.99)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "95054445-200a-453d-8483-5f70a397fffa")
-	)
-	(wire
-		(pts
-			(xy 128.27 36.83) (xy 134.62 36.83)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9773884f-98d6-4106-b23b-f3c906f5b04d")
-	)
-	(wire
-		(pts
 			(xy 128.27 25.4) (xy 125.73 25.4)
 		)
 		(stroke
@@ -4795,6 +5543,16 @@
 			(type default)
 		)
 		(uuid "99525bde-9946-4163-a58e-e73828b4a44d")
+	)
+	(wire
+		(pts
+			(xy 137.16 44.45) (xy 142.24 44.45)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9a441352-4df9-44c7-8475-598853d18edb")
 	)
 	(wire
 		(pts
@@ -4878,16 +5636,6 @@
 	)
 	(wire
 		(pts
-			(xy 191.77 46.99) (xy 196.85 46.99)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b0772c45-0e8d-4d69-81f5-07deb2a81eb5")
-	)
-	(wire
-		(pts
 			(xy 36.83 53.34) (xy 39.37 53.34)
 		)
 		(stroke
@@ -4895,6 +5643,26 @@
 			(type default)
 		)
 		(uuid "b1b9d95c-143b-41e3-96fe-6a2bb4fbcc0d")
+	)
+	(wire
+		(pts
+			(xy 147.32 36.83) (xy 152.4 36.83)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b1e2f9a2-66a8-4680-8485-d2da6f2ea50b")
+	)
+	(wire
+		(pts
+			(xy 162.56 44.45) (xy 167.64 44.45)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b2a002bb-05a3-4440-b1f6-4eee197ba046")
 	)
 	(wire
 		(pts
@@ -4918,6 +5686,16 @@
 	)
 	(wire
 		(pts
+			(xy 142.24 36.83) (xy 147.32 36.83)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b5070356-12a5-44e0-b436-bd14031792e2")
+	)
+	(wire
+		(pts
 			(xy 68.58 146.05) (xy 68.58 148.59)
 		)
 		(stroke
@@ -4928,7 +5706,7 @@
 	)
 	(wire
 		(pts
-			(xy 57.15 63.5) (xy 81.28 63.5)
+			(xy 57.15 63.5) (xy 67.31 63.5)
 		)
 		(stroke
 			(width 0)
@@ -4958,13 +5736,13 @@
 	)
 	(wire
 		(pts
-			(xy 160.02 46.99) (xy 166.37 46.99)
+			(xy 167.64 36.83) (xy 172.72 36.83)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "bab1afaa-9958-4eb1-a85f-dae0e5aea4ba")
+		(uuid "bbef48d0-b75e-463f-aca3-6dcd3562095c")
 	)
 	(wire
 		(pts
@@ -5038,16 +5816,6 @@
 	)
 	(wire
 		(pts
-			(xy 166.37 36.83) (xy 172.72 36.83)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c84c85e2-158d-4d42-b29f-c49617b71397")
-	)
-	(wire
-		(pts
 			(xy 125.73 111.76) (xy 113.03 111.76)
 		)
 		(stroke
@@ -5085,16 +5853,6 @@
 			(type default)
 		)
 		(uuid "cbdc194d-3a5f-4587-8b0a-88b2d2cb4b49")
-	)
-	(wire
-		(pts
-			(xy 128.27 46.99) (xy 153.67 46.99)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "cdc901bb-be9e-4a39-bdf0-3177eb2dfc58")
 	)
 	(wire
 		(pts
@@ -5148,23 +5906,13 @@
 	)
 	(wire
 		(pts
-			(xy 109.22 46.99) (xy 128.27 46.99)
+			(xy 109.22 44.45) (xy 137.16 44.45)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "d79ca74b-9da6-4583-9553-305af5858b82")
-	)
-	(wire
-		(pts
-			(xy 134.62 36.83) (xy 140.97 36.83)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d7ef7121-9e6a-4d0d-8488-d77803b29196")
 	)
 	(wire
 		(pts
@@ -5175,6 +5923,16 @@
 			(type default)
 		)
 		(uuid "d9de3de6-f918-45f2-aa12-297324f2811b")
+	)
+	(wire
+		(pts
+			(xy 157.48 36.83) (xy 162.56 36.83)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "dae7f95d-9a6e-418f-882a-8f23713a3792")
 	)
 	(wire
 		(pts
@@ -5218,6 +5976,26 @@
 	)
 	(wire
 		(pts
+			(xy 142.24 44.45) (xy 147.32 44.45)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e23de637-4dcc-48bc-8250-118012150f7b")
+	)
+	(wire
+		(pts
+			(xy 67.31 53.34) (xy 72.39 53.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e2504c50-c21c-4136-8928-170806d5d57e")
+	)
+	(wire
+		(pts
 			(xy 166.37 102.87) (xy 167.64 102.87)
 		)
 		(stroke
@@ -5248,13 +6026,13 @@
 	)
 	(wire
 		(pts
-			(xy 166.37 46.99) (xy 172.72 46.99)
+			(xy 152.4 36.83) (xy 157.48 36.83)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "e6a74e40-a4e7-454d-8614-d189c7ef4dd7")
+		(uuid "e843784f-d3ec-42aa-9d67-a0ed71d8a80c")
 	)
 	(wire
 		(pts
@@ -5348,7 +6126,7 @@
 	)
 	(wire
 		(pts
-			(xy 140.97 36.83) (xy 147.32 36.83)
+			(xy 128.27 36.83) (xy 137.16 36.83)
 		)
 		(stroke
 			(width 0)
@@ -5375,130 +6153,6 @@
 			(type default)
 		)
 		(uuid "fab8a92f-f90c-407b-acd0-f25878d104d5")
-	)
-	(wire
-		(pts
-			(xy 147.32 36.83) (xy 153.67 36.83)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "fadfcabb-f87f-473b-a00a-34cebb2f8faf")
-	)
-	(symbol
-		(lib_id "JLCImport:CL21A226MAQNNNE")
-		(at 191.77 41.91 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "035f0822-2200-48f6-8dc8-20e15f7583bc")
-		(property "Reference" "C84"
-			(at 189.484 43.434 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "22uF 25V X5R"
-			(at 193.548 43.688 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "JLCImport:CL21A226MAQNNNE"
-			(at 191.77 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL21A226MAQNNNE_C45783.pdf"
-			(at 191.77 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "22uF 25V X5R ±20% 0805 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 191.77 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C45783"
-			(at 191.77 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer" "Samsung Electro-Mechanics"
-			(at 191.77 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer Part" "CL21A226MAQNNNE"
-			(at 191.77 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "805f86f7-493e-4e8b-9666-07f38e7b12c1")
-		)
-		(pin "2"
-			(uuid "33e11e25-25cf-4622-bb75-e12a95f3c570")
-		)
-		(instances
-			(project "DrunkEarPhoneAdapter"
-				(path "/df940915-8af0-46f9-b18a-23d4684ae671/bea21a31-aee1-46f9-b13e-ece764487360"
-					(reference "C84")
-					(unit 1)
-				)
-			)
-		)
 	)
 	(symbol
 		(lib_id "power:+3V8")
@@ -5590,7 +6244,7 @@
 		(dnp no)
 		(uuid "075a0400-ce84-4396-a056-261ad86447d0")
 		(property "Reference" "C5"
-			(at 72.644 56.642 90)
+			(at 71.374 59.944 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5692,6 +6346,234 @@
 		)
 	)
 	(symbol
+		(lib_name "CL21A226MAQNNNE_1")
+		(lib_id "JLCImport:CL21A226MAQNNNE")
+		(at 67.31 58.42 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "09c9e6c8-ba9f-4b0e-a317-87f8d8172af3")
+		(property "Reference" "C75"
+			(at 66.04 59.944 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "22uF 25V X5R"
+			(at 68.834 66.802 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "JLCImport:CL21A226MAQNNNE"
+			(at 67.31 58.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL21A226MAQNNNE_C45783.pdf"
+			(at 67.31 58.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "22uF 25V X5R ±20% 0805 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+			(at 67.31 58.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C45783"
+			(at 67.31 58.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 67.31 58.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer Part" "CL21A226MAQNNNE"
+			(at 67.31 58.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "9ea510bd-6218-40d6-a3c9-85c6f79f8b44")
+		)
+		(pin "1"
+			(uuid "f85bc0fa-e2ae-42d9-baad-8d9462573002")
+		)
+		(instances
+			(project "DrunkEarPhoneAdapter"
+				(path "/df940915-8af0-46f9-b18a-23d4684ae671/bea21a31-aee1-46f9-b13e-ece764487360"
+					(reference "C75")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "JLCImport:C3216X5R1E476MTJ00E")
+		(at 132.08 40.64 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "0d22e75b-c89d-4478-b549-0c0ead1ec6ed")
+		(property "Reference" "C9"
+			(at 130.81 41.91 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "47uF 25V X5R"
+			(at 133.604 42.164 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
+			(at 132.08 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_TDK-C3216X5R1E476MTJ00E_C76659.pdf"
+			(at 132.08 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "25V 47uF X5R ±20% 1206 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+			(at 132.08 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C76659"
+			(at 132.08 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "TDK"
+			(at 132.08 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer Part" "C3216X5R1E476MTJ00E"
+			(at 132.08 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "7e68561f-d37b-4010-83b7-009416e10d83")
+		)
+		(pin "2"
+			(uuid "4b3620ec-1472-46f4-a0ab-ab80356bdd60")
+		)
+		(instances
+			(project "DrunkEarPhoneAdapter"
+				(path "/df940915-8af0-46f9-b18a-23d4684ae671/bea21a31-aee1-46f9-b13e-ece764487360"
+					(reference "C9")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:+3V8")
 		(at 24.13 35.56 0)
 		(unit 1)
@@ -5764,234 +6646,6 @@
 			(project "DrunkEarPhoneAdapter"
 				(path "/df940915-8af0-46f9-b18a-23d4684ae671/bea21a31-aee1-46f9-b13e-ece764487360"
 					(reference "#PWR021")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "JLCImport:CL21A226MAQNNNE")
-		(at 153.67 41.91 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "0f259f73-4437-479b-80c0-1396c828fc07")
-		(property "Reference" "C59"
-			(at 151.384 43.434 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "22uF 25V X5R"
-			(at 155.448 43.688 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "JLCImport:CL21A226MAQNNNE"
-			(at 153.67 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL21A226MAQNNNE_C45783.pdf"
-			(at 153.67 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "22uF 25V X5R ±20% 0805 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 153.67 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C45783"
-			(at 153.67 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer" "Samsung Electro-Mechanics"
-			(at 153.67 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer Part" "CL21A226MAQNNNE"
-			(at 153.67 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "1e6a2a22-775f-42e7-b8af-a76b759c10f1")
-		)
-		(pin "2"
-			(uuid "8b51d58f-88d5-4d15-99ee-2a53c8cb06ca")
-		)
-		(instances
-			(project "DrunkEarPhoneAdapter"
-				(path "/df940915-8af0-46f9-b18a-23d4684ae671/bea21a31-aee1-46f9-b13e-ece764487360"
-					(reference "C59")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "JLCImport:CL21A226MAQNNNE")
-		(at 196.85 41.91 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "116df0b6-4971-407f-a126-67edcf2648ca")
-		(property "Reference" "C85"
-			(at 194.564 43.434 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "22uF 25V X5R"
-			(at 198.628 43.688 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "JLCImport:CL21A226MAQNNNE"
-			(at 196.85 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL21A226MAQNNNE_C45783.pdf"
-			(at 196.85 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "22uF 25V X5R ±20% 0805 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 196.85 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C45783"
-			(at 196.85 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer" "Samsung Electro-Mechanics"
-			(at 196.85 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer Part" "CL21A226MAQNNNE"
-			(at 196.85 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "039ba1ce-79a9-4bd7-9bdc-8b7007bcda1a")
-		)
-		(pin "2"
-			(uuid "282803b8-6f4e-43b3-9306-2eb57068656c")
-		)
-		(instances
-			(project "DrunkEarPhoneAdapter"
-				(path "/df940915-8af0-46f9-b18a-23d4684ae671/bea21a31-aee1-46f9-b13e-ece764487360"
-					(reference "C85")
 					(unit 1)
 				)
 			)
@@ -7184,120 +7838,6 @@
 		)
 	)
 	(symbol
-		(lib_id "JLCImport:CL05A475MP5NRNC")
-		(at 138.43 106.68 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "3c228f5d-b9ac-4839-98df-1ce66e0b8012")
-		(property "Reference" "C7"
-			(at 139.446 104.648 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "4.7uF 10V X5R"
-			(at 139.7 108.966 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "JLCImport:CL05A475MP5NRNC"
-			(at 138.43 106.68 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL05A475MP5NRNC_C23733.pdf"
-			(at 138.43 106.68 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "10V 4.7uF X5R ±20% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 138.43 106.68 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C23733"
-			(at 138.43 106.68 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer" "Samsung Electro-Mechanics"
-			(at 138.43 106.68 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer Part" "CL05A475MP5NRNC"
-			(at 138.43 106.68 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "0c925ded-56af-408f-b733-2f0771b39d66")
-		)
-		(pin "1"
-			(uuid "dc010359-2cc2-41f4-a254-3d65ffeab905")
-		)
-		(instances
-			(project "DrunkEarPhoneAdapter"
-				(path "/df940915-8af0-46f9-b18a-23d4684ae671/bea21a31-aee1-46f9-b13e-ece764487360"
-					(reference "C7")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Connector:TestPoint")
 		(at 143.51 148.59 0)
 		(unit 1)
@@ -7371,120 +7911,6 @@
 			(project "DrunkEarPhoneAdapter"
 				(path "/df940915-8af0-46f9-b18a-23d4684ae671/bea21a31-aee1-46f9-b13e-ece764487360"
 					(reference "TP4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "JLCImport:CL21A226MAQNNNE")
-		(at 166.37 41.91 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "3d223dc0-3b90-429b-8034-0015a39ce012")
-		(property "Reference" "C57"
-			(at 164.084 43.434 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "22uF 25V X5R"
-			(at 168.148 43.688 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "JLCImport:CL21A226MAQNNNE"
-			(at 166.37 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL21A226MAQNNNE_C45783.pdf"
-			(at 166.37 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "22uF 25V X5R ±20% 0805 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 166.37 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C45783"
-			(at 166.37 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer" "Samsung Electro-Mechanics"
-			(at 166.37 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer Part" "CL21A226MAQNNNE"
-			(at 166.37 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "6c27f6f8-dfa3-4a24-8a25-4eb157da247b")
-		)
-		(pin "2"
-			(uuid "d1492acd-a23d-42db-a102-47ed974f2c7d")
-		)
-		(instances
-			(project "DrunkEarPhoneAdapter"
-				(path "/df940915-8af0-46f9-b18a-23d4684ae671/bea21a31-aee1-46f9-b13e-ece764487360"
-					(reference "C57")
 					(unit 1)
 				)
 			)
@@ -7598,120 +8024,6 @@
 			(project "DrunkEarPhoneAdapter"
 				(path "/df940915-8af0-46f9-b18a-23d4684ae671/bea21a31-aee1-46f9-b13e-ece764487360"
 					(reference "L2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "JLCImport:CL21A226MAQNNNE")
-		(at 160.02 41.91 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "4125a72a-68b5-46f9-a469-f29604672f46")
-		(property "Reference" "C58"
-			(at 157.734 43.434 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "22uF 25V X5R"
-			(at 161.798 43.688 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "JLCImport:CL21A226MAQNNNE"
-			(at 160.02 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL21A226MAQNNNE_C45783.pdf"
-			(at 160.02 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "22uF 25V X5R ±20% 0805 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 160.02 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C45783"
-			(at 160.02 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer" "Samsung Electro-Mechanics"
-			(at 160.02 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer Part" "CL21A226MAQNNNE"
-			(at 160.02 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "4f9fd63f-ab91-4f30-a9d3-0f73569bd8b8")
-		)
-		(pin "2"
-			(uuid "97943466-5734-4ff8-bf65-5a20dbd88970")
-		)
-		(instances
-			(project "DrunkEarPhoneAdapter"
-				(path "/df940915-8af0-46f9-b18a-23d4684ae671/bea21a31-aee1-46f9-b13e-ece764487360"
-					(reference "C58")
 					(unit 1)
 				)
 			)
@@ -8068,8 +8380,122 @@
 		)
 	)
 	(symbol
+		(lib_id "JLCImport:C3216X5R1E476MTJ00E")
+		(at 152.4 40.64 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "4efadd4c-2906-4c7a-9e20-5de25ed46637")
+		(property "Reference" "C59"
+			(at 151.13 41.91 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "47uF 25V X5R"
+			(at 153.924 42.164 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
+			(at 152.4 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_TDK-C3216X5R1E476MTJ00E_C76659.pdf"
+			(at 152.4 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "25V 47uF X5R ±20% 1206 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+			(at 152.4 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C76659"
+			(at 152.4 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "TDK"
+			(at 152.4 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer Part" "C3216X5R1E476MTJ00E"
+			(at 152.4 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "46960129-de16-4f17-ae28-8fead1320e0d")
+		)
+		(pin "2"
+			(uuid "f137e488-d393-4bb1-86c2-e7c11150ba15")
+		)
+		(instances
+			(project "DrunkEarPhoneAdapter"
+				(path "/df940915-8af0-46f9-b18a-23d4684ae671/bea21a31-aee1-46f9-b13e-ece764487360"
+					(reference "C59")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
-		(at 109.22 46.99 0)
+		(at 109.22 44.45 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -8080,7 +8506,7 @@
 		(fields_autoplaced yes)
 		(uuid "61150402-0f3f-4571-b328-f8e9eb25492a")
 		(property "Reference" "#PWR060"
-			(at 109.22 53.34 0)
+			(at 109.22 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8091,7 +8517,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 109.22 52.07 0)
+			(at 109.22 49.53 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8101,7 +8527,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 109.22 46.99 0)
+			(at 109.22 44.45 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8112,7 +8538,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 109.22 46.99 0)
+			(at 109.22 44.45 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8123,7 +8549,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 109.22 46.99 0)
+			(at 109.22 44.45 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8140,6 +8566,120 @@
 			(project "DrunkEarPhoneAdapter"
 				(path "/df940915-8af0-46f9-b18a-23d4684ae671/bea21a31-aee1-46f9-b13e-ece764487360"
 					(reference "#PWR060")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "JLCImport:C3216X5R1E476MTJ00E")
+		(at 162.56 40.64 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "61c5caa7-9ad9-4d68-b852-2256e86ab161")
+		(property "Reference" "C61"
+			(at 161.29 41.91 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "47uF 25V X5R"
+			(at 164.084 42.164 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
+			(at 162.56 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_TDK-C3216X5R1E476MTJ00E_C76659.pdf"
+			(at 162.56 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "25V 47uF X5R ±20% 1206 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+			(at 162.56 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C76659"
+			(at 162.56 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "TDK"
+			(at 162.56 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer Part" "C3216X5R1E476MTJ00E"
+			(at 162.56 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "d85e9010-1ae0-40c0-a22a-fd2e154116b3")
+		)
+		(pin "2"
+			(uuid "d84cdc60-7605-4d25-abbb-504d98940db1")
+		)
+		(instances
+			(project "DrunkEarPhoneAdapter"
+				(path "/df940915-8af0-46f9-b18a-23d4684ae671/bea21a31-aee1-46f9-b13e-ece764487360"
+					(reference "C61")
 					(unit 1)
 				)
 			)
@@ -8268,8 +8808,8 @@
 		)
 	)
 	(symbol
-		(lib_id "JLCImport:CL21A226MAQNNNE")
-		(at 179.07 41.91 90)
+		(lib_id "JLCImport:C3216X5R1E476MTJ00E")
+		(at 137.16 40.64 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -8277,9 +8817,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "75c674e6-5639-4715-95a6-c4248d4fbdc4")
-		(property "Reference" "C60"
-			(at 176.784 43.434 0)
+		(uuid "6296ca6e-086f-4716-81ff-5fd56025fe77")
+		(property "Reference" "C51"
+			(at 135.89 41.91 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8289,8 +8829,8 @@
 				(justify right)
 			)
 		)
-		(property "Value" "22uF 25V X5R"
-			(at 180.848 43.688 0)
+		(property "Value" "47uF 25V X5R"
+			(at 138.684 42.164 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8300,8 +8840,8 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "JLCImport:CL21A226MAQNNNE"
-			(at 179.07 41.91 0)
+		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
+			(at 137.16 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8311,8 +8851,8 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL21A226MAQNNNE_C45783.pdf"
-			(at 179.07 41.91 0)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_TDK-C3216X5R1E476MTJ00E_C76659.pdf"
+			(at 137.16 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8322,8 +8862,8 @@
 				)
 			)
 		)
-		(property "Description" "22uF 25V X5R ±20% 0805 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 179.07 41.91 0)
+		(property "Description" "25V 47uF X5R ±20% 1206 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+			(at 137.16 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8333,8 +8873,8 @@
 				)
 			)
 		)
-		(property "LCSC" "C45783"
-			(at 179.07 41.91 0)
+		(property "LCSC" "C76659"
+			(at 137.16 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8344,8 +8884,8 @@
 				)
 			)
 		)
-		(property "Manufacturer" "Samsung Electro-Mechanics"
-			(at 179.07 41.91 0)
+		(property "Manufacturer" "TDK"
+			(at 137.16 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8355,8 +8895,8 @@
 				)
 			)
 		)
-		(property "Manufacturer Part" "CL21A226MAQNNNE"
-			(at 179.07 41.91 0)
+		(property "Manufacturer Part" "C3216X5R1E476MTJ00E"
+			(at 137.16 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8367,15 +8907,243 @@
 			)
 		)
 		(pin "1"
-			(uuid "147776c4-6ab4-4570-a54f-0efc230e5194")
+			(uuid "afd2699e-67ba-4fce-9da8-bc120b452e84")
 		)
 		(pin "2"
-			(uuid "15dcdb83-4e0e-4030-87cd-dbef6cb2834a")
+			(uuid "1fdea1f9-f84f-4021-8d5a-bbf2ff5d67ea")
 		)
 		(instances
 			(project "DrunkEarPhoneAdapter"
 				(path "/df940915-8af0-46f9-b18a-23d4684ae671/bea21a31-aee1-46f9-b13e-ece764487360"
-					(reference "C60")
+					(reference "C51")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "JLCImport:CL31B225KBHNNNE")
+		(at 87.63 58.42 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "677a3fdb-4184-4015-93d4-cab88a36d9b8")
+		(property "Reference" "C67"
+			(at 89.154 59.944 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "2.2uF 50V X7R"
+			(at 85.852 59.69 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
+			(at 87.63 58.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL31B225KBHNNNE_C50254.pdf"
+			(at 87.63 58.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "2.2uF 50V X7R ±10% 1206 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+			(at 87.63 58.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C50254"
+			(at 87.63 58.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 87.63 58.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer Part" "CL31B225KBHNNNE"
+			(at 87.63 58.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "fdc1c3f6-0e80-4663-ba49-ac1f9ff61ef8")
+		)
+		(pin "2"
+			(uuid "361c9ee6-17df-4204-9b1b-7c8634581724")
+		)
+		(instances
+			(project "DrunkEarPhoneAdapter"
+				(path "/df940915-8af0-46f9-b18a-23d4684ae671/bea21a31-aee1-46f9-b13e-ece764487360"
+					(reference "C67")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "JLCImport:CL31B225KBHNNNE")
+		(at 93.98 58.42 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "6c8a9390-afa1-480a-a28c-69abe1c7de31")
+		(property "Reference" "C68"
+			(at 95.504 59.944 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "2.2uF 50V X7R"
+			(at 92.202 59.69 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
+			(at 93.98 58.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL31B225KBHNNNE_C50254.pdf"
+			(at 93.98 58.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "2.2uF 50V X7R ±10% 1206 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+			(at 93.98 58.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C50254"
+			(at 93.98 58.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 93.98 58.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer Part" "CL31B225KBHNNNE"
+			(at 93.98 58.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "f86262ea-1686-4fcc-9008-204591220b00")
+		)
+		(pin "2"
+			(uuid "2fee4841-81a2-49be-bc9d-2d626823fad3")
+		)
+		(instances
+			(project "DrunkEarPhoneAdapter"
+				(path "/df940915-8af0-46f9-b18a-23d4684ae671/bea21a31-aee1-46f9-b13e-ece764487360"
+					(reference "C68")
 					(unit 1)
 				)
 			)
@@ -8645,232 +9413,6 @@
 			(project "DrunkEarPhoneAdapter"
 				(path "/df940915-8af0-46f9-b18a-23d4684ae671/bea21a31-aee1-46f9-b13e-ece764487360"
 					(reference "#PWR059")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "JLCImport:CC0805KKX7R9BB225")
-		(at 87.63 58.42 270)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "7d022b87-8deb-4092-a56b-0fdba3a2d287")
-		(property "Reference" "C3"
-			(at 89.408 56.642 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "2.2uF 50V X7R"
-			(at 89.154 67.31 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "JLCImport:CC0805KKX7R9BB225"
-			(at 87.63 58.42 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_YAGEO-CC0805KKX7R9BB225_C125847.pdf"
-			(at 87.63 58.42 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "2.2uF 50V X7R ±10% 0805 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 87.63 58.42 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C125847"
-			(at 87.63 58.42 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer" "YAGEO"
-			(at 87.63 58.42 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer Part" "CC0805KKX7R9BB225"
-			(at 87.63 58.42 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "1170a001-5e1f-4a98-971d-64c343994678")
-		)
-		(pin "1"
-			(uuid "a3aa0ea9-0a4a-4320-9706-ae19f8ad0fcd")
-		)
-		(instances
-			(project "DrunkEarPhoneAdapter"
-				(path "/df940915-8af0-46f9-b18a-23d4684ae671/bea21a31-aee1-46f9-b13e-ece764487360"
-					(reference "C3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "JLCImport:CL21A226MAQNNNE")
-		(at 185.42 41.91 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "7e84f1ea-e297-49a2-b12c-bf7638b8ca64")
-		(property "Reference" "C61"
-			(at 183.134 43.434 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "22uF 25V X5R"
-			(at 187.198 43.688 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "JLCImport:CL21A226MAQNNNE"
-			(at 185.42 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL21A226MAQNNNE_C45783.pdf"
-			(at 185.42 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "22uF 25V X5R ±20% 0805 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 185.42 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C45783"
-			(at 185.42 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer" "Samsung Electro-Mechanics"
-			(at 185.42 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer Part" "CL21A226MAQNNNE"
-			(at 185.42 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "8caa791b-2436-4da4-a244-ded1964c507d")
-		)
-		(pin "2"
-			(uuid "7945e79e-a091-435d-81e0-7fa7e6900dbf")
-		)
-		(instances
-			(project "DrunkEarPhoneAdapter"
-				(path "/df940915-8af0-46f9-b18a-23d4684ae671/bea21a31-aee1-46f9-b13e-ece764487360"
-					(reference "C61")
 					(unit 1)
 				)
 			)
@@ -9184,118 +9726,6 @@
 		)
 	)
 	(symbol
-		(lib_id "JLCImport:CC0805KKX7R9BB225")
-		(at 93.98 58.42 270)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "9625bc24-f480-49d2-9bac-d248fd8d0662")
-		(property "Reference" "C2"
-			(at 96.012 56.388 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "2.2uF 50V X7R"
-			(at 95.504 67.056 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "JLCImport:CC0805KKX7R9BB225"
-			(at 93.98 58.42 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_YAGEO-CC0805KKX7R9BB225_C125847.pdf"
-			(at 93.98 58.42 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "2.2uF 50V X7R ±10% 0805 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 93.98 58.42 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C125847"
-			(at 93.98 58.42 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer" "YAGEO"
-			(at 93.98 58.42 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer Part" "CC0805KKX7R9BB225"
-			(at 93.98 58.42 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "047ca50a-9876-4ddd-8626-bea4e27ed4c6")
-		)
-		(pin "1"
-			(uuid "fc8139da-0214-4cc6-88a6-2a4ee603b247")
-		)
-		(instances
-			(project "DrunkEarPhoneAdapter"
-				(path "/df940915-8af0-46f9-b18a-23d4684ae671/bea21a31-aee1-46f9-b13e-ece764487360"
-					(reference "C2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "JLCImport:CC0402KRX7R9BB104")
 		(at 81.28 57.15 90)
 		(unit 1)
@@ -9307,7 +9737,7 @@
 		(dnp no)
 		(uuid "98cc50fb-89df-43da-a37e-d918fe9d480c")
 		(property "Reference" "C86"
-			(at 82.296 56.642 90)
+			(at 82.55 59.944 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9318,7 +9748,7 @@
 			)
 		)
 		(property "Value" "100nF 50V X7R"
-			(at 83.058 60.198 0)
+			(at 79.756 59.944 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9482,120 +9912,6 @@
 			(project "DrunkEarPhoneAdapter"
 				(path "/df940915-8af0-46f9-b18a-23d4684ae671/bea21a31-aee1-46f9-b13e-ece764487360"
 					(reference "#PWR06")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "JLCImport:CL21A226MAQNNNE")
-		(at 128.27 41.91 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "9abc3cfa-2e35-4c27-8dfb-9bf850243668")
-		(property "Reference" "C65"
-			(at 125.984 43.434 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "22uF 25V X5R"
-			(at 130.048 43.688 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "JLCImport:CL21A226MAQNNNE"
-			(at 128.27 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL21A226MAQNNNE_C45783.pdf"
-			(at 128.27 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "22uF 25V X5R ±20% 0805 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 128.27 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C45783"
-			(at 128.27 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer" "Samsung Electro-Mechanics"
-			(at 128.27 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer Part" "CL21A226MAQNNNE"
-			(at 128.27 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "08094eec-4340-4ee2-8cd7-3667bb342f89")
-		)
-		(pin "2"
-			(uuid "baf344d2-ce57-48ba-b503-9355474550dc")
-		)
-		(instances
-			(project "DrunkEarPhoneAdapter"
-				(path "/df940915-8af0-46f9-b18a-23d4684ae671/bea21a31-aee1-46f9-b13e-ece764487360"
-					(reference "C65")
 					(unit 1)
 				)
 			)
@@ -9918,120 +10234,6 @@
 		)
 	)
 	(symbol
-		(lib_id "JLCImport:CL21A226MAQNNNE")
-		(at 134.62 41.91 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "a3733577-bc25-4e05-9084-133db17f616f")
-		(property "Reference" "C64"
-			(at 132.334 43.434 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "22uF 25V X5R"
-			(at 136.398 43.688 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "JLCImport:CL21A226MAQNNNE"
-			(at 134.62 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL21A226MAQNNNE_C45783.pdf"
-			(at 134.62 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "22uF 25V X5R ±20% 0805 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 134.62 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C45783"
-			(at 134.62 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer" "Samsung Electro-Mechanics"
-			(at 134.62 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer Part" "CL21A226MAQNNNE"
-			(at 134.62 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "c3db3364-51d7-44db-97a3-76ba9b892dcc")
-		)
-		(pin "2"
-			(uuid "478ec86c-0560-48e7-a816-4fbd515f1f38")
-		)
-		(instances
-			(project "DrunkEarPhoneAdapter"
-				(path "/df940915-8af0-46f9-b18a-23d4684ae671/bea21a31-aee1-46f9-b13e-ece764487360"
-					(reference "C64")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "JLCImport:CL05A475MP5NRNC")
 		(at 191.77 105.41 90)
 		(unit 1)
@@ -10226,6 +10428,120 @@
 		)
 	)
 	(symbol
+		(lib_id "JLCImport:C3216X5R1E476MTJ00E")
+		(at 167.64 40.64 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "a7176a20-8877-4bb7-b0fc-3dec23b0b880")
+		(property "Reference" "C62"
+			(at 166.37 41.91 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "47uF 25V X5R"
+			(at 169.164 42.164 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
+			(at 167.64 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_TDK-C3216X5R1E476MTJ00E_C76659.pdf"
+			(at 167.64 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "25V 47uF X5R ±20% 1206 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+			(at 167.64 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C76659"
+			(at 167.64 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "TDK"
+			(at 167.64 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer Part" "C3216X5R1E476MTJ00E"
+			(at 167.64 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "701b96e7-34a1-49af-86d4-e5cc054beba2")
+		)
+		(pin "2"
+			(uuid "2e4bed90-9bc4-4ff0-9ff4-0765513dfd9a")
+		)
+		(instances
+			(project "DrunkEarPhoneAdapter"
+				(path "/df940915-8af0-46f9-b18a-23d4684ae671/bea21a31-aee1-46f9-b13e-ece764487360"
+					(reference "C62")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:+3V8")
 		(at 166.37 91.44 0)
 		(unit 1)
@@ -10298,120 +10614,6 @@
 			(project "DrunkEarPhoneAdapter"
 				(path "/df940915-8af0-46f9-b18a-23d4684ae671/bea21a31-aee1-46f9-b13e-ece764487360"
 					(reference "#PWR014")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "JLCImport:CL21A226MAQNNNE")
-		(at 172.72 41.91 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "a8eebd24-6bce-4e59-80e6-cac7d14916ce")
-		(property "Reference" "C51"
-			(at 170.434 43.434 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "22uF 25V X5R"
-			(at 174.498 43.688 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "JLCImport:CL21A226MAQNNNE"
-			(at 172.72 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL21A226MAQNNNE_C45783.pdf"
-			(at 172.72 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "22uF 25V X5R ±20% 0805 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 172.72 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C45783"
-			(at 172.72 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer" "Samsung Electro-Mechanics"
-			(at 172.72 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer Part" "CL21A226MAQNNNE"
-			(at 172.72 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "e0ade897-0bbb-4a65-ba85-fb361ea271d2")
-		)
-		(pin "2"
-			(uuid "800ead5a-adbe-45dc-b870-d1813a6a10c5")
-		)
-		(instances
-			(project "DrunkEarPhoneAdapter"
-				(path "/df940915-8af0-46f9-b18a-23d4684ae671/bea21a31-aee1-46f9-b13e-ece764487360"
-					(reference "C51")
 					(unit 1)
 				)
 			)
@@ -10686,120 +10888,6 @@
 		)
 	)
 	(symbol
-		(lib_id "JLCImport:CL21A226MAQNNNE")
-		(at 147.32 41.91 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "ba0fb47e-07e1-4c8e-a1ea-25cd1e44374e")
-		(property "Reference" "C62"
-			(at 145.034 43.434 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "22uF 25V X5R"
-			(at 149.098 43.688 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "JLCImport:CL21A226MAQNNNE"
-			(at 147.32 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL21A226MAQNNNE_C45783.pdf"
-			(at 147.32 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "22uF 25V X5R ±20% 0805 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 147.32 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C45783"
-			(at 147.32 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer" "Samsung Electro-Mechanics"
-			(at 147.32 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer Part" "CL21A226MAQNNNE"
-			(at 147.32 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "472ed36a-9149-4454-9521-7f2c38a21a81")
-		)
-		(pin "2"
-			(uuid "0ce626b1-9558-4500-b1dd-14ff306d5bcd")
-		)
-		(instances
-			(project "DrunkEarPhoneAdapter"
-				(path "/df940915-8af0-46f9-b18a-23d4684ae671/bea21a31-aee1-46f9-b13e-ece764487360"
-					(reference "C62")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 57.15 113.03 0)
 		(unit 1)
@@ -10992,6 +11080,120 @@
 		)
 	)
 	(symbol
+		(lib_id "JLCImport:C3216X5R1E476MTJ00E")
+		(at 172.72 40.64 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp yes)
+		(uuid "c4196199-bf24-4943-9854-f3b039a06982")
+		(property "Reference" "C63"
+			(at 171.45 41.91 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "47uF 25V X5R"
+			(at 174.244 42.164 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
+			(at 172.72 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_TDK-C3216X5R1E476MTJ00E_C76659.pdf"
+			(at 172.72 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "25V 47uF X5R ±20% 1206 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+			(at 172.72 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C76659"
+			(at 172.72 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "TDK"
+			(at 172.72 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer Part" "C3216X5R1E476MTJ00E"
+			(at 172.72 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "25bab0cc-a36d-45ef-8647-b820e78e5bd3")
+		)
+		(pin "2"
+			(uuid "5af390a5-8d42-4659-8cfa-ba9c19cb695f")
+		)
+		(instances
+			(project "DrunkEarPhoneAdapter"
+				(path "/df940915-8af0-46f9-b18a-23d4684ae671/bea21a31-aee1-46f9-b13e-ece764487360"
+					(reference "C63")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Connector:TestPoint")
 		(at 96.52 50.8 0)
 		(unit 1)
@@ -11065,6 +11267,120 @@
 			(project "DrunkEarPhoneAdapter"
 				(path "/df940915-8af0-46f9-b18a-23d4684ae671/bea21a31-aee1-46f9-b13e-ece764487360"
 					(reference "TP7")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "JLCImport:C3216X5R1E476MTJ00E")
+		(at 157.48 40.64 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "c58d8336-2f86-4655-bee5-6e58a171c569")
+		(property "Reference" "C60"
+			(at 156.21 41.91 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "47uF 25V X5R"
+			(at 159.004 42.164 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
+			(at 157.48 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_TDK-C3216X5R1E476MTJ00E_C76659.pdf"
+			(at 157.48 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "25V 47uF X5R ±20% 1206 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+			(at 157.48 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C76659"
+			(at 157.48 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "TDK"
+			(at 157.48 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer Part" "C3216X5R1E476MTJ00E"
+			(at 157.48 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "48b52be7-7f94-4590-80e3-89b6852b7745")
+		)
+		(pin "2"
+			(uuid "dd6f6a7b-3945-4a0a-b0be-64fec63cdfbf")
+		)
+		(instances
+			(project "DrunkEarPhoneAdapter"
+				(path "/df940915-8af0-46f9-b18a-23d4684ae671/bea21a31-aee1-46f9-b13e-ece764487360"
+					(reference "C60")
 					(unit 1)
 				)
 			)
@@ -11227,8 +11543,8 @@
 		)
 	)
 	(symbol
-		(lib_id "JLCImport:CL21A226MAQNNNE")
-		(at 140.97 41.91 90)
+		(lib_id "JLCImport:C3216X5R1E476MTJ00E")
+		(at 142.24 40.64 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -11236,9 +11552,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "d2f774b0-7010-4979-98c5-5a67451fba2f")
-		(property "Reference" "C63"
-			(at 138.684 43.434 0)
+		(uuid "ccce3e52-2814-436e-96b8-eea301854284")
+		(property "Reference" "C57"
+			(at 140.97 41.91 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -11248,8 +11564,8 @@
 				(justify right)
 			)
 		)
-		(property "Value" "22uF 25V X5R"
-			(at 142.748 43.688 0)
+		(property "Value" "47uF 25V X5R"
+			(at 143.764 42.164 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -11259,8 +11575,8 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "JLCImport:CL21A226MAQNNNE"
-			(at 140.97 41.91 0)
+		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
+			(at 142.24 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11270,8 +11586,8 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL21A226MAQNNNE_C45783.pdf"
-			(at 140.97 41.91 0)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_TDK-C3216X5R1E476MTJ00E_C76659.pdf"
+			(at 142.24 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11281,8 +11597,8 @@
 				)
 			)
 		)
-		(property "Description" "22uF 25V X5R ±20% 0805 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 140.97 41.91 0)
+		(property "Description" "25V 47uF X5R ±20% 1206 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+			(at 142.24 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11292,8 +11608,8 @@
 				)
 			)
 		)
-		(property "LCSC" "C45783"
-			(at 140.97 41.91 0)
+		(property "LCSC" "C76659"
+			(at 142.24 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11303,8 +11619,8 @@
 				)
 			)
 		)
-		(property "Manufacturer" "Samsung Electro-Mechanics"
-			(at 140.97 41.91 0)
+		(property "Manufacturer" "TDK"
+			(at 142.24 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11314,8 +11630,8 @@
 				)
 			)
 		)
-		(property "Manufacturer Part" "CL21A226MAQNNNE"
-			(at 140.97 41.91 0)
+		(property "Manufacturer Part" "C3216X5R1E476MTJ00E"
+			(at 142.24 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11326,15 +11642,129 @@
 			)
 		)
 		(pin "1"
-			(uuid "86ad7e8a-08fe-4724-9363-32f1104c7f28")
+			(uuid "4dfbb092-d086-44ad-b1eb-706847b210b2")
 		)
 		(pin "2"
-			(uuid "8918973e-1654-4f60-94d4-12b910da415e")
+			(uuid "fdef247c-9766-4a79-aa88-683e2e54fc53")
 		)
 		(instances
 			(project "DrunkEarPhoneAdapter"
 				(path "/df940915-8af0-46f9-b18a-23d4684ae671/bea21a31-aee1-46f9-b13e-ece764487360"
-					(reference "C63")
+					(reference "C57")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "JLCImport:CL10A475KP8NNNC")
+		(at 138.43 105.41 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "ce931b22-191e-4274-b5eb-2e781f69b171")
+		(property "Reference" "C3"
+			(at 133.604 103.632 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "4.7uF 10V X5R"
+			(at 141.732 99.822 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 138.43 105.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL10A475KP8NNNC_C1705.pdf"
+			(at 138.43 105.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "10V 4.7uF X5R ±10% 0603 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+			(at 138.43 105.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C1705"
+			(at 138.43 105.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 138.43 105.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer Part" "CL10A475KP8NNNC"
+			(at 138.43 105.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "f6408a8c-92c9-4e9b-8b15-46220209d1e4")
+		)
+		(pin "2"
+			(uuid "73f88f52-1610-452b-b314-bbba26e11f59")
+		)
+		(instances
+			(project "DrunkEarPhoneAdapter"
+				(path "/df940915-8af0-46f9-b18a-23d4684ae671/bea21a31-aee1-46f9-b13e-ece764487360"
+					(reference "C3")
 					(unit 1)
 				)
 			)
@@ -11867,6 +12297,120 @@
 			(project "DrunkEarPhoneAdapter"
 				(path "/df940915-8af0-46f9-b18a-23d4684ae671/bea21a31-aee1-46f9-b13e-ece764487360"
 					(reference "C1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "JLCImport:C3216X5R1E476MTJ00E")
+		(at 147.32 40.64 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "f2333fcf-0193-4df5-9734-3d47f09a2d69")
+		(property "Reference" "C58"
+			(at 146.05 41.91 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "47uF 25V X5R"
+			(at 148.844 42.164 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
+			(at 147.32 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_TDK-C3216X5R1E476MTJ00E_C76659.pdf"
+			(at 147.32 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "25V 47uF X5R ±20% 1206 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+			(at 147.32 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C76659"
+			(at 147.32 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "TDK"
+			(at 147.32 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer Part" "C3216X5R1E476MTJ00E"
+			(at 147.32 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "9a65a290-6cfa-4636-975f-b8dc72179837")
+		)
+		(pin "2"
+			(uuid "b6ceca10-5c23-4ed5-9b21-a3ef07d37e9a")
+		)
+		(instances
+			(project "DrunkEarPhoneAdapter"
+				(path "/df940915-8af0-46f9-b18a-23d4684ae671/bea21a31-aee1-46f9-b13e-ece764487360"
+					(reference "C58")
 					(unit 1)
 				)
 			)

@@ -87,10 +87,26 @@ extern "C" {
 #define UCPDDMA_INSTANCE1_CHANNEL_TX   DMA1_Channel4
 
 /* defined used to configure  BSP_USBPD_SetFRSSignalling */
-#define UCPDFRS_INSTANCE0_FRSCC1
-#define UCPDFRS_INSTANCE0_FRSCC2
-#define UCPDFRS_INSTANCE1_FRSCC1
-#define UCPDFRS_INSTANCE1_FRSCC2
+#define UCPDFRS_INSTANCE0_FRSCC1   {                                                                   \
+                                     LL_IOP_GRP1_EnableClock(LL_IOP_GRP1_PERIPH_GPIOC);                \
+                                     LL_GPIO_SetPinMode(GPIOC, LL_GPIO_PIN_12, LL_GPIO_MODE_ALTERNATE); \
+                                     LL_GPIO_SetAFPin_8_15(GPIOC, LL_GPIO_PIN_12, LL_GPIO_AF_1);         \
+                                   }
+#define UCPDFRS_INSTANCE0_FRSCC2   {                                                                   \
+                                     LL_IOP_GRP1_EnableClock(LL_IOP_GRP1_PERIPH_GPIOB);                \
+                                     LL_GPIO_SetPinMode(GPIOB, LL_GPIO_PIN_14, LL_GPIO_MODE_ALTERNATE); \
+                                     LL_GPIO_SetAFPin_8_15(GPIOB, LL_GPIO_PIN_14, LL_GPIO_AF_1);         \
+                                   }
+#define UCPDFRS_INSTANCE1_FRSCC1   {                                                                   \
+                                     LL_IOP_GRP1_EnableClock(LL_IOP_GRP1_PERIPH_GPIOB);                \
+                                     LL_GPIO_SetPinMode(GPIOB, LL_GPIO_PIN_12, LL_GPIO_MODE_ALTERNATE); \
+                                     LL_GPIO_SetAFPin_8_15(GPIOB, LL_GPIO_PIN_12, LL_GPIO_AF_6);         \
+                                   }
+#define UCPDFRS_INSTANCE1_FRSCC2   {                                                                   \
+                                     LL_IOP_GRP1_EnableClock(LL_IOP_GRP1_PERIPH_GPIOC);                \
+                                     LL_GPIO_SetPinMode(GPIOC, LL_GPIO_PIN_8, LL_GPIO_MODE_ALTERNATE); \
+                                     LL_GPIO_SetAFPin_8_15(GPIOC, LL_GPIO_PIN_8, LL_GPIO_AF_0);         \
+                                   }
 
 #define UCPD_INSTANCE0_ENABLEIRQ  do{                                                                  \
                                         NVIC_SetPriority(USB_UCPD1_2_IRQn,2);                                \
