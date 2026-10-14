@@ -5,148 +5,6 @@
 	(uuid "c73bb3d8-5b06-4359-a070-5c735e8e5828")
 	(paper "A4")
 	(lib_symbols
-		(symbol "Device:NetTie_2"
-			(pin_numbers
-				(hide yes)
-			)
-			(pin_names
-				(offset 0)
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom no)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "NT"
-				(at 0 1.27 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "NetTie_2"
-				(at 0 -1.27 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Description" "Net tie, 2 pins"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_keywords" "net tie short"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_fp_filters" "Net*Tie*"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "NetTie_2_0_1"
-				(polyline
-					(pts
-						(xy -1.27 0) (xy 1.27 0)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "NetTie_2_1_1"
-				(pin passive line
-					(at -2.54 0 0)
-					(length 2.54)
-					(name "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 0 180)
-					(length 2.54)
-					(name "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "Device:NetTie_3"
 			(pin_numbers
 				(hide yes)
@@ -1483,15 +1341,25 @@
 		)
 		(uuid "8937c295-2f6e-4e95-aab2-6b7011c74ce9")
 	)
-	(junction
-		(at 132.08 113.03)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "3863e218-a469-4e05-86ce-428cb6c0faad")
+	(no_connect
+		(at 196.85 111.76)
+		(uuid "497c35c6-fb1d-41eb-9162-8a037ad8b845")
+	)
+	(no_connect
+		(at 176.53 111.76)
+		(uuid "7cd0daf9-fde1-4c1f-82a5-18669b8f0ff5")
 	)
 	(no_connect
 		(at 88.9 107.95)
 		(uuid "aa68d0bd-ba00-468c-a45a-58f5e086ff0f")
+	)
+	(no_connect
+		(at 176.53 109.22)
+		(uuid "bded2d24-9bc5-4ed7-9195-cd077509c455")
+	)
+	(no_connect
+		(at 196.85 109.22)
+		(uuid "c163e05a-cacd-43d2-b3c4-639ee8ca897f")
 	)
 	(wire
 		(pts
@@ -1542,16 +1410,6 @@
 			(type default)
 		)
 		(uuid "94cc7ca8-432c-4ad9-bd3f-36ac92468418")
-	)
-	(wire
-		(pts
-			(xy 132.08 110.49) (xy 132.08 113.03)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9700834d-7484-49b5-b49a-1fb4f5ce6650")
 	)
 	(wire
 		(pts
@@ -1653,6 +1511,16 @@
 		)
 		(uuid "357d32d6-1ff2-41c8-a06c-8fc46a443b34")
 	)
+	(label "JACK_TIP_DETECT"
+		(at 88.9 110.49 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "3909f8aa-ed82-4ef7-b27c-44d6b22f7ec5")
+	)
 	(label "JACK_RING_1"
 		(at 58.42 154.94 0)
 		(effects
@@ -1693,16 +1561,6 @@
 		)
 		(uuid "4f5a0872-63a9-4f77-8e4c-917cee3d63d2")
 	)
-	(label "JACK_SLEEVE"
-		(at 88.9 110.49 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "51a25cde-bc35-4024-9062-ea3efa8a5350")
-	)
 	(label "ES_GND"
 		(at 142.24 139.7 180)
 		(effects
@@ -1732,6 +1590,16 @@
 			(justify right bottom)
 		)
 		(uuid "5ec28691-5ed0-42fb-bcd9-d22e6dc6e813")
+	)
+	(label "JACK_SLEEVE"
+		(at 88.9 113.03 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "6c4be31c-72b8-4dfa-8812-6edc9ca86068")
 	)
 	(label "JACK_TIP_DETECT"
 		(at 132.08 107.95 0)
@@ -1772,16 +1640,6 @@
 			(justify left bottom)
 		)
 		(uuid "91d927fc-aae4-4457-9f4a-96bbdda1259f")
-	)
-	(label "JACK_TIP_DETECT"
-		(at 88.9 113.03 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "a9e6d526-d1ee-47e1-9977-73d8373fbce8")
 	)
 	(label "JACK_SLEEVE"
 		(at 132.08 100.33 0)
@@ -1919,6 +1777,89 @@
 			(justify right)
 		)
 		(uuid "a4aad075-d7c9-4e2d-beae-b302737f54d9")
+	)
+	(symbol
+		(lib_id "Device:NetTie_3")
+		(at 144.78 139.7 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "148eaf1b-f267-481c-90b1-163148cc2430")
+		(property "Reference" "NT3"
+			(at 144.78 134.62 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "NetTie_3"
+			(at 144.78 137.16 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "NetTie:NetTie-3_SMD_Pad0.5mm"
+			(at 144.78 139.7 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 144.78 139.7 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Net tie, 3 pins"
+			(at 144.78 139.7 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "70321829-cb02-4230-ad11-9a23cdcc64de")
+		)
+		(pin "3"
+			(uuid "41a26e10-c31d-4e4e-91b6-6fc6cddaf8c2")
+		)
+		(pin "1"
+			(uuid "fe48459a-1f20-456a-8712-c671313daa7c")
+		)
+		(instances
+			(project "DrunkEarPhoneAdapter"
+				(path "/df940915-8af0-46f9-b18a-23d4684ae671/70113c9e-cca4-4a4e-acc3-bc3c76dd27d9"
+					(reference "NT3")
+					(unit 1)
+				)
+			)
+		)
 	)
 	(symbol
 		(lib_id "Device:NetTie_3")
@@ -2285,86 +2226,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:NetTie_2")
-		(at 144.78 139.7 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "7340d111-445f-4248-bde8-acb541a67c67")
-		(property "Reference" "NT1"
-			(at 144.78 134.62 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "NetTie_2"
-			(at 144.78 137.16 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "NetTie:NetTie-2_SMD_Pad0.5mm"
-			(at 144.78 139.7 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 144.78 139.7 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Net tie, 2 pins"
-			(at 144.78 139.7 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "786961e4-4bbc-4316-b8cd-51a5580531d4")
-		)
-		(pin "2"
-			(uuid "e6e84d6e-3214-4f8a-85e2-8cfdcf91a78b")
-		)
-		(instances
-			(project "DrunkEarPhoneAdapter"
-				(path "/df940915-8af0-46f9-b18a-23d4684ae671/70113c9e-cca4-4a4e-acc3-bc3c76dd27d9"
-					(reference "NT1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "JLCImport:DSHP04TS-S")
 		(at 186.69 109.22 0)
 		(unit 1)
@@ -2490,6 +2351,84 @@
 			(project "DrunkEarPhoneAdapter"
 				(path "/df940915-8af0-46f9-b18a-23d4684ae671/70113c9e-cca4-4a4e-acc3-bc3c76dd27d9"
 					(reference "SW2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 142.24 142.24 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "9f5e2788-ceaa-4427-9c9b-cdcc90e71a7a")
+		(property "Reference" "#PWR047"
+			(at 142.24 148.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 142.24 147.32 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 142.24 142.24 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 142.24 142.24 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 142.24 142.24 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "6cf749f8-469f-400a-9122-8e3f9797351b")
+		)
+		(instances
+			(project "DrunkEarPhoneAdapter"
+				(path "/df940915-8af0-46f9-b18a-23d4684ae671/70113c9e-cca4-4a4e-acc3-bc3c76dd27d9"
+					(reference "#PWR047")
 					(unit 1)
 				)
 			)
