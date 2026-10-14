@@ -22841,7 +22841,7 @@
     (property "Footprint" "JLCImport:2130830005" (at 0 0 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Datasheet" "https://www.molex.com/content/dam/molex/molex-dot-com/products/automated/en-us/salesdrawingpdf/213/213083/2130830005_sd.pdf?inline\" (at 0 0 0)
+    (property "Datasheet" "https://www.molex.com/content/dam/molex/molex-dot-com/products/automated/en-us/salesdrawingpdf/213/213083/2130830005_sd.pdf?inline" (at 0 0 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Description" "-40℃~+85℃ 1 10000 times 16P 30V 5A Black Female Type-C USB 2.0 SMD USB Connectors ROHS" (at 0 0 0)
