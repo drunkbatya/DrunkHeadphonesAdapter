@@ -39541,7 +39541,7 @@
 	(footprint "JLCImport:2130830005"
 		(layer "F.Cu")
 		(uuid "fe8c599c-8e25-4ff1-8b2e-6f47cc0de510")
-		(at 29.32 54.30661)
+		(at 29.3 54.2)
 		(descr "-40℃~+85℃ 1 10000 times 16P 30V 5A Black Female Type-C USB 2.0 SMD USB Connectors ROHS")
 		(tags "2130830005 C2839029 MOLEX USB-SMD_16P-P0.50_2130830005")
 		(property "Reference" "USB1"
@@ -39555,7 +39555,7 @@
 				)
 			)
 		)
-		(property "Value" "2130830005"
+		(property "Value" "~"
 			(at 0 6.86 0)
 			(layer "F.Fab")
 			(uuid "1809ab75-4631-4e13-a3b6-819acebdf7a4")
@@ -39631,14 +39631,6 @@
 		(path "/5c561383-fdd0-44ae-83ac-568aac0f03a9/4d08dfda-4443-404e-b086-7bcb6a8e8ae5")
 		(sheetname "/ucpd/")
 		(sheetfile "ucpd.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "A1" "A4" "A5" "A6" "A7" "A8" "A9" "A12" "20" "17" "19" "18" "B12"
-					"B9" "B8" "B7" "B6" "B5" "B4" "B1"
-				)
-			)
-		)
 		(attr through_hole)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -39788,7 +39780,7 @@
 				(width 0.254)
 				(type solid)
 			)
-			(layer "Edge.Cuts")
+			(layer "Cmts.User")
 			(uuid "7fc5aab4-6b93-48a9-b59b-0db3922e2d14")
 		)
 		(fp_line
@@ -39798,7 +39790,7 @@
 				(width 0.254)
 				(type solid)
 			)
-			(layer "Edge.Cuts")
+			(layer "Cmts.User")
 			(uuid "ee7afee8-0127-4d3b-89f5-0e4be9c76531")
 		)
 		(fp_line
@@ -39808,7 +39800,7 @@
 				(width 0.254)
 				(type solid)
 			)
-			(layer "Edge.Cuts")
+			(layer "Cmts.User")
 			(uuid "1e69d5c1-f56b-4487-99bd-b9c33c1584f3")
 		)
 		(fp_line
@@ -39818,7 +39810,7 @@
 				(width 0.254)
 				(type solid)
 			)
-			(layer "Edge.Cuts")
+			(layer "Cmts.User")
 			(uuid "8a91a92d-ff20-455e-ac17-9a9bc4f839e5")
 		)
 		(fp_poly
@@ -43588,35 +43580,16 @@
 		(net "GND")
 		(uuid "a7215f46-c93c-4c47-864d-23b98b6f249f")
 	)
-	(gr_line
-		(start 19.41 16.236749)
-		(end 19.41 57.346749)
+	(gr_rect
+		(start 19.4 16.2)
+		(end 69.4 57.3)
 		(stroke
-			(width 0.05)
+			(width 0.1)
 			(type default)
 		)
+		(fill no)
 		(layer "Edge.Cuts")
-		(uuid "79dd8e6a-3870-4b81-aa71-2053d3887692")
-	)
-	(gr_line
-		(start 19.41 16.236749)
-		(end 69.41 16.236749)
-		(stroke
-			(width 0.05)
-			(type default)
-		)
-		(layer "Edge.Cuts")
-		(uuid "a233ac5b-af78-419b-8c0f-5bc91d7f6ccd")
-	)
-	(gr_line
-		(start 19.41 57.346749)
-		(end 69.41 57.346749)
-		(stroke
-			(width 0.05)
-			(type default)
-		)
-		(layer "Edge.Cuts")
-		(uuid "e26a6894-1254-479d-bdeb-8a37d41e8e39")
+		(uuid "a14572ab-3142-458f-aae3-b42eba1f6287")
 	)
 	(gr_circle
 		(center 21.91 18.766749)
@@ -43671,16 +43644,6 @@
 		(fill no)
 		(layer "Edge.Cuts")
 		(uuid "d9efaf8a-35c7-4357-8efa-8a42851fdaa4")
-	)
-	(gr_line
-		(start 69.41 57.346749)
-		(end 69.41 16.236749)
-		(stroke
-			(width 0.05)
-			(type default)
-		)
-		(layer "Edge.Cuts")
-		(uuid "f451fce6-bd5c-4ab5-ab8c-c2d938468cda")
 	)
 	(segment
 		(start 60.326863 41.292859)
@@ -47467,38 +47430,6 @@
 		(uuid "ca0755f3-b0be-4024-a5df-dbb193e9b713")
 	)
 	(segment
-		(start 29.095127 50.776749)
-		(end 29.06 50.741622)
-		(width 0.2)
-		(layer "F.Cu")
-		(net "/ucpd/USB_CHR_DP")
-		(uuid "49dde94c-7226-4db8-86eb-8ad741d96370")
-	)
-	(segment
-		(start 29.06 50.741622)
-		(end 29.06 50.357606)
-		(width 0.2)
-		(layer "F.Cu")
-		(net "/ucpd/USB_CHR_DP")
-		(uuid "c973538c-94e7-4e5c-8ece-7adbd3bfcf5d")
-	)
-	(segment
-		(start 29.545127 50.776749)
-		(end 29.559873 50.762003)
-		(width 0.2)
-		(layer "F.Cu")
-		(net "/ucpd/USB_CHR_DN")
-		(uuid "962a1b31-799e-4753-be6c-67cc5f70ada8")
-	)
-	(segment
-		(start 29.559873 50.762003)
-		(end 29.559873 50.357606)
-		(width 0.2)
-		(layer "F.Cu")
-		(net "/ucpd/USB_CHR_DN")
-		(uuid "b6c5b870-fe53-4bc0-b444-7eac5426bd16")
-	)
-	(segment
 		(start 47.35 50.86)
 		(end 46.71 50.86)
 		(width 0.2)
@@ -48409,6 +48340,38 @@
 		(layer "F.Cu")
 		(net "Net-(U6-ADCVREF)")
 		(uuid "534257ee-9700-43a3-9246-952798bbbbcc")
+	)
+	(segment
+		(start 29.095127 50.776749)
+		(end 29.06 50.741622)
+		(width 0.2)
+		(layer "F.Cu")
+		(net "/ucpd/USB_CHR_DP")
+		(uuid "49dde94c-7226-4db8-86eb-8ad741d96370")
+	)
+	(segment
+		(start 29.06 50.741622)
+		(end 29.06 50.357606)
+		(width 0.2)
+		(layer "F.Cu")
+		(net "/ucpd/USB_CHR_DP")
+		(uuid "c973538c-94e7-4e5c-8ece-7adbd3bfcf5d")
+	)
+	(segment
+		(start 29.545127 50.776749)
+		(end 29.559873 50.762003)
+		(width 0.2)
+		(layer "F.Cu")
+		(net "/ucpd/USB_CHR_DN")
+		(uuid "962a1b31-799e-4753-be6c-67cc5f70ada8")
+	)
+	(segment
+		(start 29.559873 50.762003)
+		(end 29.559873 50.357606)
+		(width 0.2)
+		(layer "F.Cu")
+		(net "/ucpd/USB_CHR_DN")
+		(uuid "b6c5b870-fe53-4bc0-b444-7eac5426bd16")
 	)
 	(segment
 		(start 49.05 44.55)
