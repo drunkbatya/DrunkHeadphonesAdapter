@@ -8737,16 +8737,6 @@
 		)
 		(uuid "6ba94ccb-47fa-40e8-b1d9-48cd173c0242")
 	)
-	(label "UCPD2_CC2"
-		(at 186.69 88.9 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "7565a35f-f029-4666-b27f-59aed484ea10")
-	)
 	(label "USB_CHR_CC2"
 		(at 120.65 154.94 0)
 		(effects
@@ -8896,16 +8886,6 @@
 			(justify left bottom)
 		)
 		(uuid "89c59a3e-526c-4f56-9632-ff6324ba1065")
-	)
-	(label "UCPD2_CC1"
-		(at 186.69 83.82 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "8a2ab00e-bf5f-4a62-83e1-214bec913d20")
 	)
 	(label "USB_CHR_SAFE_DP"
 		(at 85.09 228.6 0)
@@ -9107,6 +9087,16 @@
 		)
 		(uuid "c5744946-cbf9-44a8-bf40-fdcd519c735b")
 	)
+	(label "UCPD2_CC1"
+		(at 186.69 83.82 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "c681d5eb-1ff4-4175-ab50-b19a0abfec78")
+	)
 	(label "USB_CHR_DN"
 		(at 120.65 149.86 0)
 		(effects
@@ -9116,6 +9106,16 @@
 			(justify left bottom)
 		)
 		(uuid "ca8c4c61-8c35-4890-9a86-2c06b57580e3")
+	)
+	(label "UCPD2_CC2"
+		(at 186.69 88.9 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "cd493eeb-9522-4b05-b2f5-d5fa56684657")
 	)
 	(label "ADC_CHR_VBUS"
 		(at 35.56 185.42 0)
@@ -13100,6 +13100,96 @@
 		)
 	)
 	(symbol
+		(lib_id "JLCImport:USBC_5P_EXT")
+		(at 138.43 269.24 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files no)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "87b0cf40-0b31-4376-b813-67e13f729518")
+		(property "Reference" "USBC4"
+			(at 143.51 269.2399 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" ""
+			(at 138.43 269.24 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "JLCImport:USBC_EXT_5P"
+			(at 138.43 269.24 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 138.43 269.24 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 138.43 269.24 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "f1c5b365-5335-4183-8a14-add84f6195f0")
+		)
+		(pin "5"
+			(uuid "37f91fcf-2166-4705-99f8-5af666b84934")
+		)
+		(pin "4"
+			(uuid "52f1b1d4-db35-44f8-a460-f960e08b1f3e")
+		)
+		(pin "3"
+			(uuid "011a13ec-1f29-4609-8a72-dc7733f9099c")
+		)
+		(pin "1"
+			(uuid "203756de-a74d-4ba5-894d-f03aef751f18")
+		)
+		(instances
+			(project "DrunkEarPhoneAdapter"
+				(path "/df940915-8af0-46f9-b18a-23d4684ae671/5c561383-fdd0-44ae-83ac-568aac0f03a9"
+					(reference "USBC4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "JLCImport:0402WGF1001TCE")
 		(at 157.48 90.17 0)
 		(unit 1)
@@ -13680,96 +13770,6 @@
 			(project "DrunkEarPhoneAdapter"
 				(path "/df940915-8af0-46f9-b18a-23d4684ae671/5c561383-fdd0-44ae-83ac-568aac0f03a9"
 					(reference "#PWR091")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "JLCImport:USBC_5P_EXT")
-		(at 138.43 250.19 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board yes)
-		(in_pos_files no)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "9e3bbebe-0c3c-47d6-aefb-a0db941420b7")
-		(property "Reference" "USBC4"
-			(at 143.51 250.1899 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" ""
-			(at 138.43 250.19 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "JLCImport:USBC_EXT_5P"
-			(at 138.43 250.19 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 138.43 250.19 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 138.43 250.19 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "66805774-db8b-4dbd-babb-51ca2f8950d0")
-		)
-		(pin "5"
-			(uuid "e9764cfe-b61c-45b8-b3cc-e30c567b83ca")
-		)
-		(pin "4"
-			(uuid "7e2c05fd-b760-4af1-a014-9e94fd760a44")
-		)
-		(pin "3"
-			(uuid "d100589f-f194-4f64-b273-75c82fe6a948")
-		)
-		(pin "1"
-			(uuid "8dfdd79e-24f9-4235-87a6-831f3be2c8f4")
-		)
-		(instances
-			(project "DrunkEarPhoneAdapter"
-				(path "/df940915-8af0-46f9-b18a-23d4684ae671/5c561383-fdd0-44ae-83ac-568aac0f03a9"
-					(reference "USBC4")
 					(unit 1)
 				)
 			)
