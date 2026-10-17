@@ -177,7 +177,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "JLCImport:DSHP04TS-S"
+		(symbol "JLCImport:DSHP02TSGER"
 			(pin_names
 				(offset 1.016)
 			)
@@ -196,8 +196,8 @@
 					)
 				)
 			)
-			(property "Value" "DSHP04TS-S"
-				(at 0 -7.08 0)
+			(property "Value" "DSHP02TSGER"
+				(at 0 -9.62 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
@@ -206,7 +206,7 @@
 					)
 				)
 			)
-			(property "Footprint" "JLCImport:DSHP04TS-S"
+			(property "Footprint" "JLCImport:DSHP02TSGER"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -217,7 +217,7 @@
 					)
 				)
 			)
-			(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2110151630_XKB-Connection-DSHP04TS-S_C319050.pdf"
+			(property "Datasheet" "https://item.szlcsc.com/341359.html"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -228,7 +228,7 @@
 					)
 				)
 			)
-			(property "Description" "-20℃~+70℃ 1.27mm 24V 25mA 3,000 Cycles 4 Black Gull Wing SPST Slide, Recessed SMD,P=1.27mm DIP Switches ROHS"
+			(property "Description" "DSHP02TSGER; SW-SMD_DSHP02TSGER; 康深"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -239,7 +239,7 @@
 					)
 				)
 			)
-			(property "LCSC" "C319050"
+			(property "LCSC" "C3293142"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -250,7 +250,7 @@
 					)
 				)
 			)
-			(property "Manufacturer" "XKB Connection"
+			(property "Manufacturer" "康深"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -261,7 +261,7 @@
 					)
 				)
 			)
-			(property "Manufacturer Part" "DSHP04TS-S"
+			(property "Manufacturer Part" "DSHP02TSGER"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -272,7 +272,7 @@
 					)
 				)
 			)
-			(property "ki_keywords" "C319050 DSHP04TS-S SW-SMD_8P-L6.7-W5.4-P1.27-LS8.5 XKB Connection"
+			(property "ki_keywords" "C3293142 DSHP02TSGER SW-SMD_DSHP02TSGER 康深"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -283,10 +283,10 @@
 					)
 				)
 			)
-			(symbol "DSHP04TS-S_0_1"
+			(symbol "DSHP02TSGER_0_1"
 				(polyline
 					(pts
-						(xy -2.54 5.08) (xy -5.08 5.08)
+						(xy -2.54 5.08) (xy -2.54 2.54)
 					)
 					(stroke
 						(width 0.254)
@@ -298,7 +298,7 @@
 				)
 				(polyline
 					(pts
-						(xy -2.54 5.08) (xy 0 5.08)
+						(xy -2.54 2.54) (xy -3.556 -0.254)
 					)
 					(stroke
 						(width 0.254)
@@ -310,7 +310,7 @@
 				)
 				(polyline
 					(pts
-						(xy -2.54 2.54) (xy -5.08 2.54)
+						(xy -2.54 -2.54) (xy -2.54 0)
 					)
 					(stroke
 						(width 0.254)
@@ -322,7 +322,7 @@
 				)
 				(polyline
 					(pts
-						(xy -2.54 2.54) (xy 0 2.54)
+						(xy -2.54 -2.54) (xy -2.54 -5.08)
 					)
 					(stroke
 						(width 0.254)
@@ -334,7 +334,7 @@
 				)
 				(polyline
 					(pts
-						(xy -2.54 0) (xy -5.08 0)
+						(xy 0 5.08) (xy 0 2.54)
 					)
 					(stroke
 						(width 0.254)
@@ -346,7 +346,7 @@
 				)
 				(polyline
 					(pts
-						(xy -2.54 0) (xy 0 0)
+						(xy 0 2.54) (xy -1.016 -0.254)
 					)
 					(stroke
 						(width 0.254)
@@ -358,7 +358,7 @@
 				)
 				(polyline
 					(pts
-						(xy -2.54 -2.54) (xy -5.08 -2.54)
+						(xy 0 -2.54) (xy 0 0)
 					)
 					(stroke
 						(width 0.254)
@@ -370,7 +370,7 @@
 				)
 				(polyline
 					(pts
-						(xy -2.54 -2.54) (xy 0 -2.54)
+						(xy 0 -2.54) (xy 0 -5.08)
 					)
 					(stroke
 						(width 0.254)
@@ -382,61 +382,13 @@
 				)
 				(polyline
 					(pts
-						(xy 2.54 5.08) (xy -0.254 6.096)
-					)
-					(stroke
-						(width 0.254)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.54 2.54) (xy -0.254 3.556)
-					)
-					(stroke
-						(width 0.254)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.54 0) (xy -0.254 1.016)
-					)
-					(stroke
-						(width 0.254)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.54 -2.54) (xy -0.254 -1.524)
-					)
-					(stroke
-						(width 0.254)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 4.572 -5.08) (xy 4.6711 -5.0702) (xy 4.7664 -5.0413) (xy 4.8542 -4.9944) (xy 4.9312 -4.9312)
-						(xy 4.9944 -4.8542) (xy 5.0413 -4.7664) (xy 5.0702 -4.6711) (xy 5.08 -4.572) (xy 5.0702 7.2111)
-						(xy 5.0413 7.3064) (xy 4.9944 7.3942) (xy 4.9312 7.4712) (xy 4.8542 7.5344) (xy 4.7664 7.5813)
-						(xy 4.6711 7.6102) (xy 4.572 7.62) (xy -4.6711 7.6102) (xy -4.7664 7.5813) (xy -4.8542 7.5344)
-						(xy -4.9312 7.4712) (xy -4.9944 7.3942) (xy -5.0413 7.3064) (xy -5.0702 7.2111) (xy -5.08 7.112)
+						(xy 2.032 -5.08) (xy 2.1311 -5.0702) (xy 2.2264 -5.0413) (xy 2.3142 -4.9944) (xy 2.3912 -4.9312)
+						(xy 2.4544 -4.8542) (xy 2.5013 -4.7664) (xy 2.5302 -4.6711) (xy 2.54 -4.572) (xy 2.5302 4.6711)
+						(xy 2.5013 4.7664) (xy 2.4544 4.8542) (xy 2.3912 4.9312) (xy 2.3142 4.9944) (xy 2.2264 5.0413)
+						(xy 2.1311 5.0702) (xy 2.032 5.08) (xy -4.6711 5.0702) (xy -4.7664 5.0413) (xy -4.8542 4.9944)
+						(xy -4.9312 4.9312) (xy -4.9944 4.8542) (xy -5.0413 4.7664) (xy -5.0702 4.6711) (xy -5.08 4.572)
 						(xy -5.0702 -4.6711) (xy -5.0413 -4.7664) (xy -4.9944 -4.8542) (xy -4.9312 -4.9312) (xy -4.8542 -4.9944)
-						(xy -4.7664 -5.0413) (xy -4.6711 -5.0702) (xy -4.572 -5.08) (xy 4.572 -5.08)
+						(xy -4.7664 -5.0413) (xy -4.6711 -5.0702) (xy -4.572 -5.08) (xy 2.032 -5.08)
 					)
 					(stroke
 						(width 0.254)
@@ -446,57 +398,9 @@
 						(type background)
 					)
 				)
-				(polyline
-					(pts
-						(xy 5.08 5.08) (xy 2.54 5.08)
-					)
-					(stroke
-						(width 0.254)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 5.08 2.54) (xy 2.54 2.54)
-					)
-					(stroke
-						(width 0.254)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 5.08 0) (xy 2.54 0)
-					)
-					(stroke
-						(width 0.254)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 5.08 -2.54) (xy 2.54 -2.54)
-					)
-					(stroke
-						(width 0.254)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
 				(pin unspecified line
-					(at -10.16 5.08 0)
-					(length 5.08)
+					(at -2.54 -7.62 90)
+					(length 2.54)
 					(name "1"
 						(effects
 							(font
@@ -513,8 +417,8 @@
 					)
 				)
 				(pin unspecified line
-					(at -10.16 2.54 0)
-					(length 5.08)
+					(at 0 -7.62 90)
+					(length 2.54)
 					(name "2"
 						(effects
 							(font
@@ -531,8 +435,8 @@
 					)
 				)
 				(pin unspecified line
-					(at -10.16 0 0)
-					(length 5.08)
+					(at 0 7.62 270)
+					(length 2.54)
 					(name "3"
 						(effects
 							(font
@@ -549,8 +453,8 @@
 					)
 				)
 				(pin unspecified line
-					(at -10.16 -2.54 0)
-					(length 5.08)
+					(at -2.54 7.62 270)
+					(length 2.54)
 					(name "4"
 						(effects
 							(font
@@ -559,78 +463,6 @@
 						)
 					)
 					(number "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin unspecified line
-					(at 10.16 -2.54 180)
-					(length 5.08)
-					(name "5"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "5"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin unspecified line
-					(at 10.16 0 180)
-					(length 5.08)
-					(name "6"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "6"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin unspecified line
-					(at 10.16 2.54 180)
-					(length 5.08)
-					(name "7"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "7"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin unspecified line
-					(at 10.16 5.08 180)
-					(length 5.08)
-					(name "8"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "8"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1342,24 +1174,8 @@
 		(uuid "8937c295-2f6e-4e95-aab2-6b7011c74ce9")
 	)
 	(no_connect
-		(at 196.85 111.76)
-		(uuid "497c35c6-fb1d-41eb-9162-8a037ad8b845")
-	)
-	(no_connect
-		(at 176.53 111.76)
-		(uuid "7cd0daf9-fde1-4c1f-82a5-18669b8f0ff5")
-	)
-	(no_connect
 		(at 88.9 107.95)
 		(uuid "aa68d0bd-ba00-468c-a45a-58f5e086ff0f")
-	)
-	(no_connect
-		(at 176.53 109.22)
-		(uuid "bded2d24-9bc5-4ed7-9195-cd077509c455")
-	)
-	(no_connect
-		(at 196.85 109.22)
-		(uuid "c163e05a-cacd-43d2-b3c4-639ee8ca897f")
 	)
 	(wire
 		(pts
@@ -1413,6 +1229,16 @@
 	)
 	(wire
 		(pts
+			(xy 196.85 106.68) (xy 191.77 106.68)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a2a1c7f0-76f8-4355-96c3-f46c32bfb29a")
+	)
+	(wire
+		(pts
 			(xy 54.61 160.02) (xy 58.42 160.02)
 		)
 		(stroke
@@ -1420,6 +1246,16 @@
 			(type default)
 		)
 		(uuid "ab0024d4-685c-49eb-8948-e1faa9764efa")
+	)
+	(wire
+		(pts
+			(xy 196.85 104.14) (xy 191.77 104.14)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bc089920-6b99-4cb1-a886-bf1a2d12ce15")
 	)
 	(wire
 		(pts
@@ -1680,6 +1516,16 @@
 			(justify right bottom)
 		)
 		(uuid "bc4f2500-d8f9-44ed-a477-6756a287494f")
+	)
+	(label "ES_GND"
+		(at 171.45 113.03 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "be8adcc4-f946-4b95-a5b9-7887002235b0")
 	)
 	(label "JACK_RING_2"
 		(at 132.08 110.49 0)
@@ -1946,84 +1792,6 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 171.45 113.03 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "5e4a519e-f143-43c5-bfdd-0d0c145a8a04")
-		(property "Reference" "#PWR057"
-			(at 171.45 119.38 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 171.45 118.11 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 171.45 113.03 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 171.45 113.03 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 171.45 113.03 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "39e8bc0e-cf09-4e92-92e7-385a8ad06f07")
-		)
-		(instances
-			(project "DrunkEarPhoneAdapter"
-				(path "/df940915-8af0-46f9-b18a-23d4684ae671/70113c9e-cca4-4a4e-acc3-bc3c76dd27d9"
-					(reference "#PWR057")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
 		(at 132.08 97.79 180)
 		(unit 1)
 		(body_style 1)
@@ -2226,137 +1994,6 @@
 		)
 	)
 	(symbol
-		(lib_id "JLCImport:DSHP04TS-S")
-		(at 186.69 109.22 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "83e8bb9f-d05e-415e-ba0b-3f13f5a72642")
-		(property "Reference" "SW2"
-			(at 186.69 96.52 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "DSHP04TS-S"
-			(at 186.69 99.06 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "JLCImport:DSHP04TS-S"
-			(at 186.69 109.22 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2110151630_XKB-Connection-DSHP04TS-S_C319050.pdf"
-			(at 186.69 109.22 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "-20℃~+70℃ 1.27mm 24V 25mA 3,000 Cycles 4 Black Gull Wing SPST Slide, Recessed SMD,P=1.27mm DIP Switches ROHS"
-			(at 186.69 109.22 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C319050"
-			(at 186.69 109.22 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer" "XKB Connection"
-			(at 186.69 109.22 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer Part" "DSHP04TS-S"
-			(at 186.69 109.22 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "8"
-			(uuid "6b770ac9-aaf1-43e7-818a-3fb996d80d42")
-		)
-		(pin "2"
-			(uuid "ca89585f-2d76-4fe1-b42e-5bddabe1dd31")
-		)
-		(pin "3"
-			(uuid "aa653973-d073-4f91-b748-4a1a00cdef73")
-		)
-		(pin "4"
-			(uuid "20878e25-72c6-48d8-9610-8a148a91902a")
-		)
-		(pin "5"
-			(uuid "319d8ee7-502b-476e-8f28-378ac3379aaa")
-		)
-		(pin "6"
-			(uuid "08a423a9-fd35-4759-b8f3-46e751e97056")
-		)
-		(pin "1"
-			(uuid "29004d08-92d7-46a3-a68e-52ec6022427a")
-		)
-		(pin "7"
-			(uuid "1886d290-bfc9-4a3b-aecb-af6d3ddf3e87")
-		)
-		(instances
-			(project "DrunkEarPhoneAdapter"
-				(path "/df940915-8af0-46f9-b18a-23d4684ae671/70113c9e-cca4-4a4e-acc3-bc3c76dd27d9"
-					(reference "SW2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 142.24 142.24 0)
 		(unit 1)
@@ -2507,6 +2144,125 @@
 			(project "DrunkEarPhoneAdapter"
 				(path "/df940915-8af0-46f9-b18a-23d4684ae671/70113c9e-cca4-4a4e-acc3-bc3c76dd27d9"
 					(reference "#PWR037")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "JLCImport:DSHP02TSGER")
+		(at 184.15 104.14 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "a9791315-ead9-4c19-8511-c2fdfee68af0")
+		(property "Reference" "SW3"
+			(at 184.15 96.52 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "DSHP02TSGER"
+			(at 184.15 99.06 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "JLCImport:DSHP02TSGER"
+			(at 184.15 104.14 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://item.szlcsc.com/341359.html"
+			(at 184.15 104.14 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "DSHP02TSGER; SW-SMD_DSHP02TSGER; 康深"
+			(at 184.15 104.14 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C3293142"
+			(at 184.15 104.14 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "康深"
+			(at 184.15 104.14 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer Part" "DSHP02TSGER"
+			(at 184.15 104.14 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "b1005137-0bcc-4f79-9f90-08d96e4936b0")
+		)
+		(pin "1"
+			(uuid "a6770f95-544e-4cfd-a053-63494f3f0f69")
+		)
+		(pin "3"
+			(uuid "280ae749-114e-41fb-a5f6-12a98519f6bb")
+		)
+		(pin "4"
+			(uuid "4a3bb1fc-d566-4fc2-8de8-4731803dafb4")
+		)
+		(instances
+			(project "DrunkEarPhoneAdapter"
+				(path "/df940915-8af0-46f9-b18a-23d4684ae671/70113c9e-cca4-4a4e-acc3-bc3c76dd27d9"
+					(reference "SW3")
 					(unit 1)
 				)
 			)

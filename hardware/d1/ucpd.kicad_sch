@@ -1656,200 +1656,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "JLCImport:CL05B103KB5NNNC"
-			(pin_names
-				(offset 1.016)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "C"
-				(at 0 2 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "CL05B103KB5NNNC"
-				(at 0 -2 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL05B103KB5NNNC_C15195.pdf"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Description" "10nF 50V X7R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "LCSC" "C15195"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Manufacturer" "Samsung Electro-Mechanics"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Manufacturer Part" "CL05B103KB5NNNC"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_keywords" "C0402 C15195 CL05B103KB5NNNC Samsung Electro-Mechanics"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "CL05B103KB5NNNC_0_1"
-				(polyline
-					(pts
-						(xy -1.27 0) (xy -0.508 0)
-					)
-					(stroke
-						(width 0.254)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -0.508 2.032) (xy -0.508 -2.032)
-					)
-					(stroke
-						(width 0.254)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.508 2.032) (xy 0.508 -2.032)
-					)
-					(stroke
-						(width 0.254)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.508 0) (xy 1.27 0)
-					)
-					(stroke
-						(width 0.254)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(pin input line
-					(at -3.81 0 0)
-					(length 2.54)
-					(name "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin input line
-					(at 3.81 0 180)
-					(length 2.54)
-					(name "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "JLCImport:CL05B104KB54PNC"
 			(pin_numbers
 				(hide yes)
@@ -4844,195 +4650,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Jumper:SolderJumper_2_Bridged"
-			(pin_numbers
-				(hide yes)
-			)
-			(pin_names
-				(offset 0)
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom no)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "JP"
-				(at 0 2.032 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "SolderJumper_2_Bridged"
-				(at 0 -2.54 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 -6.35 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Description" "Solder Jumper, 2-pole, closed/bridged"
-				(at 0 -5.08 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_keywords" "solder jumper SPST"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_fp_filters" "SolderJumper*Bridged*"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "SolderJumper_2_Bridged_0_1"
-				(rectangle
-					(start -0.508 0.508)
-					(end 0.508 -0.508)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(polyline
-					(pts
-						(xy -0.254 1.016) (xy -0.254 -1.016)
-					)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(arc
-					(start -0.254 -1.016)
-					(mid -1.2656 0)
-					(end -0.254 1.016)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(arc
-					(start 0.254 1.016)
-					(mid 1.2656 0)
-					(end 0.254 -1.016)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.254 1.016) (xy 0.254 -1.016)
-					)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "SolderJumper_2_Bridged_1_1"
-				(pin passive line
-					(at -5.08 0 0)
-					(length 3.81)
-					(name "A"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 5.08 0 180)
-					(length 3.81)
-					(name "B"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "power:+3V8"
 			(power global)
 			(pin_numbers
@@ -5447,16 +5064,6 @@
 		)
 		(uuid "125416a9-5a27-4ba5-9282-3bd09061960a")
 	)
-	(text "Unused mosfet channels"
-		(exclude_from_sim no)
-		(at 71.628 178.054 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "56437d2e-4f32-4292-82a2-93a8b6af61eb")
-	)
 	(text "I2C addr: 0x35"
 		(exclude_from_sim no)
 		(at 244.094 93.472 0)
@@ -5550,12 +5157,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "08c3c400-2deb-4535-a8f1-5a67cdda2532")
-	)
-	(junction
-		(at 215.9 147.32)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "08c8a579-ee83-4a02-8074-18a1ce40b8bf")
 	)
 	(junction
 		(at 82.55 142.24)
@@ -5972,6 +5573,14 @@
 		(uuid "4751d04a-e91b-4145-8418-62926c8553e4")
 	)
 	(no_connect
+		(at 45.72 100.33)
+		(uuid "47ac617f-d87a-4670-9e5b-32dceb8a5b2d")
+	)
+	(no_connect
+		(at 196.85 96.52)
+		(uuid "4ecfa086-e3fe-45f3-98e1-8b6e7cd8e263")
+	)
+	(no_connect
 		(at 45.72 97.79)
 		(uuid "4fe79294-7a77-4b8c-a87c-1be6fb535f11")
 	)
@@ -5986,6 +5595,14 @@
 	(no_connect
 		(at 68.58 255.27)
 		(uuid "d3a1edb5-ae11-4d11-88ff-c3985e933758")
+	)
+	(no_connect
+		(at 196.85 101.6)
+		(uuid "da83cda8-36d4-4262-81b1-35865f55fe15")
+	)
+	(no_connect
+		(at 81.28 100.33)
+		(uuid "dd68edd3-4ea5-4ff1-9e1f-e2a7d0ce8764")
 	)
 	(wire
 		(pts
@@ -6079,16 +5696,6 @@
 	)
 	(wire
 		(pts
-			(xy 215.9 147.32) (xy 222.25 147.32)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0ae22fd0-a7fc-4b65-a0ac-3b618c121d2a")
-	)
-	(wire
-		(pts
 			(xy 33.02 118.11) (xy 33.02 95.25)
 		)
 		(stroke
@@ -6096,16 +5703,6 @@
 			(type default)
 		)
 		(uuid "0c51f0fb-2b54-40af-b42f-8e0aa037a0bf")
-	)
-	(wire
-		(pts
-			(xy 176.53 20.32) (xy 173.99 20.32)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0cef6b75-4532-4631-8225-6bbcda4b2232")
 	)
 	(wire
 		(pts
@@ -6296,16 +5893,6 @@
 			(type default)
 		)
 		(uuid "1b449fa0-8cc2-4725-8aea-2a532eeabdf2")
-	)
-	(wire
-		(pts
-			(xy 90.17 100.33) (xy 81.28 100.33)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1bd0f1a4-44a7-4f76-bddd-4ca7fc3860ac")
 	)
 	(wire
 		(pts
@@ -6799,16 +6386,6 @@
 	)
 	(wire
 		(pts
-			(xy 186.69 96.52) (xy 196.85 96.52)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "43340b46-3770-4e8b-83ab-a23b88178268")
-	)
-	(wire
-		(pts
 			(xy 254 109.22) (xy 254 111.76)
 		)
 		(stroke
@@ -6816,16 +6393,6 @@
 			(type default)
 		)
 		(uuid "437f7ae5-a1a4-4d5d-8348-f1cb41f63672")
-	)
-	(wire
-		(pts
-			(xy 186.69 101.6) (xy 196.85 101.6)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "43d7ee39-857d-49e2-b46d-34a4c3f0387a")
 	)
 	(wire
 		(pts
@@ -6976,16 +6543,6 @@
 			(type default)
 		)
 		(uuid "563ec47e-ad49-45bf-8e87-3cea28f44f0a")
-	)
-	(wire
-		(pts
-			(xy 222.25 146.05) (xy 222.25 147.32)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "571cc521-882c-43f7-8786-63d985ce6001")
 	)
 	(wire
 		(pts
@@ -7279,16 +6836,6 @@
 	)
 	(wire
 		(pts
-			(xy 40.64 100.33) (xy 45.72 100.33)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7e50fb0f-933f-418a-9f77-dffa5e20fa93")
-	)
-	(wire
-		(pts
 			(xy 109.22 266.7) (xy 130.81 266.7)
 		)
 		(stroke
@@ -7436,16 +6983,6 @@
 			(type default)
 		)
 		(uuid "91116410-8f3c-4ec8-a689-ed9b065df22e")
-	)
-	(wire
-		(pts
-			(xy 176.53 27.94) (xy 173.99 27.94)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "923593d6-cda3-46fc-ae89-82bb3330fa31")
 	)
 	(wire
 		(pts
@@ -8337,16 +7874,6 @@
 		)
 		(uuid "fd1e376c-0758-4253-973d-e832ef4f7875")
 	)
-	(label "GDPs_CHR"
-		(at 66.04 205.74 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "028b23bb-3526-4685-a8a2-5c0e2d4b0a4c")
-	)
 	(label "I2C1_SCL"
 		(at 237.49 88.9 0)
 		(effects
@@ -8397,16 +7924,6 @@
 		)
 		(uuid "11aab89b-0277-4ac5-a023-2359b9f308df")
 	)
-	(label "GDPs_CHR"
-		(at 186.69 96.52 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "165fc69a-ed11-4550-b619-b992ca3fe8aa")
-	)
 	(label "USB_CHR_SAFE_DN"
 		(at 85.09 231.14 0)
 		(effects
@@ -8456,16 +7973,6 @@
 			(justify left bottom)
 		)
 		(uuid "1f5177a5-15f9-4167-9cbd-9700cd398241")
-	)
-	(label "GDCs"
-		(at 66.04 186.69 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "244269a5-108d-4481-a8c4-3274b481f060")
 	)
 	(label "I2C1_SDA"
 		(at 35.56 156.21 0)
@@ -8627,26 +8134,6 @@
 		)
 		(uuid "55c0ab73-0316-4445-8021-d454ae42c6e1")
 	)
-	(label "GDCs_CHR"
-		(at 66.04 196.85 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "56589fad-aea8-4607-b6e6-7395ff060ea3")
-	)
-	(label "GDPg"
-		(at 176.53 20.32 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "565bec4a-b736-45b8-b63c-2c44faecf556")
-	)
 	(label "USB_CHR_CC1"
 		(at 80.01 147.32 180)
 		(effects
@@ -8726,16 +8213,6 @@
 			(justify left bottom)
 		)
 		(uuid "649a8bd1-90a2-4b4f-b217-f323ad8ed83a")
-	)
-	(label "USB_CHR_ISENSE"
-		(at 76.2 196.85 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "6ba94ccb-47fa-40e8-b1d9-48cd173c0242")
 	)
 	(label "USB_CHR_CC2"
 		(at 120.65 154.94 0)
@@ -8826,16 +8303,6 @@
 			(justify right bottom)
 		)
 		(uuid "826868d2-6426-4098-8017-ff8a38895af3")
-	)
-	(label "USB_PHONE_CC2"
-		(at 90.17 100.33 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "8400ed5d-42f4-4e16-9168-5b3d3dd7ab46")
 	)
 	(label "USB_PHONE_VBUS"
 		(at 109.22 264.16 180)
@@ -9057,16 +8524,6 @@
 		)
 		(uuid "b53f1d0d-3208-4968-8462-5e7a142762b8")
 	)
-	(label "GDCs"
-		(at 40.64 100.33 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "b64bdfd0-8222-47c4-971f-9fd913c32b5a")
-	)
 	(label "USB_PHONE_SAFE_DP"
 		(at 46.99 250.19 180)
 		(effects
@@ -9187,16 +8644,6 @@
 		)
 		(uuid "e70b5480-f1bc-47a0-a96b-9aa426afc8a1")
 	)
-	(label "GDCs_CHR"
-		(at 186.69 101.6 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "e83657ea-4d0c-4b30-820c-efa10e82c945")
-	)
 	(label "USB_PHONE_VBUS"
 		(at 109.22 245.11 180)
 		(effects
@@ -9247,16 +8694,6 @@
 		)
 		(uuid "f8200f32-4263-4937-b6c2-2fe095b6ce41")
 	)
-	(label "USB_CHR_ISENSE"
-		(at 76.2 205.74 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "f8d3896e-41c5-4f1a-bfe7-60e63ef6c31b")
-	)
 	(label "USB_CHR_DN"
 		(at 80.01 152.4 180)
 		(effects
@@ -9266,16 +8703,6 @@
 			(justify right bottom)
 		)
 		(uuid "fa368349-dafe-4e8e-81ba-7ebd5ac0906c")
-	)
-	(label "USB_PHONE_ISENSE"
-		(at 76.2 186.69 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "faf7fef4-58cd-4f9a-ab33-717709c89ff5")
 	)
 	(label "USB_PHONE_VBUS"
 		(at 31.75 102.87 180)
@@ -9296,26 +8723,6 @@
 			(justify left bottom)
 		)
 		(uuid "fdeeab0d-0fa4-4da9-8961-0ee96f7a3a83")
-	)
-	(label "USB_PHONE_CC2"
-		(at 222.25 138.43 90)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "fe75e46d-12c5-42e8-a487-15272f0bdf5e")
-	)
-	(label "USB_PHONE_ISENSE"
-		(at 176.53 27.94 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "ff92b303-db09-4854-899d-06e8bfdbe2c8")
 	)
 	(hierarchical_label "ADC_CHR_IANA"
 		(shape output)
@@ -11802,120 +11209,6 @@
 		)
 	)
 	(symbol
-		(lib_id "JLCImport:CL10C331JB8NNNC")
-		(at 222.25 142.24 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp yes)
-		(uuid "52a7dcea-b147-47aa-bcca-a3ade4e392b4")
-		(property "Reference" "C33"
-			(at 220.98 143.51 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "330pF 50V"
-			(at 224.028 143.764 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 222.25 142.24 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL10C331JB8NNNC_C1664.pdf"
-			(at 222.25 142.24 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "330pF 50V C0G ±5% 0603 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 222.25 142.24 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C1664"
-			(at 222.25 142.24 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer" "Samsung Electro-Mechanics"
-			(at 222.25 142.24 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer Part" "CL10C331JB8NNNC"
-			(at 222.25 142.24 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "fc8370b7-fcb7-44f7-b741-0d9cac5fe09e")
-		)
-		(pin "1"
-			(uuid "73aec9b4-fc54-4784-99ed-58a07ea0d372")
-		)
-		(instances
-			(project "DrunkEarPhoneAdapter"
-				(path "/df940915-8af0-46f9-b18a-23d4684ae671/5c561383-fdd0-44ae-83ac-568aac0f03a9"
-					(reference "C33")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "JLCImport:TS3USB221RSER")
 		(at 196.85 212.09 0)
 		(unit 1)
@@ -12047,120 +11340,6 @@
 			(project "DrunkEarPhoneAdapter"
 				(path "/df940915-8af0-46f9-b18a-23d4684ae671/5c561383-fdd0-44ae-83ac-568aac0f03a9"
 					(reference "U3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "JLCImport:CL05B103KB5NNNC")
-		(at 173.99 24.13 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp yes)
-		(uuid "5c0364e3-e0af-4a70-986a-bff5fa88e813")
-		(property "Reference" "C66"
-			(at 168.656 22.606 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "10nF 50V X7R"
-			(at 159.004 25.908 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
-			(at 173.99 24.13 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL05B103KB5NNNC_C15195.pdf"
-			(at 173.99 24.13 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "10nF 50V X7R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 173.99 24.13 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C15195"
-			(at 173.99 24.13 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer" "Samsung Electro-Mechanics"
-			(at 173.99 24.13 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer Part" "CL05B103KB5NNNC"
-			(at 173.99 24.13 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "9add43cd-78c6-4f6c-85e1-c09de5683e43")
-		)
-		(pin "1"
-			(uuid "7a7ace28-51c7-4b38-a0b8-f0d0be538690")
-		)
-		(instances
-			(project "DrunkEarPhoneAdapter"
-				(path "/df940915-8af0-46f9-b18a-23d4684ae671/5c561383-fdd0-44ae-83ac-568aac0f03a9"
-					(reference "C66")
 					(unit 1)
 				)
 			)
@@ -13776,166 +12955,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Jumper:SolderJumper_2_Bridged")
-		(at 71.12 186.69 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "a02ad87b-f508-4d14-9390-962b013b680f")
-		(property "Reference" "JP2"
-			(at 71.12 180.34 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "SolderJumper_2_Bridged"
-			(at 71.12 182.88 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Jumper:SolderJumper-2_P1.3mm_Bridged_RoundedPad1.0x1.5mm"
-			(at 71.12 186.69 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 71.12 193.04 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Solder Jumper, 2-pole, closed/bridged"
-			(at 71.12 191.77 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "e0978a74-8a97-460a-ad84-9bd68b85149a")
-		)
-		(pin "2"
-			(uuid "951a3c03-5897-4d93-bd17-c9df9b43e984")
-		)
-		(instances
-			(project "DrunkEarPhoneAdapter"
-				(path "/df940915-8af0-46f9-b18a-23d4684ae671/5c561383-fdd0-44ae-83ac-568aac0f03a9"
-					(reference "JP2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Jumper:SolderJumper_2_Bridged")
-		(at 71.12 205.74 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "a0519fae-6cf6-46f6-a924-dec18573ec3a")
-		(property "Reference" "JP4"
-			(at 71.12 199.39 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "SolderJumper_2_Bridged"
-			(at 71.12 201.93 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Jumper:SolderJumper-2_P1.3mm_Bridged_RoundedPad1.0x1.5mm"
-			(at 71.12 205.74 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 71.12 212.09 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Solder Jumper, 2-pole, closed/bridged"
-			(at 71.12 210.82 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "1608744c-428a-4b6f-8740-a47a618dc082")
-		)
-		(pin "2"
-			(uuid "e0143d4f-ecfb-466f-a72f-ba2875f2fea4")
-		)
-		(instances
-			(project "DrunkEarPhoneAdapter"
-				(path "/df940915-8af0-46f9-b18a-23d4684ae671/5c561383-fdd0-44ae-83ac-568aac0f03a9"
-					(reference "JP4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 213.36 147.32 0)
 		(unit 1)
@@ -15161,86 +14180,6 @@
 			(project "DrunkEarPhoneAdapter"
 				(path "/df940915-8af0-46f9-b18a-23d4684ae671/5c561383-fdd0-44ae-83ac-568aac0f03a9"
 					(reference "#PWR070")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Jumper:SolderJumper_2_Bridged")
-		(at 71.12 196.85 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "d2c317e3-98e7-4e0a-8181-fa9174070e18")
-		(property "Reference" "JP3"
-			(at 71.12 190.5 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "SolderJumper_2_Bridged"
-			(at 71.12 193.04 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Jumper:SolderJumper-2_P1.3mm_Bridged_RoundedPad1.0x1.5mm"
-			(at 71.12 196.85 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 71.12 203.2 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Solder Jumper, 2-pole, closed/bridged"
-			(at 71.12 201.93 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "c6128ee8-b908-4c3e-9cf0-f3c5b67d9cd4")
-		)
-		(pin "2"
-			(uuid "c0728e8e-b858-4564-91d9-b3a122587432")
-		)
-		(instances
-			(project "DrunkEarPhoneAdapter"
-				(path "/df940915-8af0-46f9-b18a-23d4684ae671/5c561383-fdd0-44ae-83ac-568aac0f03a9"
-					(reference "JP3")
 					(unit 1)
 				)
 			)

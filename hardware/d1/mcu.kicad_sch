@@ -4937,6 +4937,10 @@
 		(uuid "456e1239-dcfa-4483-b391-88561eb9b1a9")
 	)
 	(no_connect
+		(at 83.82 170.18)
+		(uuid "50808f4e-3c58-4174-8128-0b71aa66bcf3")
+	)
+	(no_connect
 		(at 83.82 167.64)
 		(uuid "533e5833-c700-4ea1-b9b3-433ce3f8f023")
 	)
@@ -4963,6 +4967,10 @@
 	(no_connect
 		(at 137.16 160.02)
 		(uuid "6708fcd0-9f43-4a75-9cd7-b6375e9dfb54")
+	)
+	(no_connect
+		(at 83.82 165.1)
+		(uuid "6d4c8b6a-1106-4de7-bbbb-d7c584ea1f89")
 	)
 	(no_connect
 		(at 137.16 170.18)
@@ -5043,6 +5051,10 @@
 	(no_connect
 		(at 137.16 63.5)
 		(uuid "c8de9369-8dc2-4f6f-80aa-066a2f7cd5d6")
+	)
+	(no_connect
+		(at 137.16 60.96)
+		(uuid "cdfb9fb1-5d2d-4e5a-bd1a-b593793f5448")
 	)
 	(no_connect
 		(at 83.82 162.56)
@@ -5227,16 +5239,6 @@
 			(type default)
 		)
 		(uuid "0e4f2b47-e6b3-4193-b6fc-63aaec8ab9ee")
-	)
-	(wire
-		(pts
-			(xy 77.47 170.18) (xy 83.82 170.18)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1455a197-fa11-45e2-a737-1854c28b1cde")
 	)
 	(wire
 		(pts
@@ -6180,16 +6182,6 @@
 	)
 	(wire
 		(pts
-			(xy 147.32 60.96) (xy 137.16 60.96)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d64b86b0-f7d5-4c71-9cb1-ca5e4bca188d")
-	)
-	(wire
-		(pts
 			(xy 187.96 44.45) (xy 194.31 44.45)
 		)
 		(stroke
@@ -6357,26 +6349,6 @@
 			(type default)
 		)
 		(uuid "ff448cc5-a1c8-4e63-a695-cc2d51c3e47a")
-	)
-	(wire
-		(pts
-			(xy 77.47 165.1) (xy 83.82 165.1)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ffd3b49d-8746-417d-855d-8eb6138572e0")
-	)
-	(label "UCPD2_FRSTX1"
-		(at 77.47 165.1 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "00fdee0a-a6d6-412b-9a0f-4856e3b36a77")
 	)
 	(label "I2C1_SDA"
 		(at 39.37 147.32 0)
@@ -6618,16 +6590,6 @@
 		)
 		(uuid "4bf1c90e-0697-4104-b81b-e3ed453ff9c9")
 	)
-	(label "UCPD1_FRSTX2"
-		(at 77.47 170.18 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "4edd37de-1a2e-4962-b144-e5f5a373793b")
-	)
 	(label "UCPD1_DBCC1"
 		(at 241.3 26.67 180)
 		(effects
@@ -6697,16 +6659,6 @@
 			(justify left bottom)
 		)
 		(uuid "6d33fbd0-f78c-4032-b9fc-b90a22ea9213")
-	)
-	(label "UCPD2_FRSTX2"
-		(at 147.32 60.96 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "73603a98-c33f-4dcc-a323-a3773c4fcdd3")
 	)
 	(label "CLOCK_EN_24_576"
 		(at 39.37 114.3 0)

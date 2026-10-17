@@ -3997,12 +3997,6 @@
 		(uuid "4d017e1e-4f05-426c-9af4-c6ad83585b57")
 	)
 	(junction
-		(at 167.64 36.83)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "4d01b1d6-ba29-4217-922e-28a2e11f3bf9")
-	)
-	(junction
 		(at 166.37 107.95)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -4199,12 +4193,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "b5853043-ee4f-49c0-ab29-8d0b110a9abb")
-	)
-	(junction
-		(at 167.64 44.45)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "b589bd9c-aeb0-416c-b3c8-fe2d0b25c2b3")
 	)
 	(junction
 		(at 191.77 92.71)
@@ -4529,16 +4517,6 @@
 			(type default)
 		)
 		(uuid "29121e85-58d6-49c0-8d40-c06c356af9e9")
-	)
-	(wire
-		(pts
-			(xy 167.64 44.45) (xy 172.72 44.45)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "29727314-cb06-45c3-a31f-93b41a17d357")
 	)
 	(wire
 		(pts
@@ -5399,16 +5377,6 @@
 			(type default)
 		)
 		(uuid "b9cf4414-159d-491a-8915-169af4d2e0ad")
-	)
-	(wire
-		(pts
-			(xy 167.64 36.83) (xy 172.72 36.83)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "bbef48d0-b75e-463f-aca3-6dcd3562095c")
 	)
 	(wire
 		(pts
@@ -10386,6 +10354,7 @@
 		)
 		(property "Value" "47uF 25V X5R"
 			(at 169.164 42.164 0)
+			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -11009,120 +10978,6 @@
 			(project "DrunkEarPhoneAdapter"
 				(path "/df940915-8af0-46f9-b18a-23d4684ae671/bea21a31-aee1-46f9-b13e-ece764487360"
 					(reference "C15")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "JLCImport:C3216X5R1E476MTJ00E")
-		(at 172.72 40.64 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp yes)
-		(uuid "c4196199-bf24-4943-9854-f3b039a06982")
-		(property "Reference" "C63"
-			(at 171.45 41.91 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "47uF 25V X5R"
-			(at 174.244 42.164 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
-			(at 172.72 40.64 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_TDK-C3216X5R1E476MTJ00E_C76659.pdf"
-			(at 172.72 40.64 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "25V 47uF X5R ±20% 1206 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 172.72 40.64 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C76659"
-			(at 172.72 40.64 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer" "TDK"
-			(at 172.72 40.64 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer Part" "C3216X5R1E476MTJ00E"
-			(at 172.72 40.64 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "25bab0cc-a36d-45ef-8647-b820e78e5bd3")
-		)
-		(pin "2"
-			(uuid "5af390a5-8d42-4659-8cfa-ba9c19cb695f")
-		)
-		(instances
-			(project "DrunkEarPhoneAdapter"
-				(path "/df940915-8af0-46f9-b18a-23d4684ae671/bea21a31-aee1-46f9-b13e-ece764487360"
-					(reference "C63")
 					(unit 1)
 				)
 			)
