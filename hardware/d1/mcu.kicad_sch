@@ -4747,6 +4747,12 @@
 		(uuid "3d27af2d-3791-47c4-874d-1ae0e3cb028f")
 	)
 	(junction
+		(at 29.21 35.56)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "511cbf10-4e7d-4f17-8a72-5ae1e110cdf9")
+	)
+	(junction
 		(at 255.27 134.62)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -4865,6 +4871,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "cb6e1764-0a8c-4396-980e-d30ae696e1d9")
+	)
+	(junction
+		(at 29.21 45.72)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "d06fe38a-87c3-44c9-93b9-e9dff8284f28")
 	)
 	(junction
 		(at 111.76 19.05)
@@ -5612,6 +5624,16 @@
 	)
 	(wire
 		(pts
+			(xy 20.32 35.56) (xy 29.21 35.56)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "70139361-9bb8-4562-99a0-2d014fe8a274")
+	)
+	(wire
+		(pts
 			(xy 257.81 41.91) (xy 257.81 36.83)
 		)
 		(stroke
@@ -5879,6 +5901,16 @@
 			(type default)
 		)
 		(uuid "aa143c64-b2ed-4e9b-b8b5-fd7f2df5ee70")
+	)
+	(wire
+		(pts
+			(xy 20.32 45.72) (xy 29.21 45.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "aac8516c-c097-45c6-9254-5eab69144ae8")
 	)
 	(wire
 		(pts
@@ -9395,6 +9427,118 @@
 			(project "DrunkEarPhoneAdapter"
 				(path "/df940915-8af0-46f9-b18a-23d4684ae671/c6b936ac-23e1-4f20-8d3d-ded05833abcb"
 					(reference "#PWR048")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "JLCImport:CL05B104KB54PNC")
+		(at 20.32 40.64 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "80482841-c13a-4219-a386-23d4592e8154")
+		(property "Reference" "C108"
+			(at 15.24 39.624 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "100nF 50V"
+			(at 19.05 37.592 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+			(at 20.32 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL05B104KB54PNC_C307331.pdf"
+			(at 20.32 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "100nF 50V X7R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+			(at 20.32 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C307331"
+			(at 20.32 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 20.32 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer Part" "CL05B104KB54PNC"
+			(at 20.32 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "b19d1774-aeb8-4533-9c18-d0788d7625d3")
+		)
+		(pin "1"
+			(uuid "8ccdaf19-6b74-4689-850f-2967dab46c42")
+		)
+		(instances
+			(project "DrunkEarPhoneAdapter"
+				(path "/df940915-8af0-46f9-b18a-23d4684ae671/c6b936ac-23e1-4f20-8d3d-ded05833abcb"
+					(reference "C108")
 					(unit 1)
 				)
 			)
