@@ -5096,7 +5096,7 @@
 	)
 	(text "Phone side"
 		(exclude_from_sim no)
-		(at 116.332 241.046 0)
+		(at 123.698 258.826 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5247,12 +5247,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "37751f83-73b7-4f10-aa39-5b5648104b7d")
-	)
-	(junction
-		(at 88.9 252.73)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "37ea3a06-7391-4f80-9936-89d2b0468f16")
 	)
 	(junction
 		(at 41.91 36.83)
@@ -5517,12 +5511,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "e9d1c324-be40-4186-92bc-8f79e63b07a5")
-	)
-	(junction
-		(at 97.79 250.19)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "ea454236-cc9c-476e-ad60-8d93e8fad6eb")
 	)
 	(junction
 		(at 214.63 111.76)
@@ -6006,16 +5994,6 @@
 	)
 	(wire
 		(pts
-			(xy 97.79 250.19) (xy 130.81 250.19)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "22ee8bf2-6b20-41d4-9fcd-f1c40db1b0f2")
-	)
-	(wire
-		(pts
 			(xy 182.88 217.17) (xy 186.69 217.17)
 		)
 		(stroke
@@ -6033,16 +6011,6 @@
 			(type default)
 		)
 		(uuid "241f09d8-0f37-49d6-9cec-e7e1b6d9ca39")
-	)
-	(wire
-		(pts
-			(xy 88.9 247.65) (xy 130.81 247.65)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "249576ac-4162-4703-b2e6-e868389d6676")
 	)
 	(wire
 		(pts
@@ -6296,16 +6264,6 @@
 	)
 	(wire
 		(pts
-			(xy 88.9 247.65) (xy 88.9 252.73)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3b0ce2bc-0d30-4984-b861-58345b532a87")
-	)
-	(wire
-		(pts
 			(xy 237.49 101.6) (xy 232.41 101.6)
 		)
 		(stroke
@@ -6423,16 +6381,6 @@
 			(type default)
 		)
 		(uuid "47f2a356-4d6c-425e-a3e7-3e9e42ad8d45")
-	)
-	(wire
-		(pts
-			(xy 109.22 252.73) (xy 130.81 252.73)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4effd23c-ffe1-4027-9ada-d66ce3cc5849")
 	)
 	(wire
 		(pts
@@ -7426,16 +7374,6 @@
 	)
 	(wire
 		(pts
-			(xy 109.22 255.27) (xy 130.81 255.27)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c36a1159-9c39-48db-8264-7dcb1c49774e")
-	)
-	(wire
-		(pts
 			(xy 241.3 111.76) (xy 214.63 111.76)
 		)
 		(stroke
@@ -7713,16 +7651,6 @@
 			(type default)
 		)
 		(uuid "ea5fbd33-cb3e-4e76-b4e8-bd7ce1982015")
-	)
-	(wire
-		(pts
-			(xy 109.22 245.11) (xy 130.81 245.11)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "eae2c518-fe79-4f0d-9ed0-ee6914695cdd")
 	)
 	(wire
 		(pts
@@ -8334,16 +8262,6 @@
 		)
 		(uuid "88fdb31c-df91-40a4-9d81-466b84b34582")
 	)
-	(label "USB_PHONE_CC1"
-		(at 109.22 252.73 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "8932e670-28e0-4ed4-99b9-1a3f5d28726d")
-	)
 	(label "USB_PHONE_SAFE_DN"
 		(at 208.28 214.63 0)
 		(effects
@@ -8643,16 +8561,6 @@
 			(justify left bottom)
 		)
 		(uuid "e70b5480-f1bc-47a0-a96b-9aa426afc8a1")
-	)
-	(label "USB_PHONE_VBUS"
-		(at 109.22 245.11 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "ebb06597-89f4-46e8-ab49-2c1d092b8ffc")
 	)
 	(label "USB_STM_DN"
 		(at 35.56 171.45 0)
@@ -11452,84 +11360,6 @@
 			(project "DrunkEarPhoneAdapter"
 				(path "/df940915-8af0-46f9-b18a-23d4684ae671/5c561383-fdd0-44ae-83ac-568aac0f03a9"
 					(reference "C78")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 109.22 255.27 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "61a2a36e-cb44-4dd5-b96e-bfb3558bb13d")
-		(property "Reference" "#PWR063"
-			(at 109.22 261.62 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 109.22 260.35 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 109.22 255.27 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 109.22 255.27 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 109.22 255.27 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "abba7549-95b6-43e1-a80d-972980d6e7ba")
-		)
-		(instances
-			(project "DrunkEarPhoneAdapter"
-				(path "/df940915-8af0-46f9-b18a-23d4684ae671/5c561383-fdd0-44ae-83ac-568aac0f03a9"
-					(reference "#PWR063")
 					(unit 1)
 				)
 			)
