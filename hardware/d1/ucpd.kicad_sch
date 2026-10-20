@@ -8284,7 +8284,7 @@
 		)
 		(uuid "7ebbe531-d2c6-4b2e-b4df-5d9a50f25bd6")
 	)
-	(label "D_N"
+	(label "D_P"
 		(at 77.47 250.19 0)
 		(effects
 			(font
@@ -8534,7 +8534,7 @@
 		)
 		(uuid "bad54aea-9ecd-4e77-9752-8073387b2a50")
 	)
-	(label "D_P"
+	(label "D_N"
 		(at 77.47 252.73 0)
 		(effects
 			(font
