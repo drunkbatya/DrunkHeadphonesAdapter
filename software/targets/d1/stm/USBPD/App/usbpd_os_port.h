@@ -25,9 +25,10 @@ extern "C" {
 #endif
 
 /* Includes ------------------------------------------------------------------*/
-#if defined(USE_STM32_UTILITY_OS)
-#include "utilities_conf.h"
-#endif /* USE_STM32_UTILITY_OS */
+#include "cmsis_os.h"
+#if (osCMSIS >= 0x20000U)
+#include "task.h"
+#endif /* osCMSIS >= 0x20000U */
 
 /** @addtogroup STM32_USBPD_LIBRARY
   * @{
