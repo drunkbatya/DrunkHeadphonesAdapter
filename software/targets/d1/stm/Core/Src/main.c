@@ -23,6 +23,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "app_main.h"
 
 /* USER CODE END Includes */
 
@@ -114,6 +115,7 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  app_main();
   while (1)
   {
     /* USER CODE END WHILE */
