@@ -1,3 +1,24 @@
 [submodule "software/lib/tinyusb"]
 	path = software/lib/tinyusb
 	url = https://github.com/hathach/tinyusb.git
+[submodule "software/lib/stm32g0xx-hal-driver"]
+	path = software/lib/stm32g0xx-hal-driver
+	url = https://github.com/STMicroelectronics/stm32g0xx-hal-driver.git
+[submodule "software/lib/cmsis-device-g0"]
+	path = software/lib/cmsis-device-g0
+	url = https://github.com/STMicroelectronics/cmsis-device-g0.git
+[submodule "software/lib/cmsis-core"]
+	path = software/lib/cmsis-core
+	url = https://github.com/ARM-software/CMSIS_6.git
+[submodule "software/lib/stm32-tcpp0203"]
+	path = software/lib/stm32-tcpp0203
+	url = https://github.com/STMicroelectronics/stm32-tcpp0203
+[submodule "software/lib/stm32-mw-usbpd-device-g0"]
+	path = software/lib/stm32-mw-usbpd-device-g0
+	url = https://github.com/STMicroelectronics/stm32-mw-usbpd-device-g0
+[submodule "software/lib/stm32-mw-usbpd-core"]
+	path = software/lib/stm32-mw-usbpd-core
+	url = https://github.com/STMicroelectronics/stm32-mw-usbpd-core
+[submodule "software/lib/mlib"]
+	path = software/lib/mlib
+	url = https://github.com/P-p-H-d/mlib.git
