@@ -1,12 +1,12 @@
 $(BUILD_DIR):
 	@mkdir -p $@
 
-$(TINYUSB_GENERATED_DIR):
-	@mkdir -p $@
+$(GENERATED_DIR)/%: % $(PATCHES_DIR)/%.patch $(MAKE_FILES)
+	@echo "\tPATCH\t" $<
+	@mkdir -p $(@D)
+	@patch --silent --forward --no-backup-if-mismatch --reject-file=- --output=$@ $< $(PATCHES_DIR)/$*.patch
 
-$(TINYUSB_AUDIO_DEVICE_PATCHED): $(TINYUSB_AUDIO_DEVICE_SOURCE) $(TINYUSB_AUDIO_DEVICE_PATCH) $(MAKE_FILES) | $(TINYUSB_GENERATED_DIR)
-	@echo "\tPATCH\t" $(TINYUSB_AUDIO_DEVICE_SOURCE)
-	@patch --quiet --force --output=$@ $(TINYUSB_AUDIO_DEVICE_SOURCE) $(TINYUSB_AUDIO_DEVICE_PATCH)
+.SECONDARY: $(GENERATED_SOURCES)
 
 $(BUILD_DIR)/%.o: %.c $(MAKE_FILES) | $(BUILD_DIR)
 	@echo "\tCC\t" $<
@@ -18,7 +18,7 @@ $(BUILD_DIR)/%.o: %.s $(MAKE_FILES) | $(BUILD_DIR)
 	@mkdir -p $(@D)
 	@$(AS) -c $(ASFLAGS) $< -o $@
 
-$(BUILD_DIR)/$(TARGET).elf: $(OBJECTS) $(MAKE_FILES) | $(BUILD_DIR)
+$(BUILD_DIR)/$(TARGET).elf: $(OBJECTS) $(TARGET_LDSCRIPT) $(MAKE_FILES) | $(BUILD_DIR)
 	@echo "\tLD\t" $@
 	@$(CC) $(OBJECTS) $(LDFLAGS) -o $@
 	@$(SZ) $@

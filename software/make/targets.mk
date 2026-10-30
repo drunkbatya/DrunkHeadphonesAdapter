@@ -1,7 +1,7 @@
 all: $(BUILD_DIR)/$(TARGET).elf $(BUILD_DIR)/$(TARGET).hex $(BUILD_DIR)/$(TARGET).bin
 
-.PHONY: tinyusb
-tinyusb: $(TINYUSB_AUDIO_DEVICE_PATCHED)
+.PHONY: generated
+generated: $(GENERATED_SOURCES)
 
 .PHONY: lint
 lint:
@@ -16,14 +16,14 @@ format:
 .PHONY: flash
 flash: $(BUILD_DIR)/$(TARGET).bin
 	@echo "\tFLASH\t" $(BUILD_DIR)/$(TARGET).bin
-	@openocd $(OPENOCD_CFG) \
+	@openocd $(TARGET_OPENOCD_CFG) \
 		-c init -c "reset halt" \
 		-c "flash write_image erase $(BUILD_DIR)/$(TARGET).bin 0x08000000" \
 		-c "reset" -c shutdown
 
 .PHONY: debug
 debug: flash
-	@openocd $(OPENOCD_CFG) \
+	@openocd $(TARGET_OPENOCD_CFG) \
 		-c "init" \
 		-c "reset halt" & \
 	OPENOCD_PID=$$!; \

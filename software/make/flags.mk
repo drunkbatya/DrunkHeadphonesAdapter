@@ -1,13 +1,6 @@
-MCU := -mcpu=cortex-m0plus -mthumb
+MCU := $(TARGET_MCU)
 
-C_DEFS := \
-	-DUSE_FULL_LL_DRIVER \
-	-DUSE_HAL_DRIVER \
-	-DSTM32G0B1xx \
-	-DUSBPD_PORT_COUNT=2 \
-	-D_DRP \
-	-DUSBPDCORE_LIB_PD3_FULL \
-	-DTCPP0203_SUPPORT
+C_DEFS := $(TARGET_DEFS)
 
 C_DEFS += \
 	'-DGIT_COMMIT="$(GIT_COMMIT)"' \
@@ -26,20 +19,11 @@ endif
 
 C_INCLUDES := \
 	-Isrc \
-	-I$(STM_DIR)/Core/Inc \
-	-I$(STM_DIR)/USBPD/App \
-	-I$(STM_DIR)/USBPD/Target \
-	-I$(STM_DIR)/USB_Device/App \
-	-I$(STM_DIR)/USB_Device/Target \
-	-I$(STM_DIR)/Drivers/STM32G0xx_HAL_Driver/Inc \
-	-I$(STM_DIR)/Drivers/STM32G0xx_HAL_Driver/Inc/Legacy \
-	-I$(STM_DIR)/Drivers/CMSIS/Device/ST/STM32G0xx/Include \
-	-I$(STM_DIR)/Drivers/CMSIS/Include \
-	-I$(STM_DIR)/Drivers/BSP/Components/tcpp0203 \
-	-I$(STM_DIR)/Middlewares/ST/STM32_USBPD_Library/Core/inc \
-	-I$(STM_DIR)/Middlewares/ST/STM32_USBPD_Library/Devices/STM32G0XX/inc \
-	-I$(STM_DIR)/Middlewares/ST/STM32_USB_Device_Library/Core/Inc \
-	-I$(STM_DIR)/Middlewares/ST/STM32_USB_Device_Library/Class/AUDIO/Inc
+	-Isrc/furi \
+	-Isrc/lib \
+	-Isrc/targets/furi_hal_include \
+	$(TARGET_INCLUDES) \
+	$(LIB_INCLUDES)
 
 CFLAGS += $(MCU) $(C_DEFS) $(C_INCLUDES) $(OPT) -Wall -Werror -fdata-sections -ffunction-sections
 ASFLAGS := $(MCU) $(OPT) -Wall -fdata-sections -ffunction-sections
@@ -51,8 +35,7 @@ endif
 
 CFLAGS += -MMD -MP -MF"$(@:%.o=%.d)"
 
-LIBS := -l:$(USBPD_CORE_LIB) -lc -lm -lnosys
-LIBDIR := -L$(STM_DIR)/Middlewares/ST/STM32_USBPD_Library/Core/lib
-LDFLAGS := $(MCU) -specs=nano.specs -T$(LDSCRIPT) $(LIBDIR) $(LIBS) \
+LIBS := -lc -lm -lnosys
+LDFLAGS := $(MCU) -specs=nano.specs -T$(TARGET_LDSCRIPT) $(LIBS) \
 	-Wl,-Map=$(BUILD_DIR)/$(TARGET).map,--cref \
 	-Wl,--gc-sections
