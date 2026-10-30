@@ -1,3 +1,7 @@
 build/
 .history/
 *.lck
+.DS_Store
+*.zip
+*.swp
+*.swo
