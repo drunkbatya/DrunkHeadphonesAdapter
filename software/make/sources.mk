@@ -4,12 +4,19 @@ SRC_SOURCES := \
 
 LIB_SOURCES := \
 	$(TARGET_LIB_SOURCES) \
+	lib/FreeRTOS-Kernel/event_groups.c \
+	lib/FreeRTOS-Kernel/list.c \
+	lib/FreeRTOS-Kernel/queue.c \
+	lib/FreeRTOS-Kernel/stream_buffer.c \
+	lib/FreeRTOS-Kernel/tasks.c \
+	lib/FreeRTOS-Kernel/timers.c \
 	lib/tinyusb/src/tusb.c \
 	lib/tinyusb/src/common/tusb_fifo.c \
 	lib/tinyusb/src/device/usbd.c \
 	$(call patched,lib/tinyusb/src/class/audio/audio_device.c)
 
 LIB_INCLUDES := \
+	-Ilib/FreeRTOS-Kernel/include \
 	-Ilib/mlib \
 	-Ilib/tinyusb/src
 

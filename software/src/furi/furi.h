@@ -4,6 +4,7 @@
 
 #include "core/common_defines.h"
 #include "core/check.h"
+#include "core/memmgr.h"
 
 #include <furi_hal_gpio.h>
 

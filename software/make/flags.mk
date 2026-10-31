@@ -27,7 +27,7 @@ C_INCLUDES := \
 	$(TARGET_INCLUDES) \
 	$(LIB_INCLUDES)
 
-CFLAGS += $(MCU) $(C_DEFS) $(C_INCLUDES) $(OPT) -Wall -Werror -fdata-sections -ffunction-sections
+CFLAGS += $(MCU) $(C_DEFS) $(C_INCLUDES) $(OPT) -Wall -Werror -Wextra -fdata-sections -ffunction-sections
 ASFLAGS := $(MCU) $(OPT) -Wall -fdata-sections -ffunction-sections
 
 ifeq ($(DEBUG),1)
@@ -40,4 +40,8 @@ CFLAGS += -MMD -MP -MF"$(@:%.o=%.d)"
 LIBS := -lc -lm -lnosys
 LDFLAGS := $(MCU) -specs=nano.specs -T$(TARGET_LDSCRIPT) $(LIBS) \
 	-Wl,-Map=$(BUILD_DIR)/$(TARGET).map,--cref \
-	-Wl,--gc-sections
+	-Wl,--gc-sections \
+	-Wl,--wrap,_malloc_r \
+	-Wl,--wrap,_free_r \
+	-Wl,--wrap,_calloc_r \
+	-Wl,--wrap,_realloc_r
