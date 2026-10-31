@@ -1,6 +1,11 @@
 #pragma once
 
-#include <core/common_defines.h>
+#include <stdlib.h>
+
+#include "core/common_defines.h"
+#include "core/check.h"
+
+#include <furi_hal_gpio.h>
 
 #ifdef __cplusplus
 extern "C" {

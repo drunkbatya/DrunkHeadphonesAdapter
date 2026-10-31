@@ -14,7 +14,9 @@ C_DEFS += \
 	-DTARGET=$(HW_TARGET_ID)
 
 ifeq ($(DEBUG),1)
-C_DEFS += -DDEBUG
+C_DEFS += -DFURI_DEBUG
+else
+C_DEFS += -DFURI_NDEBUG
 endif
 
 C_INCLUDES := \

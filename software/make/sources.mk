@@ -10,6 +10,7 @@ LIB_SOURCES := \
 	$(call patched,lib/tinyusb/src/class/audio/audio_device.c)
 
 LIB_INCLUDES := \
+	-Ilib/mlib \
 	-Ilib/tinyusb/src
 
 C_SOURCES := $(SRC_SOURCES) $(LIB_SOURCES)
