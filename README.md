@@ -6,13 +6,9 @@ Yet another headphone adapter for mobile phones without 3.5mm jack..
 
 I fucking hate the assholes who thought removing the headphone jack was a good idea.
 
-This device integrated into a phone case and allows you to charge phone while listening to music.
+This device integrated into a phone case and allows you to charge phone while listening to music. Charging is limited to 60-watt PD, USB PD Fast Role Swap is also supported, so theoretically, music playback shouldn't be interrupted when connecting or disconnecting the charger (currently untested).
 
-Charging is limited to 60-watt PD, USB PD Fast Role Swap is also supported, so theoretically, music playback shouldn't be interrupted when connecting or disconnecting the charger (currently untested).
-
-The board has a physical switch that connects the phone USB data lines directly to the charger port.
-
-It also has two internal DIP switches: one to disable the microphone (by shorting Ring2 and Sleeve) and another to disable headphone detection.
+The board has a physical switch that connects the phone USB data lines directly to the charger port. It also has two internal DIP switches: one to disable the microphone (by shorting Ring2 and Sleeve) and another to disable headphone detection.
 
 The adapter uses readily available components and is designed for JLCPCB SMT assembly.
 
