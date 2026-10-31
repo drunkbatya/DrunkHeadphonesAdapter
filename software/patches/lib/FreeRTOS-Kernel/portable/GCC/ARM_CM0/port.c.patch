@@ -1,0 +1,20 @@
+--- a/portable/GCC/ARM_CM0/port.c
++++ b/portable/GCC/ARM_CM0/port.c
+@@ -294,7 +294,7 @@
+ /**
+  * @brief SysTick handler.
+  */
+-void SysTick_Handler( void ) PRIVILEGED_FUNCTION;
++void xPortSysTickHandler( void ) PRIVILEGED_FUNCTION;
+ 
+ /**
+  * @brief C part of SVC handler.
+@@ -813,7 +813,7 @@
+ 
+ /*-----------------------------------------------------------*/
+ 
+-void SysTick_Handler( void ) /* PRIVILEGED_FUNCTION */
++void xPortSysTickHandler( void ) /* PRIVILEGED_FUNCTION */
+ {
+     uint32_t ulPreviousMask;
+ 

@@ -1,7 +1,6 @@
 #include <furi_hal_resources.h>
+#include <furi_hal_bus.h>
 #include <furi.h>
-
-#include <stm32g0xx_ll_bus.h>
 
 const GpioPin gpio_swdio = {.port = GPIOA, .pin = LL_GPIO_PIN_13};
 const GpioPin gpio_swclk = {.port = GPIOA, .pin = LL_GPIO_PIN_14};
@@ -54,10 +53,12 @@ static void furi_hal_resources_init_output_low(const GpioPin* gpio) {
 }
 
 void furi_hal_resources_init_early(void) {
-    // TODO: furi_hal_bus_enable when furi_hal_bus is ported
-    LL_IOP_GRP1_EnableClock(
-        LL_IOP_GRP1_PERIPH_GPIOA | LL_IOP_GRP1_PERIPH_GPIOB | LL_IOP_GRP1_PERIPH_GPIOC |
-        LL_IOP_GRP1_PERIPH_GPIOD | LL_IOP_GRP1_PERIPH_GPIOE | LL_IOP_GRP1_PERIPH_GPIOF);
+    furi_hal_bus_enable(FuriHalBusGPIOA);
+    furi_hal_bus_enable(FuriHalBusGPIOB);
+    furi_hal_bus_enable(FuriHalBusGPIOC);
+    furi_hal_bus_enable(FuriHalBusGPIOD);
+    furi_hal_bus_enable(FuriHalBusGPIOE);
+    furi_hal_bus_enable(FuriHalBusGPIOF);
 
     furi_hal_resources_init_output_low(&gpio_tcpp03_phone_en);
     furi_hal_resources_init_output_low(&gpio_usb_mux_select);

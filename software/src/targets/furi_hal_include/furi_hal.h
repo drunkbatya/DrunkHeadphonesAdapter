@@ -1,6 +1,7 @@
 #pragma once
 
 #include <furi_hal_adc.h>
+#include <furi_hal_bus.h>
 #include <furi_hal_clock.h>
 #include <furi_hal_gpio.h>
 #include <furi_hal_i2c.h>

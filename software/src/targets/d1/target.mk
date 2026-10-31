@@ -14,7 +14,8 @@ TARGET_INCLUDES := \
 
 TARGET_LIB_SOURCES := \
 	lib/cmsis-device-g0/Source/Templates/system_stm32g0xx.c \
-	lib/FreeRTOS-Kernel/portable/GCC/ARM_CM0/port.c \
+	lib/stm32g0xx-hal-driver/Src/stm32g0xx_ll_utils.c \
+	$(call patched,lib/FreeRTOS-Kernel/portable/GCC/ARM_CM0/port.c) \
 	lib/FreeRTOS-Kernel/portable/GCC/ARM_CM0/portasm.c \
 	lib/tinyusb/src/portable/st/stm32_fsdev/dcd_stm32_fsdev.c \
 	lib/tinyusb/src/portable/st/stm32_fsdev/fsdev_common.c
