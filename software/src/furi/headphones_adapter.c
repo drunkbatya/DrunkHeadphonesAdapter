@@ -5,12 +5,26 @@
 #include <FreeRTOS.h>
 #include <task.h>
 
+#define TAG "HeadphonesAdapter"
+
 #define HEAP_CANARY_VALUE 0x8BADF00D
 
 void headphones_adapter_init(void) {
+    FURI_LOG_I(TAG, "Starting services");
+
     for(size_t i = 0; i < SERVICE_APPLICATIONS_COUNT; i++) {
-        UNUSED(SERVICE_APPLICATIONS[i]);
+        FURI_LOG_D(TAG, "Starting service %s", SERVICE_APPLICATIONS[i].name);
+
+        FuriThread* thread = furi_thread_alloc_service(
+            SERVICE_APPLICATIONS[i].name,
+            SERVICE_APPLICATIONS[i].stack_size,
+            SERVICE_APPLICATIONS[i].app,
+            NULL);
+
+        furi_thread_start(thread);
     }
+
+    FURI_LOG_I(TAG, "Startup complete");
 }
 
 void vApplicationGetIdleTaskMemory(

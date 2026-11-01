@@ -97,6 +97,8 @@ header file. */
     if((x) == 0) {                     \
         furi_crash("FreeRTOS Assert"); \
     }
+#else
+#define configCHECK_HANDLER_INSTALLATION 0
 #endif
 
 // Must be last line of config because of recursion

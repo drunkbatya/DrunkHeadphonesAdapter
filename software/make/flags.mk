@@ -11,7 +11,10 @@ C_DEFS += \
 	'-DBUILD_DIRTY=$(GIT_DIRTY)' \
 	'-DFIRMWARE_ORIGIN="DrunkHeadphonesAdapter"' \
 	'-DGIT_ORIGIN="$(GIT_ORIGIN)"' \
-	-DTARGET=$(HW_TARGET_ID)
+	-DTARGET=$(HW_TARGET_ID) \
+	'-DM_MEMORY_FULL(type, number)=abort()' \
+	-DM_USE_SMALL_NAME=0 \
+	-DNDEBUG
 
 ifeq ($(DEBUG),1)
 C_DEFS += -DFURI_DEBUG

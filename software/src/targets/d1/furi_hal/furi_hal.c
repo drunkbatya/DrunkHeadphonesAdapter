@@ -3,6 +3,7 @@
 void furi_hal_init_early(void) {
     furi_hal_clock_init_early();
     furi_hal_bus_init_early();
+    furi_hal_cortex_init_early();
     furi_hal_resources_init_early();
 }
 
