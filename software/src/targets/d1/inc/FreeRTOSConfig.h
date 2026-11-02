@@ -42,7 +42,7 @@
 #define configUSE_COUNTING_SEMAPHORES           1
 #define configENABLE_BACKWARD_COMPATIBILITY     0
 #define configUSE_PORT_OPTIMISED_TASK_SELECTION 0
-#define configUSE_TICKLESS_IDLE                 0
+#define configUSE_TICKLESS_IDLE                 2
 #define configRECORD_STACK_HIGH_ADDRESS         1
 #define configUSE_NEWLIB_REENTRANT              0
 

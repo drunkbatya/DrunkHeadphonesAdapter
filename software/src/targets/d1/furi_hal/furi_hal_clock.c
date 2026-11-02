@@ -72,3 +72,33 @@ void furi_hal_clock_init(void) {
     LL_CRS_EnableAutoTrimming();
     LL_CRS_EnableFreqErrorCounter();
 }
+
+void furi_hal_clock_switch_hsi2pll(void) {
+    furi_check(LL_RCC_GetSysClkSource() == LL_RCC_SYS_CLKSOURCE_STATUS_HSI);
+
+    LL_RCC_HSI48_Enable();
+    LL_RCC_PLL_Enable();
+    while(!HS_CLOCK_IS_READY())
+        ;
+    while(!LL_RCC_PLL_IsReady())
+        ;
+
+    LL_FLASH_SetLatency(LL_FLASH_LATENCY_2);
+    while(LL_FLASH_GetLatency() != LL_FLASH_LATENCY_2)
+        ;
+
+    LL_RCC_SetSysClkSource(LL_RCC_SYS_CLKSOURCE_PLL);
+    while(LL_RCC_GetSysClkSource() != LL_RCC_SYS_CLKSOURCE_STATUS_PLL)
+        ;
+
+    LL_SetSystemCoreClock(CPU_CLOCK_PLL_HZ);
+    SysTick->LOAD = (uint32_t)((SystemCoreClock / 1000) - 1UL);
+}
+
+void furi_hal_clock_suspend_tick(void) {
+    CLEAR_BIT(SysTick->CTRL, SysTick_CTRL_ENABLE_Msk);
+}
+
+void furi_hal_clock_resume_tick(void) {
+    SET_BIT(SysTick->CTRL, SysTick_CTRL_ENABLE_Msk);
+}

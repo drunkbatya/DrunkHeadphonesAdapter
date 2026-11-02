@@ -25,4 +25,5 @@ TARGET_ASM_SOURCES := \
 
 TARGET_LDSCRIPT := $(TARGET_DIR)/stm32g0b1xx_flash.ld
 
-TARGET_OPENOCD_CFG := -f interface/stlink.cfg -f target/stm32g0x.cfg
+TARGET_OPENOCD_CFG := -f interface/stlink.cfg -f target/stm32g0x.cfg \
+	-c "reset_config srst_only srst_nogate connect_assert_srst"

@@ -32,6 +32,9 @@ debug: flash
 	arm-none-eabi-gdb $(BUILD_DIR)/$(TARGET).elf \
 		-ex "target extended-remote localhost:3333" \
 		-ex "monitor reset halt" \
+		-ex "tbreak main" \
+		-ex "continue" \
+		-ex "set variable furi_hal_debug_gdb_session_active = 1" \
 		-ex "continue"
 
 .PHONY: clean
