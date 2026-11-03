@@ -15,6 +15,8 @@ void furi_hal_init_early(void) {
 
 void furi_hal_init(void) {
     furi_hal_clock_init();
+    furi_hal_serial_control_init();
+    furi_hal_serial_control_set_logging_config(FuriHalSerialIdLpuart, 230400);
     furi_hal_interrupt_init();
     furi_hal_resources_init();
     furi_hal_power_init();

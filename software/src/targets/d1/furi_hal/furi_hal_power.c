@@ -2,6 +2,7 @@
 #include <furi_hal_clock.h>
 #include <furi_hal_bus.h>
 #include <furi_hal_debug.h>
+#include <furi_hal_serial_control.h>
 
 #include <stm32g0xx_ll_rcc.h>
 #include <stm32g0xx_ll_pwr.h>
@@ -63,7 +64,19 @@ static inline void furi_hal_power_light_sleep(void) {
     __WFI();
 }
 
+static inline void furi_hal_power_suspend_aux_periphs(void) {
+    // Disable USART
+    furi_hal_serial_control_suspend();
+}
+
+static inline void furi_hal_power_resume_aux_periphs(void) {
+    // Re-enable USART
+    furi_hal_serial_control_resume();
+}
+
 static inline void furi_hal_power_deep_sleep(void) {
+    furi_hal_power_suspend_aux_periphs();
+
     // Prepare deep sleep
     LL_LPM_EnableDeepSleep();
 
@@ -76,6 +89,8 @@ static inline void furi_hal_power_deep_sleep(void) {
     } else {
         furi_check(LL_RCC_GetSysClkSource() == LL_RCC_SYS_CLKSOURCE_STATUS_PLL);
     }
+
+    furi_hal_power_resume_aux_periphs();
 }
 
 void furi_hal_power_sleep(void) {
@@ -84,4 +99,8 @@ void furi_hal_power_sleep(void) {
     } else {
         furi_hal_power_light_sleep();
     }
+}
+
+FURI_NORETURN void furi_hal_power_reset(void) {
+    NVIC_SystemReset();
 }

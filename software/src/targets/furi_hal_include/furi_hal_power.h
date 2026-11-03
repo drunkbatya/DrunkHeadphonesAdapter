@@ -2,6 +2,7 @@
 
 #include <stdint.h>
 #include <stdbool.h>
+#include <core/common_defines.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -38,6 +39,10 @@ bool furi_hal_power_sleep_available(void);
 /** Go to sleep
  */
 void furi_hal_power_sleep(void);
+
+/** Reset device
+ */
+FURI_NORETURN void furi_hal_power_reset(void);
 
 #ifdef __cplusplus
 }
