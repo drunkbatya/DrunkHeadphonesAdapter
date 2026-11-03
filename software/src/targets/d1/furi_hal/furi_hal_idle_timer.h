@@ -35,8 +35,14 @@ static inline void furi_hal_idle_timer_start(uint32_t count) {
 
     // Set compare, autoreload and start counter
     // Include some marging to workaround ARRM behaviour
-    LL_LPTIM_SetCompare(FURI_HAL_IDLE_TIMER, count - 3);
+    LL_LPTIM_ClearFlag_ARROK(FURI_HAL_IDLE_TIMER);
     LL_LPTIM_SetAutoReload(FURI_HAL_IDLE_TIMER, count);
+    while(!LL_LPTIM_IsActiveFlag_ARROK(FURI_HAL_IDLE_TIMER))
+        ;
+    LL_LPTIM_ClearFlag_CMPOK(FURI_HAL_IDLE_TIMER);
+    LL_LPTIM_SetCompare(FURI_HAL_IDLE_TIMER, count - 3);
+    while(!LL_LPTIM_IsActiveFlag_CMPOK(FURI_HAL_IDLE_TIMER))
+        ;
     LL_LPTIM_StartCounter(FURI_HAL_IDLE_TIMER, LL_LPTIM_OPERATING_MODE_ONESHOT);
 }
 

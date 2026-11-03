@@ -230,54 +230,6 @@ static void furi_hal_serial_lpuart_deinit_dma_rx(void) {
     }
 }
 
-static void furi_hal_serial_lpuart_init(FuriHalSerialHandle* handle, uint32_t baud) {
-    furi_hal_bus_enable(FuriHalBusLPUART2);
-    LL_RCC_SetLPUARTClockSource(LL_RCC_LPUART2_CLKSOURCE_PCLK1);
-
-    furi_hal_gpio_init_ex(
-        &gpio_lpuart_rx,
-        GpioModeAltFunctionPushPull,
-        GpioPullUp,
-        GpioSpeedVeryHigh,
-        GpioAltFn3LPUART2);
-    furi_hal_gpio_init_ex(
-        &gpio_lpuart_tx,
-        GpioModeAltFunctionPushPull,
-        GpioPullUp,
-        GpioSpeedVeryHigh,
-        GpioAltFn3LPUART2);
-
-    LL_LPUART_InitTypeDef LPUART_InitStruct;
-    LPUART_InitStruct.PrescalerValue = LL_LPUART_PRESCALER_DIV1;
-    LPUART_InitStruct.BaudRate = baud;
-    LPUART_InitStruct.DataWidth = LL_LPUART_DATAWIDTH_8B;
-    LPUART_InitStruct.StopBits = LL_LPUART_STOPBITS_1;
-    LPUART_InitStruct.Parity = LL_LPUART_PARITY_NONE;
-    LPUART_InitStruct.TransferDirection = LL_LPUART_DIRECTION_TX_RX;
-    LPUART_InitStruct.HardwareFlowControl = LL_LPUART_HWCONTROL_NONE;
-    LL_LPUART_Init(LPUART2, &LPUART_InitStruct);
-    LL_LPUART_EnableFIFO(LPUART2);
-
-    LL_LPUART_Enable(LPUART2);
-
-    while(!LL_LPUART_IsActiveFlag_TEACK(LPUART2) || !LL_LPUART_IsActiveFlag_REACK(LPUART2))
-        ;
-
-    furi_hal_serial_set_br(handle, baud);
-    LL_LPUART_DisableIT_ERROR(LPUART2);
-    furi_hal_serial[handle->id].enabled = true;
-}
-
-void furi_hal_serial_init(FuriHalSerialHandle* handle, uint32_t baud) {
-    furi_check(handle);
-    furi_hal_serial_lpuart_init(handle, baud);
-}
-
-bool furi_hal_serial_is_baud_rate_supported(FuriHalSerialHandle* handle, uint32_t baud) {
-    furi_check(handle);
-    return baud >= 9600UL && baud <= 4000000UL;
-}
-
 static uint32_t furi_hal_serial_get_prescaler(FuriHalSerialHandle* handle, uint32_t baud) {
     UNUSED(handle);
     uint32_t uartclk = LL_RCC_GetLPUARTClockFreq(LL_RCC_LPUART2_CLKSOURCE);
@@ -311,6 +263,54 @@ static uint32_t furi_hal_serial_get_prescaler(FuriHalSerialHandle* handle, uint3
     }
 
     return prescaler;
+}
+
+static void furi_hal_serial_lpuart_init(FuriHalSerialHandle* handle, uint32_t baud) {
+    furi_hal_bus_enable(FuriHalBusLPUART2);
+    LL_RCC_SetLPUARTClockSource(LL_RCC_LPUART2_CLKSOURCE_PCLK1);
+
+    furi_hal_gpio_init_ex(
+        &gpio_lpuart_rx,
+        GpioModeAltFunctionPushPull,
+        GpioPullUp,
+        GpioSpeedVeryHigh,
+        GpioAltFn3LPUART2);
+    furi_hal_gpio_init_ex(
+        &gpio_lpuart_tx,
+        GpioModeAltFunctionPushPull,
+        GpioPullUp,
+        GpioSpeedVeryHigh,
+        GpioAltFn3LPUART2);
+
+    LL_LPUART_InitTypeDef LPUART_InitStruct;
+    LPUART_InitStruct.PrescalerValue = furi_hal_serial_get_prescaler(handle, baud);
+    LPUART_InitStruct.BaudRate = baud;
+    LPUART_InitStruct.DataWidth = LL_LPUART_DATAWIDTH_8B;
+    LPUART_InitStruct.StopBits = LL_LPUART_STOPBITS_1;
+    LPUART_InitStruct.Parity = LL_LPUART_PARITY_NONE;
+    LPUART_InitStruct.TransferDirection = LL_LPUART_DIRECTION_TX_RX;
+    LPUART_InitStruct.HardwareFlowControl = LL_LPUART_HWCONTROL_NONE;
+    LL_LPUART_Init(LPUART2, &LPUART_InitStruct);
+    LL_LPUART_EnableFIFO(LPUART2);
+
+    LL_LPUART_Enable(LPUART2);
+
+    while(!LL_LPUART_IsActiveFlag_TEACK(LPUART2) || !LL_LPUART_IsActiveFlag_REACK(LPUART2))
+        ;
+
+    furi_hal_serial_set_br(handle, baud);
+    LL_LPUART_DisableIT_ERROR(LPUART2);
+    furi_hal_serial[handle->id].enabled = true;
+}
+
+void furi_hal_serial_init(FuriHalSerialHandle* handle, uint32_t baud) {
+    furi_check(handle);
+    furi_hal_serial_lpuart_init(handle, baud);
+}
+
+bool furi_hal_serial_is_baud_rate_supported(FuriHalSerialHandle* handle, uint32_t baud) {
+    furi_check(handle);
+    return baud >= 9600UL && baud <= 4000000UL;
 }
 
 void furi_hal_serial_set_br(FuriHalSerialHandle* handle, uint32_t baud) {

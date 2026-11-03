@@ -115,6 +115,11 @@ void furi_hal_gpio_init_ex(
         // Set pin in interrupt mode
         LL_GPIO_SetPinMode(gpio->port, gpio->pin, LL_GPIO_MODE_INPUT);
         LL_EXTI_SetEXTISource(exti_port, exti_source_line);
+        LL_EXTI_DisableEvent_0_31(exti_line);
+        LL_EXTI_DisableRisingTrig_0_31(exti_line);
+        LL_EXTI_DisableFallingTrig_0_31(exti_line);
+        LL_EXTI_ClearRisingFlag_0_31(exti_line);
+        LL_EXTI_ClearFallingFlag_0_31(exti_line);
         if(mode == GpioModeInterruptRise || mode == GpioModeInterruptRiseFall) {
             LL_EXTI_EnableRisingTrig_0_31(exti_line);
         }
@@ -132,8 +137,9 @@ void furi_hal_gpio_init_ex(
     } else {
         // Disable interrupts if set
         if(LL_EXTI_GetEXTISource(exti_source_line) == exti_port &&
-           LL_EXTI_IsEnabledIT_0_31(exti_line)) {
+           (LL_EXTI_IsEnabledIT_0_31(exti_line) || LL_EXTI_IsEnabledEvent_0_31(exti_line))) {
             LL_EXTI_DisableIT_0_31(exti_line);
+            LL_EXTI_DisableEvent_0_31(exti_line);
             LL_EXTI_ClearRisingFlag_0_31(exti_line);
             LL_EXTI_ClearFallingFlag_0_31(exti_line);
             LL_EXTI_DisableRisingTrig_0_31(exti_line);
@@ -246,11 +252,10 @@ FURI_ALWAYS_INLINE static void furi_hal_gpio_int_call(uint16_t pin_num) {
 }
 
 FURI_ALWAYS_INLINE static void furi_hal_gpio_exti_handle(uint32_t exti_line, uint16_t pin_num) {
-    if(LL_EXTI_IsActiveRisingFlag_0_31(exti_line)) {
+    const bool rising = LL_EXTI_IsActiveRisingFlag_0_31(exti_line);
+    const bool falling = LL_EXTI_IsActiveFallingFlag_0_31(exti_line);
+    if(rising || falling) {
         LL_EXTI_ClearRisingFlag_0_31(exti_line);
-        furi_hal_gpio_int_call(pin_num);
-    }
-    if(LL_EXTI_IsActiveFallingFlag_0_31(exti_line)) {
         LL_EXTI_ClearFallingFlag_0_31(exti_line);
         furi_hal_gpio_int_call(pin_num);
     }

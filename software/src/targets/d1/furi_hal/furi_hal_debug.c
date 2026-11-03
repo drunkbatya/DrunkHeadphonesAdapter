@@ -24,9 +24,12 @@ void furi_hal_debug_enable(void) {
 
 void furi_hal_debug_disable(void) {
     // Low power mode debug
-    if(furi_hal_bus_is_enabled(FuriHalBusDBGMCU)) {
-        furi_hal_bus_disable(FuriHalBusDBGMCU);
+    if(!furi_hal_bus_is_enabled(FuriHalBusDBGMCU)) {
+        furi_hal_bus_enable(FuriHalBusDBGMCU);
     }
+    LL_DBGMCU_DisableDBGStopMode();
+    LL_DBGMCU_DisableDBGStandbyMode();
+    furi_hal_bus_disable(FuriHalBusDBGMCU);
     // SWD GPIO
     furi_hal_gpio_init_simple(&gpio_swdio, GpioModeAnalog);
     furi_hal_gpio_init_simple(&gpio_swclk, GpioModeAnalog);

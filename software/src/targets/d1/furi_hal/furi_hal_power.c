@@ -65,13 +65,17 @@ static inline void furi_hal_power_light_sleep(void) {
 }
 
 static inline void furi_hal_power_suspend_aux_periphs(void) {
+#ifdef FURI_DEBUG
     // Disable USART
     furi_hal_serial_control_suspend();
+#endif
 }
 
 static inline void furi_hal_power_resume_aux_periphs(void) {
+#ifdef FURI_DEBUG
     // Re-enable USART
     furi_hal_serial_control_resume();
+#endif
 }
 
 static inline void furi_hal_power_deep_sleep(void) {
