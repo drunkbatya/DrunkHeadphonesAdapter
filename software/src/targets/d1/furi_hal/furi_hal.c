@@ -16,6 +16,7 @@ void furi_hal_init_early(void) {
     }
 #endif
     furi_hal_os_init();
+    furi_hal_i2c_init_early();
 }
 
 void furi_hal_init(void) {

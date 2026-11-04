@@ -17,6 +17,7 @@ TARGET_LIB_SOURCES := \
 	lib/stm32g0xx-hal-driver/Src/stm32g0xx_ll_utils.c \
 	lib/stm32g0xx-hal-driver/Src/stm32g0xx_ll_rcc.c \
 	lib/stm32g0xx-hal-driver/Src/stm32g0xx_ll_dma.c \
+	lib/stm32g0xx-hal-driver/Src/stm32g0xx_ll_i2c.c \
 	lib/stm32g0xx-hal-driver/Src/stm32g0xx_ll_lpuart.c \
 	$(call patched,lib/FreeRTOS-Kernel/portable/GCC/ARM_CM0/port.c) \
 	lib/FreeRTOS-Kernel/portable/GCC/ARM_CM0/portasm.c \
