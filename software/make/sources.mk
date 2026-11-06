@@ -13,6 +13,7 @@ LIB_SOURCES := \
 	lib/tinyusb/src/tusb.c \
 	lib/tinyusb/src/common/tusb_fifo.c \
 	lib/tinyusb/src/device/usbd.c \
+	lib/tinyusb/src/class/hid/hid_device.c \
 	$(call patched,lib/tinyusb/src/class/audio/audio_device.c)
 
 LIB_INCLUDES := \

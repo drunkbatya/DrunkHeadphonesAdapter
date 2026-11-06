@@ -9,7 +9,10 @@
 extern "C" {
 #endif
 
-#define ES8327_ADC_VOLUME_0DB 0xBF
+#define ES8327_ADC_VOLUME_MIN          0x00
+#define ES8327_ADC_VOLUME_0DB          0xBF
+#define ES8327_ADC_VOLUME_MAX          0xFF
+#define ES8327_ADC_VOLUME_STEPS_PER_DB 2
 
 typedef enum {
     Es8327SampleRate44100,

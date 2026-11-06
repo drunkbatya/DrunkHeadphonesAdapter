@@ -1,0 +1,79 @@
+--- a/src/portable/st/stm32_fsdev/dcd_stm32_fsdev.c
++++ b/src/portable/st/stm32_fsdev/dcd_stm32_fsdev.c
+@@ -154,6 +154,12 @@
+ }
+ #endif
+ 
++#if CFG_TUSB_MCU == OPT_MCU_STM32G0 && !defined(STM32G0B0xx)
++  #define FSDEV_CNTR_INTERRUPT_MASKS (U_CNTR_CTRM | U_CNTR_PMAOVRM | U_CNTR_ERRM | U_CNTR_WKUPM | U_CNTR_SUSPM | U_CNTR_RESETM | U_CNTR_SOFM | U_CNTR_ESOFM)
++
++static fsdev_bus_t fsdev_cntr_masks_disabled;
++#endif
++
+ //--------------------------------------------------------------------+
+ // Controller API
+ //--------------------------------------------------------------------+
+@@ -185,6 +191,9 @@
+   (void)rhport;
+ 
+   fsdev_deinit();
++  #if CFG_TUSB_MCU == OPT_MCU_STM32G0 && !defined(STM32G0B0xx)
++  fsdev_cntr_masks_disabled = 0;
++  #endif
+ 
+   return true;
+ }
+@@ -371,6 +380,12 @@
+ void dcd_int_handler(uint8_t rhport) {
+   uint32_t int_status = FSDEV_REG->ISTR;
+ 
++  #if CFG_TUSB_MCU == OPT_MCU_STM32G0 && !defined(STM32G0B0xx)
++  if ((int_status & FSDEV_REG->CNTR & FSDEV_CNTR_INTERRUPT_MASKS) == 0) {
++    return;
++  }
++  #endif
++
+   /* Put SOF flag at the beginning of ISR in case to get least amount of jitter if it is used for timing purposes */
+   if ((int_status & U_ISTR_SOF) && (FSDEV_REG->CNTR & U_CNTR_SOFM)) {
+     FSDEV_REG->ISTR = (fsdev_bus_t)~U_ISTR_SOF;
+@@ -851,6 +866,32 @@
+   ep_write(ep_idx, ep_reg, true);
+ }
+ 
++#if CFG_TUSB_MCU == OPT_MCU_STM32G0 && !defined(STM32G0B0xx)
++void dcd_int_enable(uint8_t rhport) {
++  (void)rhport;
++
++  __DSB();
++  __ISB();
++
++  uint32_t primask = __get_PRIMASK();
++  __disable_irq();
++  FSDEV_REG->CNTR |= fsdev_cntr_masks_disabled;
++  fsdev_cntr_masks_disabled = 0;
++  __set_PRIMASK(primask);
++}
++
++void dcd_int_disable(uint8_t rhport) {
++  (void)rhport;
++
++  uint32_t primask = __get_PRIMASK();
++  __disable_irq();
++  fsdev_cntr_masks_disabled |= FSDEV_REG->CNTR & FSDEV_CNTR_INTERRUPT_MASKS;
++  FSDEV_REG->CNTR &= (fsdev_bus_t)~FSDEV_CNTR_INTERRUPT_MASKS;
++  __DSB();
++  NVIC_ClearPendingIRQ(USB_UCPD1_2_IRQn);
++  __set_PRIMASK(primask);
++}
++#else
+ void dcd_int_enable(uint8_t rhport) {
+   fsdev_int_enable(rhport);
+ }
+@@ -858,6 +899,7 @@
+ void dcd_int_disable(uint8_t rhport) {
+   fsdev_int_disable(rhport);
+ }
++#endif
+ 
+   #if defined(USB_BCDR_DPPU) || defined(SYSCFG_PMC_USB_PU) || defined(EXTEN_USBD_PU_EN)
+ void dcd_connect(uint8_t rhport) {

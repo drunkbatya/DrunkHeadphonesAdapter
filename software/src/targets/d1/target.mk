@@ -21,7 +21,7 @@ TARGET_LIB_SOURCES := \
 	lib/stm32g0xx-hal-driver/Src/stm32g0xx_ll_lpuart.c \
 	$(call patched,lib/FreeRTOS-Kernel/portable/GCC/ARM_CM0/port.c) \
 	lib/FreeRTOS-Kernel/portable/GCC/ARM_CM0/portasm.c \
-	lib/tinyusb/src/portable/st/stm32_fsdev/dcd_stm32_fsdev.c \
+	$(call patched,lib/tinyusb/src/portable/st/stm32_fsdev/dcd_stm32_fsdev.c) \
 	lib/tinyusb/src/portable/st/stm32_fsdev/fsdev_common.c
 
 TARGET_ASM_SOURCES := \
