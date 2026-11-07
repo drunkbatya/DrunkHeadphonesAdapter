@@ -11,7 +11,7 @@ typedef struct {
     uint8_t clock_regs[ES8327_CLOCK_REG_COUNT];
 } Es8327ClockConfig;
 
-// TODO: values for MCLK = 256 Fs from the Everest ES8326 driver (Linux v6.1 coeff_div), the ES8327 datasheet does not describe clk2..clk10, verify on hardware
+// TODO: values for MCLK = 256 Fs from the Everest ES8326 driver (Linux v6.1 coeff_div), datasheet does not describe clk2..clk10
 static const Es8327ClockConfig es8327_clock_config[] = {
     [Es8327SampleRate44100] = {{0x00, 0x00, 0x10, 0x2D, 0x0A, 0x0A, 0x1F, 0x1F}},
     [Es8327SampleRate48000] = {{0x00, 0x00, 0x30, 0x2D, 0x0A, 0x0A, 0x1F, 0x1F}},
