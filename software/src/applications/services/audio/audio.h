@@ -9,6 +9,11 @@ extern "C" {
 #define RECORD_AUDIO          "audio"
 #define RECORD_HEADSET_EVENTS "headset_events"
 
+typedef enum {
+    HeadsetEventPlugged,
+    HeadsetEventUnplugged,
+} HeadsetEvent;
+
 int32_t audio_srv(void* context);
 
 #ifdef __cplusplus

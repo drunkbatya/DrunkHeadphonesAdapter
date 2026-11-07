@@ -9,6 +9,9 @@
 extern "C" {
 #endif
 
+#define CS43131_RESET_PULSE_WIDTH_US 1000
+#define CS43131_POWER_UP_DELAY_US    1500
+
 #define CS43131_INTERRUPT_HP_PLUG   (1 << 6)
 #define CS43131_INTERRUPT_HP_UNPLUG (1 << 5)
 #define CS43131_INTERRUPT_PDN_DONE  (1 << 0)
