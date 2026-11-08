@@ -44,6 +44,8 @@ typedef enum {
 
 bool furi_hal_usb_audio_is_configured(void);
 
+void furi_hal_usb_audio_reset(void);
+
 void furi_hal_usb_hid_init(void);
 
 void furi_hal_usb_hid_reset(void);

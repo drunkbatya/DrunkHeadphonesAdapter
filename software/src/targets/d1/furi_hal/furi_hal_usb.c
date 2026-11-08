@@ -484,6 +484,7 @@ void tud_mount_cb(void) {
 void tud_umount_cb(void) {
     FURI_LOG_I(TAG, "Unmount");
     furi_hal_usb_hid_reset();
+    furi_hal_usb_audio_reset();
     furi_hal_usb_notify_state(FuriHalUsbStateEventUnmount);
 }
 
@@ -580,6 +581,7 @@ static void usb_process_enable(bool enable) {
 
         usb.enabled = false;
         furi_hal_usb_hid_reset();
+        furi_hal_usb_audio_reset();
         FURI_LOG_I(TAG, "USB Disable");
     }
 

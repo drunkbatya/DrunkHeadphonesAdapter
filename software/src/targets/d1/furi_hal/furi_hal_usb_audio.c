@@ -23,11 +23,16 @@ typedef struct {
 } FuriHalUsbAudioFeatureUnit;
 
 typedef struct {
+    FuriHalUsbAudioClock clock;
+    FuriHalUsbAudioFeatureUnit feature_unit;
+    FuriHalUsbAudioAltSetting alt_setting;
+} FuriHalUsbAudioStreamState;
+
+typedef struct {
     bool configured;
-    FuriHalUsbAudioClock speaker_clock;
-    FuriHalUsbAudioClock mic_clock;
-    FuriHalUsbAudioFeatureUnit speaker_feature_unit;
-    FuriHalUsbAudioFeatureUnit mic_feature_unit;
+    FuriHalUsbAudioCallback callback;
+    void* callback_context;
+    FuriHalUsbAudioStreamState streams[FuriHalUsbAudioStreamCount];
 } FuriHalUsbAudio;
 
 static FuriHalUsbAudio usb_audio = {0};
@@ -78,9 +83,10 @@ void furi_hal_usb_audio_set_config(
     furi_hal_usb_audio_check_volume_range(&speaker->volume_range);
     furi_hal_usb_audio_check_volume_range(&mic->volume_range);
 
-    furi_hal_usb_audio_apply_config(
-        speaker, &usb_audio.speaker_clock, &usb_audio.speaker_feature_unit);
-    furi_hal_usb_audio_apply_config(mic, &usb_audio.mic_clock, &usb_audio.mic_feature_unit);
+    FuriHalUsbAudioStreamState* speaker_state = &usb_audio.streams[FuriHalUsbAudioStreamSpeaker];
+    FuriHalUsbAudioStreamState* mic_state = &usb_audio.streams[FuriHalUsbAudioStreamMic];
+    furi_hal_usb_audio_apply_config(speaker, &speaker_state->clock, &speaker_state->feature_unit);
+    furi_hal_usb_audio_apply_config(mic, &mic_state->clock, &mic_state->feature_unit);
     usb_audio.configured = true;
 }
 
@@ -88,25 +94,109 @@ bool furi_hal_usb_audio_is_configured(void) {
     return usb_audio.configured;
 }
 
-static FuriHalUsbAudioClock* furi_hal_usb_audio_get_clock(uint8_t entity_id) {
-    switch(entity_id) {
-    case FuriHalUsbAudioEntitySpeakerClock:
-        return &usb_audio.speaker_clock;
-    case FuriHalUsbAudioEntityMicClock:
-        return &usb_audio.mic_clock;
-    default:
-        return NULL;
+void furi_hal_usb_audio_set_callback(FuriHalUsbAudioCallback callback, void* context) {
+    usb_audio.callback = callback;
+    usb_audio.callback_context = context;
+}
+
+int16_t furi_hal_usb_audio_get_volume(FuriHalUsbAudioStream stream) {
+    furi_check(stream < FuriHalUsbAudioStreamCount);
+    return usb_audio.streams[stream].feature_unit.volume;
+}
+
+bool furi_hal_usb_audio_is_muted(FuriHalUsbAudioStream stream) {
+    furi_check(stream < FuriHalUsbAudioStreamCount);
+    return usb_audio.streams[stream].feature_unit.muted;
+}
+
+static void furi_hal_usb_audio_notify(const FuriHalUsbAudioEvent* event) {
+    if(usb_audio.callback != NULL) {
+        usb_audio.callback(event, usb_audio.callback_context);
     }
 }
 
-static FuriHalUsbAudioFeatureUnit* furi_hal_usb_audio_get_feature_unit(uint8_t entity_id) {
+static FuriHalUsbAudioSampleFormat
+    furi_hal_usb_audio_get_sample_format(FuriHalUsbAudioAltSetting alt_setting) {
+    switch(alt_setting) {
+    case FuriHalUsbAudioAltSetting16Bit:
+        return FuriHalUsbAudioSampleFormat16Bit;
+    case FuriHalUsbAudioAltSetting24Bit:
+        return FuriHalUsbAudioSampleFormat24Bit;
+    default:
+        furi_crash();
+    }
+}
+
+static void furi_hal_usb_audio_notify_start(FuriHalUsbAudioStream stream) {
+    const FuriHalUsbAudioStreamState* state = &usb_audio.streams[stream];
+    const FuriHalUsbAudioEvent event = {
+        .type = FuriHalUsbAudioEventTypeStart,
+        .stream = stream,
+        .format =
+            {
+                .sample_rate = state->clock.sample_rate,
+                .sample_format = furi_hal_usb_audio_get_sample_format(state->alt_setting),
+            },
+    };
+    furi_hal_usb_audio_notify(&event);
+}
+
+static void furi_hal_usb_audio_notify_stop(FuriHalUsbAudioStream stream) {
+    const FuriHalUsbAudioEvent event = {
+        .type = FuriHalUsbAudioEventTypeStop,
+        .stream = stream,
+    };
+    furi_hal_usb_audio_notify(&event);
+}
+
+void furi_hal_usb_audio_reset(void) {
+    for(size_t stream = 0; stream < FuriHalUsbAudioStreamCount; stream++) {
+        if(usb_audio.streams[stream].alt_setting == FuriHalUsbAudioAltSettingIdle) {
+            continue;
+        }
+        usb_audio.streams[stream].alt_setting = FuriHalUsbAudioAltSettingIdle;
+        furi_hal_usb_audio_notify_stop(stream);
+    }
+}
+
+static bool furi_hal_usb_audio_get_clock_stream(uint8_t entity_id, FuriHalUsbAudioStream* stream) {
+    switch(entity_id) {
+    case FuriHalUsbAudioEntitySpeakerClock:
+        *stream = FuriHalUsbAudioStreamSpeaker;
+        return true;
+    case FuriHalUsbAudioEntityMicClock:
+        *stream = FuriHalUsbAudioStreamMic;
+        return true;
+    default:
+        return false;
+    }
+}
+
+static bool
+    furi_hal_usb_audio_get_feature_unit_stream(uint8_t entity_id, FuriHalUsbAudioStream* stream) {
     switch(entity_id) {
     case FuriHalUsbAudioEntitySpeakerFeatureUnit:
-        return &usb_audio.speaker_feature_unit;
+        *stream = FuriHalUsbAudioStreamSpeaker;
+        return true;
     case FuriHalUsbAudioEntityMicFeatureUnit:
-        return &usb_audio.mic_feature_unit;
+        *stream = FuriHalUsbAudioStreamMic;
+        return true;
     default:
-        return NULL;
+        return false;
+    }
+}
+
+static bool
+    furi_hal_usb_audio_get_interface_stream(uint8_t interface, FuriHalUsbAudioStream* stream) {
+    switch(interface) {
+    case FuriHalUsbInterfaceAudioSpeaker:
+        *stream = FuriHalUsbAudioStreamSpeaker;
+        return true;
+    case FuriHalUsbInterfaceAudioMic:
+        *stream = FuriHalUsbAudioStreamMic;
+        return true;
+    default:
+        return false;
     }
 }
 
@@ -149,7 +239,8 @@ static bool furi_hal_usb_audio_get_clock_request(
 static bool furi_hal_usb_audio_set_clock_request(
     const tusb_control_request_t* request,
     const uint8_t* buffer,
-    FuriHalUsbAudioClock* clock) {
+    FuriHalUsbAudioStream stream) {
+    FuriHalUsbAudioStreamState* state = &usb_audio.streams[stream];
     const uint8_t control_selector = TU_U16_HIGH(request->wValue);
 
     if(control_selector != AUDIO20_CS_CTRL_SAM_FREQ || request->bRequest != AUDIO20_CS_REQ_CUR ||
@@ -158,11 +249,18 @@ static bool furi_hal_usb_audio_set_clock_request(
     }
 
     const uint32_t sample_rate = tu_unaligned_read32(buffer);
-    for(size_t i = 0; i < clock->sample_rate_count; i++) {
-        if(clock->sample_rates[i] == sample_rate) {
-            clock->sample_rate = sample_rate;
+    for(size_t i = 0; i < state->clock.sample_rate_count; i++) {
+        if(state->clock.sample_rates[i] != sample_rate) {
+            continue;
+        }
+        if(state->clock.sample_rate == sample_rate) {
             return true;
         }
+        state->clock.sample_rate = sample_rate;
+        if(state->alt_setting != FuriHalUsbAudioAltSettingIdle) {
+            furi_hal_usb_audio_notify_start(stream);
+        }
+        return true;
     }
 
     return false;
@@ -210,7 +308,8 @@ static bool furi_hal_usb_audio_get_feature_unit_request(
 static bool furi_hal_usb_audio_set_feature_unit_request(
     const tusb_control_request_t* request,
     const uint8_t* buffer,
-    FuriHalUsbAudioFeatureUnit* feature_unit) {
+    FuriHalUsbAudioStream stream) {
+    FuriHalUsbAudioFeatureUnit* feature_unit = &usb_audio.streams[stream].feature_unit;
     const uint8_t control_selector = TU_U16_HIGH(request->wValue);
     const uint8_t channel = TU_U16_LOW(request->wValue);
 
@@ -221,6 +320,12 @@ static bool furi_hal_usb_audio_set_feature_unit_request(
     if(control_selector == AUDIO20_FU_CTRL_MUTE &&
        request->wLength == sizeof(audio20_control_cur_1_t)) {
         feature_unit->muted = buffer[0] != 0;
+        const FuriHalUsbAudioEvent event = {
+            .type = FuriHalUsbAudioEventTypeMute,
+            .stream = stream,
+            .muted = feature_unit->muted,
+        };
+        furi_hal_usb_audio_notify(&event);
         return true;
     }
 
@@ -229,6 +334,12 @@ static bool furi_hal_usb_audio_set_feature_unit_request(
         const int16_t volume = (int16_t)tu_unaligned_read16(buffer);
         feature_unit->volume =
             CLAMP(volume, feature_unit->volume_range.max, feature_unit->volume_range.min);
+        const FuriHalUsbAudioEvent event = {
+            .type = FuriHalUsbAudioEventTypeVolume,
+            .stream = stream,
+            .volume = feature_unit->volume,
+        };
+        furi_hal_usb_audio_notify(&event);
         return true;
     }
 
@@ -237,16 +348,16 @@ static bool furi_hal_usb_audio_set_feature_unit_request(
 
 bool tud_audio_get_req_entity_cb(uint8_t rhport, tusb_control_request_t const* p_request) {
     const uint8_t entity_id = TU_U16_HIGH(p_request->wIndex);
+    FuriHalUsbAudioStream stream;
 
-    const FuriHalUsbAudioClock* clock = furi_hal_usb_audio_get_clock(entity_id);
-    if(clock != NULL) {
-        return furi_hal_usb_audio_get_clock_request(rhport, p_request, clock);
+    if(furi_hal_usb_audio_get_clock_stream(entity_id, &stream)) {
+        return furi_hal_usb_audio_get_clock_request(
+            rhport, p_request, &usb_audio.streams[stream].clock);
     }
 
-    const FuriHalUsbAudioFeatureUnit* feature_unit =
-        furi_hal_usb_audio_get_feature_unit(entity_id);
-    if(feature_unit != NULL) {
-        return furi_hal_usb_audio_get_feature_unit_request(rhport, p_request, feature_unit);
+    if(furi_hal_usb_audio_get_feature_unit_stream(entity_id, &stream)) {
+        return furi_hal_usb_audio_get_feature_unit_request(
+            rhport, p_request, &usb_audio.streams[stream].feature_unit);
     }
 
     return false;
@@ -258,16 +369,40 @@ bool tud_audio_set_req_entity_cb(
     uint8_t* pBuff) {
     UNUSED(rhport);
     const uint8_t entity_id = TU_U16_HIGH(p_request->wIndex);
+    FuriHalUsbAudioStream stream;
 
-    FuriHalUsbAudioClock* clock = furi_hal_usb_audio_get_clock(entity_id);
-    if(clock != NULL) {
-        return furi_hal_usb_audio_set_clock_request(p_request, pBuff, clock);
+    if(furi_hal_usb_audio_get_clock_stream(entity_id, &stream)) {
+        return furi_hal_usb_audio_set_clock_request(p_request, pBuff, stream);
     }
 
-    FuriHalUsbAudioFeatureUnit* feature_unit = furi_hal_usb_audio_get_feature_unit(entity_id);
-    if(feature_unit != NULL) {
-        return furi_hal_usb_audio_set_feature_unit_request(p_request, pBuff, feature_unit);
+    if(furi_hal_usb_audio_get_feature_unit_stream(entity_id, &stream)) {
+        return furi_hal_usb_audio_set_feature_unit_request(p_request, pBuff, stream);
     }
 
     return false;
+}
+
+bool tud_audio_set_itf_cb(uint8_t rhport, tusb_control_request_t const* p_request) {
+    UNUSED(rhport);
+    const uint8_t interface = TU_U16_LOW(p_request->wIndex);
+    const uint8_t alt_setting = TU_U16_LOW(p_request->wValue);
+    FuriHalUsbAudioStream stream;
+
+    if(!furi_hal_usb_audio_get_interface_stream(interface, &stream)) {
+        return false;
+    }
+
+    FuriHalUsbAudioStreamState* state = &usb_audio.streams[stream];
+    if(state->alt_setting == alt_setting) {
+        return true;
+    }
+
+    state->alt_setting = alt_setting;
+    if(alt_setting == FuriHalUsbAudioAltSettingIdle) {
+        furi_hal_usb_audio_notify_stop(stream);
+    } else {
+        furi_hal_usb_audio_notify_start(stream);
+    }
+
+    return true;
 }
