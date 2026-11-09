@@ -3,10 +3,7 @@
 
 #include <furi.h>
 
-#define CS43131_MCLK_SWITCH_DELAY_US    200
-#define CS43131_HP_POWER_UP_DELAY_MS    12
-#define CS43131_PDN_DONE_TIMEOUT_MS     200
-#define CS43131_PDN_DONE_POLL_PERIOD_MS 1
+#define CS43131_MCLK_SWITCH_DELAY_US 200
 
 typedef struct {
     uint8_t sample_rate_code;
@@ -199,7 +196,7 @@ bool cs43131_configure_asp(
     return success;
 }
 
-bool cs43131_power_up(const FuriHalI2cBusHandle* handle) {
+bool cs43131_power_up_begin(const FuriHalI2cBusHandle* handle) {
     furi_check(handle);
 
     bool success = false;
@@ -218,62 +215,45 @@ bool cs43131_power_up(const FuriHalI2cBusHandle* handle) {
                CS43131_PWDN_CTL_PDN_HP | CS43131_PWDN_CTL_RESERVED,
                0))
             break;
-        furi_delay_ms(CS43131_HP_POWER_UP_DELAY_MS);
-        if(!cs43131_write(handle, CS43131_REG_DXD13, CS43131_DXD13_DEFAULT)) break;
-        if(!cs43131_write(handle, CS43131_REG_DXD1, CS43131_DXD1_LOCK)) break;
         success = true;
     } while(0);
     return success;
 }
 
-static bool cs43131_wait_pdn_done(const FuriHalI2cBusHandle* handle, uint8_t* interrupt_status) {
-    for(uint32_t elapsed_ms = 0; elapsed_ms < CS43131_PDN_DONE_TIMEOUT_MS;
-        elapsed_ms += CS43131_PDN_DONE_POLL_PERIOD_MS) {
-        uint8_t status;
-        if(!cs43131_read(handle, CS43131_REG_INT_STATUS_1, &status)) {
-            return false;
-        }
-        *interrupt_status |= status & ~CS43131_INTERRUPT_PDN_DONE;
-        if(status & CS43131_INTERRUPT_PDN_DONE) {
-            return true;
-        }
-        furi_delay_ms(CS43131_PDN_DONE_POLL_PERIOD_MS);
-    }
-    return false;
-}
-
-bool cs43131_power_down(const FuriHalI2cBusHandle* handle, uint8_t* interrupt_status) {
+bool cs43131_power_up_end(const FuriHalI2cBusHandle* handle) {
     furi_check(handle);
-    furi_check(interrupt_status);
 
-    *interrupt_status = 0;
+    if(!cs43131_write(handle, CS43131_REG_DXD13, CS43131_DXD13_DEFAULT)) {
+        return false;
+    }
+    return cs43131_write(handle, CS43131_REG_DXD1, CS43131_DXD1_LOCK);
+}
 
-    bool success = false;
-    do {
-        if(!cs43131_update_bits(handle, CS43131_REG_INT_MASK_1, CS43131_INTERRUPT_PDN_DONE, 0))
-            break;
-        if(!cs43131_update_bits(
-               handle,
-               CS43131_REG_PWDN_CTL,
-               CS43131_PWDN_CTL_PDN_HP | CS43131_PWDN_CTL_RESERVED,
-               CS43131_PWDN_CTL_PDN_HP))
-            break;
-        if(!cs43131_wait_pdn_done(handle, interrupt_status)) break;
-        if(!cs43131_update_bits(
-               handle,
-               CS43131_REG_PWDN_CTL,
-               CS43131_PWDN_CTL_PDN_ASP | CS43131_PWDN_CTL_RESERVED,
-               CS43131_PWDN_CTL_PDN_ASP))
-            break;
-        if(!cs43131_update_bits(
-               handle,
-               CS43131_REG_INT_MASK_1,
-               CS43131_INTERRUPT_PDN_DONE,
-               CS43131_INTERRUPT_PDN_DONE))
-            break;
-        success = true;
-    } while(0);
-    return success;
+bool cs43131_power_down_begin(const FuriHalI2cBusHandle* handle) {
+    furi_check(handle);
+
+    if(!cs43131_update_bits(handle, CS43131_REG_INT_MASK_1, CS43131_INTERRUPT_PDN_DONE, 0)) {
+        return false;
+    }
+    return cs43131_update_bits(
+        handle,
+        CS43131_REG_PWDN_CTL,
+        CS43131_PWDN_CTL_PDN_HP | CS43131_PWDN_CTL_RESERVED,
+        CS43131_PWDN_CTL_PDN_HP);
+}
+
+bool cs43131_power_down_end(const FuriHalI2cBusHandle* handle) {
+    furi_check(handle);
+
+    if(!cs43131_update_bits(
+           handle,
+           CS43131_REG_PWDN_CTL,
+           CS43131_PWDN_CTL_PDN_ASP | CS43131_PWDN_CTL_RESERVED,
+           CS43131_PWDN_CTL_PDN_ASP)) {
+        return false;
+    }
+    return cs43131_update_bits(
+        handle, CS43131_REG_INT_MASK_1, CS43131_INTERRUPT_PDN_DONE, CS43131_INTERRUPT_PDN_DONE);
 }
 
 bool cs43131_set_volume_attenuation(const FuriHalI2cBusHandle* handle, uint8_t half_db_steps) {

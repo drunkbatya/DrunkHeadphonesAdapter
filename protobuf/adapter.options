@@ -1,0 +1,4 @@
+adapter.VersionResponse.version    max_size:48
+adapter.VersionResponse.git_commit max_size:16
+adapter.VersionResponse.git_branch max_size:64
+adapter.VersionResponse.build_date max_size:20

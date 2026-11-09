@@ -14,14 +14,22 @@ LIB_SOURCES := \
 	lib/tinyusb/src/common/tusb_fifo.c \
 	lib/tinyusb/src/device/usbd.c \
 	lib/tinyusb/src/class/hid/hid_device.c \
+	lib/tinyusb/src/class/cdc/cdc_device.c \
+	lib/nanopb/pb_common.c \
+	lib/nanopb/pb_decode.c \
+	lib/nanopb/pb_encode.c \
 	$(call patched,lib/tinyusb/src/class/audio/audio_device.c)
 
 LIB_INCLUDES := \
 	-Ilib/FreeRTOS-Kernel/include \
 	-Ilib/mlib \
+	-Ilib/nanopb \
+	-I$(PROTO_OUT_DIR) \
 	-Ilib/tinyusb/src
 
-C_SOURCES := $(SRC_SOURCES) $(LIB_SOURCES)
+GENERATED_SOURCES += $(NANOPB_GENERATED_C) $(NANOPB_GENERATED_H)
+
+C_SOURCES := $(SRC_SOURCES) $(LIB_SOURCES) $(NANOPB_GENERATED_C)
 ASM_SOURCES := $(TARGET_ASM_SOURCES)
 
 C_OBJECTS := $(addprefix $(BUILD_DIR)/,$(C_SOURCES:.c=.o))

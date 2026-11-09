@@ -1,6 +1,6 @@
 #pragma once
 
-#include <applications/services/input/remote_decoders/remote_decoder.h>
+#include <applications/services/input/remote_decoders/remote_decoder_i.h>
 
 #ifdef __cplusplus
 extern "C" {

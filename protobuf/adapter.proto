@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+package adapter;
+
+enum ErrType {
+    ERROR_TYPE_UNSPECIFIED = 0;
+    ERROR_TYPE_OK = 1;
+    ERROR_TYPE_BAD_REQUEST = 2;
+}
+
+message ErrorResponse {
+    ErrType err_type = 1;
+}
+
+message VersionRequest {
+}
+
+message VersionResponse {
+    string version = 1;
+    string git_commit = 2;
+    string git_branch = 3;
+    string build_date = 4;
+    bool dirty = 5;
+    uint32 target = 6;
+}
+
+message RpcRequest {
+    uint32 request_id = 1;
+
+    oneof payload {
+        VersionRequest version = 2;
+    }
+}
+
+message RpcResponse {
+    uint32 request_id = 1;
+
+    oneof payload {
+        VersionResponse version = 2;
+        ErrorResponse generic = 3;
+    }
+}

@@ -24,10 +24,11 @@
 #define FURI_HAL_USB_BCD_DEVICE 0x0100
 #define FURI_HAL_USB_BCD_USB    0x0200
 
-#define FURI_HAL_USB_CONFIGURATION_NUMBER 1
-#define FURI_HAL_USB_CONFIGURATION_COUNT  1
-#define FURI_HAL_USB_MAX_POWER_MA         100
-#define FURI_HAL_USB_HID_POLL_INTERVAL_MS 10
+#define FURI_HAL_USB_CONFIGURATION_NUMBER     1
+#define FURI_HAL_USB_CONFIGURATION_COUNT      1
+#define FURI_HAL_USB_MAX_POWER_MA             100
+#define FURI_HAL_USB_HID_POLL_INTERVAL_MS     10
+#define FURI_HAL_USB_CDC_NOTIFICATION_EP_SIZE 8
 
 #define FURI_HAL_USB_LANGID_ENG_US        0x0409
 #define FURI_HAL_USB_MANUFACTURER         "DrunkBatya"
@@ -105,7 +106,7 @@
      FURI_HAL_USB_AUDIO_MIC_STREAMING_LENGTH)
 
 #define FURI_HAL_USB_CONFIGURATION_LENGTH \
-    (TUD_CONFIG_DESC_LEN + FURI_HAL_USB_AUDIO_LENGTH + TUD_HID_DESC_LEN)
+    (TUD_CONFIG_DESC_LEN + FURI_HAL_USB_AUDIO_LENGTH + TUD_HID_DESC_LEN + TUD_CDC_DESC_LEN)
 
 #define FURI_HAL_USB_AUDIO_SPEAKER_ALT(_alt_setting, _subslot_size, _resolution, _ep_size) \
     TUD_AUDIO20_DESC_STD_AS_INT(                                                           \
@@ -201,9 +202,12 @@ typedef enum {
     UsbEventStack = (1 << 0),
     UsbEventMessage = (1 << 1),
     UsbEventHidReport = (1 << 2),
+    UsbEventCdcRx = (1 << 3),
+    UsbEventCdcTx = (1 << 4),
 } UsbEvent;
 
-#define USB_SRV_ALL_EVENTS (UsbEventStack | UsbEventMessage | UsbEventHidReport)
+#define USB_SRV_ALL_EVENTS \
+    (UsbEventStack | UsbEventMessage | UsbEventHidReport | UsbEventCdcRx | UsbEventCdcTx)
 
 static UsbSrv usb = {0};
 
@@ -359,6 +363,15 @@ static const uint8_t usb_configuration_descriptor[] = {
         FuriHalUsbEndpointHidIn,
         CFG_TUD_HID_EP_BUFSIZE,
         FURI_HAL_USB_HID_POLL_INTERVAL_MS),
+
+    TUD_CDC_DESCRIPTOR(
+        FuriHalUsbInterfaceCdcControl,
+        FURI_HAL_USB_STRING_NONE,
+        FuriHalUsbEndpointCdcNotificationIn,
+        FURI_HAL_USB_CDC_NOTIFICATION_EP_SIZE,
+        FuriHalUsbEndpointCdcDataOut,
+        FuriHalUsbEndpointCdcDataIn,
+        CFG_TUD_CDC_EP_BUFSIZE),
 };
 
 _Static_assert(
@@ -444,6 +457,14 @@ void furi_hal_usb_hid_request_send(void) {
     furi_thread_flags_set(furi_thread_get_id(usb.thread), UsbEventHidReport);
 }
 
+void furi_hal_usb_cdc_request_rx(void) {
+    furi_thread_flags_set(furi_thread_get_id(usb.thread), UsbEventCdcRx);
+}
+
+void furi_hal_usb_cdc_request_tx(void) {
+    furi_thread_flags_set(furi_thread_get_id(usb.thread), UsbEventCdcTx);
+}
+
 static void furi_hal_usb_isr(void* context) {
     UNUSED(context);
     tud_int_handler(FURI_HAL_USB_ROOT_PORT);
@@ -478,6 +499,7 @@ void tud_event_hook_cb(uint8_t rhport, uint32_t eventid, bool in_isr) {
 
 void tud_mount_cb(void) {
     FURI_LOG_I(TAG, "Mount");
+    furi_hal_usb_cdc_mount();
     furi_hal_usb_notify_state(FuriHalUsbStateEventMount);
 }
 
@@ -485,6 +507,7 @@ void tud_umount_cb(void) {
     FURI_LOG_I(TAG, "Unmount");
     furi_hal_usb_hid_reset();
     furi_hal_usb_audio_reset();
+    furi_hal_usb_cdc_reset();
     furi_hal_usb_notify_state(FuriHalUsbStateEventUnmount);
 }
 
@@ -582,6 +605,7 @@ static void usb_process_enable(bool enable) {
         usb.enabled = false;
         furi_hal_usb_hid_reset();
         furi_hal_usb_audio_reset();
+        furi_hal_usb_cdc_reset();
         FURI_LOG_I(TAG, "USB Disable");
     }
 
@@ -634,6 +658,14 @@ static int32_t furi_hal_usb_thread(void* context) {
 
         if(flags & UsbEventHidReport) {
             furi_hal_usb_hid_send_pending();
+        }
+
+        if(flags & UsbEventCdcRx) {
+            furi_hal_usb_cdc_process_rx();
+        }
+
+        if(flags & UsbEventCdcTx) {
+            furi_hal_usb_cdc_process_tx();
         }
     }
 

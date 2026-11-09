@@ -11,6 +11,8 @@ extern "C" {
 
 #define CS43131_RESET_PULSE_WIDTH_US 1000
 #define CS43131_POWER_UP_DELAY_US    1500
+#define CS43131_HP_POWER_UP_DELAY_MS 12
+#define CS43131_PDN_DONE_TIMEOUT_MS  200
 
 #define CS43131_INTERRUPT_HP_PLUG   (1 << 6)
 #define CS43131_INTERRUPT_HP_UNPLUG (1 << 5)
@@ -56,9 +58,13 @@ bool cs43131_configure_asp(
     Cs43131SampleRate sample_rate,
     Cs43131BitDepth bit_depth);
 
-bool cs43131_power_up(const FuriHalI2cBusHandle* handle);
+bool cs43131_power_up_begin(const FuriHalI2cBusHandle* handle);
 
-bool cs43131_power_down(const FuriHalI2cBusHandle* handle, uint8_t* interrupt_status);
+bool cs43131_power_up_end(const FuriHalI2cBusHandle* handle);
+
+bool cs43131_power_down_begin(const FuriHalI2cBusHandle* handle);
+
+bool cs43131_power_down_end(const FuriHalI2cBusHandle* handle);
 
 bool cs43131_set_volume_attenuation(const FuriHalI2cBusHandle* handle, uint8_t half_db_steps);
 

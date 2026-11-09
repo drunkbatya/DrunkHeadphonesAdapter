@@ -1,6 +1,6 @@
 #include <furi.h>
 
-#include <applications/services/input/remote_decoders/remote_decoder.h>
+#include <applications/services/input/remote_decoders/remote_decoder_i.h>
 
 #include <applications/services/input/remote_decoders/apple_remote_decoder.h>
 #include <applications/services/input/remote_decoders/ctia_remote_decoder.h>

@@ -109,6 +109,16 @@ bool furi_hal_usb_audio_is_muted(FuriHalUsbAudioStream stream) {
     return usb_audio.streams[stream].feature_unit.muted;
 }
 
+size_t furi_hal_usb_audio_speaker_get_available(void) {
+    return tud_audio_available();
+}
+
+size_t furi_hal_usb_audio_speaker_read(void* data, size_t size) {
+    furi_check(data);
+    furi_check(size <= UINT16_MAX);
+    return tud_audio_read(data, (uint16_t)size);
+}
+
 static void furi_hal_usb_audio_notify(const FuriHalUsbAudioEvent* event) {
     if(usb_audio.callback != NULL) {
         usb_audio.callback(event, usb_audio.callback_context);

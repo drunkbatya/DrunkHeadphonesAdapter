@@ -15,6 +15,8 @@ typedef enum {
     FuriHalUsbInterfaceAudioSpeaker,
     FuriHalUsbInterfaceAudioMic,
     FuriHalUsbInterfaceHid,
+    FuriHalUsbInterfaceCdcControl,
+    FuriHalUsbInterfaceCdcData,
     FuriHalUsbInterfaceCount,
 } FuriHalUsbInterface;
 
@@ -23,6 +25,9 @@ typedef enum {
     FuriHalUsbEndpointAudioFeedbackIn = 0x81,
     FuriHalUsbEndpointAudioMicIn = 0x82,
     FuriHalUsbEndpointHidIn = 0x83,
+    FuriHalUsbEndpointCdcDataOut = 0x04,
+    FuriHalUsbEndpointCdcDataIn = 0x84,
+    FuriHalUsbEndpointCdcNotificationIn = 0x85,
 } FuriHalUsbEndpoint;
 
 typedef enum {
@@ -53,3 +58,15 @@ void furi_hal_usb_hid_reset(void);
 void furi_hal_usb_hid_send_pending(void);
 
 void furi_hal_usb_hid_request_send(void);
+
+void furi_hal_usb_cdc_mount(void);
+
+void furi_hal_usb_cdc_reset(void);
+
+void furi_hal_usb_cdc_process_rx(void);
+
+void furi_hal_usb_cdc_process_tx(void);
+
+void furi_hal_usb_cdc_request_rx(void);
+
+void furi_hal_usb_cdc_request_tx(void);

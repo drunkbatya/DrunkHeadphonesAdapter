@@ -1,4 +1,5 @@
 #include <applications/services/audio/audio.h>
+#include <applications/services/audio/audio_playback.h>
 
 #include <furi.h>
 #include <furi_hal.h>
@@ -9,9 +10,11 @@
 
 #define TAG "AudioSrv"
 
-#define AUDIO_USB_EVENT_QUEUE_SIZE  8
-#define AUDIO_IDLE_TIMEOUT_MS       30000
-#define AUDIO_OSCILLATOR_STARTUP_MS 5
+#define AUDIO_USB_EVENT_QUEUE_SIZE         8
+#define AUDIO_IDLE_TIMEOUT_MS              30000
+#define AUDIO_OSCILLATOR_SWITCH_TURN_ON_US 200
+#define AUDIO_OSCILLATOR_STARTUP_MS        5
+#define AUDIO_PDN_DONE_POLL_PERIOD_MS      1
 
 #define AUDIO_SPEAKER_USB_VOLUME(attenuation) \
     ((int16_t)(-(attenuation) * FURI_HAL_USB_AUDIO_VOLUME_PER_DB / CS43131_VOLUME_STEPS_PER_DB))
@@ -50,7 +53,10 @@ static const FuriHalUsbAudioStreamConfig audio_mic_usb_config = {
 
 typedef enum {
     AudioThreadFlagCs43131Interrupt = (1 << 0),
+    AudioThreadFlagPlaybackError = (1 << 1),
 } AudioThreadFlag;
+
+typedef bool (*AudioCodecStep)(const FuriHalI2cBusHandle* handle);
 
 typedef struct {
     FuriThreadId thread_id;
@@ -58,6 +64,7 @@ typedef struct {
     FuriEventLoopTimer* idle_timer;
     FuriMessageQueue* usb_events;
     FuriPubSub* headset_events;
+    AudioPlayback* playback;
     bool headphone_plugged;
     Cs43131MclkSource mclk_source;
     bool headphone_output_powered;
@@ -66,6 +73,11 @@ typedef struct {
 } Audio;
 
 static void audio_idle_timer_callback(void* context);
+
+static void audio_playback_error_callback(void* context) {
+    Audio* audio = context;
+    furi_thread_flags_set(audio->thread_id, AudioThreadFlagPlaybackError);
+}
 
 static Audio* audio_alloc(void) {
     Audio* audio = malloc(sizeof(Audio));
@@ -77,6 +89,7 @@ static Audio* audio_alloc(void) {
     audio->usb_events =
         furi_message_queue_alloc(AUDIO_USB_EVENT_QUEUE_SIZE, sizeof(FuriHalUsbAudioEvent));
     audio->headset_events = furi_pubsub_alloc();
+    audio->playback = audio_playback_alloc(audio_playback_error_callback, audio);
     audio->headphone_plugged = false;
     audio->mclk_source = Cs43131MclkSourceRco;
     audio->headphone_output_powered = false;
@@ -85,6 +98,7 @@ static Audio* audio_alloc(void) {
 }
 
 static void audio_free(Audio* audio) {
+    audio_playback_free(audio->playback);
     furi_pubsub_free(audio->headset_events);
     furi_message_queue_free(audio->usb_events);
     furi_event_loop_timer_free(audio->idle_timer);
@@ -167,11 +181,22 @@ static void audio_set_oscillator(Cs43131MclkSource source) {
     furi_hal_gpio_write(&gpio_oscillator_44k1_en, source == Cs43131MclkSourceExternal22579);
 }
 
-static bool audio_select_rco(Audio* audio) {
-    if(!cs43131_set_clkout_enabled(&furi_hal_i2c_handle_internal, false)) {
+static bool audio_run_codec_step(AudioCodecStep step) {
+    furi_hal_i2c_acquire(&furi_hal_i2c_handle_internal);
+    const bool success = step(&furi_hal_i2c_handle_internal);
+    furi_hal_i2c_release(&furi_hal_i2c_handle_internal);
+    return success;
+}
+
+static bool audio_select_cs43131_rco(const FuriHalI2cBusHandle* handle) {
+    if(!cs43131_set_clkout_enabled(handle, false)) {
         return false;
     }
-    if(!cs43131_set_mclk_source(&furi_hal_i2c_handle_internal, Cs43131MclkSourceRco)) {
+    return cs43131_set_mclk_source(handle, Cs43131MclkSourceRco);
+}
+
+static bool audio_select_rco(Audio* audio) {
+    if(!audio_run_codec_step(audio_select_cs43131_rco)) {
         return false;
     }
     audio_set_oscillator(Cs43131MclkSourceRco);
@@ -181,12 +206,20 @@ static bool audio_select_rco(Audio* audio) {
 
 static bool audio_select_oscillator(Audio* audio, Cs43131MclkSource source) {
     audio_set_oscillator(source);
+    furi_delay_us(AUDIO_OSCILLATOR_SWITCH_TURN_ON_US);
     furi_delay_ms(AUDIO_OSCILLATOR_STARTUP_MS);
-    if(!cs43131_set_mclk_source(&furi_hal_i2c_handle_internal, source)) {
-        return false;
-    }
-    audio->mclk_source = source;
-    return cs43131_set_clkout_enabled(&furi_hal_i2c_handle_internal, true);
+
+    furi_hal_i2c_acquire(&furi_hal_i2c_handle_internal);
+    bool success = false;
+    do {
+        if(!cs43131_set_mclk_source(&furi_hal_i2c_handle_internal, source)) break;
+        audio->mclk_source = source;
+        if(!cs43131_set_clkout_enabled(&furi_hal_i2c_handle_internal, true)) break;
+        success = true;
+    } while(0);
+    furi_hal_i2c_release(&furi_hal_i2c_handle_internal);
+
+    return success;
 }
 
 static bool audio_set_mclk_source(Audio* audio, Cs43131MclkSource source) {
@@ -202,15 +235,44 @@ static bool audio_set_mclk_source(Audio* audio, Cs43131MclkSource source) {
     return audio_select_oscillator(audio, source);
 }
 
+static bool audio_wait_cs43131_pdn_done(uint8_t* interrupt_status) {
+    for(uint32_t elapsed_ms = 0; elapsed_ms < CS43131_PDN_DONE_TIMEOUT_MS;
+        elapsed_ms += AUDIO_PDN_DONE_POLL_PERIOD_MS) {
+        furi_delay_ms(AUDIO_PDN_DONE_POLL_PERIOD_MS);
+
+        uint8_t status;
+        furi_hal_i2c_acquire(&furi_hal_i2c_handle_internal);
+        const bool success = cs43131_read_interrupt_status(&furi_hal_i2c_handle_internal, &status);
+        furi_hal_i2c_release(&furi_hal_i2c_handle_internal);
+
+        if(!success) {
+            return false;
+        }
+        *interrupt_status |= status;
+        if(status & CS43131_INTERRUPT_PDN_DONE) {
+            return true;
+        }
+    }
+    return false;
+}
+
 static void audio_power_down_headphone_output(Audio* audio) {
     if(!audio->headphone_output_powered) {
         return;
     }
 
-    uint8_t interrupt_status;
-    furi_hal_i2c_acquire(&furi_hal_i2c_handle_internal);
-    const bool success = cs43131_power_down(&furi_hal_i2c_handle_internal, &interrupt_status);
-    furi_hal_i2c_release(&furi_hal_i2c_handle_internal);
+    if(audio_playback_is_running(audio->playback)) {
+        audio_playback_stop(audio->playback);
+    }
+
+    uint8_t interrupt_status = 0;
+    bool success = false;
+    do {
+        if(!audio_run_codec_step(cs43131_power_down_begin)) break;
+        if(!audio_wait_cs43131_pdn_done(&interrupt_status)) break;
+        if(!audio_run_codec_step(cs43131_power_down_end)) break;
+        success = true;
+    } while(0);
 
     audio->headphone_output_powered = false;
 
@@ -221,6 +283,20 @@ static void audio_power_down_headphone_output(Audio* audio) {
     if(interrupt_status & (CS43131_INTERRUPT_HP_PLUG | CS43131_INTERRUPT_HP_UNPLUG)) {
         audio_handle_cs43131_interrupt(audio);
     }
+}
+
+static bool
+    audio_configure_headphone_output(Cs43131SampleRate sample_rate, Cs43131BitDepth bit_depth) {
+    furi_hal_i2c_acquire(&furi_hal_i2c_handle_internal);
+    bool success = false;
+    do {
+        if(!cs43131_configure_asp(&furi_hal_i2c_handle_internal, sample_rate, bit_depth)) break;
+        if(!cs43131_power_up_begin(&furi_hal_i2c_handle_internal)) break;
+        success = true;
+    } while(0);
+    furi_hal_i2c_release(&furi_hal_i2c_handle_internal);
+
+    return success;
 }
 
 static void audio_handle_speaker_start(Audio* audio, const FuriHalUsbAudioFormat* format) {
@@ -236,15 +312,16 @@ static void audio_handle_speaker_start(Audio* audio, const FuriHalUsbAudioFormat
 
     audio_power_down_headphone_output(audio);
 
-    furi_hal_i2c_acquire(&furi_hal_i2c_handle_internal);
     bool success = false;
     do {
         if(!audio_set_mclk_source(audio, cs43131_get_mclk_source(sample_rate))) break;
-        if(!cs43131_configure_asp(&furi_hal_i2c_handle_internal, sample_rate, bit_depth)) break;
-        if(!cs43131_power_up(&furi_hal_i2c_handle_internal)) break;
+        if(!audio_configure_headphone_output(sample_rate, bit_depth)) break;
+        audio->headphone_output_powered = true;
+        audio_playback_start(audio->playback, format->sample_rate, format->sample_format);
+        furi_delay_ms(CS43131_HP_POWER_UP_DELAY_MS);
+        if(!audio_run_codec_step(cs43131_power_up_end)) break;
         success = true;
     } while(0);
-    furi_hal_i2c_release(&furi_hal_i2c_handle_internal);
 
     if(!success) {
         FURI_LOG_E(
@@ -252,10 +329,10 @@ static void audio_handle_speaker_start(Audio* audio, const FuriHalUsbAudioFormat
             "Headphone output start failed, %lu Hz, sample format %d",
             format->sample_rate,
             format->sample_format);
+        audio_power_down_headphone_output(audio);
         return;
     }
 
-    audio->headphone_output_powered = true;
     audio->sample_rate = sample_rate;
     audio->bit_depth = bit_depth;
     FURI_LOG_I(
@@ -274,16 +351,21 @@ static void audio_idle_timer_callback(void* context) {
 
     audio_power_down_headphone_output(audio);
 
-    furi_hal_i2c_acquire(&furi_hal_i2c_handle_internal);
-    const bool success = audio_set_mclk_source(audio, Cs43131MclkSourceRco);
-    furi_hal_i2c_release(&furi_hal_i2c_handle_internal);
-
-    if(!success) {
+    if(!audio_set_mclk_source(audio, Cs43131MclkSourceRco)) {
         FURI_LOG_E(TAG, "CS43131 RCO select failed");
         return;
     }
 
     FURI_LOG_I(TAG, "Headphone output stopped");
+}
+
+static void audio_handle_playback_error(Audio* audio) {
+    if(!audio_playback_is_running(audio->playback)) {
+        return;
+    }
+
+    FURI_LOG_W(TAG, "Headphone I2S error, restart");
+    audio_playback_restart(audio->playback);
 }
 
 static void audio_handle_speaker_volume(int16_t volume) {
@@ -349,6 +431,10 @@ static void audio_thread_flags_callback(void* context) {
     if(flags & AudioThreadFlagCs43131Interrupt) {
         audio_handle_cs43131_interrupt(audio);
     }
+
+    if(flags & AudioThreadFlagPlaybackError) {
+        audio_handle_playback_error(audio);
+    }
 }
 
 static void audio_init(Audio* audio) {
@@ -395,6 +481,10 @@ static void audio_deinit(Audio* audio) {
     furi_event_loop_unsubscribe(audio->event_loop, audio->usb_events);
     furi_event_loop_unsubscribe_thread_flags(audio->event_loop);
     furi_event_loop_timer_stop(audio->idle_timer);
+
+    if(audio_playback_is_running(audio->playback)) {
+        audio_playback_stop(audio->playback);
+    }
 
     furi_hal_gpio_write(&gpio_cs43131_reset_n, false);
     audio_set_oscillator(Cs43131MclkSourceRco);
