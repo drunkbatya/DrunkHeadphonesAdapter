@@ -1,0 +1,7 @@
+*.js -linguist-detectable
+*.html -linguist-detectable
+*.py -linguist-detectable
+*.kt -linguist-detectable
+*.xml -linguist-detectable
+*.kts -linguist-detectable
+*.toml -linguist-detectable
