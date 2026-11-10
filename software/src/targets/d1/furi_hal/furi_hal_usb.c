@@ -13,6 +13,7 @@
 #include <stdio.h>
 
 #include <tusb.h>
+#include <device/dcd.h>
 
 #define TAG "FuriHalUsb"
 
@@ -492,8 +493,13 @@ static void furi_hal_usb_notify_state(FuriHalUsbStateEvent state) {
 
 void tud_event_hook_cb(uint8_t rhport, uint32_t eventid, bool in_isr) {
     UNUSED(rhport);
-    UNUSED(eventid);
     UNUSED(in_isr);
+
+    if(eventid == DCD_EVENT_BUS_RESET_START || eventid == DCD_EVENT_BUS_RESET_END ||
+       eventid == DCD_EVENT_UNPLUGGED) {
+        furi_hal_usb_audio_begin_bus_reset();
+    }
+
     furi_thread_flags_set(furi_thread_get_id(usb.thread), UsbEventStack);
 }
 
@@ -654,6 +660,7 @@ static int32_t furi_hal_usb_thread(void* context) {
 
         if(flags & UsbEventStack) {
             tud_task();
+            furi_hal_usb_audio_finish_bus_reset();
         }
 
         if(flags & UsbEventHidReport) {

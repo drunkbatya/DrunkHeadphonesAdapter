@@ -20,3 +20,35 @@
  }
  
  uint32_t tud_audio_feedback_update(uint8_t func_id, uint32_t cycles) {
+@@ -1079,12 +1080,12 @@
+     usbd_edpt_close(rhport, audio->ep_in);
+   #endif
+
+-    // Clear FIFOs, since data is no longer valid
+-    tu_fifo_clear(&audio->ep_in_ff);
+-
+     // Invoke callback - can be used to stop data sampling
+     TU_VERIFY(tud_audio_set_itf_close_ep_cb(rhport, p_request));
+
++    // Clear FIFOs, since data is no longer valid
++    tu_fifo_clear(&audio->ep_in_ff);
++
+     audio->ep_in = 0;// Necessary?
+
+   #if CFG_TUD_AUDIO_EP_IN_FLOW_CONTROL
+@@ -1103,12 +1104,12 @@
+     usbd_edpt_close(rhport, audio->ep_out);
+   #endif
+
+-    // Clear FIFOs, since data is no longer valid
+-    tu_fifo_clear(&audio->ep_out_ff);
+-
+     // Invoke callback - can be used to stop data sampling
+     TU_VERIFY(tud_audio_set_itf_close_ep_cb(rhport, p_request));
+
++    // Clear FIFOs, since data is no longer valid
++    tu_fifo_clear(&audio->ep_out_ff);
++
+     audio->ep_out = 0;// Necessary?
+
+     // Close corresponding feedback EP

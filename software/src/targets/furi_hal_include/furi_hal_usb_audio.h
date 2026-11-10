@@ -69,6 +69,10 @@ int16_t furi_hal_usb_audio_get_volume(FuriHalUsbAudioStream stream);
 
 bool furi_hal_usb_audio_is_muted(FuriHalUsbAudioStream stream);
 
+void furi_hal_usb_audio_speaker_attach(const FuriHalUsbAudioFormat* format);
+
+void furi_hal_usb_audio_speaker_detach(void);
+
 size_t furi_hal_usb_audio_speaker_get_available(void);
 
 size_t furi_hal_usb_audio_speaker_read(void* data, size_t size);

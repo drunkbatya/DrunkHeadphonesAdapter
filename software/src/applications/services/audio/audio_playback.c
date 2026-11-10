@@ -112,10 +112,13 @@ static void audio_playback_fill(AudioPlayback* playback, uint16_t* dma_half) {
         return;
     }
 
-    if(playback->sample_format == FuriHalUsbAudioSampleFormat16Bit) {
-        furi_hal_usb_audio_speaker_read(dma_half, playback->usb_half_size);
-    } else {
-        furi_hal_usb_audio_speaker_read(playback->usb_samples, playback->usb_half_size);
+    uint8_t* usb_half = playback->sample_format == FuriHalUsbAudioSampleFormat16Bit ?
+                            (uint8_t*)dma_half :
+                            playback->usb_samples;
+    const size_t read_size = furi_hal_usb_audio_speaker_read(usb_half, playback->usb_half_size);
+    memset(&usb_half[read_size], 0, playback->usb_half_size - read_size);
+
+    if(playback->sample_format == FuriHalUsbAudioSampleFormat24Bit) {
         audio_playback_repack_24bit(playback, dma_half);
     }
 }
@@ -157,6 +160,12 @@ void audio_playback_start(
     memset(playback->dma_samples, 0, sizeof(playback->dma_samples));
     playback->running = true;
 
+    const FuriHalUsbAudioFormat format = {
+        .sample_rate = sample_rate,
+        .sample_format = sample_format,
+    };
+    furi_hal_usb_audio_speaker_attach(&format);
+
     furi_hal_i2s_start(
         FuriHalI2sIdHeadphones,
         layout->i2s_data_format,
@@ -171,6 +180,7 @@ void audio_playback_stop(AudioPlayback* playback) {
     furi_check(playback->running);
 
     furi_hal_i2s_stop(FuriHalI2sIdHeadphones);
+    furi_hal_usb_audio_speaker_detach();
     playback->running = false;
 }
 
