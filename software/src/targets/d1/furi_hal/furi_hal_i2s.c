@@ -39,6 +39,7 @@ typedef struct {
 typedef struct {
     FuriHalI2sCallback callback;
     void* context;
+    size_t length;
     bool running;
 } FuriHalI2s;
 
@@ -169,6 +170,7 @@ void furi_hal_i2s_start(
 
     i2s->callback = callback;
     i2s->context = context;
+    i2s->length = length;
     i2s->running = true;
 
     furi_hal_bus_enable(config->bus);
@@ -270,4 +272,15 @@ void furi_hal_i2s_stop(FuriHalI2sId id) {
     i2s->running = false;
 
     furi_hal_power_insomnia_exit();
+}
+
+size_t furi_hal_i2s_get_position(FuriHalI2sId id) {
+    furi_check(id < FuriHalI2sIdMax);
+
+    const FuriHalI2s* i2s = &furi_hal_i2s[id];
+    furi_check(i2s->running);
+
+    const size_t remaining =
+        LL_DMA_GetDataLength(FURI_HAL_I2S_DMA_INSTANCE, furi_hal_i2s_config[id].dma_channel);
+    return (i2s->length - remaining) % i2s->length;
 }

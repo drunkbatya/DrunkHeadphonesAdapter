@@ -4,11 +4,26 @@
 #include <furi.h>
 
 #include <tusb.h>
+#include <device/dcd.h>
 
 #define FURI_HAL_USB_AUDIO_SAMPLE_RATE_RESOLUTION_DISCRETE 0
 #define FURI_HAL_USB_AUDIO_VOLUME_DEFAULT                  0
 #define FURI_HAL_USB_AUDIO_MASTER_CHANNEL                  0
 #define FURI_HAL_USB_AUDIO_VOLUME_RANGE_COUNT              1
+
+#define FURI_HAL_USB_AUDIO_USB_FRAMES_PER_SECOND           1000
+#define FURI_HAL_USB_AUDIO_FEEDBACK_FRACTION_BITS          16
+#define FURI_HAL_USB_AUDIO_FEEDBACK_STEP_FRAMES            16
+#define FURI_HAL_USB_AUDIO_FEEDBACK_STEP_COUNT             64
+#define FURI_HAL_USB_AUDIO_FEEDBACK_WINDOW_SHIFT           10
+#define FURI_HAL_USB_AUDIO_FEEDBACK_LEVEL_TARGET_MS        2
+#define FURI_HAL_USB_AUDIO_FEEDBACK_LEVEL_CORRECTION_SHIFT 10
+#define FURI_HAL_USB_AUDIO_FEEDBACK_DEVIATION_MAX          (1 << FURI_HAL_USB_AUDIO_FEEDBACK_FRACTION_BITS)
+
+_Static_assert(
+    FURI_HAL_USB_AUDIO_FEEDBACK_STEP_FRAMES* FURI_HAL_USB_AUDIO_FEEDBACK_STEP_COUNT ==
+        (1 << FURI_HAL_USB_AUDIO_FEEDBACK_WINDOW_SHIFT),
+    "Feedback window != STEP_FRAMES * STEP_COUNT");
 
 typedef struct {
     const uint32_t* sample_rates;
@@ -29,14 +44,27 @@ typedef struct {
 } FuriHalUsbAudioStreamState;
 
 typedef struct {
+    uint32_t reader_generation;
+    uint32_t played_frames[FURI_HAL_USB_AUDIO_FEEDBACK_STEP_COUNT];
+    size_t step_index;
+    size_t step_count;
+    size_t step_frame_count;
+    uint32_t fifo_level_sum;
+} FuriHalUsbAudioFeedback;
+
+typedef struct {
     bool configured;
     FuriHalUsbAudioCallback callback;
     void* callback_context;
     FuriHalUsbAudioStreamState streams[FuriHalUsbAudioStreamCount];
     bool speaker_attached;
     FuriHalUsbAudioFormat speaker_reader_format;
+    FuriHalUsbAudioSpeakerPlayedCallback speaker_played_callback;
+    void* speaker_played_context;
+    uint32_t speaker_reader_generation;
     volatile bool bus_reset_pending;
     volatile bool speaker_readable;
+    FuriHalUsbAudioFeedback feedback;
 } FuriHalUsbAudio;
 
 static FuriHalUsbAudio usb_audio = {0};
@@ -138,11 +166,18 @@ static void furi_hal_usb_audio_update_speaker_readable(void) {
         furi_hal_usb_audio_is_speaker_streaming(&usb_audio.speaker_reader_format);
 }
 
-void furi_hal_usb_audio_speaker_attach(const FuriHalUsbAudioFormat* format) {
+void furi_hal_usb_audio_speaker_attach(
+    const FuriHalUsbAudioFormat* format,
+    FuriHalUsbAudioSpeakerPlayedCallback played_callback,
+    void* context) {
     furi_check(format);
+    furi_check(played_callback);
 
     FURI_CRITICAL_ENTER();
     usb_audio.speaker_reader_format = *format;
+    usb_audio.speaker_played_callback = played_callback;
+    usb_audio.speaker_played_context = context;
+    usb_audio.speaker_reader_generation++;
     usb_audio.speaker_attached = true;
     furi_hal_usb_audio_update_speaker_readable();
     FURI_CRITICAL_EXIT();
@@ -215,6 +250,10 @@ static void furi_hal_usb_audio_set_alt_setting(
     state->alt_setting = alt_setting;
     furi_hal_usb_audio_update_speaker_readable();
     FURI_CRITICAL_EXIT();
+
+    if(stream == FuriHalUsbAudioStreamSpeaker) {
+        dcd_sof_enable(FURI_HAL_USB_ROOT_PORT, alt_setting != FuriHalUsbAudioAltSettingIdle);
+    }
 
     if(alt_setting == FuriHalUsbAudioAltSettingIdle) {
         furi_hal_usb_audio_notify_stop(stream);
@@ -496,4 +535,120 @@ bool tud_audio_set_itf_close_ep_cb(uint8_t rhport, tusb_control_request_t const*
 
     furi_hal_usb_audio_set_alt_setting(stream, FuriHalUsbAudioAltSettingIdle);
     return true;
+}
+
+static uint32_t furi_hal_usb_audio_get_nominal_feedback(uint32_t sample_rate) {
+    return (uint32_t)((((uint64_t)sample_rate << FURI_HAL_USB_AUDIO_FEEDBACK_FRACTION_BITS) +
+                       FURI_HAL_USB_AUDIO_USB_FRAMES_PER_SECOND / 2) /
+                      FURI_HAL_USB_AUDIO_USB_FRAMES_PER_SECOND);
+}
+
+static size_t
+    furi_hal_usb_audio_get_speaker_frame_size(FuriHalUsbAudioSampleFormat sample_format) {
+    switch(sample_format) {
+    case FuriHalUsbAudioSampleFormat16Bit:
+        return FURI_HAL_USB_AUDIO_SPEAKER_CHANNELS * FURI_HAL_USB_AUDIO_16BIT_SUBSLOT_SIZE;
+    case FuriHalUsbAudioSampleFormat24Bit:
+        return FURI_HAL_USB_AUDIO_SPEAKER_CHANNELS * FURI_HAL_USB_AUDIO_24BIT_SUBSLOT_SIZE;
+    default:
+        furi_crash();
+    }
+}
+
+static void furi_hal_usb_audio_feedback_reset(FuriHalUsbAudioFeedback* feedback) {
+    feedback->reader_generation = usb_audio.speaker_reader_generation;
+    feedback->step_index = 0;
+    feedback->step_count = 0;
+    feedback->step_frame_count = 0;
+    feedback->fifo_level_sum = 0;
+}
+
+static int32_t furi_hal_usb_audio_get_fifo_level_correction(
+    const FuriHalUsbAudioFeedback* feedback,
+    const FuriHalUsbAudioFormat* format) {
+    const int32_t frame_size =
+        (int32_t)furi_hal_usb_audio_get_speaker_frame_size(format->sample_format);
+    const int32_t level_frames =
+        (int32_t)(feedback->fifo_level_sum / FURI_HAL_USB_AUDIO_FEEDBACK_STEP_FRAMES) / frame_size;
+    const int32_t target_frames =
+        (int32_t)(format->sample_rate * FURI_HAL_USB_AUDIO_FEEDBACK_LEVEL_TARGET_MS /
+                  FURI_HAL_USB_AUDIO_USB_FRAMES_PER_SECOND);
+    return (target_frames - level_frames) *
+           (1
+            << (FURI_HAL_USB_AUDIO_FEEDBACK_FRACTION_BITS -
+                FURI_HAL_USB_AUDIO_FEEDBACK_LEVEL_CORRECTION_SHIFT));
+}
+
+static bool furi_hal_usb_audio_feedback_step(
+    FuriHalUsbAudioFeedback* feedback,
+    uint32_t played_frames,
+    uint32_t nominal,
+    uint32_t* value) {
+    if(feedback->step_count > 0) {
+        const size_t last_index =
+            (feedback->step_index + FURI_HAL_USB_AUDIO_FEEDBACK_STEP_COUNT - 1) %
+            FURI_HAL_USB_AUDIO_FEEDBACK_STEP_COUNT;
+        if(feedback->played_frames[last_index] == played_frames) {
+            return false;
+        }
+    }
+
+    uint32_t rate = nominal;
+    if(feedback->step_count == FURI_HAL_USB_AUDIO_FEEDBACK_STEP_COUNT) {
+        const uint32_t window_frames =
+            played_frames - feedback->played_frames[feedback->step_index];
+        rate = window_frames
+               << (FURI_HAL_USB_AUDIO_FEEDBACK_FRACTION_BITS -
+                   FURI_HAL_USB_AUDIO_FEEDBACK_WINDOW_SHIFT);
+    } else {
+        feedback->step_count++;
+    }
+    feedback->played_frames[feedback->step_index] = played_frames;
+    feedback->step_index = (feedback->step_index + 1) % FURI_HAL_USB_AUDIO_FEEDBACK_STEP_COUNT;
+
+    const int32_t correction =
+        furi_hal_usb_audio_get_fifo_level_correction(feedback, &usb_audio.speaker_reader_format);
+    const int32_t corrected = (int32_t)rate + correction;
+    *value = (uint32_t)CLAMP(
+        corrected,
+        (int32_t)nominal + FURI_HAL_USB_AUDIO_FEEDBACK_DEVIATION_MAX,
+        (int32_t)nominal - FURI_HAL_USB_AUDIO_FEEDBACK_DEVIATION_MAX);
+    return true;
+}
+
+void tud_audio_feedback_interval_isr(
+    uint8_t func_id,
+    uint32_t frame_number,
+    uint8_t interval_shift) {
+    UNUSED(frame_number);
+    UNUSED(interval_shift);
+
+    FuriHalUsbAudioFeedback* feedback = &usb_audio.feedback;
+    const uint32_t nominal = furi_hal_usb_audio_get_nominal_feedback(
+        usb_audio.streams[FuriHalUsbAudioStreamSpeaker].clock.sample_rate);
+
+    if(!usb_audio.speaker_readable ||
+       feedback->reader_generation != usb_audio.speaker_reader_generation) {
+        furi_hal_usb_audio_feedback_reset(feedback);
+        tud_audio_n_fb_set(func_id, nominal);
+        return;
+    }
+
+    const uint32_t played_frames =
+        usb_audio.speaker_played_callback(usb_audio.speaker_played_context);
+    feedback->fifo_level_sum += tud_audio_n_available(func_id);
+    feedback->step_frame_count++;
+    if(feedback->step_frame_count < FURI_HAL_USB_AUDIO_FEEDBACK_STEP_FRAMES) {
+        return;
+    }
+
+    uint32_t value;
+    if(furi_hal_usb_audio_feedback_step(feedback, played_frames, nominal, &value)) {
+        feedback->step_frame_count = 0;
+        feedback->fifo_level_sum = 0;
+        tud_audio_n_fb_set(func_id, value);
+    } else {
+        furi_hal_usb_audio_feedback_reset(feedback);
+        tud_audio_n_fb_set(func_id, nominal);
+    }
 }

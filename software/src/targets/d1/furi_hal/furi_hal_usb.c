@@ -18,7 +18,6 @@
 #define TAG "FuriHalUsb"
 
 #define FURI_HAL_USB_THREAD_STACK_SIZE 1024
-#define FURI_HAL_USB_ROOT_PORT         0
 
 #define FURI_HAL_USB_VID        0x1209
 #define FURI_HAL_USB_PID        0x0001

@@ -3,6 +3,8 @@
 #include <stdbool.h>
 #include <stdint.h>
 
+#define FURI_HAL_USB_ROOT_PORT 0
+
 typedef enum {
     FuriHalUsbStringLanguage,
     FuriHalUsbStringManufacturer,

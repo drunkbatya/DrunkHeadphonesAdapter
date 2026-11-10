@@ -44,6 +44,8 @@ void furi_hal_i2s_start(
 
 void furi_hal_i2s_stop(FuriHalI2sId id);
 
+size_t furi_hal_i2s_get_position(FuriHalI2sId id);
+
 #ifdef __cplusplus
 }
 #endif

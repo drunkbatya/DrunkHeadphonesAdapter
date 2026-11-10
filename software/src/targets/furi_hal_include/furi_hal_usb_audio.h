@@ -59,6 +59,8 @@ typedef struct {
 
 typedef void (*FuriHalUsbAudioCallback)(const FuriHalUsbAudioEvent* event, void* context);
 
+typedef uint32_t (*FuriHalUsbAudioSpeakerPlayedCallback)(void* context);
+
 void furi_hal_usb_audio_set_config(
     const FuriHalUsbAudioStreamConfig* speaker,
     const FuriHalUsbAudioStreamConfig* mic);
@@ -69,7 +71,10 @@ int16_t furi_hal_usb_audio_get_volume(FuriHalUsbAudioStream stream);
 
 bool furi_hal_usb_audio_is_muted(FuriHalUsbAudioStream stream);
 
-void furi_hal_usb_audio_speaker_attach(const FuriHalUsbAudioFormat* format);
+void furi_hal_usb_audio_speaker_attach(
+    const FuriHalUsbAudioFormat* format,
+    FuriHalUsbAudioSpeakerPlayedCallback played_callback,
+    void* context);
 
 void furi_hal_usb_audio_speaker_detach(void);
 
