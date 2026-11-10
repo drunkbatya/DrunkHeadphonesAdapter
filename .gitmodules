@@ -16,9 +16,6 @@
 [submodule "software/lib/stm32-mw-usbpd-device-g0"]
 	path = software/lib/stm32-mw-usbpd-device-g0
 	url = https://github.com/STMicroelectronics/stm32-mw-usbpd-device-g0
-[submodule "software/lib/stm32-mw-usbpd-core"]
-	path = software/lib/stm32-mw-usbpd-core
-	url = https://github.com/STMicroelectronics/stm32-mw-usbpd-core
 [submodule "software/lib/mlib"]
 	path = software/lib/mlib
 	url = https://github.com/P-p-H-d/mlib.git
