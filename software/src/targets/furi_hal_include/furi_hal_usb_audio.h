@@ -41,23 +41,17 @@ typedef struct {
 } FuriHalUsbAudioFormat;
 
 typedef enum {
-    FuriHalUsbAudioEventTypeStart,
-    FuriHalUsbAudioEventTypeStop,
-    FuriHalUsbAudioEventTypeVolume,
-    FuriHalUsbAudioEventTypeMute,
-} FuriHalUsbAudioEventType;
+    FuriHalUsbAudioChangeStream,
+    FuriHalUsbAudioChangeVolume,
+    FuriHalUsbAudioChangeMute,
 
-typedef struct {
-    FuriHalUsbAudioEventType type;
-    FuriHalUsbAudioStream stream;
-    union {
-        FuriHalUsbAudioFormat format;
-        int16_t volume;
-        bool muted;
-    };
-} FuriHalUsbAudioEvent;
+    FuriHalUsbAudioChangeCount,
+} FuriHalUsbAudioChange;
 
-typedef void (*FuriHalUsbAudioCallback)(const FuriHalUsbAudioEvent* event, void* context);
+typedef void (*FuriHalUsbAudioCallback)(
+    FuriHalUsbAudioStream stream,
+    FuriHalUsbAudioChange change,
+    void* context);
 
 typedef uint32_t (*FuriHalUsbAudioSpeakerPlayedCallback)(void* context);
 
@@ -70,6 +64,14 @@ void furi_hal_usb_audio_set_callback(FuriHalUsbAudioCallback callback, void* con
 int16_t furi_hal_usb_audio_get_volume(FuriHalUsbAudioStream stream);
 
 bool furi_hal_usb_audio_is_muted(FuriHalUsbAudioStream stream);
+
+bool furi_hal_usb_audio_get_stream_format(
+    FuriHalUsbAudioStream stream,
+    FuriHalUsbAudioFormat* format);
+
+void furi_hal_usb_audio_set_valid_sample_rates(
+    FuriHalUsbAudioStream stream,
+    uint32_t sample_rate_mask);
 
 void furi_hal_usb_audio_speaker_attach(
     const FuriHalUsbAudioFormat* format,

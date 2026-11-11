@@ -29,6 +29,7 @@ typedef struct {
     const uint32_t* sample_rates;
     size_t sample_rate_count;
     uint32_t sample_rate;
+    uint32_t valid_sample_rate_mask;
 } FuriHalUsbAudioClock;
 
 typedef struct {
@@ -96,6 +97,7 @@ static void furi_hal_usb_audio_apply_config(
     clock->sample_rates = config->sample_rates;
     clock->sample_rate_count = config->sample_rate_count;
     clock->sample_rate = config->sample_rates[0];
+    clock->valid_sample_rate_mask = (1UL << config->sample_rate_count) - 1;
 
     feature_unit->volume_range = config->volume_range;
     feature_unit->volume = CLAMP(
@@ -141,6 +143,15 @@ bool furi_hal_usb_audio_is_muted(FuriHalUsbAudioStream stream) {
     return usb_audio.streams[stream].feature_unit.muted;
 }
 
+void furi_hal_usb_audio_set_valid_sample_rates(
+    FuriHalUsbAudioStream stream,
+    uint32_t sample_rate_mask) {
+    furi_check(stream < FuriHalUsbAudioStreamCount);
+    FuriHalUsbAudioClock* clock = &usb_audio.streams[stream].clock;
+    furi_check((sample_rate_mask >> clock->sample_rate_count) == 0);
+    clock->valid_sample_rate_mask = sample_rate_mask;
+}
+
 static FuriHalUsbAudioSampleFormat
     furi_hal_usb_audio_get_sample_format(FuriHalUsbAudioAltSetting alt_setting) {
     switch(alt_setting) {
@@ -151,6 +162,26 @@ static FuriHalUsbAudioSampleFormat
     default:
         furi_crash();
     }
+}
+
+bool furi_hal_usb_audio_get_stream_format(
+    FuriHalUsbAudioStream stream,
+    FuriHalUsbAudioFormat* format) {
+    furi_check(stream < FuriHalUsbAudioStreamCount);
+    furi_check(format);
+
+    const FuriHalUsbAudioStreamState* state = &usb_audio.streams[stream];
+    bool streaming = false;
+
+    FURI_CRITICAL_ENTER();
+    if(state->alt_setting != FuriHalUsbAudioAltSettingIdle) {
+        format->sample_rate = state->clock.sample_rate;
+        format->sample_format = furi_hal_usb_audio_get_sample_format(state->alt_setting);
+        streaming = true;
+    }
+    FURI_CRITICAL_EXIT();
+
+    return streaming;
 }
 
 static bool furi_hal_usb_audio_is_speaker_streaming(const FuriHalUsbAudioFormat* format) {
@@ -210,32 +241,10 @@ size_t furi_hal_usb_audio_speaker_read(void* data, size_t size) {
     return tud_audio_read(data, (uint16_t)size);
 }
 
-static void furi_hal_usb_audio_notify(const FuriHalUsbAudioEvent* event) {
+static void furi_hal_usb_audio_notify(FuriHalUsbAudioStream stream, FuriHalUsbAudioChange change) {
     if(usb_audio.callback != NULL) {
-        usb_audio.callback(event, usb_audio.callback_context);
+        usb_audio.callback(stream, change, usb_audio.callback_context);
     }
-}
-
-static void furi_hal_usb_audio_notify_start(FuriHalUsbAudioStream stream) {
-    const FuriHalUsbAudioStreamState* state = &usb_audio.streams[stream];
-    const FuriHalUsbAudioEvent event = {
-        .type = FuriHalUsbAudioEventTypeStart,
-        .stream = stream,
-        .format =
-            {
-                .sample_rate = state->clock.sample_rate,
-                .sample_format = furi_hal_usb_audio_get_sample_format(state->alt_setting),
-            },
-    };
-    furi_hal_usb_audio_notify(&event);
-}
-
-static void furi_hal_usb_audio_notify_stop(FuriHalUsbAudioStream stream) {
-    const FuriHalUsbAudioEvent event = {
-        .type = FuriHalUsbAudioEventTypeStop,
-        .stream = stream,
-    };
-    furi_hal_usb_audio_notify(&event);
 }
 
 static void furi_hal_usb_audio_set_alt_setting(
@@ -255,11 +264,7 @@ static void furi_hal_usb_audio_set_alt_setting(
         dcd_sof_enable(FURI_HAL_USB_ROOT_PORT, alt_setting != FuriHalUsbAudioAltSettingIdle);
     }
 
-    if(alt_setting == FuriHalUsbAudioAltSettingIdle) {
-        furi_hal_usb_audio_notify_stop(stream);
-    } else {
-        furi_hal_usb_audio_notify_start(stream);
-    }
+    furi_hal_usb_audio_notify(stream, FuriHalUsbAudioChangeStream);
 }
 
 void furi_hal_usb_audio_reset(void) {
@@ -325,6 +330,15 @@ static bool
     }
 }
 
+static bool furi_hal_usb_audio_is_clock_valid(const FuriHalUsbAudioClock* clock) {
+    for(size_t i = 0; i < clock->sample_rate_count; i++) {
+        if(clock->sample_rates[i] == clock->sample_rate) {
+            return (clock->valid_sample_rate_mask & (1UL << i)) != 0;
+        }
+    }
+    furi_crash();
+}
+
 static bool furi_hal_usb_audio_get_clock_request(
     uint8_t rhport,
     const tusb_control_request_t* request,
@@ -353,7 +367,7 @@ static bool furi_hal_usb_audio_get_clock_request(
     }
 
     if(control_selector == AUDIO20_CS_CTRL_CLK_VALID && request->bRequest == AUDIO20_CS_REQ_CUR) {
-        audio20_control_cur_1_t clock_valid = {.bCur = true};
+        audio20_control_cur_1_t clock_valid = {.bCur = furi_hal_usb_audio_is_clock_valid(clock)};
         return tud_audio_buffer_and_schedule_control_xfer(
             rhport, request, &clock_valid, sizeof(clock_valid));
     }
@@ -386,7 +400,7 @@ static bool furi_hal_usb_audio_set_clock_request(
         furi_hal_usb_audio_update_speaker_readable();
         FURI_CRITICAL_EXIT();
         if(state->alt_setting != FuriHalUsbAudioAltSettingIdle) {
-            furi_hal_usb_audio_notify_start(stream);
+            furi_hal_usb_audio_notify(stream, FuriHalUsbAudioChangeStream);
         }
         return true;
     }
@@ -448,12 +462,7 @@ static bool furi_hal_usb_audio_set_feature_unit_request(
     if(control_selector == AUDIO20_FU_CTRL_MUTE &&
        request->wLength == sizeof(audio20_control_cur_1_t)) {
         feature_unit->muted = buffer[0] != 0;
-        const FuriHalUsbAudioEvent event = {
-            .type = FuriHalUsbAudioEventTypeMute,
-            .stream = stream,
-            .muted = feature_unit->muted,
-        };
-        furi_hal_usb_audio_notify(&event);
+        furi_hal_usb_audio_notify(stream, FuriHalUsbAudioChangeMute);
         return true;
     }
 
@@ -462,12 +471,7 @@ static bool furi_hal_usb_audio_set_feature_unit_request(
         const int16_t volume = (int16_t)tu_unaligned_read16(buffer);
         feature_unit->volume =
             CLAMP(volume, feature_unit->volume_range.max, feature_unit->volume_range.min);
-        const FuriHalUsbAudioEvent event = {
-            .type = FuriHalUsbAudioEventTypeVolume,
-            .stream = stream,
-            .volume = feature_unit->volume,
-        };
-        furi_hal_usb_audio_notify(&event);
+        furi_hal_usb_audio_notify(stream, FuriHalUsbAudioChangeVolume);
         return true;
     }
 
