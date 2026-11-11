@@ -16,6 +16,7 @@
 #define FURI_HAL_I2S_DMA_INSTANCE       (DMA1)
 #define FURI_HAL_I2S_DMA_FLAG_STRIDE    (DMA_ISR_GIF2_Pos - DMA_ISR_GIF1_Pos)
 #define FURI_HAL_I2S_TX_STOP_TIMEOUT_US 1000
+#define FURI_HAL_I2S_WS_SYNC_TIMEOUT_US 100
 
 typedef struct {
     SPI_TypeDef* spi;
@@ -142,6 +143,24 @@ static void furi_hal_i2s_spi_isr(void* context) {
     }
 }
 
+static bool
+    furi_hal_i2s_wait_ws_level(const GpioPin* gpio_ws, bool level, FuriHalCortexTimer timer) {
+    while(furi_hal_gpio_read(gpio_ws) != level) {
+        if(furi_hal_cortex_timer_is_expired(timer)) {
+            return false;
+        }
+    }
+    return true;
+}
+
+static bool furi_hal_i2s_wait_ws_rising_edge(const GpioPin* gpio_ws) {
+    const FuriHalCortexTimer timer = furi_hal_cortex_timer_get(FURI_HAL_I2S_WS_SYNC_TIMEOUT_US);
+    if(!furi_hal_i2s_wait_ws_level(gpio_ws, false, timer)) {
+        return false;
+    }
+    return furi_hal_i2s_wait_ws_level(gpio_ws, true, timer);
+}
+
 void furi_hal_i2s_init(void) {
     LL_RCC_SetI2SClockSource(LL_RCC_I2S1_CLKSOURCE_SYSCLK);
     LL_RCC_SetI2SClockSource(LL_RCC_I2S2_CLKSOURCE_SYSCLK);
@@ -149,7 +168,7 @@ void furi_hal_i2s_init(void) {
     FURI_LOG_I(TAG, "Init OK");
 }
 
-void furi_hal_i2s_start(
+bool furi_hal_i2s_start(
     FuriHalI2sId id,
     FuriHalI2sDataFormat data_format,
     uint16_t* buffer,
@@ -218,13 +237,22 @@ void furi_hal_i2s_start(
     LL_I2S_EnableIT_ERR(config->spi);
 
     FURI_CRITICAL_ENTER();
-    LL_I2S_Enable(config->spi);
-    if(config->transfer_mode == LL_I2S_MODE_SLAVE_TX) {
-        LL_I2S_EnableDMAReq_TX(config->spi);
-    } else {
-        LL_I2S_EnableDMAReq_RX(config->spi);
+    const bool ws_synchronized = furi_hal_i2s_wait_ws_rising_edge(config->gpio_ws);
+    if(ws_synchronized) {
+        LL_I2S_Enable(config->spi);
+        if(config->transfer_mode == LL_I2S_MODE_SLAVE_TX) {
+            LL_I2S_EnableDMAReq_TX(config->spi);
+        } else {
+            LL_I2S_EnableDMAReq_RX(config->spi);
+        }
     }
     FURI_CRITICAL_EXIT();
+
+    if(!ws_synchronized) {
+        FURI_LOG_E(TAG, "I2S %d WS edge timeout, %d us", id, FURI_HAL_I2S_WS_SYNC_TIMEOUT_US);
+        furi_hal_i2s_stop(id);
+    }
+    return ws_synchronized;
 }
 
 void furi_hal_i2s_stop(FuriHalI2sId id) {

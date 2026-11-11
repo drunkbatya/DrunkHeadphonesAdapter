@@ -174,3 +174,10 @@ bool es8327_set_adc_volume(const FuriHalI2cBusHandle* handle, uint8_t volume) {
 
     return es8327_write(handle, ES8327_REG_ADC_VOLUME1, volume);
 }
+
+bool es8327_set_adc_muted(const FuriHalI2cBusHandle* handle, bool muted) {
+    furi_check(handle);
+
+    return es8327_write(
+        handle, ES8327_REG_SDP_ADC, muted ? ES8327_SDP_ADC_2CH_MUTED : ES8327_SDP_ADC_2CH_UNMUTED);
+}

@@ -84,6 +84,12 @@ size_t furi_hal_usb_audio_speaker_get_available(void);
 
 size_t furi_hal_usb_audio_speaker_read(void* data, size_t size);
 
+void furi_hal_usb_audio_mic_attach(const FuriHalUsbAudioFormat* format);
+
+void furi_hal_usb_audio_mic_detach(void);
+
+size_t furi_hal_usb_audio_mic_write(const void* data, size_t size);
+
 #ifdef __cplusplus
 }
 #endif

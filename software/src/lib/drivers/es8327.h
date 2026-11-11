@@ -42,6 +42,8 @@ bool es8327_set_mic_gain(const FuriHalI2cBusHandle* handle, uint8_t gain_3db_ste
 
 bool es8327_set_adc_volume(const FuriHalI2cBusHandle* handle, uint8_t volume);
 
+bool es8327_set_adc_muted(const FuriHalI2cBusHandle* handle, bool muted);
+
 #ifdef __cplusplus
 }
 #endif

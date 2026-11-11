@@ -1,5 +1,6 @@
 #pragma once
 
+#include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
 
@@ -34,7 +35,7 @@ typedef void (*FuriHalI2sCallback)(FuriHalI2sEvent event, void* context);
 
 void furi_hal_i2s_init(void);
 
-void furi_hal_i2s_start(
+bool furi_hal_i2s_start(
     FuriHalI2sId id,
     FuriHalI2sDataFormat data_format,
     uint16_t* buffer,

@@ -1,4 +1,5 @@
 #include <applications/services/audio/audio.h>
+#include <applications/services/audio/audio_capture.h>
 #include <applications/services/audio/audio_playback.h>
 
 #include <furi.h>
@@ -20,6 +21,10 @@
 
 #define AUDIO_SPEAKER_ATTENUATION(usb_volume) \
     ((uint8_t)(-(usb_volume) * CS43131_VOLUME_STEPS_PER_DB / FURI_HAL_USB_AUDIO_VOLUME_PER_DB))
+
+#define AUDIO_MIC_ADC_VOLUME(usb_volume) \
+    ((uint8_t)(ES8327_ADC_VOLUME_0DB +   \
+               (usb_volume) * ES8327_ADC_VOLUME_STEPS_PER_DB / FURI_HAL_USB_AUDIO_VOLUME_PER_DB))
 
 #define AUDIO_MIC_USB_VOLUME(adc_volume)                                                   \
     ((int16_t)(((adc_volume) - ES8327_ADC_VOLUME_0DB) * FURI_HAL_USB_AUDIO_VOLUME_PER_DB / \
@@ -62,6 +67,9 @@ typedef enum {
     AudioThreadFlagSpeakerVolume = (1 << 3),
     AudioThreadFlagSpeakerMute = (1 << 4),
     AudioThreadFlagMicStream = (1 << 5),
+    AudioThreadFlagMicVolume = (1 << 6),
+    AudioThreadFlagMicMute = (1 << 7),
+    AudioThreadFlagCaptureError = (1 << 8),
 } AudioThreadFlag;
 
 static const uint32_t
@@ -72,10 +80,11 @@ static const uint32_t
                 [FuriHalUsbAudioChangeVolume] = AudioThreadFlagSpeakerVolume,
                 [FuriHalUsbAudioChangeMute] = AudioThreadFlagSpeakerMute,
             },
-        // TODO: mic volume and mute
         [FuriHalUsbAudioStreamMic] =
             {
                 [FuriHalUsbAudioChangeStream] = AudioThreadFlagMicStream,
+                [FuriHalUsbAudioChangeVolume] = AudioThreadFlagMicVolume,
+                [FuriHalUsbAudioChangeMute] = AudioThreadFlagMicMute,
             },
 };
 
@@ -92,6 +101,7 @@ typedef struct {
     FuriEventLoopTimer* idle_timer;
     FuriPubSub* headset_events;
     AudioPlayback* playback;
+    AudioCapture* capture;
     bool headphone_plugged;
     AudioStream streams[FuriHalUsbAudioStreamCount];
     uint32_t clock_users;
@@ -108,6 +118,11 @@ static void audio_playback_error_callback(void* context) {
     furi_thread_flags_set(audio->thread_id, AudioThreadFlagPlaybackError);
 }
 
+static void audio_capture_error_callback(void* context) {
+    Audio* audio = context;
+    furi_thread_flags_set(audio->thread_id, AudioThreadFlagCaptureError);
+}
+
 static Audio* audio_alloc(void) {
     Audio* audio = malloc(sizeof(Audio));
 
@@ -117,6 +132,7 @@ static Audio* audio_alloc(void) {
         audio->event_loop, audio_idle_timer_callback, FuriEventLoopTimerTypeOnce, audio);
     audio->headset_events = furi_pubsub_alloc();
     audio->playback = audio_playback_alloc(audio_playback_error_callback, audio);
+    audio->capture = audio_capture_alloc(audio_capture_error_callback, audio);
     audio->headphone_plugged = false;
     for(size_t stream = 0; stream < FuriHalUsbAudioStreamCount; stream++) {
         audio->streams[stream].active = false;
@@ -129,6 +145,7 @@ static Audio* audio_alloc(void) {
 }
 
 static void audio_free(Audio* audio) {
+    audio_capture_free(audio->capture);
     audio_playback_free(audio->playback);
     furi_pubsub_free(audio->headset_events);
     furi_event_loop_timer_free(audio->idle_timer);
@@ -411,7 +428,8 @@ static void audio_start_speaker(Audio* audio, const FuriHalUsbAudioFormat* forma
     do {
         if(!audio_configure_headphone_output(sample_rate, bit_depth)) break;
         audio->headphone_output_powered = true;
-        audio_playback_start(audio->playback, format->sample_rate, format->sample_format);
+        if(!audio_playback_start(audio->playback, format->sample_rate, format->sample_format))
+            break;
         furi_delay_ms(CS43131_HP_POWER_UP_DELAY_MS);
         if(!audio_run_codec_step(cs43131_power_up_end)) break;
         success = true;
@@ -437,18 +455,89 @@ static void audio_start_speaker(Audio* audio, const FuriHalUsbAudioFormat* forma
         format->sample_format);
 }
 
+static Es8327SampleRate audio_get_es8327_sample_rate(uint32_t sample_rate) {
+    switch(sample_rate) {
+    case 44100:
+        return Es8327SampleRate44100;
+    case 48000:
+        return Es8327SampleRate48000;
+    default:
+        furi_crash();
+    }
+}
+
+static Es8327WordLength audio_get_es8327_word_length(FuriHalUsbAudioSampleFormat sample_format) {
+    switch(sample_format) {
+    case FuriHalUsbAudioSampleFormat16Bit:
+        return Es8327WordLength16;
+    case FuriHalUsbAudioSampleFormat24Bit:
+        return Es8327WordLength24;
+    default:
+        furi_crash();
+    }
+}
+
+static bool audio_power_up_mic(const FuriHalUsbAudioFormat* format) {
+    furi_hal_i2c_acquire(&furi_hal_i2c_handle_internal);
+    bool success = false;
+    do {
+        if(!es8327_configure(
+               &furi_hal_i2c_handle_internal,
+               audio_get_es8327_sample_rate(format->sample_rate),
+               audio_get_es8327_word_length(format->sample_format)))
+            break;
+        if(!es8327_power_up(&furi_hal_i2c_handle_internal)) break;
+        success = true;
+    } while(0);
+    furi_hal_i2c_release(&furi_hal_i2c_handle_internal);
+
+    return success;
+}
+
+static bool audio_set_mic_muted(bool muted) {
+    furi_hal_i2c_acquire(&furi_hal_i2c_handle_internal);
+    const bool success = es8327_set_adc_muted(&furi_hal_i2c_handle_internal, muted);
+    furi_hal_i2c_release(&furi_hal_i2c_handle_internal);
+    return success;
+}
+
+static void audio_power_down_mic(Audio* audio) {
+    if(audio_capture_is_running(audio->capture)) {
+        audio_capture_stop(audio->capture);
+    }
+
+    if(!audio_run_codec_step(es8327_power_down)) {
+        FURI_LOG_E(TAG, "ES8327 power down failed");
+    }
+}
+
 static void audio_start_mic(Audio* audio, const FuriHalUsbAudioFormat* format) {
     if(!audio_acquire_clock(
            audio, FuriHalUsbAudioStreamMic, audio_get_mclk_source(format->sample_rate))) {
         return;
     }
 
-    // TODO: ES8327 capture
+    bool success = false;
+    do {
+        if(!audio_power_up_mic(format)) break;
+        if(!audio_set_mic_muted(furi_hal_usb_audio_is_muted(FuriHalUsbAudioStreamMic))) break;
+        if(!audio_capture_start(audio->capture, format->sample_rate, format->sample_format)) break;
+        success = true;
+    } while(0);
+
+    if(!success) {
+        FURI_LOG_E(
+            TAG,
+            "Mic start failed, %lu Hz, sample format %d",
+            format->sample_rate,
+            format->sample_format);
+        audio_power_down_mic(audio);
+        audio_release_clock(audio, FuriHalUsbAudioStreamMic);
+        return;
+    }
+
     FURI_LOG_I(
-        TAG,
-        "Mic clock acquired, %lu Hz, sample format %d",
-        format->sample_rate,
-        format->sample_format);
+        TAG, "Mic started, %lu Hz, sample format %d", format->sample_rate, format->sample_format);
 }
 
 static void audio_start_stream(Audio* audio, FuriHalUsbAudioStream stream) {
@@ -498,7 +587,10 @@ static void audio_handle_stream_change(Audio* audio, FuriHalUsbAudioStream strea
     }
 
     if(audio_is_clock_user(audio, stream)) {
-        // TODO: ES8327 capture stop for the mic
+        if(stream == FuriHalUsbAudioStreamMic) {
+            audio_power_down_mic(audio);
+            FURI_LOG_I(TAG, "Mic stopped");
+        }
         audio_release_clock(audio, stream);
     }
 
@@ -530,7 +622,20 @@ static void audio_handle_playback_error(Audio* audio) {
     }
 
     FURI_LOG_W(TAG, "Headphone I2S error, restart");
-    audio_playback_restart(audio->playback);
+    if(!audio_playback_restart(audio->playback)) {
+        FURI_LOG_E(TAG, "Headphone I2S restart failed");
+    }
+}
+
+static void audio_handle_capture_error(Audio* audio) {
+    if(!audio_capture_is_running(audio->capture)) {
+        return;
+    }
+
+    FURI_LOG_W(TAG, "Mic I2S error, restart");
+    if(!audio_capture_restart(audio->capture)) {
+        FURI_LOG_E(TAG, "Mic I2S restart failed");
+    }
 }
 
 static void audio_handle_speaker_volume(void) {
@@ -555,6 +660,30 @@ static void audio_handle_speaker_mute(void) {
 
     if(!success) {
         FURI_LOG_E(TAG, "CS43131 mute write failed, %d", muted);
+    }
+}
+
+static void audio_handle_mic_volume(void) {
+    const int16_t volume = furi_hal_usb_audio_get_volume(FuriHalUsbAudioStreamMic);
+
+    furi_hal_i2c_acquire(&furi_hal_i2c_handle_internal);
+    const bool success =
+        es8327_set_adc_volume(&furi_hal_i2c_handle_internal, AUDIO_MIC_ADC_VOLUME(volume));
+    furi_hal_i2c_release(&furi_hal_i2c_handle_internal);
+
+    if(!success) {
+        FURI_LOG_E(TAG, "ES8327 volume write failed, %d", volume);
+    }
+}
+
+static void audio_handle_mic_mute(Audio* audio) {
+    if(!audio_capture_is_running(audio->capture)) {
+        return;
+    }
+
+    const bool muted = furi_hal_usb_audio_is_muted(FuriHalUsbAudioStreamMic);
+    if(!audio_set_mic_muted(muted)) {
+        FURI_LOG_E(TAG, "ES8327 mute write failed, %d", muted);
     }
 }
 
@@ -598,6 +727,18 @@ static void audio_thread_flags_callback(void* context) {
     if(flags & AudioThreadFlagSpeakerMute) {
         audio_handle_speaker_mute();
     }
+
+    if(flags & AudioThreadFlagCaptureError) {
+        audio_handle_capture_error(audio);
+    }
+
+    if(flags & AudioThreadFlagMicVolume) {
+        audio_handle_mic_volume();
+    }
+
+    if(flags & AudioThreadFlagMicMute) {
+        audio_handle_mic_mute(audio);
+    }
 }
 
 static void audio_init(Audio* audio) {
@@ -624,7 +765,9 @@ static void audio_init(Audio* audio) {
         FURI_LOG_E(TAG, "CS43131 init failed");
     }
 
-    if(!es8327_ready) {
+    if(es8327_ready) {
+        audio_handle_mic_volume();
+    } else {
         FURI_LOG_E(TAG, "ES8327 init failed");
     }
 
@@ -640,6 +783,10 @@ static void audio_deinit(Audio* audio) {
 
     if(audio_playback_is_running(audio->playback)) {
         audio_playback_stop(audio->playback);
+    }
+
+    if(audio_capture_is_running(audio->capture)) {
+        audio_capture_stop(audio->capture);
     }
 
     furi_hal_gpio_write(&gpio_cs43131_reset_n, false);

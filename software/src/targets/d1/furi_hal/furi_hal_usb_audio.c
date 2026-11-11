@@ -63,8 +63,11 @@ typedef struct {
     FuriHalUsbAudioSpeakerPlayedCallback speaker_played_callback;
     void* speaker_played_context;
     uint32_t speaker_reader_generation;
+    bool mic_attached;
+    FuriHalUsbAudioFormat mic_writer_format;
     volatile bool bus_reset_pending;
     volatile bool speaker_readable;
+    volatile bool mic_writable;
     FuriHalUsbAudioFeedback feedback;
 } FuriHalUsbAudio;
 
@@ -184,17 +187,23 @@ bool furi_hal_usb_audio_get_stream_format(
     return streaming;
 }
 
-static bool furi_hal_usb_audio_is_speaker_streaming(const FuriHalUsbAudioFormat* format) {
-    const FuriHalUsbAudioStreamState* state = &usb_audio.streams[FuriHalUsbAudioStreamSpeaker];
+static bool furi_hal_usb_audio_is_streaming(
+    FuriHalUsbAudioStream stream,
+    const FuriHalUsbAudioFormat* format) {
+    const FuriHalUsbAudioStreamState* state = &usb_audio.streams[stream];
     return state->alt_setting != FuriHalUsbAudioAltSettingIdle &&
            state->clock.sample_rate == format->sample_rate &&
            furi_hal_usb_audio_get_sample_format(state->alt_setting) == format->sample_format;
 }
 
-static void furi_hal_usb_audio_update_speaker_readable(void) {
+static void furi_hal_usb_audio_update_access(void) {
     usb_audio.speaker_readable =
         usb_audio.speaker_attached && !usb_audio.bus_reset_pending &&
-        furi_hal_usb_audio_is_speaker_streaming(&usb_audio.speaker_reader_format);
+        furi_hal_usb_audio_is_streaming(
+            FuriHalUsbAudioStreamSpeaker, &usb_audio.speaker_reader_format);
+    usb_audio.mic_writable =
+        usb_audio.mic_attached && !usb_audio.bus_reset_pending &&
+        furi_hal_usb_audio_is_streaming(FuriHalUsbAudioStreamMic, &usb_audio.mic_writer_format);
 }
 
 void furi_hal_usb_audio_speaker_attach(
@@ -210,14 +219,14 @@ void furi_hal_usb_audio_speaker_attach(
     usb_audio.speaker_played_context = context;
     usb_audio.speaker_reader_generation++;
     usb_audio.speaker_attached = true;
-    furi_hal_usb_audio_update_speaker_readable();
+    furi_hal_usb_audio_update_access();
     FURI_CRITICAL_EXIT();
 }
 
 void furi_hal_usb_audio_speaker_detach(void) {
     FURI_CRITICAL_ENTER();
     usb_audio.speaker_attached = false;
-    furi_hal_usb_audio_update_speaker_readable();
+    furi_hal_usb_audio_update_access();
     FURI_CRITICAL_EXIT();
 }
 
@@ -241,6 +250,34 @@ size_t furi_hal_usb_audio_speaker_read(void* data, size_t size) {
     return tud_audio_read(data, (uint16_t)size);
 }
 
+void furi_hal_usb_audio_mic_attach(const FuriHalUsbAudioFormat* format) {
+    furi_check(format);
+
+    FURI_CRITICAL_ENTER();
+    usb_audio.mic_writer_format = *format;
+    usb_audio.mic_attached = true;
+    furi_hal_usb_audio_update_access();
+    FURI_CRITICAL_EXIT();
+}
+
+void furi_hal_usb_audio_mic_detach(void) {
+    FURI_CRITICAL_ENTER();
+    usb_audio.mic_attached = false;
+    furi_hal_usb_audio_update_access();
+    FURI_CRITICAL_EXIT();
+}
+
+size_t furi_hal_usb_audio_mic_write(const void* data, size_t size) {
+    furi_check(FURI_IS_IRQ_MODE());
+    furi_check(data);
+    furi_check(size <= UINT16_MAX);
+
+    if(!usb_audio.mic_writable) {
+        return 0;
+    }
+    return tud_audio_write(data, (uint16_t)size);
+}
+
 static void furi_hal_usb_audio_notify(FuriHalUsbAudioStream stream, FuriHalUsbAudioChange change) {
     if(usb_audio.callback != NULL) {
         usb_audio.callback(stream, change, usb_audio.callback_context);
@@ -257,7 +294,7 @@ static void furi_hal_usb_audio_set_alt_setting(
 
     FURI_CRITICAL_ENTER();
     state->alt_setting = alt_setting;
-    furi_hal_usb_audio_update_speaker_readable();
+    furi_hal_usb_audio_update_access();
     FURI_CRITICAL_EXIT();
 
     if(stream == FuriHalUsbAudioStreamSpeaker) {
@@ -274,13 +311,14 @@ void furi_hal_usb_audio_reset(void) {
 
     FURI_CRITICAL_ENTER();
     usb_audio.bus_reset_pending = false;
-    furi_hal_usb_audio_update_speaker_readable();
+    furi_hal_usb_audio_update_access();
     FURI_CRITICAL_EXIT();
 }
 
 void furi_hal_usb_audio_begin_bus_reset(void) {
     usb_audio.bus_reset_pending = true;
     usb_audio.speaker_readable = false;
+    usb_audio.mic_writable = false;
 }
 
 void furi_hal_usb_audio_finish_bus_reset(void) {
@@ -397,7 +435,7 @@ static bool furi_hal_usb_audio_set_clock_request(
         }
         FURI_CRITICAL_ENTER();
         state->clock.sample_rate = sample_rate;
-        furi_hal_usb_audio_update_speaker_readable();
+        furi_hal_usb_audio_update_access();
         FURI_CRITICAL_EXIT();
         if(state->alt_setting != FuriHalUsbAudioAltSettingIdle) {
             furi_hal_usb_audio_notify(stream, FuriHalUsbAudioChangeStream);
