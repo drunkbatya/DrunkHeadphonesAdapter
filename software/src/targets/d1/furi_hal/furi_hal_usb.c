@@ -45,7 +45,7 @@
 #define FURI_HAL_USB_AUDIO_BCD_ADC 0x0200
 #define FURI_HAL_USB_AUDIO_INTERFACE_COUNT \
     (FuriHalUsbInterfaceAudioMic - FuriHalUsbInterfaceAudioControl + 1)
-#define FURI_HAL_USB_AUDIO_CONTROL_ENDPOINT_COUNT 0
+#define FURI_HAL_USB_AUDIO_CONTROL_ENDPOINT_COUNT 1
 #define FURI_HAL_USB_AUDIO_IDLE_ENDPOINT_COUNT    0
 #define FURI_HAL_USB_AUDIO_SPEAKER_ENDPOINT_COUNT 2
 #define FURI_HAL_USB_AUDIO_MIC_ENDPOINT_COUNT     1
@@ -53,6 +53,7 @@
 #define FURI_HAL_USB_AUDIO_LOCK_DELAY_NONE        0
 #define FURI_HAL_USB_AUDIO_DATA_INTERVAL          1
 #define FURI_HAL_USB_AUDIO_FEEDBACK_INTERVAL      1
+#define FURI_HAL_USB_AUDIO_INTERRUPT_INTERVAL_MS  16
 
 #define FURI_HAL_USB_AUDIO_CLOCK_CONTROLS                         \
     ((AUDIO20_CTRL_RW << AUDIO20_CLOCK_SOURCE_CTRL_CLK_FRQ_POS) | \
@@ -64,10 +65,11 @@
 
 #define FURI_HAL_USB_AUDIO_FEATURE_UNIT_CHANNEL_CONTROLS AUDIO20_CTRL_NONE
 
-#define FURI_HAL_USB_AUDIO_SPEAKER_CHANNEL_CONFIG \
-    (AUDIO20_CHANNEL_CONFIG_FRONT_LEFT | AUDIO20_CHANNEL_CONFIG_FRONT_RIGHT)
+#define FURI_HAL_USB_AUDIO_HEADPHONES_TERMINAL_CONTROLS \
+    (AUDIO20_CTRL_R << AUDIO20_OUT_TERM_CTRL_CONNECTOR_POS)
 
-#define FURI_HAL_USB_AUDIO_MIC_CHANNEL_CONFIG AUDIO20_CHANNEL_CONFIG_FRONT_CENTER
+#define FURI_HAL_USB_AUDIO_MIC_TERMINAL_CONTROLS \
+    (AUDIO20_CTRL_R << AUDIO20_IN_TERM_CTRL_CONNECTOR_POS)
 
 #define FURI_HAL_USB_AUDIO_SPEAKER_CONTROL_LENGTH                             \
     (TUD_AUDIO20_DESC_CLK_SRC_LEN + TUD_AUDIO20_DESC_INPUT_TERM_LEN +         \
@@ -102,8 +104,8 @@
 
 #define FURI_HAL_USB_AUDIO_LENGTH                                                          \
     (TUD_AUDIO20_DESC_IAD_LEN + TUD_AUDIO20_DESC_STD_AC_LEN + TUD_AUDIO20_DESC_CS_AC_LEN + \
-     FURI_HAL_USB_AUDIO_CONTROL_LENGTH + FURI_HAL_USB_AUDIO_SPEAKER_STREAMING_LENGTH +     \
-     FURI_HAL_USB_AUDIO_MIC_STREAMING_LENGTH)
+     FURI_HAL_USB_AUDIO_CONTROL_LENGTH + TUD_AUDIO20_DESC_STD_AC_INT_EP_LEN +              \
+     FURI_HAL_USB_AUDIO_SPEAKER_STREAMING_LENGTH + FURI_HAL_USB_AUDIO_MIC_STREAMING_LENGTH)
 
 #define FURI_HAL_USB_CONFIGURATION_LENGTH \
     (TUD_CONFIG_DESC_LEN + FURI_HAL_USB_AUDIO_LENGTH + TUD_HID_DESC_LEN + TUD_CDC_DESC_LEN)
@@ -204,10 +206,12 @@ typedef enum {
     UsbEventHidReport = (1 << 2),
     UsbEventCdcRx = (1 << 3),
     UsbEventCdcTx = (1 << 4),
+    UsbEventAudioNotification = (1 << 5),
 } UsbEvent;
 
-#define USB_SRV_ALL_EVENTS \
-    (UsbEventStack | UsbEventMessage | UsbEventHidReport | UsbEventCdcRx | UsbEventCdcTx)
+#define USB_SRV_ALL_EVENTS                                                                 \
+    (UsbEventStack | UsbEventMessage | UsbEventHidReport | UsbEventCdcRx | UsbEventCdcTx | \
+     UsbEventAudioNotification)
 
 static UsbSrv usb = {0};
 
@@ -289,7 +293,7 @@ static const uint8_t usb_configuration_descriptor[] = {
         FURI_HAL_USB_AUDIO_TERMINAL_NONE,
         FuriHalUsbAudioEntitySpeakerFeatureUnit,
         FuriHalUsbAudioEntitySpeakerClock,
-        AUDIO20_CTRL_NONE,
+        FURI_HAL_USB_AUDIO_HEADPHONES_TERMINAL_CONTROLS,
         FURI_HAL_USB_STRING_NONE),
 
     TUD_AUDIO20_DESC_CLK_SRC(
@@ -306,7 +310,7 @@ static const uint8_t usb_configuration_descriptor[] = {
         FURI_HAL_USB_AUDIO_MIC_CHANNELS,
         FURI_HAL_USB_AUDIO_MIC_CHANNEL_CONFIG,
         FURI_HAL_USB_STRING_NONE,
-        AUDIO20_CTRL_NONE,
+        FURI_HAL_USB_AUDIO_MIC_TERMINAL_CONTROLS,
         FURI_HAL_USB_STRING_NONE),
     TUD_AUDIO20_DESC_FEATURE_UNIT(
         FuriHalUsbAudioEntityMicFeatureUnit,
@@ -322,6 +326,9 @@ static const uint8_t usb_configuration_descriptor[] = {
         FuriHalUsbAudioEntityMicClock,
         AUDIO20_CTRL_NONE,
         FURI_HAL_USB_STRING_NONE),
+    TUD_AUDIO20_DESC_STD_AC_INT_EP(
+        FuriHalUsbEndpointAudioInterruptIn,
+        FURI_HAL_USB_AUDIO_INTERRUPT_INTERVAL_MS),
 
     TUD_AUDIO20_DESC_STD_AS_INT(
         FuriHalUsbInterfaceAudioSpeaker,
@@ -455,6 +462,10 @@ void furi_hal_usb_set_state_callback(FuriHalUsbStateCallback callback, void* con
 
 void furi_hal_usb_hid_request_send(void) {
     furi_thread_flags_set(furi_thread_get_id(usb.thread), UsbEventHidReport);
+}
+
+void furi_hal_usb_audio_request_notification(void) {
+    furi_thread_flags_set(furi_thread_get_id(usb.thread), UsbEventAudioNotification);
 }
 
 void furi_hal_usb_cdc_request_rx(void) {
@@ -672,6 +683,10 @@ static int32_t furi_hal_usb_thread(void* context) {
 
         if(flags & UsbEventCdcTx) {
             furi_hal_usb_cdc_process_tx();
+        }
+
+        if(flags & UsbEventAudioNotification) {
+            furi_hal_usb_audio_send_notifications();
         }
     }
 

@@ -192,6 +192,7 @@ static void audio_handle_cs43131_interrupt(Audio* audio) {
 
     audio->headphone_plugged = headphone_plugged;
     FURI_LOG_I(TAG, "Headphones %s", headphone_plugged ? "plugged" : "unplugged");
+    furi_hal_usb_audio_set_jack_connected(headphone_plugged);
 
     HeadsetEvent event = headphone_plugged ? HeadsetEventPlugged : HeadsetEventUnplugged;
     furi_pubsub_publish(audio->headset_events, &event);

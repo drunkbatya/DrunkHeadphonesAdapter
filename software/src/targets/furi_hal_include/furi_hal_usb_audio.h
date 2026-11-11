@@ -73,6 +73,8 @@ void furi_hal_usb_audio_set_valid_sample_rates(
     FuriHalUsbAudioStream stream,
     uint32_t sample_rate_mask);
 
+void furi_hal_usb_audio_set_jack_connected(bool connected);
+
 void furi_hal_usb_audio_speaker_attach(
     const FuriHalUsbAudioFormat* format,
     FuriHalUsbAudioSpeakerPlayedCallback played_callback,

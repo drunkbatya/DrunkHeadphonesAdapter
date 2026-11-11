@@ -5,6 +5,11 @@
 
 #define FURI_HAL_USB_ROOT_PORT 0
 
+#define FURI_HAL_USB_AUDIO_SPEAKER_CHANNEL_CONFIG \
+    (AUDIO20_CHANNEL_CONFIG_FRONT_LEFT | AUDIO20_CHANNEL_CONFIG_FRONT_RIGHT)
+
+#define FURI_HAL_USB_AUDIO_MIC_CHANNEL_CONFIG AUDIO20_CHANNEL_CONFIG_FRONT_CENTER
+
 typedef enum {
     FuriHalUsbStringLanguage,
     FuriHalUsbStringManufacturer,
@@ -30,6 +35,7 @@ typedef enum {
     FuriHalUsbEndpointCdcDataOut = 0x04,
     FuriHalUsbEndpointCdcDataIn = 0x84,
     FuriHalUsbEndpointCdcNotificationIn = 0x85,
+    FuriHalUsbEndpointAudioInterruptIn = 0x86,
 } FuriHalUsbEndpoint;
 
 typedef enum {
@@ -56,6 +62,10 @@ void furi_hal_usb_audio_reset(void);
 void furi_hal_usb_audio_begin_bus_reset(void);
 
 void furi_hal_usb_audio_finish_bus_reset(void);
+
+void furi_hal_usb_audio_send_notifications(void);
+
+void furi_hal_usb_audio_request_notification(void);
 
 void furi_hal_usb_hid_init(void);
 
