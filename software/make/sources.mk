@@ -18,14 +18,17 @@ LIB_SOURCES := \
 	lib/nanopb/pb_common.c \
 	lib/nanopb/pb_decode.c \
 	lib/nanopb/pb_encode.c \
-	$(call patched,lib/tinyusb/src/class/audio/audio_device.c)
+	$(call patched,lib/tinyusb/src/class/audio/audio_device.c) \
+	$(shell find lib/usbpd-core-g0 -type f -name '*.c')
 
 LIB_INCLUDES := \
 	-Ilib/FreeRTOS-Kernel/include \
 	-Ilib/mlib \
 	-Ilib/nanopb \
 	-I$(PROTO_OUT_DIR) \
-	-Ilib/tinyusb/src
+	-Ilib/tinyusb/src \
+	-Ilib/usbpd-core-g0/include \
+	-Ilib/usbpd-core-g0
 
 GENERATED_SOURCES += $(NANOPB_GENERATED_C) $(NANOPB_GENERATED_H)
 
