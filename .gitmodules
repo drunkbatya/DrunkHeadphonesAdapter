@@ -10,9 +10,6 @@
 [submodule "software/lib/cmsis-core"]
 	path = software/lib/cmsis-core
 	url = https://github.com/ARM-software/CMSIS_6.git
-[submodule "software/lib/stm32-tcpp0203"]
-	path = software/lib/stm32-tcpp0203
-	url = https://github.com/STMicroelectronics/stm32-tcpp0203
 [submodule "software/lib/mlib"]
 	path = software/lib/mlib
 	url = https://github.com/P-p-H-d/mlib.git
