@@ -3,6 +3,7 @@
 #include <furi_hal_adc.h>
 #include <furi_hal_bus.h>
 #include <furi_hal_clock.h>
+#include <furi_hal_comp.h>
 #include <furi_hal_cortex.h>
 #include <furi_hal_debug.h>
 #include <furi_hal_dma.h>
