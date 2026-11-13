@@ -7,7 +7,7 @@
 M_LIST_DEF(FuriLogHandlersList, FuriLogHandler, M_POD_OPLIST)
 
 #ifdef FURI_DEBUG
-#define FURI_LOG_LEVEL_DEFAULT FuriLogLevelInfo
+#define FURI_LOG_LEVEL_DEFAULT FuriLogLevelDebug
 #else
 #define FURI_LOG_LEVEL_DEFAULT FuriLogLevelNone
 #endif

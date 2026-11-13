@@ -17,14 +17,14 @@ AudioCapture* audio_capture_alloc(AudioCaptureErrorCallback error_callback, void
 
 void audio_capture_free(AudioCapture* capture);
 
-bool audio_capture_start(
+void audio_capture_start(
     AudioCapture* capture,
     uint32_t sample_rate,
     FuriHalUsbAudioSampleFormat sample_format);
 
 void audio_capture_stop(AudioCapture* capture);
 
-bool audio_capture_restart(AudioCapture* capture);
+void audio_capture_restart(AudioCapture* capture);
 
 bool audio_capture_is_running(const AudioCapture* capture);
 

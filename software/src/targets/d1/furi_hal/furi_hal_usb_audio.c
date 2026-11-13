@@ -380,7 +380,7 @@ void furi_hal_usb_audio_send_notifications(void) {
     }
 
     if(tud_suspended()) {
-        tud_remote_wakeup();
+        furi_hal_usb_remote_wakeup();
         return;
     }
 

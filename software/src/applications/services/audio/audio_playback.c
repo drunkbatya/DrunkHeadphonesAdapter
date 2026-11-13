@@ -65,6 +65,7 @@ struct AudioPlayback {
     size_t dma_position;
     size_t played_halfwords;
     uint32_t played_frames;
+    uint32_t transferred_halves;
     bool priming;
     uint8_t usb_samples[AUDIO_PLAYBACK_USB_HALF_SIZE_MAX];
     uint16_t dma_samples[AUDIO_PLAYBACK_HALF_COUNT * AUDIO_PLAYBACK_DMA_HALF_LENGTH_MAX];
@@ -148,18 +149,27 @@ static void audio_playback_i2s_callback(FuriHalI2sEvent event, void* context) {
 
     switch(event) {
     case FuriHalI2sEventHalfTransfer:
+        playback->transferred_halves++;
         audio_playback_fill(playback, playback->dma_samples);
         break;
     case FuriHalI2sEventTransferComplete:
+        playback->transferred_halves++;
         audio_playback_fill(playback, &playback->dma_samples[playback->dma_half_length]);
         break;
-    default:
-        playback->error_callback(event, playback->error_context);
+    default: {
+        const AudioPlaybackError error = {
+            .event = event,
+            .transferred_halves = playback->transferred_halves,
+            .dma_position = furi_hal_i2s_get_position(FuriHalI2sIdHeadphones),
+            .dma_length = AUDIO_PLAYBACK_HALF_COUNT * playback->dma_half_length,
+        };
+        playback->error_callback(&error, playback->error_context);
         break;
+    }
     }
 }
 
-bool audio_playback_start(
+void audio_playback_start(
     AudioPlayback* playback,
     uint32_t sample_rate,
     FuriHalUsbAudioSampleFormat sample_format) {
@@ -180,18 +190,17 @@ bool audio_playback_start(
     playback->dma_position = 0;
     playback->played_halfwords = 0;
     playback->played_frames = 0;
+    playback->transferred_halves = 0;
     playback->priming = true;
     memset(playback->dma_samples, 0, sizeof(playback->dma_samples));
 
-    if(!furi_hal_i2s_start(
-           FuriHalI2sIdHeadphones,
-           layout->i2s_data_format,
-           playback->dma_samples,
-           AUDIO_PLAYBACK_HALF_COUNT * playback->dma_half_length,
-           audio_playback_i2s_callback,
-           playback)) {
-        return false;
-    }
+    furi_hal_i2s_start(
+        FuriHalI2sIdHeadphones,
+        layout->i2s_data_format,
+        playback->dma_samples,
+        AUDIO_PLAYBACK_HALF_COUNT * playback->dma_half_length,
+        audio_playback_i2s_callback,
+        playback);
     playback->running = true;
 
     const FuriHalUsbAudioFormat format = {
@@ -199,7 +208,6 @@ bool audio_playback_start(
         .sample_format = sample_format,
     };
     furi_hal_usb_audio_speaker_attach(&format, audio_playback_get_played_frames, playback);
-    return true;
 }
 
 void audio_playback_stop(AudioPlayback* playback) {
@@ -211,14 +219,14 @@ void audio_playback_stop(AudioPlayback* playback) {
     playback->running = false;
 }
 
-bool audio_playback_restart(AudioPlayback* playback) {
+void audio_playback_restart(AudioPlayback* playback) {
     furi_check(playback);
 
     const uint32_t sample_rate = playback->sample_rate;
     const FuriHalUsbAudioSampleFormat sample_format = playback->sample_format;
 
     audio_playback_stop(playback);
-    return audio_playback_start(playback, sample_rate, sample_format);
+    audio_playback_start(playback, sample_rate, sample_format);
 }
 
 bool audio_playback_is_running(const AudioPlayback* playback) {

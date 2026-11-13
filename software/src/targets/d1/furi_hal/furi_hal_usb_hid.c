@@ -30,7 +30,7 @@ void furi_hal_usb_hid_send_pending(void) {
     }
 
     if(tud_suspended()) {
-        tud_remote_wakeup();
+        furi_hal_usb_remote_wakeup();
         return;
     }
 

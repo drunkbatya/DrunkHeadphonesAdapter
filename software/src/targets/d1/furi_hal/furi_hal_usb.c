@@ -464,6 +464,14 @@ void furi_hal_usb_hid_request_send(void) {
     furi_thread_flags_set(furi_thread_get_id(usb.thread), UsbEventHidReport);
 }
 
+void furi_hal_usb_remote_wakeup(void) {
+    if(!tud_remote_wakeup()) {
+        FURI_LOG_D(TAG, "Remote wakeup rejected");
+        return;
+    }
+    FURI_LOG_D(TAG, "Remote wakeup");
+}
+
 void furi_hal_usb_audio_request_notification(void) {
     furi_thread_flags_set(furi_thread_get_id(usb.thread), UsbEventAudioNotification);
 }

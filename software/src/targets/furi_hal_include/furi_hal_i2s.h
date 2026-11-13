@@ -35,7 +35,7 @@ typedef void (*FuriHalI2sCallback)(FuriHalI2sEvent event, void* context);
 
 void furi_hal_i2s_init(void);
 
-bool furi_hal_i2s_start(
+void furi_hal_i2s_start(
     FuriHalI2sId id,
     FuriHalI2sDataFormat data_format,
     uint16_t* buffer,

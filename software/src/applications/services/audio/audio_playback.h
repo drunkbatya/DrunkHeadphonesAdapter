@@ -11,20 +11,27 @@ extern "C" {
 
 typedef struct AudioPlayback AudioPlayback;
 
-typedef void (*AudioPlaybackErrorCallback)(FuriHalI2sEvent event, void* context);
+typedef struct {
+    FuriHalI2sEvent event;
+    uint32_t transferred_halves;
+    size_t dma_position;
+    size_t dma_length;
+} AudioPlaybackError;
+
+typedef void (*AudioPlaybackErrorCallback)(const AudioPlaybackError* error, void* context);
 
 AudioPlayback* audio_playback_alloc(AudioPlaybackErrorCallback error_callback, void* context);
 
 void audio_playback_free(AudioPlayback* playback);
 
-bool audio_playback_start(
+void audio_playback_start(
     AudioPlayback* playback,
     uint32_t sample_rate,
     FuriHalUsbAudioSampleFormat sample_format);
 
 void audio_playback_stop(AudioPlayback* playback);
 
-bool audio_playback_restart(AudioPlayback* playback);
+void audio_playback_restart(AudioPlayback* playback);
 
 bool audio_playback_is_running(const AudioPlayback* playback);
 

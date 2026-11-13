@@ -136,7 +136,7 @@ static void audio_capture_i2s_callback(FuriHalI2sEvent event, void* context) {
     }
 }
 
-bool audio_capture_start(
+void audio_capture_start(
     AudioCapture* capture,
     uint32_t sample_rate,
     FuriHalUsbAudioSampleFormat sample_format) {
@@ -156,15 +156,13 @@ bool audio_capture_start(
     capture->dma_half_length = capture->frames_per_half * capture->dma_halfwords_per_frame;
     memset(capture->dma_samples, 0, sizeof(capture->dma_samples));
 
-    if(!furi_hal_i2s_start(
-           FuriHalI2sIdMic,
-           layout->i2s_data_format,
-           capture->dma_samples,
-           AUDIO_CAPTURE_HALF_COUNT * capture->dma_half_length,
-           audio_capture_i2s_callback,
-           capture)) {
-        return false;
-    }
+    furi_hal_i2s_start(
+        FuriHalI2sIdMic,
+        layout->i2s_data_format,
+        capture->dma_samples,
+        AUDIO_CAPTURE_HALF_COUNT * capture->dma_half_length,
+        audio_capture_i2s_callback,
+        capture);
     capture->running = true;
 
     const FuriHalUsbAudioFormat format = {
@@ -172,7 +170,6 @@ bool audio_capture_start(
         .sample_format = sample_format,
     };
     furi_hal_usb_audio_mic_attach(&format);
-    return true;
 }
 
 void audio_capture_stop(AudioCapture* capture) {
@@ -184,14 +181,14 @@ void audio_capture_stop(AudioCapture* capture) {
     capture->running = false;
 }
 
-bool audio_capture_restart(AudioCapture* capture) {
+void audio_capture_restart(AudioCapture* capture) {
     furi_check(capture);
 
     const uint32_t sample_rate = capture->sample_rate;
     const FuriHalUsbAudioSampleFormat sample_format = capture->sample_format;
 
     audio_capture_stop(capture);
-    return audio_capture_start(capture, sample_rate, sample_format);
+    audio_capture_start(capture, sample_rate, sample_format);
 }
 
 bool audio_capture_is_running(const AudioCapture* capture) {

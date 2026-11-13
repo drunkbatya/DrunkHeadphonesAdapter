@@ -67,6 +67,8 @@ void furi_hal_usb_audio_send_notifications(void);
 
 void furi_hal_usb_audio_request_notification(void);
 
+void furi_hal_usb_remote_wakeup(void);
+
 void furi_hal_usb_hid_init(void);
 
 void furi_hal_usb_hid_reset(void);
