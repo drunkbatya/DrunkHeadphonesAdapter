@@ -222,7 +222,7 @@ static uint16_t furi_hal_adc_get_sample(size_t rank) {
     return furi_hal_adc_samples[rank];
 }
 
-static uint32_t furi_hal_adc_get_vdda_mv(void) {
+uint32_t furi_hal_adc_read_vdda_mv(void) {
     const uint16_t vrefint = furi_hal_adc_get_sample(FURI_HAL_ADC_RANK_VREFINT);
     furi_check(vrefint > 0);
 
@@ -265,14 +265,14 @@ void furi_hal_adc_stop(void) {
 uint32_t furi_hal_adc_read_mv(FuriHalAdcChannel channel) {
     furi_check(channel < FuriHalAdcChannelMax);
 
-    const uint32_t vdda_mv = furi_hal_adc_get_vdda_mv();
+    const uint32_t vdda_mv = furi_hal_adc_read_vdda_mv();
     const uint16_t sample = furi_hal_adc_get_sample(channel);
 
     return __LL_ADC_CALC_DATA_TO_VOLTAGE(vdda_mv, sample, LL_ADC_RESOLUTION_12B);
 }
 
 int32_t furi_hal_adc_read_temperature(void) {
-    const uint32_t vdda_mv = furi_hal_adc_get_vdda_mv();
+    const uint32_t vdda_mv = furi_hal_adc_read_vdda_mv();
     const uint16_t sample = furi_hal_adc_get_sample(FURI_HAL_ADC_RANK_TEMPERATURE);
 
     return __LL_ADC_CALC_TEMPERATURE(vdda_mv, sample, LL_ADC_RESOLUTION_12B);
