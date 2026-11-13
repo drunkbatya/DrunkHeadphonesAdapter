@@ -540,6 +540,7 @@ void tud_resume_cb(void) {
     furi_hal_usb_update_insomnia();
     furi_hal_usb_notify_state(FuriHalUsbStateEventResume);
     furi_hal_usb_hid_send_pending();
+    furi_hal_usb_audio_send_notifications();
 }
 
 const uint8_t* tud_descriptor_device_cb(void) {

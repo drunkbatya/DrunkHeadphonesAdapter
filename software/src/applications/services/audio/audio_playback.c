@@ -154,7 +154,7 @@ static void audio_playback_i2s_callback(FuriHalI2sEvent event, void* context) {
         audio_playback_fill(playback, &playback->dma_samples[playback->dma_half_length]);
         break;
     default:
-        playback->error_callback(playback->error_context);
+        playback->error_callback(event, playback->error_context);
         break;
     }
 }

@@ -131,7 +131,7 @@ static void audio_capture_i2s_callback(FuriHalI2sEvent event, void* context) {
         audio_capture_drain(capture, &capture->dma_samples[capture->dma_half_length]);
         break;
     default:
-        capture->error_callback(capture->error_context);
+        capture->error_callback(event, capture->error_context);
         break;
     }
 }

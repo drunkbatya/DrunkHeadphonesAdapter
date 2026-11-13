@@ -2,6 +2,7 @@
 
 #include <stdint.h>
 
+#include <furi_hal_i2s.h>
 #include <furi_hal_usb_audio.h>
 
 #ifdef __cplusplus
@@ -10,7 +11,7 @@ extern "C" {
 
 typedef struct AudioPlayback AudioPlayback;
 
-typedef void (*AudioPlaybackErrorCallback)(void* context);
+typedef void (*AudioPlaybackErrorCallback)(FuriHalI2sEvent event, void* context);
 
 AudioPlayback* audio_playback_alloc(AudioPlaybackErrorCallback error_callback, void* context);
 

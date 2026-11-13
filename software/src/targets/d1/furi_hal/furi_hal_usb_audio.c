@@ -375,7 +375,12 @@ static void furi_hal_usb_audio_restore_jack_notification(size_t terminal_index) 
 }
 
 void furi_hal_usb_audio_send_notifications(void) {
-    if(!tud_audio_mounted()) {
+    if(!tud_audio_mounted() || usb_audio.jack_notification_pending == 0) {
+        return;
+    }
+
+    if(tud_suspended()) {
+        tud_remote_wakeup();
         return;
     }
 
