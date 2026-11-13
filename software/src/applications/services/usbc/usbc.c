@@ -39,16 +39,17 @@ static Usbc* usbc_alloc(void) {
         usbc->event_loop, usbc_process_timer_callback, FuriEventLoopTimerTypeOnce, usbc);
     usbc->vbus = usbc_vbus_alloc(usbc_wakeup_callback, usbc);
     usbc->power = usbc_power_alloc();
-    usbc_platform_init(usbc->vbus);
     usbc->policy = usbc_policy_alloc(usbc->power, usbc->vbus, usbc_wakeup_callback, usbc);
+    usbc_platform_init(usbc->vbus);
+    usbc_policy_start(usbc->policy);
     furi_event_loop_subscribe_thread_flags(usbc->event_loop, usbc_thread_flags_callback, usbc);
     return usbc;
 }
 
 static void usbc_free(Usbc* usbc) {
     furi_event_loop_unsubscribe_thread_flags(usbc->event_loop);
-    usbc_policy_free(usbc->policy);
     usbc_platform_deinit();
+    usbc_policy_free(usbc->policy);
     usbc_power_free(usbc->power);
     usbc_vbus_free(usbc->vbus);
     furi_event_loop_timer_free(usbc->process_timer);

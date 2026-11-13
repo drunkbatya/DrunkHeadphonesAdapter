@@ -21,6 +21,8 @@ UsbcPolicy* usbc_policy_alloc(
 
 void usbc_policy_free(UsbcPolicy* policy);
 
+void usbc_policy_start(UsbcPolicy* policy);
+
 uint32_t usbc_policy_process(UsbcPolicy* policy);
 
 #ifdef __cplusplus

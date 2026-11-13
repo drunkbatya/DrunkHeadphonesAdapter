@@ -36,10 +36,6 @@ void furi_hal_power_insomnia_exit(void);
  */
 bool furi_hal_power_sleep_available(void);
 
-void furi_hal_power_stop0_request(void);
-
-void furi_hal_power_stop0_release(void);
-
 /** Go to sleep
  */
 void furi_hal_power_sleep(void);

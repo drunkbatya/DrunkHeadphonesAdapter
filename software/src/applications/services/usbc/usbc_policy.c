@@ -90,7 +90,8 @@ static void usbc_policy_set_vconn(void* context, uint8_t port, bool enabled) {
 }
 
 static void usbc_policy_wakeup(void* context) {
-    UNUSED(context);
+    UsbcPolicy* policy = context;
+    policy->wakeup_callback(policy->context);
 }
 
 static const UsbPdCallbacks usbc_policy_pd_callbacks = {
@@ -118,8 +119,12 @@ UsbcPolicy* usbc_policy_alloc(
     policy->vbus = vbus;
     policy->wakeup_callback = wakeup_callback;
     policy->context = context;
-    UNUSED(usbc_policy_pd_callbacks);
+    usb_pd_init(&usbc_policy_pd_callbacks, policy);
     return policy;
+}
+
+void usbc_policy_start(UsbcPolicy* policy) {
+    UNUSED(policy);
 }
 
 void usbc_policy_free(UsbcPolicy* policy) {

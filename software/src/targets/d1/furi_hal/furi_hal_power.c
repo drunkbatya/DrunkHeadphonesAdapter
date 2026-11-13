@@ -56,12 +56,6 @@ bool furi_hal_power_sleep_available(void) {
     return furi_hal_power.insomnia == 0;
 }
 
-void furi_hal_power_stop0_request(void) {
-}
-
-void furi_hal_power_stop0_release(void) {
-}
-
 static inline bool furi_hal_power_deep_sleep_available(void) {
     return !furi_hal_debug_is_gdb_session_active();
 }

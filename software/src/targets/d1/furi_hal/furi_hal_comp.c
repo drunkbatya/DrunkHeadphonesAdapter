@@ -4,7 +4,6 @@
 #include <furi_hal_cortex.h>
 #include <furi_hal_gpio.h>
 #include <furi_hal_interrupt.h>
-#include <furi_hal_power.h>
 #include <furi_hal_resources.h>
 
 #include <stm32g0xx_ll_comp.h>
@@ -14,12 +13,9 @@
 
 #define TAG "FuriHalComp"
 
-#define FURI_HAL_COMP_DAC_INSTANCE     (DAC1)
-#define FURI_HAL_COMP_DAC_SAMPLE_TIME  0
-#define FURI_HAL_COMP_DAC_HOLD_TIME    1
-#define FURI_HAL_COMP_DAC_REFRESH_TIME 1
-#define FURI_HAL_COMP_DAC_SETTLE_US    70
-#define FURI_HAL_COMP_START_US         (LL_COMP_DELAY_VOLTAGE_SCALER_STAB_US)
+#define FURI_HAL_COMP_DAC_INSTANCE  (DAC1)
+#define FURI_HAL_COMP_DAC_SETTLE_US (LL_DAC_DELAY_STARTUP_VOLTAGE_SETTLING_US)
+#define FURI_HAL_COMP_START_US      (LL_COMP_DELAY_VOLTAGE_SCALER_STAB_US)
 
 typedef struct {
     COMP_TypeDef* comp;
@@ -97,29 +93,21 @@ static void furi_hal_comp_dac_start(FuriHalCompId id, uint32_t code) {
     LL_DAC_ConfigOutput(
         FURI_HAL_COMP_DAC_INSTANCE,
         channel,
-        LL_DAC_OUTPUT_MODE_SAMPLE_AND_HOLD,
+        LL_DAC_OUTPUT_MODE_NORMAL,
         LL_DAC_OUTPUT_BUFFER_DISABLE,
         LL_DAC_OUTPUT_CONNECT_INTERNAL);
-    LL_DAC_SetSampleAndHoldSampleTime(
-        FURI_HAL_COMP_DAC_INSTANCE, channel, FURI_HAL_COMP_DAC_SAMPLE_TIME);
-    LL_DAC_SetSampleAndHoldHoldTime(
-        FURI_HAL_COMP_DAC_INSTANCE, channel, FURI_HAL_COMP_DAC_HOLD_TIME);
-    LL_DAC_SetSampleAndHoldRefreshTime(
-        FURI_HAL_COMP_DAC_INSTANCE, channel, FURI_HAL_COMP_DAC_REFRESH_TIME);
     LL_DAC_ConvertData12RightAligned(FURI_HAL_COMP_DAC_INSTANCE, channel, code);
     LL_DAC_Enable(FURI_HAL_COMP_DAC_INSTANCE, channel);
 
     furi_hal_cortex_delay_us(FURI_HAL_COMP_DAC_SETTLE_US);
 
     furi_hal_comp[id].dac_threshold = true;
-    furi_hal_power_stop0_request();
 }
 
 static void furi_hal_comp_dac_stop(FuriHalCompId id) {
     LL_DAC_Disable(FURI_HAL_COMP_DAC_INSTANCE, furi_hal_comp_config[id].dac_channel);
 
     furi_hal_comp[id].dac_threshold = false;
-    furi_hal_power_stop0_release();
 
     if(!furi_hal_comp_is_dac_used()) {
         furi_hal_bus_disable(FuriHalBusDAC1);
