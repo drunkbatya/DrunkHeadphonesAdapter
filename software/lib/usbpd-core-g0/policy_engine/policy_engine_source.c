@@ -282,7 +282,7 @@ static void source_on_explicit_contract(PolicyEngine* pe) {
         policy_engine_timer_stop(&pe->pps_timer);
     }
     pe->fast_role_swap_signal_allowed = false;
-    if(pe->config.fast_role_swap) {
+    if(pe->config.fast_role_swap_signal) {
         memset(&sink_capabilities, 0, sizeof(sink_capabilities));
         pe->callbacks->get_sink_capabilities(pe->context, pe->port, &sink_capabilities);
         pe->fast_role_swap_signal_allowed =

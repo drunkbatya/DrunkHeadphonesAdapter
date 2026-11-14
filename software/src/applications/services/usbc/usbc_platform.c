@@ -65,9 +65,7 @@ static void usbc_platform_usbpd_callback(FuriHalUsbPdEvent event, void* context)
         usb_pd_on_transmit_completed(port, false);
         break;
     case FuriHalUsbPdEventFastRoleSwapReceived:
-        if(usb_pd_on_fast_role_swap_received(port)) {
-            // TODO: turn on VBUS of this port within tSrcFRSwap
-        }
+        furi_check(!usb_pd_on_fast_role_swap_received(port));
         break;
     }
 }

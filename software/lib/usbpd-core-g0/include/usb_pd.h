@@ -18,7 +18,8 @@ typedef struct {
     bool power_role_swap;
     bool data_role_swap;
     bool vconn_swap;
-    bool fast_role_swap;
+    bool fast_role_swap_signal;
+    bool fast_role_swap_detect;
     UsbPdIdentity identity;
 } UsbPdPortConfig;
 

@@ -1,7 +1,21 @@
 <resources>
     <string name="app_name">DrunkHeadphonesAdapter</string>
     <string name="board">Board</string>
+    <string name="back">Back</string>
     <string name="connection_disconnected">Disconnected</string>
     <string name="connection_connecting">Connecting</string>
     <string name="connection_connected">Connected</string>
+    <string name="connect">Connect</string>
+    <string name="disconnect">Disconnect</string>
+    <string name="device_info">Device info</string>
+    <string name="firmware_version">Firmware version</string>
+    <string name="build_date">Build date</string>
+    <string name="git_commit">Git commit</string>
+    <string name="git_branch">Git branch</string>
+    <string name="dirty_build">Dirty build</string>
+    <string name="target">Target</string>
+    <string name="update">Update</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="value_unknown">-</string>
 </resources>

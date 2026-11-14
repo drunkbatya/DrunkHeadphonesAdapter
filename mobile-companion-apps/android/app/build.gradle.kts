@@ -1,6 +1,7 @@
 plugins {
   alias(libs.plugins.android.application)
   alias(libs.plugins.compose.compiler)
+  alias(libs.plugins.wire)
 }
 
 android {
@@ -32,6 +33,13 @@ android {
 
 kotlin {
   jvmToolchain(17)
+}
+
+wire {
+  sourcePath {
+    srcDir("../../../protobuf")
+  }
+  kotlin {}
 }
 
 dependencies {

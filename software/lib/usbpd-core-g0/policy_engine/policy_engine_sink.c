@@ -141,7 +141,7 @@ static void sink_on_explicit_contract(PolicyEngine* pe) {
     if(pe->flags.requested_pps == 1U) {
         policy_engine_timer_start(pe, &pe->pps_timer, POLICY_ENGINE_T_PPS_REQUEST);
     }
-    if(pe->config.fast_role_swap && policy_engine_is_dual_role(pe) &&
+    if(pe->config.fast_role_swap_detect && policy_engine_is_dual_role(pe) &&
        !pe->fast_role_swap_queried && (pe->source_capabilities.count != 0u) &&
        ((pe->source_capabilities.objects[0] & POLICY_ENGINE_FIXED_PDO_DUAL_ROLE_POWER) != 0u)) {
         pe->fast_role_swap_queried = true;
