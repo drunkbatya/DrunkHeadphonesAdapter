@@ -7,14 +7,15 @@
 
 #define TAG "UsbcPolicy"
 
-#define USBC_POLICY_SAFE5V_MV      5000
-#define USBC_POLICY_MAX_VOLTAGE_MV 20000
-#define USBC_POLICY_MAX_CURRENT_MA 3000
-#define USBC_POLICY_BOARD_POWER_MW 750
-#define USBC_POLICY_BOARD_PDP_W    1
-#define USBC_POLICY_MW_PER_W       1000
-#define USBC_POLICY_RETRY_MS       10
-#define USBC_POLICY_AMS_REPEAT_MS  100
+#define USBC_POLICY_SAFE5V_MV       5000
+#define USBC_POLICY_MAX_VOLTAGE_MV  20000
+#define USBC_POLICY_MAX_CURRENT_MA  3000
+#define USBC_POLICY_BOARD_POWER_MW  750
+#define USBC_POLICY_BOARD_PDP_W     1
+#define USBC_POLICY_MW_PER_W        1000
+#define USBC_POLICY_CURRENT_STEP_MA 10
+#define USBC_POLICY_RETRY_MS        10
+#define USBC_POLICY_AMS_REPEAT_MS   100
 
 typedef enum {
     UsbcPolicyLogSourceCapabilities = (1 << 0),
@@ -22,6 +23,7 @@ typedef enum {
     UsbcPolicyLogContract = (1 << 2),
     UsbcPolicyLogPhoneOffer = (1 << 3),
     UsbcPolicyLogPhoneRequest = (1 << 4),
+    UsbcPolicyLogSinkPdp = (1 << 5),
 } UsbcPolicyLog;
 
 typedef enum {
@@ -38,6 +40,7 @@ typedef enum {
     UsbcPolicyCapabilitiesSource,
     UsbcPolicyCapabilitiesSink,
     UsbcPolicyCapabilitiesOffer,
+    UsbcPolicyCapabilitiesKindCount,
 } UsbcPolicyCapabilitiesKind;
 
 typedef struct {
@@ -50,6 +53,8 @@ typedef struct {
     UsbPdCapabilities partner_sink_capabilities;
     UsbPdContract contract;
     uint32_t pending_logs;
+    uint8_t logged_pdo_counts[UsbcPolicyCapabilitiesKindCount];
+    UsbPdSinkPdp sink_pdp;
 } UsbcPolicyPort;
 
 typedef struct {
@@ -57,6 +62,7 @@ typedef struct {
     UsbPdCapabilities offer;
     uint32_t voltage_mv;
     uint32_t current_ma;
+    bool contract_pending;
     bool power_pending;
     bool source_on_pending;
     uint32_t request_rdo;
@@ -96,6 +102,8 @@ static const UsbPdPortConfig usbc_policy_port_configs[UsbcPortCount] = {
             .spec_revision = UsbPdSpecRevision3,
         },
 };
+
+static const uint32_t usbc_policy_pass_through_voltages_mv[] = {5000, 9000, 15000, 20000};
 
 static const char* const usbc_policy_rp_current_names[] = {
     [UsbPdRpCurrentDefault] = "Default",
@@ -158,6 +166,11 @@ static uint32_t usbc_policy_get_contract_voltage_mv(const UsbPdContract* contrac
 
 static uint32_t usbc_policy_get_board_current_ma(uint32_t voltage_mv) {
     return (USBC_POLICY_BOARD_POWER_MW * 1000 + voltage_mv - 1) / voltage_mv;
+}
+
+static uint32_t usbc_policy_round_up_current_ma(uint32_t current_ma) {
+    return (current_ma + USBC_POLICY_CURRENT_STEP_MA - 1) / USBC_POLICY_CURRENT_STEP_MA *
+           USBC_POLICY_CURRENT_STEP_MA;
 }
 
 static bool usbc_policy_is_fixed_spr(uint32_t pdo) {
@@ -288,46 +301,58 @@ static void usbc_policy_build_phone_offer(const UsbcPolicy* policy, UsbPdCapabil
     }
 }
 
+static void usbc_policy_get_pass_through_sink_capabilities(
+    const UsbcPolicy* policy,
+    UsbPdCapabilities* capabilities) {
+    const UsbPdCapabilities* phone_sink = &policy->ports[UsbcPortPhone].partner_sink_capabilities;
+
+    capabilities->count = 0;
+    for(uint8_t i = 0; i < phone_sink->count; i++) {
+        const uint32_t pdo = phone_sink->objects[i];
+        if(!usbc_policy_is_fixed_spr(pdo)) {
+            continue;
+        }
+        const uint32_t voltage_mv = usb_pd_pdo_get_max_voltage_mv(pdo);
+        const uint32_t current_ma =
+            MIN(usb_pd_pdo_get_max_current_ma(pdo) + usbc_policy_get_board_current_ma(voltage_mv),
+                (uint32_t)USBC_POLICY_MAX_CURRENT_MA);
+        capabilities->objects[capabilities->count++] =
+            usb_pd_pdo_make_fixed(voltage_mv, current_ma);
+    }
+    if((capabilities->count == 0) ||
+       (usb_pd_pdo_get_max_voltage_mv(capabilities->objects[0]) != USBC_POLICY_SAFE5V_MV)) {
+        capabilities->count = 0;
+        for(size_t i = 0; i < COUNT_OF(usbc_policy_pass_through_voltages_mv); i++) {
+            capabilities->objects[capabilities->count++] = usb_pd_pdo_make_fixed(
+                usbc_policy_pass_through_voltages_mv[i], USBC_POLICY_MAX_CURRENT_MA);
+        }
+    }
+    capabilities->objects[0] =
+        usb_pd_pdo_set_higher_capability(capabilities->objects[0], capabilities->count > 1);
+}
+
+static void usbc_policy_get_board_sink_capabilities(
+    const UsbcPolicy* policy,
+    UsbPdCapabilities* capabilities) {
+    uint32_t pdo = usb_pd_pdo_make_fixed(
+        USBC_POLICY_SAFE5V_MV, usbc_policy_get_board_current_ma(USBC_POLICY_SAFE5V_MV));
+    pdo = usb_pd_pdo_set_dual_role_power(pdo, true);
+    pdo = usb_pd_pdo_set_unconstrained_power(pdo, usbc_policy_is_charger_ready(policy));
+    pdo = usb_pd_pdo_set_usb_communications_capable(pdo, true);
+    pdo = usb_pd_pdo_set_dual_role_data(pdo, true);
+    capabilities->objects[0] = pdo;
+    capabilities->count = 1;
+}
+
 static void usbc_policy_get_port_sink_capabilities(
     const UsbcPolicy* policy,
     UsbcPort port,
     UsbPdCapabilities* capabilities) {
-    const UsbPdCapabilities* phone_sink = &policy->ports[UsbcPortPhone].partner_sink_capabilities;
-    bool higher_capability = false;
-
-    capabilities->count = 0;
-    if((port == UsbcPortCharger) && usbc_policy_is_phone_sink(policy)) {
-        for(uint8_t i = 0; i < phone_sink->count; i++) {
-            const uint32_t pdo = phone_sink->objects[i];
-            if(!usbc_policy_is_fixed_spr(pdo)) {
-                continue;
-            }
-            const uint32_t voltage_mv = usb_pd_pdo_get_max_voltage_mv(pdo);
-            const uint32_t current_ma = MIN(
-                usb_pd_pdo_get_max_current_ma(pdo) + usbc_policy_get_board_current_ma(voltage_mv),
-                (uint32_t)USBC_POLICY_MAX_CURRENT_MA);
-            capabilities->objects[capabilities->count++] =
-                usb_pd_pdo_make_fixed(voltage_mv, current_ma);
-            higher_capability |= (voltage_mv > USBC_POLICY_SAFE5V_MV);
-        }
+    if(port == UsbcPortCharger) {
+        usbc_policy_get_pass_through_sink_capabilities(policy, capabilities);
+    } else {
+        usbc_policy_get_board_sink_capabilities(policy, capabilities);
     }
-    if((capabilities->count == 0) ||
-       (usb_pd_pdo_get_max_voltage_mv(capabilities->objects[0]) != USBC_POLICY_SAFE5V_MV)) {
-        capabilities->objects[0] = usb_pd_pdo_make_fixed(
-            USBC_POLICY_SAFE5V_MV, usbc_policy_get_board_current_ma(USBC_POLICY_SAFE5V_MV));
-        capabilities->count = 1;
-        higher_capability = false;
-    }
-    uint32_t first_pdo =
-        usb_pd_pdo_set_higher_capability(capabilities->objects[0], higher_capability);
-    if(port == UsbcPortPhone) {
-        first_pdo = usb_pd_pdo_set_dual_role_power(first_pdo, true);
-        first_pdo =
-            usb_pd_pdo_set_unconstrained_power(first_pdo, usbc_policy_is_charger_ready(policy));
-        first_pdo = usb_pd_pdo_set_usb_communications_capable(first_pdo, true);
-        first_pdo = usb_pd_pdo_set_dual_role_data(first_pdo, true);
-    }
-    capabilities->objects[0] = first_pdo;
 }
 
 static uint32_t usbc_policy_make_board_rdo(const UsbPdCapabilities* capabilities) {
@@ -349,16 +374,17 @@ static uint32_t
         position = 1;
     }
     const uint32_t pdo = capabilities->objects[position - 1];
-    uint32_t needed_ma = usbc_policy_get_board_current_ma(voltage_mv);
+    const uint32_t max_current_ma =
+        MIN(usb_pd_pdo_get_max_current_ma(pdo), (uint32_t)USBC_POLICY_MAX_CURRENT_MA);
+    uint32_t current_ma =
+        MIN(usbc_policy_round_up_current_ma(usbc_policy_get_board_current_ma(voltage_mv)),
+            max_current_ma);
     uint32_t desired_mw = USBC_POLICY_BOARD_POWER_MW;
     if(phone_sink) {
-        if(policy->phone.voltage_mv == voltage_mv) {
-            needed_ma += policy->phone.current_ma;
-        }
+        current_ma = max_current_ma;
         desired_mw +=
             usbc_policy_get_max_power_mw(&policy->ports[UsbcPortPhone].partner_sink_capabilities);
     }
-    const uint32_t current_ma = MIN(needed_ma, usb_pd_pdo_get_max_current_ma(pdo));
     const uint32_t rdo = usb_pd_rdo_make(position, pdo, current_ma, 0);
     return usb_pd_rdo_set_capability_mismatch(
         rdo, desired_mw > usbc_policy_get_max_power_mw(capabilities));
@@ -368,6 +394,7 @@ static void usbc_policy_reset_phone(UsbcPolicy* policy) {
     memset(&policy->phone.offer, 0, sizeof(UsbPdCapabilities));
     policy->phone.voltage_mv = USBC_POLICY_SAFE5V_MV;
     policy->phone.current_ma = 0;
+    policy->phone.contract_pending = false;
     policy->phone.power_pending = false;
     policy->phone.source_on_pending = false;
     policy->phone.power_role_swap_refused = false;
@@ -411,13 +438,14 @@ static void usbc_policy_update_phone_power(UsbcPolicy* policy) {
     }
     if(policy->phone.power_pending && usbc_policy_is_charger_power_sufficient(policy)) {
         policy->phone.power_pending = false;
+        policy->phone.contract_pending = false;
         usbc_vbus_set_contract_voltage(policy->vbus, UsbcPortPhone, policy->phone.voltage_mv);
         usb_pd_power_ready(UsbcPortPhone);
     }
 }
 
 static bool usbc_policy_is_phone_contract_stable(const UsbcPolicy* policy) {
-    return usbc_policy_is_phone_sink(policy) && !policy->phone.power_pending &&
+    return usbc_policy_is_phone_sink(policy) && !policy->phone.contract_pending &&
            (policy->ports[UsbcPortPhone].contract.rdo != 0);
 }
 
@@ -519,13 +547,28 @@ static void usbc_policy_log_pdo(
     }
 }
 
-static void usbc_policy_log_capabilities(
+static bool usbc_policy_log_capabilities_line(
+    UsbcPolicyPort* port,
     const char* port_name,
     UsbcPolicyCapabilitiesKind kind,
     const UsbPdCapabilities* capabilities) {
-    for(uint8_t i = 0; i < capabilities->count; i++) {
-        usbc_policy_log_pdo(port_name, kind, i + 1, capabilities->objects[i]);
+    uint8_t* logged_count = &port->logged_pdo_counts[kind];
+
+    if(*logged_count >= capabilities->count) {
+        *logged_count = 0;
+        return false;
     }
+    usbc_policy_log_pdo(port_name, kind, *logged_count + 1, capabilities->objects[*logged_count]);
+    (*logged_count)++;
+    return true;
+}
+
+static void usbc_policy_add_capabilities_log(
+    UsbcPolicyPort* port,
+    UsbcPolicyLog log,
+    UsbcPolicyCapabilitiesKind kind) {
+    port->pending_logs |= log;
+    port->logged_pdo_counts[kind] = 0;
 }
 
 static void
@@ -559,43 +602,74 @@ static void usbc_policy_log_phone_request(const UsbcPolicy* policy) {
         policy->phone.request_accepted ? "accepted" : "rejected");
 }
 
-static void usbc_policy_flush_logs(UsbcPolicy* policy) {
-    for(UsbcPort i = 0; i < UsbcPortCount; i++) {
-        UsbcPolicyPort* port = &policy->ports[i];
-        const char* port_name = usbc_policy_port_names[i];
-        const uint32_t pending_logs = port->pending_logs;
-        port->pending_logs = 0;
+static bool usbc_policy_log_port_line(UsbcPolicy* policy, UsbcPort i) {
+    UsbcPolicyPort* port = &policy->ports[i];
+    const char* port_name = usbc_policy_port_names[i];
 
-        if(pending_logs & UsbcPolicyLogSourceCapabilities) {
-            usbc_policy_log_capabilities(
-                port_name, UsbcPolicyCapabilitiesSource, &port->partner_source_capabilities);
+    if(port->pending_logs & UsbcPolicyLogSourceCapabilities) {
+        if(usbc_policy_log_capabilities_line(
+               port, port_name, UsbcPolicyCapabilitiesSource, &port->partner_source_capabilities)) {
+            return true;
         }
-        if(pending_logs & UsbcPolicyLogSinkCapabilities) {
-            usbc_policy_log_capabilities(
-                port_name, UsbcPolicyCapabilitiesSink, &port->partner_sink_capabilities);
-            if(port->partner_sink_capabilities.count > 0) {
-                FURI_LOG_I(
-                    TAG,
-                    "%s sink fast role swap current %s",
-                    port_name,
-                    usbc_policy_fast_role_swap_current_names[usb_pd_pdo_get_fast_role_swap_current(
-                        port->partner_sink_capabilities.objects[0])]);
-            }
+        port->pending_logs &= ~UsbcPolicyLogSourceCapabilities;
+    }
+    if(port->pending_logs & UsbcPolicyLogSinkCapabilities) {
+        if(usbc_policy_log_capabilities_line(
+               port, port_name, UsbcPolicyCapabilitiesSink, &port->partner_sink_capabilities)) {
+            return true;
         }
-        if(pending_logs & UsbcPolicyLogPhoneOffer) {
-            usbc_policy_log_capabilities(
-                port_name, UsbcPolicyCapabilitiesOffer, &policy->phone.offer);
-        }
-        if(pending_logs & UsbcPolicyLogPhoneRequest) {
-            usbc_policy_log_phone_request(policy);
-        }
-        if(pending_logs & UsbcPolicyLogContract) {
-            const uint8_t count = (port->power_role == UsbPdPowerRoleSource) ?
-                                      policy->phone.offer.count :
-                                      port->partner_source_capabilities.count;
-            usbc_policy_log_contract(port_name, &port->contract, count);
+        port->pending_logs &= ~UsbcPolicyLogSinkCapabilities;
+        if(port->partner_sink_capabilities.count > 0) {
+            FURI_LOG_I(
+                TAG,
+                "%s sink fast role swap current %s",
+                port_name,
+                usbc_policy_fast_role_swap_current_names[usb_pd_pdo_get_fast_role_swap_current(
+                    port->partner_sink_capabilities.objects[0])]);
+            return true;
         }
     }
+    if(port->pending_logs & UsbcPolicyLogPhoneOffer) {
+        if(usbc_policy_log_capabilities_line(
+               port, port_name, UsbcPolicyCapabilitiesOffer, &policy->phone.offer)) {
+            return true;
+        }
+        port->pending_logs &= ~UsbcPolicyLogPhoneOffer;
+    }
+    if(port->pending_logs & UsbcPolicyLogPhoneRequest) {
+        port->pending_logs &= ~UsbcPolicyLogPhoneRequest;
+        usbc_policy_log_phone_request(policy);
+        return true;
+    }
+    if(port->pending_logs & UsbcPolicyLogSinkPdp) {
+        port->pending_logs &= ~UsbcPolicyLogSinkPdp;
+        FURI_LOG_I(
+            TAG,
+            "%s sink PDP sent: minimum %u W, operational %u W, maximum %u W",
+            port_name,
+            port->sink_pdp.minimum_w,
+            port->sink_pdp.operational_w,
+            port->sink_pdp.maximum_w);
+        return true;
+    }
+    if(port->pending_logs & UsbcPolicyLogContract) {
+        port->pending_logs &= ~UsbcPolicyLogContract;
+        const uint8_t count = (port->power_role == UsbPdPowerRoleSource) ?
+                                  policy->phone.offer.count :
+                                  port->partner_source_capabilities.count;
+        usbc_policy_log_contract(port_name, &port->contract, count);
+        return true;
+    }
+    return false;
+}
+
+static bool usbc_policy_log_line(UsbcPolicy* policy) {
+    for(UsbcPort i = 0; i < UsbcPortCount; i++) {
+        if(usbc_policy_log_port_line(policy, i)) {
+            return true;
+        }
+    }
+    return false;
 }
 
 static void usbc_policy_on_attached(UsbcPolicy* policy, UsbcPort port, const UsbPdAttach* attach) {
@@ -703,6 +777,7 @@ static void usbc_policy_on_request_answered(
         FURI_LOG_I(TAG, "Charger request %s", usbc_policy_request_result_names[answer->result]);
         if(policy->phone.power_pending) {
             policy->phone.power_pending = false;
+            policy->phone.contract_pending = false;
             policy->pending_actions |= UsbcPolicyActionPhoneHardReset;
         }
         break;
@@ -724,11 +799,13 @@ static void usbc_policy_on_event(void* context, uint8_t port, const UsbPdEvent* 
         break;
     case UsbPdEventTypeSourceCapabilities:
         policy_port->partner_source_capabilities = *event->capabilities;
-        policy_port->pending_logs |= UsbcPolicyLogSourceCapabilities;
+        usbc_policy_add_capabilities_log(
+            policy_port, UsbcPolicyLogSourceCapabilities, UsbcPolicyCapabilitiesSource);
         break;
     case UsbPdEventTypeSinkCapabilities:
         policy_port->partner_sink_capabilities = *event->capabilities;
-        policy_port->pending_logs |= UsbcPolicyLogSinkCapabilities;
+        usbc_policy_add_capabilities_log(
+            policy_port, UsbcPolicyLogSinkCapabilities, UsbcPolicyCapabilitiesSink);
         if((port == UsbcPortPhone) && usbc_policy_is_charger_pd(policy)) {
             policy->pending_actions |= UsbcPolicyActionChargerSourceCapabilities;
         }
@@ -789,7 +866,8 @@ static void usbc_policy_get_source_capabilities(
         return;
     }
     usbc_policy_build_phone_offer(policy, &policy->phone.offer);
-    policy->ports[UsbcPortPhone].pending_logs |= UsbcPolicyLogPhoneOffer;
+    usbc_policy_add_capabilities_log(
+        &policy->ports[UsbcPortPhone], UsbcPolicyLogPhoneOffer, UsbcPolicyCapabilitiesOffer);
     *capabilities = policy->phone.offer;
 }
 
@@ -803,14 +881,26 @@ static void usbc_policy_get_sink_capabilities(
 
 static void usbc_policy_get_sink_pdp(void* context, uint8_t port, UsbPdSinkPdp* pdp) {
     furi_check(port < UsbcPortCount);
+    UsbcPolicy* policy = context;
+    UsbcPolicyPort* policy_port = &policy->ports[port];
     UsbPdCapabilities capabilities;
 
-    usbc_policy_get_port_sink_capabilities(context, port, &capabilities);
-    const uint32_t max_power_mw = usbc_policy_get_max_power_mw(&capabilities);
-    const uint32_t max_power_w = (max_power_mw + USBC_POLICY_MW_PER_W - 1) / USBC_POLICY_MW_PER_W;
-    pdp->minimum_w = USBC_POLICY_BOARD_PDP_W;
-    pdp->operational_w = MAX(max_power_w, (uint32_t)USBC_POLICY_BOARD_PDP_W);
-    pdp->maximum_w = pdp->operational_w;
+    usbc_policy_get_port_sink_capabilities(policy, port, &capabilities);
+    const uint32_t needed_mw = usbc_policy_get_max_power_mw(&capabilities);
+    const uint32_t needed_w =
+        MAX((needed_mw + USBC_POLICY_MW_PER_W - 1) / USBC_POLICY_MW_PER_W,
+            (uint32_t)USBC_POLICY_BOARD_PDP_W);
+    pdp->operational_w = needed_w;
+    pdp->maximum_w = needed_w;
+    pdp->minimum_w = needed_w;
+    if(port == UsbcPortCharger) {
+        const uint32_t offered_w =
+            usbc_policy_get_max_power_mw(&policy_port->partner_source_capabilities) /
+            USBC_POLICY_MW_PER_W;
+        pdp->minimum_w = MAX(MIN(needed_w, offered_w), (uint32_t)USBC_POLICY_BOARD_PDP_W);
+    }
+    policy_port->sink_pdp = *pdp;
+    policy_port->pending_logs |= UsbcPolicyLogSinkPdp;
 }
 
 static bool usbc_policy_get_pps_status(void* context, uint8_t port, UsbPdPpsStatus* status) {
@@ -840,6 +930,7 @@ static UsbPdAnswer usbc_policy_evaluate_request(void* context, uint8_t port, uin
         return UsbPdAnswerReject;
     }
     policy->phone.request_accepted = true;
+    policy->phone.contract_pending = true;
     policy->phone.voltage_mv = usb_pd_pdo_get_max_voltage_mv(pdo);
     policy->phone.current_ma = current_ma;
     return UsbPdAnswerAccept;
@@ -922,6 +1013,9 @@ static void usbc_policy_set_power(void* context, uint8_t port, UsbPdPower power)
     UsbcPolicy* policy = context;
 
     FURI_LOG_D(TAG, "%s power %s", usbc_policy_port_names[port], usbc_policy_power_names[power]);
+    if(power == UsbPdPowerSinkStandby) {
+        usbc_vbus_set_contract_voltage(policy->vbus, port, USBC_POLICY_SAFE5V_MV);
+    }
     if(port == UsbcPortPhone) {
         usbc_policy_set_phone_power(policy, power);
     } else {
@@ -1072,8 +1166,8 @@ uint32_t usbc_policy_process(UsbcPolicy* policy) {
     if(policy->pending_actions) {
         next_ms = MIN(next_ms, (uint32_t)USBC_POLICY_RETRY_MS);
     }
-    if(next_ms != 0) {
-        usbc_policy_flush_logs(policy);
+    if((next_ms != 0) && usbc_policy_log_line(policy)) {
+        next_ms = 0;
     }
     return next_ms;
 }
