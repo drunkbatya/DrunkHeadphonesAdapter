@@ -4,6 +4,7 @@
 #define POLICY_ENGINE_SKEDB_VBUS_POWERED           0x02U
 #define POLICY_ENGINE_SKEDB_VERSION_OFFSET         10U
 #define POLICY_ENGINE_SKEDB_MODES_OFFSET           17U
+#define POLICY_ENGINE_SKEDB_MINIMUM_PDP_OFFSET     18U
 #define POLICY_ENGINE_SKEDB_OPERATIONAL_PDP_OFFSET 19U
 #define POLICY_ENGINE_SKEDB_MAXIMUM_PDP_OFFSET     20U
 #define POLICY_ENGINE_SIDO_MAXIMUM_PDP_POSITION    16U
@@ -61,6 +62,7 @@ static uint32_t common_give_sink_capabilities_extended(PolicyEngine* pe) {
     skedb[9] = pe->config.identity.hardware_version;
     skedb[POLICY_ENGINE_SKEDB_VERSION_OFFSET] = POLICY_ENGINE_SKEDB_VERSION;
     skedb[POLICY_ENGINE_SKEDB_MODES_OFFSET] = POLICY_ENGINE_SKEDB_VBUS_POWERED;
+    skedb[POLICY_ENGINE_SKEDB_MINIMUM_PDP_OFFSET] = (uint8_t)sink_pdp_w;
     skedb[POLICY_ENGINE_SKEDB_OPERATIONAL_PDP_OFFSET] = (uint8_t)sink_pdp_w;
     skedb[POLICY_ENGINE_SKEDB_MAXIMUM_PDP_OFFSET] = (uint8_t)sink_pdp_w;
     (void)policy_engine_send_extended_message(

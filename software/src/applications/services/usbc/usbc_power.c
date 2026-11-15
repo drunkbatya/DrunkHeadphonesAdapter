@@ -147,8 +147,11 @@ UsbcPower* usbc_power_alloc(UsbcVbus* vbus) {
     furi_hal_gpio_write(&gpio_tcpp03_phone_en, true);
 
     for(UsbcPort i = 0; i < UsbcPortCount; i++) {
+        power->ports[i].state = UsbPdPowerSinkOff;
+    }
+
+    for(UsbcPort i = 0; i < UsbcPortCount; i++) {
         UsbcPowerPort* port = &power->ports[i];
-        port->state = UsbPdPowerSinkOff;
         port->written = usbc_power_get_control(power, i);
         if(!usbc_power_init_chip(i)) {
             FURI_LOG_E(TAG, "TCPP03 0x%02X init failed", usbc_power_addresses[i] >> 1);

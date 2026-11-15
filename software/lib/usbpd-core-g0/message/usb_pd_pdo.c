@@ -12,12 +12,14 @@
 #define USB_PD_PPS_MAX_VOLTAGE_POSITION 17u
 #define USB_PD_PPS_MIN_VOLTAGE_POSITION 8u
 #define USB_PD_PDO_DUAL_ROLE_POWER      (1u << 29)
+#define USB_PD_PDO_USB_SUSPEND          (1u << 28)
 #define USB_PD_PDO_UNCONSTRAINED_POWER  (1u << 27)
 #define USB_PD_PDO_USB_COMMUNICATIONS   (1u << 26)
 #define USB_PD_PDO_DUAL_ROLE_DATA       (1u << 25)
 #define USB_PD_PDO_FRS_POSITION         23u
 #define USB_PD_PDO_FRS_MASK             (0x3u << USB_PD_PDO_FRS_POSITION)
 #define USB_PD_RDO_POSITION_POSITION    28u
+#define USB_PD_RDO_CAPABILITY_MISMATCH  (1u << 26)
 #define USB_PD_RDO_CURRENT_POSITION     10u
 #define USB_PD_RDO_PPS_VOLTAGE_POSITION 9u
 #define USB_PD_FIXED_VOLTAGE_UNIT_MV    50u
@@ -130,6 +132,10 @@ bool usb_pd_pdo_is_dual_role_power(uint32_t pdo) {
     return usb_pd_pdo_fixed_flag(pdo, USB_PD_PDO_DUAL_ROLE_POWER);
 }
 
+bool usb_pd_pdo_is_usb_suspend_supported(uint32_t pdo) {
+    return usb_pd_pdo_fixed_flag(pdo, USB_PD_PDO_USB_SUSPEND);
+}
+
 bool usb_pd_pdo_is_unconstrained_power(uint32_t pdo) {
     return usb_pd_pdo_fixed_flag(pdo, USB_PD_PDO_UNCONSTRAINED_POWER);
 }
@@ -201,4 +207,15 @@ uint32_t usb_pd_rdo_make(
         units = USB_PD_PDO_FIELD_10_BITS;
     }
     return rdo | (units << USB_PD_RDO_CURRENT_POSITION) | units;
+}
+
+bool usb_pd_rdo_is_capability_mismatch(uint32_t rdo) {
+    return (rdo & USB_PD_RDO_CAPABILITY_MISMATCH) != 0u;
+}
+
+uint32_t usb_pd_rdo_set_capability_mismatch(uint32_t rdo, bool capability_mismatch) {
+    if(capability_mismatch) {
+        return rdo | USB_PD_RDO_CAPABILITY_MISMATCH;
+    }
+    return rdo & ~USB_PD_RDO_CAPABILITY_MISMATCH;
 }

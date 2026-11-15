@@ -86,7 +86,8 @@ static uint32_t usbc_policy_get_contract_voltage_mv(const UsbPdContract* contrac
 }
 
 static void
-    usbc_policy_log_pdo(const char* port_name, const char* kind, uint8_t position, uint32_t pdo) {
+    usbc_policy_log_pdo(const char* port_name, bool source, uint8_t position, uint32_t pdo) {
+    const char* kind = source ? "source" : "sink";
     const uint32_t min_voltage_mv = usb_pd_pdo_get_min_voltage_mv(pdo);
     const uint32_t max_voltage_mv = usb_pd_pdo_get_max_voltage_mv(pdo);
     const uint32_t max_current_ma = usb_pd_pdo_get_max_current_ma(pdo);
@@ -95,7 +96,7 @@ static void
     case UsbPdPdoTypeFixed:
         FURI_LOG_I(
             TAG,
-            "%s %s PDO%u 0x%08lX fixed %lu mV %lu mA%s%s%s%s",
+            "%s %s PDO%u 0x%08lX fixed %lu mV %lu mA%s%s%s%s%s",
             port_name,
             kind,
             position,
@@ -103,6 +104,7 @@ static void
             max_voltage_mv,
             max_current_ma,
             usb_pd_pdo_is_dual_role_power(pdo) ? ", dual role power" : "",
+            (source && usb_pd_pdo_is_usb_suspend_supported(pdo)) ? ", usb suspend supported" : "",
             usb_pd_pdo_is_unconstrained_power(pdo) ? ", unconstrained power" : "",
             usb_pd_pdo_is_usb_communications_capable(pdo) ? ", usb communications" : "",
             usb_pd_pdo_is_dual_role_data(pdo) ? ", dual role data" : "");
@@ -152,21 +154,25 @@ static void
 
 static void usbc_policy_log_capabilities(
     const char* port_name,
-    const char* kind,
+    bool source,
     const UsbPdCapabilities* capabilities) {
     for(uint8_t i = 0; i < capabilities->count; i++) {
-        usbc_policy_log_pdo(port_name, kind, i + 1, capabilities->objects[i]);
+        usbc_policy_log_pdo(port_name, source, i + 1, capabilities->objects[i]);
     }
 }
 
-static void usbc_policy_log_contract(const char* port_name, const UsbPdContract* contract) {
+static void usbc_policy_log_contract(const char* port_name, const UsbcPolicyPort* port) {
+    const UsbPdContract* contract = &port->contract;
     FURI_LOG_I(
         TAG,
-        "%s contract PDO%u %lu mV %lu mA",
+        "%s contract: PDO%u of %u (%lu mV, up to %lu mA), requested %lu mA%s",
         port_name,
         usb_pd_rdo_get_object_position(contract->rdo),
+        port->partner_source_capabilities.count,
         usbc_policy_get_contract_voltage_mv(contract),
-        usb_pd_rdo_get_operating_current_ma(contract->rdo, contract->pdo));
+        usb_pd_pdo_get_max_current_ma(contract->pdo),
+        usb_pd_rdo_get_operating_current_ma(contract->rdo, contract->pdo),
+        usb_pd_rdo_is_capability_mismatch(contract->rdo) ? ", capability mismatch" : "");
 }
 
 static void usbc_policy_flush_logs(UsbcPolicy* policy) {
@@ -177,10 +183,10 @@ static void usbc_policy_flush_logs(UsbcPolicy* policy) {
         port->pending_logs = 0;
 
         if(pending_logs & UsbcPolicyLogSourceCapabilities) {
-            usbc_policy_log_capabilities(port_name, "source", &port->partner_source_capabilities);
+            usbc_policy_log_capabilities(port_name, true, &port->partner_source_capabilities);
         }
         if(pending_logs & UsbcPolicyLogSinkCapabilities) {
-            usbc_policy_log_capabilities(port_name, "sink", &port->partner_sink_capabilities);
+            usbc_policy_log_capabilities(port_name, false, &port->partner_sink_capabilities);
             if(port->partner_sink_capabilities.count > 0) {
                 FURI_LOG_I(
                     TAG,
@@ -191,7 +197,7 @@ static void usbc_policy_flush_logs(UsbcPolicy* policy) {
             }
         }
         if(pending_logs & UsbcPolicyLogContract) {
-            usbc_policy_log_contract(port_name, &port->contract);
+            usbc_policy_log_contract(port_name, port);
         }
     }
 }
@@ -297,9 +303,10 @@ static uint32_t usbc_policy_select_capability(
     UNUSED(context);
     UNUSED(port);
     const uint32_t pdo = source_capabilities->objects[0];
-    const uint32_t current_ma =
-        MIN((uint32_t)USBC_POLICY_BOARD_CURRENT_MA, usb_pd_pdo_get_max_current_ma(pdo));
-    return usb_pd_rdo_make(1, pdo, current_ma, 0);
+    const uint32_t max_current_ma = usb_pd_pdo_get_max_current_ma(pdo);
+    const uint32_t current_ma = MIN((uint32_t)USBC_POLICY_BOARD_CURRENT_MA, max_current_ma);
+    const uint32_t rdo = usb_pd_rdo_make(1, pdo, current_ma, 0);
+    return usb_pd_rdo_set_capability_mismatch(rdo, max_current_ma < USBC_POLICY_BOARD_CURRENT_MA);
 }
 
 static UsbPdAnswer usbc_policy_evaluate_power_role_swap(void* context, uint8_t port) {
