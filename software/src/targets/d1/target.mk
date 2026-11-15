@@ -39,8 +39,8 @@ TARGET_FLASH_OPTR_ADDRESS := 0x40022020
 TARGET_FLASH_OPTR_BANK_BITS := 0x00300000
 
 TARGET_OPENOCD_OPTION_BYTES_WRITE := \
-	-c "set optr [read_memory $(TARGET_FLASH_OPTR_ADDRESS) 32 1]; \
-		if {($$optr & $(TARGET_FLASH_OPTR_BANK_BITS)) == $(TARGET_FLASH_OPTR_BANK_BITS)} { \
-		echo [format \"OPTR 0x%08X unchanged\" $$optr] } else { \
+	-c "set optr [[target current] read_memory $(TARGET_FLASH_OPTR_ADDRESS) 32 1]; \
+		if {(\$$optr & $(TARGET_FLASH_OPTR_BANK_BITS)) == $(TARGET_FLASH_OPTR_BANK_BITS)} { \
+		echo [format \"OPTR 0x%08X unchanged\" \$$optr] } else { \
 		stm32l4x option_write 0 $(TARGET_FLASH_OPTR_OFFSET) $(TARGET_FLASH_OPTR_BANK_BITS) $(TARGET_FLASH_OPTR_BANK_BITS); \
 		stm32l4x option_load 0 }"
