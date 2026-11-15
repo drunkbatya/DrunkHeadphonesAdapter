@@ -18,4 +18,14 @@
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="value_unknown">-</string>
+    <string name="ok">OK</string>
+    <string name="update_select_file">Select firmware file</string>
+    <string name="update_confirm_title">Proceed?</string>
+    <string name="update_confirm_text">Update firmware from %1$s to %2$s.\n\nWarning: if you choose the wrong file, the adapter will not boot and you will need an ST-Link to restore it.</string>
+    <string name="update_writing">Do not close the app until the update is done</string>
+    <string name="update_rebooting">Waiting for the adapter to restart</string>
+    <string name="update_done">Update done</string>
+    <string name="update_done_text">Firmware version %1$s</string>
+    <string name="update_failed">Update failed</string>
+    <string name="update_file_invalid">Invalid firmware file</string>
 </resources>

@@ -16,7 +16,18 @@ class MainActivity : ComponentActivity() {
     enableEdgeToEdge()
     setContent {
       val state by adapter.state.collectAsState()
-      AppTheme { AppScreen(state, onConnect = adapter::connect, onDisconnect = adapter::disconnect) }
+      val update by adapter.updateState.collectAsState()
+      AppTheme {
+        AppScreen(
+          state = state,
+          update = update,
+          onConnect = adapter::connect,
+          onDisconnect = adapter::disconnect,
+          onFirmwareFile = adapter::selectFirmwareFile,
+          onConfirmUpdate = adapter::startUpdate,
+          onDismissUpdate = adapter::dismissUpdate,
+        )
+      }
     }
   }
 }

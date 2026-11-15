@@ -1,6 +1,9 @@
 package com.drunkbatya.drunkheadphonesadapter
 
 import adapter.VersionResponse
+import android.net.Uri
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -12,6 +15,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
+import androidx.compose.material3.FilledTonalIconButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
@@ -32,7 +36,16 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun AppScreen(state: AdapterState, onConnect: () -> Unit, onDisconnect: () -> Unit) {
+fun AppScreen(
+  state: AdapterState,
+  update: UpdateState?,
+  onConnect: () -> Unit,
+  onDisconnect: () -> Unit,
+  onFirmwareFile: (Uri) -> Unit,
+  onConfirmUpdate: (FirmwareImage) -> Unit,
+  onDismissUpdate: () -> Unit,
+) {
+  UpdateDialogs(update, state.version?.version, onConfirmUpdate, onDismissUpdate)
   var isDeviceInfoOpen by rememberSaveable { mutableStateOf(false) }
   if (isDeviceInfoOpen) {
     DeviceInfoScreen(state.version, onBack = { isDeviceInfoOpen = false })
@@ -55,6 +68,7 @@ fun AppScreen(state: AdapterState, onConnect: () -> Unit, onDisconnect: () -> Un
       onConnect = onConnect,
       onDisconnect = onDisconnect,
       onDeviceInfo = { isDeviceInfoOpen = true },
+      onFirmwareFile = onFirmwareFile,
       modifier = Modifier.padding(padding),
     )
   }
@@ -66,6 +80,7 @@ private fun BoardTab(
   onConnect: () -> Unit,
   onDisconnect: () -> Unit,
   onDeviceInfo: () -> Unit,
+  onFirmwareFile: (Uri) -> Unit,
   modifier: Modifier = Modifier,
 ) {
   Column(
@@ -79,7 +94,12 @@ private fun BoardTab(
       FlippableBoard(Modifier.fillMaxHeight().aspectRatio(1f, matchHeightConstraintsFirst = true))
     }
     ConnectionButton(state.connection, onConnect, onDisconnect)
-    DeviceInfoCard(state.version, onDeviceInfo)
+    DeviceInfoCard(
+      version = state.version,
+      isConnected = state.connection == ConnectionState.Connected,
+      onClick = onDeviceInfo,
+      onFirmwareFile = onFirmwareFile,
+    )
   }
 }
 
@@ -100,7 +120,15 @@ private fun ConnectionButton(connection: ConnectionState, onConnect: () -> Unit,
 }
 
 @Composable
-private fun DeviceInfoCard(version: VersionResponse?, onClick: () -> Unit) {
+private fun DeviceInfoCard(
+  version: VersionResponse?,
+  isConnected: Boolean,
+  onClick: () -> Unit,
+  onFirmwareFile: (Uri) -> Unit,
+) {
+  val firmwareFilePicker = rememberLauncherForActivityResult(ActivityResultContracts.OpenDocument()) { uri ->
+    if (uri != null) onFirmwareFile(uri)
+  }
   Surface(
     onClick = onClick,
     shape = RoundedCornerShape(16.dp),
@@ -118,8 +146,13 @@ private fun DeviceInfoCard(version: VersionResponse?, onClick: () -> Unit) {
       }
       InfoRow(stringResource(R.string.firmware_version), version?.version)
       InfoRow(stringResource(R.string.build_date), version?.build_date)
-      Button(onClick = {}, enabled = false, modifier = Modifier.fillMaxWidth()) {
-        Text(stringResource(R.string.update))
+      Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+        Button(onClick = {}, enabled = false, modifier = Modifier.weight(1f)) {
+          Text(stringResource(R.string.update))
+        }
+        FilledTonalIconButton(onClick = { firmwareFilePicker.launch(arrayOf("*/*")) }, enabled = isConnected) {
+          Icon(painterResource(R.drawable.ic_file), contentDescription = stringResource(R.string.update_select_file))
+        }
       }
     }
   }
