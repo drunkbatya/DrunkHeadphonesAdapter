@@ -5,6 +5,7 @@
     <string name="connection_disconnected">Disconnected</string>
     <string name="connection_connecting">Connecting</string>
     <string name="connection_connected">Connected</string>
+    <string name="connection_bootloader">Bootloader</string>
     <string name="connect">Connect</string>
     <string name="disconnect">Disconnect</string>
     <string name="device_info">Device info</string>

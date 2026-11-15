@@ -2,16 +2,13 @@ package com.drunkbatya.drunkheadphonesadapter
 
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
-import java.util.zip.CRC32
 
 private const val FIRMWARE_HEADER_OFFSET = 0x100
 private const val FIRMWARE_HEADER_MAGIC = 0x46414844
 private const val FIRMWARE_HEADER_VERSION_SIZE = 48
-private const val FIRMWARE_HEADER_SIZE = 12 + FIRMWARE_HEADER_VERSION_SIZE
+private const val FIRMWARE_HEADER_SIZE = 3 * Int.SIZE_BYTES + FIRMWARE_HEADER_VERSION_SIZE
 
-class FirmwareImage(val bytes: ByteArray, val target: Int, val version: String) {
-  val crc32: Int = CRC32().apply { update(bytes) }.value.toInt()
-}
+class FirmwareImage(val bytes: ByteArray, val target: Int, val version: String)
 
 fun parseFirmwareImage(bytes: ByteArray): FirmwareImage {
   val headerEnd = FIRMWARE_HEADER_OFFSET + FIRMWARE_HEADER_SIZE

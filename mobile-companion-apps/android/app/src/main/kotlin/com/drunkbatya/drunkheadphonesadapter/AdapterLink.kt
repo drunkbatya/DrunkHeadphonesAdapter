@@ -63,7 +63,7 @@ class AdapterLink private constructor(
 ) : Closeable {
   private val mutex = Mutex()
   private var nextRequestId = 1
-  private var rxBytes = ByteArray(0)
+  private var receivedBytes = ByteArray(0)
 
   suspend fun request(request: RpcRequest): RpcResponse = mutex.withLock {
     withContext(Dispatchers.IO) {
@@ -74,7 +74,7 @@ class AdapterLink private constructor(
       if (written != frame.size) throw IOException("Bulk write ${device.deviceName}: $written of ${frame.size} bytes")
       var response: RpcResponse
       do {
-        response = RpcResponse.ADAPTER.decode(readFrame())
+        response = RpcResponse.ADAPTER.decode(readResponseFrame())
       } while (response.request_id != requestId)
       response
     }
@@ -85,26 +85,26 @@ class AdapterLink private constructor(
     connection.close()
   }
 
-  private suspend fun readFrame(): ByteArray {
+  private suspend fun readResponseFrame(): ByteArray {
     val packet = ByteArray(inEndpoint.maxPacketSize)
     while (true) {
-      takeFrame()?.let { return it }
+      takeReceivedFrame()?.let { return it }
       currentCoroutineContext().ensureActive()
       val length = connection.bulkTransfer(inEndpoint, packet, packet.size, READ_POLL_MS)
-      if (length > 0) rxBytes += packet.copyOf(length)
+      if (length > 0) receivedBytes += packet.copyOf(length)
     }
   }
 
-  private fun takeFrame(): ByteArray? {
+  private fun takeReceivedFrame(): ByteArray? {
     var bodySize = 0
-    for (i in 0 until minOf(rxBytes.size, VARINT32_SIZE_MAX)) {
-      val byte = rxBytes[i].toInt()
+    for (i in 0 until minOf(receivedBytes.size, VARINT32_SIZE_MAX)) {
+      val byte = receivedBytes[i].toInt()
       bodySize = bodySize or ((byte and 0x7F) shl (7 * i))
       if (byte and 0x80 != 0) continue
       val frameEnd = i + 1 + bodySize
-      if (rxBytes.size < frameEnd) return null
-      val body = rxBytes.copyOfRange(i + 1, frameEnd)
-      rxBytes = rxBytes.copyOfRange(frameEnd, rxBytes.size)
+      if (receivedBytes.size < frameEnd) return null
+      val body = receivedBytes.copyOfRange(i + 1, frameEnd)
+      receivedBytes = receivedBytes.copyOfRange(frameEnd, receivedBytes.size)
       return body
     }
     return null

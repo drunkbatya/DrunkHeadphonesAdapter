@@ -1,10 +1,8 @@
 package com.drunkbatya.drunkheadphonesadapter
 
 import adapter.ErrType
+import adapter.RebootToBootloaderRequest
 import adapter.RpcRequest
-import adapter.UpdateBeginRequest
-import adapter.UpdateFinishRequest
-import adapter.UpdateWriteRequest
 import adapter.VersionRequest
 import adapter.VersionResponse
 import android.app.Application
@@ -28,24 +26,23 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import kotlinx.coroutines.withTimeout
-import okio.ByteString.Companion.toByteString
 
 private const val TAG = "Adapter"
 private const val CONNECT_TIMEOUT_MS = 1000L
 private const val REQUEST_TIMEOUT_MS = 1000L
 private const val REBOOT_TIMEOUT_MS = 10000L
-private const val REBOOT_POLL_MS = 100L
-private const val UPDATE_CHUNK_SIZE = 256
+private const val DEVICE_LIST_POLL_MS = 100L
 
-enum class ConnectionState(@StringRes val label: Int) {
+enum class ConnectionState(@param:StringRes val label: Int) {
   Disconnected(R.string.connection_disconnected),
   Connecting(R.string.connection_connecting),
   Connected(R.string.connection_connected),
+  Bootloader(R.string.connection_bootloader),
 }
 
 data class AdapterState(
   val connection: ConnectionState = ConnectionState.Disconnected,
-  val version: VersionResponse? = null,
+  val firmware: VersionResponse? = null,
 )
 
 sealed interface UpdateState {
@@ -53,7 +50,7 @@ sealed interface UpdateState {
   data class Writing(val progress: Float) : UpdateState
   data object Rebooting : UpdateState
   data class Done(val version: String) : UpdateState
-  data class Failed(@StringRes val title: Int, val reason: String) : UpdateState
+  data class Failed(@param:StringRes val title: Int, val reason: String) : UpdateState
 }
 
 class AdapterViewModel(application: Application) : AndroidViewModel(application) {
@@ -62,12 +59,13 @@ class AdapterViewModel(application: Application) : AndroidViewModel(application)
   val state: StateFlow<AdapterState> = mutableState
   private val mutableUpdateState = MutableStateFlow<UpdateState?>(null)
   val updateState: StateFlow<UpdateState?> = mutableUpdateState
-  private var link: AdapterLink? = null
+  private var adapterLink: AdapterLink? = null
+  private var bootloaderDevice: UsbDevice? = null
 
   private val detachReceiver = object : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
       val device = intent.getParcelableExtra(UsbManager.EXTRA_DEVICE, UsbDevice::class.java)
-      if (device == link?.device) disconnect()
+      if (device == adapterLink?.device || device == bootloaderDevice) disconnect()
     }
   }
 
@@ -82,12 +80,20 @@ class AdapterViewModel(application: Application) : AndroidViewModel(application)
 
   fun connect() {
     if (mutableState.value.connection != ConnectionState.Disconnected) return
-    viewModelScope.launch { connectAdapter() }
+    viewModelScope.launch {
+      val adapterDevice = findAdapterDevice(usbManager)
+      val bootloader = findBootloaderDevice(usbManager)
+      when {
+        adapterDevice != null -> connectAdapter(adapterDevice)
+        bootloader != null -> connectBootloader(bootloader)
+      }
+    }
   }
 
   fun disconnect() {
-    link?.close()
-    link = null
+    adapterLink?.close()
+    adapterLink = null
+    bootloaderDevice = null
     mutableState.value = AdapterState()
   }
 
@@ -99,8 +105,10 @@ class AdapterViewModel(application: Application) : AndroidViewModel(application)
             ?: throw IOException("Open $uri failed")
         }
         val image = parseFirmwareImage(bytes)
-        val adapterTarget = mutableState.value.version?.target
-        require(image.target == adapterTarget) { "Firmware target ${image.target}, adapter target $adapterTarget" }
+        val adapterTarget = mutableState.value.firmware?.target
+        if (adapterTarget != null) {
+          require(image.target == adapterTarget) { "Firmware target ${image.target}, adapter target $adapterTarget" }
+        }
         UpdateState.Confirm(image)
       } catch (e: Exception) {
         UpdateState.Failed(R.string.update_file_invalid, e.message.orEmpty())
@@ -109,44 +117,45 @@ class AdapterViewModel(application: Application) : AndroidViewModel(application)
   }
 
   fun dismissUpdate() {
-    val update = mutableUpdateState.value
-    if (update is UpdateState.Writing || update is UpdateState.Rebooting) return
     mutableUpdateState.value = null
   }
 
   fun startUpdate(image: FirmwareImage) {
-    val updateLink = link ?: return
-    mutableUpdateState.value = UpdateState.Writing(0f)
+    val connectedAdapterLink = adapterLink
+    val connectedBootloader = bootloaderDevice
+    mutableUpdateState.value = UpdateState.Rebooting
     viewModelScope.launch {
       try {
-        writeFirmware(updateLink, image)
+        val dfuDevice = connectedBootloader
+          ?: rebootToBootloader(checkNotNull(connectedAdapterLink) { "Adapter not connected" })
+        mutableUpdateState.value = UpdateState.Writing(0f)
+        writeFirmwareOverDfu(dfuDevice, image)
         mutableUpdateState.value = UpdateState.Rebooting
-        val version = awaitRebootedAdapter(updateLink.device)
+        val version = awaitRestartedAdapter(dfuDevice)
         check(version == image.version) { "Adapter reports version $version, expected ${image.version}" }
         mutableUpdateState.value = UpdateState.Done(version)
       } catch (e: Exception) {
-        Log.e(TAG, "Update ${updateLink.device.deviceName} failed: ${e.message}")
+        Log.e(TAG, "Update failed: ${e.message}")
         disconnect()
         mutableUpdateState.value = UpdateState.Failed(R.string.update_failed, e.message.orEmpty())
       }
     }
   }
 
-  private suspend fun connectAdapter(): VersionResponse? {
+  private suspend fun connectAdapter(device: UsbDevice): VersionResponse? {
     mutableState.value = AdapterState(ConnectionState.Connecting)
-    val device = findAdapterDevice(usbManager)
-    if (device == null || !requestUsbPermission(getApplication(), usbManager, device)) {
+    if (!requestUsbPermission(getApplication(), usbManager, device)) {
       mutableState.value = AdapterState()
       return null
     }
     return try {
       withTimeout(CONNECT_TIMEOUT_MS) {
-        val openedLink = AdapterLink.open(usbManager, device)
-        link = openedLink
-        val version = openedLink.request(RpcRequest(version = VersionRequest())).version
+        val link = AdapterLink.open(usbManager, device)
+        adapterLink = link
+        val firmware = link.request(RpcRequest(version = VersionRequest())).version
           ?: error("Version request to ${device.deviceName}: response without version")
-        mutableState.value = AdapterState(ConnectionState.Connected, version)
-        version
+        mutableState.value = AdapterState(ConnectionState.Connected, firmware)
+        firmware
       }
     } catch (e: Exception) {
       Log.e(TAG, "Connect ${device.deviceName} failed: ${e.message}")
@@ -155,32 +164,78 @@ class AdapterViewModel(application: Application) : AndroidViewModel(application)
     }
   }
 
-  private suspend fun writeFirmware(updateLink: AdapterLink, image: FirmwareImage) {
-    val size = image.bytes.size
-    updateLink.requestStatus("Begin", RpcRequest(update_begin = UpdateBeginRequest(size, image.crc32)))
-    for (offset in 0 until size step UPDATE_CHUNK_SIZE) {
-      val data = image.bytes.toByteString(offset, minOf(UPDATE_CHUNK_SIZE, size - offset))
-      updateLink.requestStatus("Write at $offset", RpcRequest(update_write = UpdateWriteRequest(offset, data)))
-      mutableUpdateState.value = UpdateState.Writing((offset + data.size).toFloat() / size)
+  private suspend fun connectBootloader(device: UsbDevice) {
+    mutableState.value = AdapterState(ConnectionState.Connecting)
+    if (!requestUsbPermission(getApplication(), usbManager, device)) {
+      mutableState.value = AdapterState()
+      return
     }
-    updateLink.requestStatus("Finish", RpcRequest(update_finish = UpdateFinishRequest()))
+    bootloaderDevice = device
+    mutableState.value = AdapterState(ConnectionState.Bootloader)
   }
 
-  private suspend fun awaitRebootedAdapter(oldDevice: UsbDevice): String {
+  private suspend fun rebootToBootloader(link: AdapterLink): UsbDevice {
+    link.requestAndCheckOk("Reboot to bootloader", RpcRequest(reboot_to_bootloader = RebootToBootloaderRequest()))
+    awaitDetached(link.device)
+    disconnect()
+    val device = awaitAttached("Bootloader") { findBootloaderDevice(usbManager) }
+    if (!requestUsbPermission(getApplication(), usbManager, device)) {
+      throw IOException("USB permission for ${device.deviceName} denied")
+    }
+    return device
+  }
+
+  private suspend fun writeFirmwareOverDfu(device: UsbDevice, image: FirmwareImage) = withContext(Dispatchers.IO) {
+    DfuDevice.open(usbManager, device).use { dfu ->
+      dfu.writeFirmware(image.bytes) { mutableUpdateState.value = UpdateState.Writing(it) }
+      val writtenOptr = try {
+        dfu.writeRequiredOptionBytes()
+      } catch (e: IOException) {
+        Log.e(TAG, "Option bytes on ${device.deviceName} failed: ${e.message}")
+        null
+      }
+      if (writtenOptr == null) {
+        dfu.startFirmware()
+      } else {
+        Log.i(TAG, "Option bytes OPTR 0x%08X written".format(writtenOptr))
+      }
+    }
+  }
+
+  private suspend fun awaitRestartedAdapter(dfuDevice: UsbDevice): String {
+    awaitDetached(dfuDevice)
+    disconnect()
+    val device = awaitAttached("Adapter") { findAdapterDevice(usbManager) }
+    val firmware = connectAdapter(device) ?: throw IOException("Connect ${device.deviceName} after reboot failed")
+    return firmware.version
+  }
+
+  private suspend fun awaitDetached(device: UsbDevice) {
     try {
       withTimeout(REBOOT_TIMEOUT_MS) {
-        while (usbManager.deviceList.values.contains(oldDevice)) delay(REBOOT_POLL_MS)
-        disconnect()
-        while (findAdapterDevice(usbManager) == null) delay(REBOOT_POLL_MS)
+        while (usbManager.deviceList.values.contains(device)) delay(DEVICE_LIST_POLL_MS)
       }
     } catch (e: TimeoutCancellationException) {
-      throw IOException("Adapter did not reconnect in $REBOOT_TIMEOUT_MS ms")
+      throw IOException("${device.deviceName} still attached after $REBOOT_TIMEOUT_MS ms")
     }
-    val version = connectAdapter() ?: throw IOException("Connect after reboot failed")
-    return version.version
   }
 
-  private suspend fun AdapterLink.requestStatus(step: String, request: RpcRequest) {
+  private suspend fun awaitAttached(name: String, find: () -> UsbDevice?): UsbDevice {
+    try {
+      return withTimeout(REBOOT_TIMEOUT_MS) {
+        var device = find()
+        while (device == null) {
+          delay(DEVICE_LIST_POLL_MS)
+          device = find()
+        }
+        device
+      }
+    } catch (e: TimeoutCancellationException) {
+      throw IOException("$name not attached in $REBOOT_TIMEOUT_MS ms")
+    }
+  }
+
+  private suspend fun AdapterLink.requestAndCheckOk(step: String, request: RpcRequest) {
     val response = try {
       withTimeout(REQUEST_TIMEOUT_MS) { request(request) }
     } catch (e: TimeoutCancellationException) {
@@ -192,6 +247,6 @@ class AdapterViewModel(application: Application) : AndroidViewModel(application)
 
   override fun onCleared() {
     getApplication<Application>().unregisterReceiver(detachReceiver)
-    link?.close()
+    adapterLink?.close()
   }
 }

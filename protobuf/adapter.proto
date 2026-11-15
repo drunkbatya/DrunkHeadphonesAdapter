@@ -7,9 +7,6 @@ enum ErrType {
     ERROR_TYPE_OK = 1;
     ERROR_TYPE_BAD_REQUEST = 2;
     ERROR_TYPE_BAD_STATE = 3;
-    ERROR_TYPE_FLASH = 4;
-    ERROR_TYPE_IMAGE_HEADER = 5;
-    ERROR_TYPE_IMAGE_CRC = 6;
 }
 
 message ErrorResponse {
@@ -28,17 +25,7 @@ message VersionResponse {
     uint32 target = 6;
 }
 
-message UpdateBeginRequest {
-    uint32 size = 1;
-    uint32 crc32 = 2;
-}
-
-message UpdateWriteRequest {
-    uint32 offset = 1;
-    bytes data = 2;
-}
-
-message UpdateFinishRequest {
+message RebootToBootloaderRequest {
 }
 
 message RpcRequest {
@@ -46,9 +33,7 @@ message RpcRequest {
 
     oneof payload {
         VersionRequest version = 2;
-        UpdateBeginRequest update_begin = 3;
-        UpdateWriteRequest update_write = 4;
-        UpdateFinishRequest update_finish = 5;
+        RebootToBootloaderRequest reboot_to_bootloader = 3;
     }
 }
 

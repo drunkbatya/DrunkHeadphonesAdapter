@@ -19,7 +19,7 @@ import androidx.compose.ui.unit.dp
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun DeviceInfoScreen(version: VersionResponse?, onBack: () -> Unit) {
+fun DeviceInfoScreen(firmware: VersionResponse?, onBack: () -> Unit) {
   BackHandler(onBack = onBack)
   Scaffold(
     topBar = {
@@ -37,15 +37,15 @@ fun DeviceInfoScreen(version: VersionResponse?, onBack: () -> Unit) {
       modifier = Modifier.padding(padding).padding(16.dp),
       verticalArrangement = Arrangement.spacedBy(12.dp),
     ) {
-      InfoRow(stringResource(R.string.firmware_version), version?.version)
-      InfoRow(stringResource(R.string.build_date), version?.build_date)
-      InfoRow(stringResource(R.string.git_commit), version?.git_commit)
-      InfoRow(stringResource(R.string.git_branch), version?.git_branch)
+      InfoRow(stringResource(R.string.firmware_version), firmware?.version)
+      InfoRow(stringResource(R.string.build_date), firmware?.build_date)
+      InfoRow(stringResource(R.string.git_commit), firmware?.git_commit)
+      InfoRow(stringResource(R.string.git_branch), firmware?.git_branch)
       InfoRow(
         stringResource(R.string.dirty_build),
-        version?.let { stringResource(if (it.dirty) R.string.yes else R.string.no) },
+        firmware?.let { stringResource(if (it.dirty) R.string.yes else R.string.no) },
       )
-      InfoRow(stringResource(R.string.target), version?.target?.toString())
+      InfoRow(stringResource(R.string.target), firmware?.target?.toString())
     }
   }
 }

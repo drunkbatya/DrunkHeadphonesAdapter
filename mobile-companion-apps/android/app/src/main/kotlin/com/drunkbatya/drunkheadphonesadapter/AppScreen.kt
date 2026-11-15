@@ -45,10 +45,10 @@ fun AppScreen(
   onConfirmUpdate: (FirmwareImage) -> Unit,
   onDismissUpdate: () -> Unit,
 ) {
-  UpdateDialogs(update, state.version?.version, onConfirmUpdate, onDismissUpdate)
+  UpdateDialogs(update, state.firmware?.version, onConfirmUpdate, onDismissUpdate)
   var isDeviceInfoOpen by rememberSaveable { mutableStateOf(false) }
   if (isDeviceInfoOpen) {
-    DeviceInfoScreen(state.version, onBack = { isDeviceInfoOpen = false })
+    DeviceInfoScreen(state.firmware, onBack = { isDeviceInfoOpen = false })
     return
   }
   Scaffold(
@@ -95,8 +95,9 @@ private fun BoardTab(
     }
     ConnectionButton(state.connection, onConnect, onDisconnect)
     DeviceInfoCard(
-      version = state.version,
-      isConnected = state.connection == ConnectionState.Connected,
+      firmware = state.firmware,
+      isUpdateAvailable = state.connection == ConnectionState.Connected ||
+        state.connection == ConnectionState.Bootloader,
       onClick = onDeviceInfo,
       onFirmwareFile = onFirmwareFile,
     )
@@ -107,7 +108,7 @@ private fun BoardTab(
 private fun ConnectionButton(connection: ConnectionState, onConnect: () -> Unit, onDisconnect: () -> Unit) {
   val modifier = Modifier.fillMaxWidth()
   when (connection) {
-    ConnectionState.Connected -> OutlinedButton(onClick = onDisconnect, modifier = modifier) {
+    ConnectionState.Connected, ConnectionState.Bootloader -> OutlinedButton(onClick = onDisconnect, modifier = modifier) {
       Text(stringResource(R.string.disconnect))
     }
     ConnectionState.Connecting -> Button(onClick = {}, enabled = false, modifier = modifier) {
@@ -121,8 +122,8 @@ private fun ConnectionButton(connection: ConnectionState, onConnect: () -> Unit,
 
 @Composable
 private fun DeviceInfoCard(
-  version: VersionResponse?,
-  isConnected: Boolean,
+  firmware: VersionResponse?,
+  isUpdateAvailable: Boolean,
   onClick: () -> Unit,
   onFirmwareFile: (Uri) -> Unit,
 ) {
@@ -144,13 +145,13 @@ private fun DeviceInfoCard(
         )
         Icon(painterResource(R.drawable.ic_chevron_right), contentDescription = null)
       }
-      InfoRow(stringResource(R.string.firmware_version), version?.version)
-      InfoRow(stringResource(R.string.build_date), version?.build_date)
+      InfoRow(stringResource(R.string.firmware_version), firmware?.version)
+      InfoRow(stringResource(R.string.build_date), firmware?.build_date)
       Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
         Button(onClick = {}, enabled = false, modifier = Modifier.weight(1f)) {
           Text(stringResource(R.string.update))
         }
-        FilledTonalIconButton(onClick = { firmwareFilePicker.launch(arrayOf("*/*")) }, enabled = isConnected) {
+        FilledTonalIconButton(onClick = { firmwareFilePicker.launch(arrayOf("*/*")) }, enabled = isUpdateAvailable) {
           Icon(painterResource(R.drawable.ic_file), contentDescription = stringResource(R.string.update_select_file))
         }
       }
