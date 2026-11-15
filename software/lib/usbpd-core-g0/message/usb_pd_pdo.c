@@ -31,6 +31,15 @@ UsbPdPdoType usb_pd_pdo_get_type(uint32_t pdo) {
     return (UsbPdPdoType)(pdo >> USB_PD_PDO_TYPE_POSITION);
 }
 
+uint32_t usb_pd_pdo_make_fixed(uint32_t voltage_mv, uint32_t current_ma) {
+    uint32_t voltage_units = voltage_mv / USB_PD_FIXED_VOLTAGE_UNIT_MV;
+
+    if(voltage_units > USB_PD_PDO_FIELD_10_BITS) {
+        voltage_units = USB_PD_PDO_FIELD_10_BITS;
+    }
+    return usb_pd_pdo_set_max_current_ma(voltage_units << USB_PD_PDO_VOLTAGE_POSITION, current_ma);
+}
+
 bool usb_pd_pdo_is_pps(uint32_t pdo) {
     return (usb_pd_pdo_get_type(pdo) == UsbPdPdoTypeAugmented) &&
            (((pdo >> USB_PD_PDO_APDO_TYPE_POSITION) & 0x3u) == USB_PD_PDO_APDO_TYPE_PPS);

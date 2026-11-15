@@ -11,6 +11,7 @@ typedef enum {
 } UsbPdFastRoleSwapCurrent;
 
 UsbPdPdoType usb_pd_pdo_get_type(uint32_t pdo);
+uint32_t usb_pd_pdo_make_fixed(uint32_t voltage_mv, uint32_t current_ma);
 bool usb_pd_pdo_is_pps(uint32_t pdo);
 uint32_t usb_pd_pdo_get_max_voltage_mv(uint32_t pdo);
 uint32_t usb_pd_pdo_get_min_voltage_mv(uint32_t pdo);

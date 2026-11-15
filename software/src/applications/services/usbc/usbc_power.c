@@ -29,6 +29,12 @@ static const uint8_t usbc_power_addresses[UsbcPortCount] = {
     [UsbcPortCharger] = TCPP03_ADDRESS_I2C_ADD_HIGH,
 };
 
+static const char* const usbc_power_mode_names[] = {
+    [Tcpp03PowerModeHibernate] = "Hibernate",
+    [Tcpp03PowerModeLowPower] = "LowPower",
+    [Tcpp03PowerModeNormal] = "Normal",
+};
+
 static bool usbc_power_is_sourcing(const UsbcPowerPort* port) {
     return (port->state == UsbPdPowerSourceOn) || (port->state == UsbPdPowerSourceNewContract);
 }
@@ -95,6 +101,16 @@ static bool usbc_power_write_chip(UsbcPort i, const Tcpp03Control* control) {
     return false;
 }
 
+static void usbc_power_log_control(UsbcPort i, const Tcpp03Control* control) {
+    FURI_LOG_I(
+        TAG,
+        "TCPP03 0x%02X %s, provider switch %s, discharge %s",
+        usbc_power_addresses[i] >> 1,
+        usbc_power_mode_names[control->power_mode],
+        control->provider_switch_closed ? "closed" : "open",
+        control->vbus_discharge_enabled ? "on" : "off");
+}
+
 static void usbc_power_set_faulted(UsbcPower* power, UsbcPort i) {
     power->ports[i].faulted = true;
     if(i == UsbcPortPhone) {
@@ -118,6 +134,7 @@ static void usbc_power_apply(UsbcPower* power) {
             continue;
         }
         port->written = control;
+        usbc_power_log_control(i, &control);
     }
 }
 
@@ -141,7 +158,9 @@ UsbcPower* usbc_power_alloc(UsbcVbus* vbus) {
         if(!usbc_power_write_chip(i, &port->written)) {
             FURI_LOG_E(TAG, "TCPP03 0x%02X write failed", usbc_power_addresses[i] >> 1);
             usbc_power_set_faulted(power, i);
+            continue;
         }
+        usbc_power_log_control(i, &port->written);
     }
 
     return power;

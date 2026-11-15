@@ -27,7 +27,7 @@ flash_option_bytes:
 	@openocd $(TARGET_OPENOCD_CFG) \
 		-c init -c "reset halt" \
 		$(TARGET_OPENOCD_OPTION_BYTES_WRITE) \
-		-c shutdown
+		-c "reset" -c shutdown
 
 .PHONY: debug
 debug: flash
