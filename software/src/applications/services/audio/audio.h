@@ -14,6 +14,10 @@ typedef enum {
     HeadsetEventUnplugged,
 } HeadsetEvent;
 
+typedef struct Audio Audio;
+
+void audio_shutdown(Audio* audio);
+
 int32_t audio_srv(void* context);
 
 #ifdef __cplusplus

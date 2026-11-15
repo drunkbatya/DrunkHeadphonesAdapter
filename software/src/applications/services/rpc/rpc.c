@@ -1,4 +1,5 @@
 #include <applications/services/rpc/rpc.h>
+#include <applications/services/rpc/rpc_update.h>
 
 #include <furi.h>
 #include <furi_hal_usb_cdc.h>
@@ -12,14 +13,15 @@
 
 #define TAG "RpcSrv"
 
-#define RPC_FRAME_SIZE_MAX       256
-#define RPC_RX_BUFFER_SIZE       (RPC_FRAME_SIZE_MAX + CDC_DATA_SZ)
-#define RPC_TX_STREAM_SIZE       (RPC_FRAME_SIZE_MAX * 2)
-#define RPC_TX_STREAM_TRIGGER    1
-#define RPC_FRAME_TIMEOUT_MS     500
-#define RPC_VARINT32_SIZE_MAX    5
-#define RPC_REQUEST_ID_UNKNOWN   0
-#define RPC_INTERNAL_EVENT_Q_LEN 8
+#define RPC_FRAME_SIZE_MAX        512
+#define RPC_RX_BUFFER_SIZE        (RPC_FRAME_SIZE_MAX + CDC_DATA_SZ)
+#define RPC_TX_STREAM_SIZE        (RPC_FRAME_SIZE_MAX * 2)
+#define RPC_TX_STREAM_TRIGGER     1
+#define RPC_FRAME_TIMEOUT_MS      500
+#define RPC_VARINT32_SIZE_MAX     5
+#define RPC_REQUEST_ID_UNKNOWN    0
+#define RPC_INTERNAL_EVENT_Q_LEN  8
+#define RPC_UPDATE_APPLY_DELAY_MS 100
 
 typedef enum {
     RpcInternalEventConnected,
@@ -32,6 +34,7 @@ typedef struct {
     FuriEventLoop* event_loop;
     FuriMessageQueue* internal_evt_queue;
     FuriEventLoopTimer* frame_timer;
+    FuriEventLoopTimer* update_apply_timer;
     FuriStreamBuffer* tx_stream;
     bool is_connected;
     volatile bool is_currently_transmitting;
@@ -40,9 +43,11 @@ typedef struct {
     uint8_t tx_frame[RPC_FRAME_SIZE_MAX];
     adapter_RpcRequest request;
     adapter_RpcResponse response;
+    RpcUpdate update;
 } Rpc;
 
 static void rpc_frame_timer_callback(void* context);
+static void rpc_update_apply_timer_callback(void* context);
 
 static Rpc* rpc_alloc(void) {
     Rpc* rpc = malloc(sizeof(Rpc));
@@ -52,16 +57,20 @@ static Rpc* rpc_alloc(void) {
         furi_message_queue_alloc(RPC_INTERNAL_EVENT_Q_LEN, sizeof(RpcInternalEvent));
     rpc->frame_timer = furi_event_loop_timer_alloc(
         rpc->event_loop, rpc_frame_timer_callback, FuriEventLoopTimerTypeOnce, rpc);
+    rpc->update_apply_timer = furi_event_loop_timer_alloc(
+        rpc->event_loop, rpc_update_apply_timer_callback, FuriEventLoopTimerTypeOnce, rpc);
     rpc->tx_stream = furi_stream_buffer_alloc(RPC_TX_STREAM_SIZE, RPC_TX_STREAM_TRIGGER);
     rpc->is_connected = false;
     rpc->is_currently_transmitting = false;
     rpc->rx_frame_size = 0;
+    rpc_update_abort(&rpc->update);
 
     return rpc;
 }
 
 static void rpc_free(Rpc* rpc) {
     furi_stream_buffer_free(rpc->tx_stream);
+    furi_event_loop_timer_free(rpc->update_apply_timer);
     furi_event_loop_timer_free(rpc->frame_timer);
     furi_message_queue_free(rpc->internal_evt_queue);
     furi_event_loop_free(rpc->event_loop);
@@ -79,6 +88,11 @@ static void rpc_frame_timer_callback(void* context) {
 
     FURI_LOG_E(TAG, "Frame timeout, %u bytes dropped", rpc->rx_frame_size);
     rpc->rx_frame_size = 0;
+}
+
+static void rpc_update_apply_timer_callback(void* context) {
+    Rpc* rpc = context;
+    rpc_update_apply(&rpc->update);
 }
 
 static void rpc_maybe_send_data(Rpc* rpc) {
@@ -113,7 +127,7 @@ static void rpc_send_response(Rpc* rpc) {
     rpc_maybe_send_data(rpc);
 }
 
-static void rpc_send_error(Rpc* rpc, uint32_t request_id, adapter_ErrType err_type) {
+static void rpc_send_status(Rpc* rpc, uint32_t request_id, adapter_ErrType err_type) {
     rpc->response = (adapter_RpcResponse)adapter_RpcResponse_init_zero;
     rpc->response.request_id = request_id;
     rpc->response.which_payload = adapter_RpcResponse_generic_tag;
@@ -133,16 +147,38 @@ static void rpc_handle_version(Rpc* rpc) {
     version->target = version_get_target(NULL);
 }
 
+static void rpc_handle_update_finish(Rpc* rpc) {
+    const adapter_ErrType status = rpc_update_finish(&rpc->update);
+    rpc_send_status(rpc, rpc->request.request_id, status);
+    if(status == adapter_ErrType_ERROR_TYPE_OK) {
+        furi_event_loop_timer_start(
+            rpc->update_apply_timer, furi_ms_to_ticks(RPC_UPDATE_APPLY_DELAY_MS));
+    }
+}
+
 static void rpc_handle_request(Rpc* rpc) {
+    const uint32_t request_id = rpc->request.request_id;
+
     switch(rpc->request.which_payload) {
     case adapter_RpcRequest_version_tag:
         rpc->response = (adapter_RpcResponse)adapter_RpcResponse_init_zero;
-        rpc->response.request_id = rpc->request.request_id;
+        rpc->response.request_id = request_id;
         rpc_handle_version(rpc);
         rpc_send_response(rpc);
         break;
+    case adapter_RpcRequest_update_begin_tag:
+        rpc_send_status(
+            rpc, request_id, rpc_update_begin(&rpc->update, &rpc->request.payload.update_begin));
+        break;
+    case adapter_RpcRequest_update_write_tag:
+        rpc_send_status(
+            rpc, request_id, rpc_update_write(&rpc->update, &rpc->request.payload.update_write));
+        break;
+    case adapter_RpcRequest_update_finish_tag:
+        rpc_handle_update_finish(rpc);
+        break;
     default:
-        rpc_send_error(rpc, rpc->request.request_id, adapter_ErrType_ERROR_TYPE_BAD_REQUEST);
+        rpc_send_status(rpc, request_id, adapter_ErrType_ERROR_TYPE_BAD_REQUEST);
         break;
     }
 }
@@ -163,7 +199,7 @@ static bool rpc_process_rx_frame(Rpc* rpc) {
         if(rpc->rx_frame_size >= RPC_VARINT32_SIZE_MAX) {
             FURI_LOG_E(TAG, "Frame length prefix invalid");
             rpc_drop_rx_frame(rpc);
-            rpc_send_error(rpc, RPC_REQUEST_ID_UNKNOWN, adapter_ErrType_ERROR_TYPE_BAD_REQUEST);
+            rpc_send_status(rpc, RPC_REQUEST_ID_UNKNOWN, adapter_ErrType_ERROR_TYPE_BAD_REQUEST);
         }
         return false;
     }
@@ -171,7 +207,7 @@ static bool rpc_process_rx_frame(Rpc* rpc) {
     if(frame_size > RPC_FRAME_SIZE_MAX) {
         FURI_LOG_E(TAG, "Frame size %u exceeds %u", frame_size, RPC_FRAME_SIZE_MAX);
         rpc_drop_rx_frame(rpc);
-        rpc_send_error(rpc, RPC_REQUEST_ID_UNKNOWN, adapter_ErrType_ERROR_TYPE_BAD_REQUEST);
+        rpc_send_status(rpc, RPC_REQUEST_ID_UNKNOWN, adapter_ErrType_ERROR_TYPE_BAD_REQUEST);
         return false;
     }
 
@@ -185,7 +221,7 @@ static bool rpc_process_rx_frame(Rpc* rpc) {
         rpc_handle_request(rpc);
     } else {
         FURI_LOG_E(TAG, "Request decode failed: %s", PB_GET_ERROR(&stream));
-        rpc_send_error(rpc, RPC_REQUEST_ID_UNKNOWN, adapter_ErrType_ERROR_TYPE_BAD_REQUEST);
+        rpc_send_status(rpc, RPC_REQUEST_ID_UNKNOWN, adapter_ErrType_ERROR_TYPE_BAD_REQUEST);
     }
 
     rpc->rx_frame_size -= frame_size;
@@ -259,6 +295,7 @@ static void rpc_internal_event_happened(FuriEventLoopObject* object, void* conte
         rpc->is_currently_transmitting = false;
         furi_stream_buffer_reset(rpc->tx_stream);
         rpc_drop_rx_frame(rpc);
+        rpc_update_abort(&rpc->update);
         break;
 
     case RpcInternalEventConnected:
@@ -282,6 +319,7 @@ static void rpc_init(Rpc* rpc) {
 static void rpc_deinit(Rpc* rpc) {
     furi_hal_cdc_set_callbacks(NULL, NULL);
     furi_event_loop_unsubscribe(rpc->event_loop, rpc->internal_evt_queue);
+    furi_event_loop_timer_stop(rpc->update_apply_timer);
     furi_event_loop_timer_stop(rpc->frame_timer);
 }
 

@@ -21,6 +21,14 @@ flash: $(BUILD_DIR)/$(TARGET).bin
 		-c "flash write_image erase $(BUILD_DIR)/$(TARGET).bin 0x08000000" \
 		-c "reset" -c shutdown
 
+.PHONY: flash_option_bytes
+flash_option_bytes:
+	@echo "\tFLASH\t option bytes"
+	@openocd $(TARGET_OPENOCD_CFG) \
+		-c init -c "reset halt" \
+		$(TARGET_OPENOCD_OPTION_BYTES_WRITE) \
+		-c shutdown
+
 .PHONY: debug
 debug: flash
 	@openocd $(TARGET_OPENOCD_CFG) \

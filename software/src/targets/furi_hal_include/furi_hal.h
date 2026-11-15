@@ -4,9 +4,11 @@
 #include <furi_hal_bus.h>
 #include <furi_hal_clock.h>
 #include <furi_hal_comp.h>
+#include <furi_hal_crc.h>
 #include <furi_hal_cortex.h>
 #include <furi_hal_debug.h>
 #include <furi_hal_dma.h>
+#include <furi_hal_flash.h>
 #include <furi_hal_gpio.h>
 #include <furi_hal_i2c.h>
 #include <furi_hal_i2s.h>

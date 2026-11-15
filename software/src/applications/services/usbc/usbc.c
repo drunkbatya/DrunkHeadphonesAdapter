@@ -26,6 +26,7 @@ static void usbc_wakeup_callback(void* context) {
 
 static void usbc_process(Usbc* usbc) {
     const uint32_t vbus_next_ms = usbc_vbus_process(usbc->vbus);
+    usbc_power_process(usbc->power);
     const uint32_t policy_next_ms = usbc_policy_process(usbc->policy);
     const uint32_t next_ms = MIN(vbus_next_ms, policy_next_ms);
 
@@ -62,7 +63,7 @@ static Usbc* usbc_alloc(void) {
     usbc->process_timer = furi_event_loop_timer_alloc(
         usbc->event_loop, usbc_process_timer_callback, FuriEventLoopTimerTypeOnce, usbc);
     usbc->vbus = usbc_vbus_alloc(usbc_wakeup_callback, usbc);
-    usbc->power = usbc_power_alloc();
+    usbc->power = usbc_power_alloc(usbc->vbus);
     usbc->policy = usbc_policy_alloc(usbc->power, usbc->vbus, usbc_wakeup_callback, usbc);
     usbc_platform_init(usbc->vbus);
     usbc_policy_start(usbc->policy);

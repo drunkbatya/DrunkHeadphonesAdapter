@@ -33,3 +33,13 @@ TARGET_LDSCRIPT := $(TARGET_DIR)/stm32g0b1xx_flash.ld
 
 TARGET_OPENOCD_CFG := -f interface/stlink.cfg -f target/stm32g0x.cfg \
 	-c "reset_config srst_only srst_nogate connect_assert_srst"
+
+TARGET_FLASH_OPTR_OFFSET := 0x20
+TARGET_FLASH_OPTR_BANK_BITS := 0x00300000
+
+TARGET_OPENOCD_OPTION_BYTES_WRITE := \
+	-c "set optr [stm32l4x option_read 0 $(TARGET_FLASH_OPTR_OFFSET)]; \
+		if {($$optr & $(TARGET_FLASH_OPTR_BANK_BITS)) == $(TARGET_FLASH_OPTR_BANK_BITS)} { \
+		echo [format \"OPTR 0x%08X unchanged\" $$optr] } else { \
+		stm32l4x option_write 0 $(TARGET_FLASH_OPTR_OFFSET) $(TARGET_FLASH_OPTR_BANK_BITS) $(TARGET_FLASH_OPTR_BANK_BITS); \
+		stm32l4x option_load 0 }"

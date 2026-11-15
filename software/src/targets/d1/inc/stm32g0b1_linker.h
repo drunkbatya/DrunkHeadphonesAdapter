@@ -27,6 +27,8 @@ extern linker_symbol_t _ebss; /**< bss end */
 extern linker_symbol_t __heap_start__; /**< RAM1 Heap start */
 extern linker_symbol_t __heap_end__; /**< RAM1 Heap end */
 
+extern linker_symbol_t _firmware_size;
+
 #ifdef __cplusplus
 }
 #endif

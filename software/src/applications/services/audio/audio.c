@@ -8,6 +8,7 @@
 
 #include <drivers/cs43131.h>
 #include <drivers/es8327.h>
+#include <toolbox/api_lock.h>
 
 #define TAG "AudioSrv"
 
@@ -83,6 +84,7 @@ typedef enum {
     AudioThreadFlagMicVolume = (1 << 6),
     AudioThreadFlagMicMute = (1 << 7),
     AudioThreadFlagCaptureError = (1 << 8),
+    AudioThreadFlagShutdown = (1 << 9),
 } AudioThreadFlag;
 
 static const uint32_t
@@ -115,7 +117,7 @@ typedef struct {
     bool muted;
 } AudioControls;
 
-typedef struct {
+struct Audio {
     FuriThreadId thread_id;
     FuriEventLoop* event_loop;
     FuriEventLoopTimer* idle_timer;
@@ -132,7 +134,9 @@ typedef struct {
     bool headphone_output_powered;
     Cs43131SampleRate sample_rate;
     Cs43131BitDepth bit_depth;
-} Audio;
+    FuriApiLock shutdown_lock;
+    bool is_shut_down;
+};
 
 static void audio_idle_timer_callback(void* context);
 
@@ -167,6 +171,8 @@ static Audio* audio_alloc(void) {
     audio->clock_users = 0;
     audio->mclk_source = Cs43131MclkSourceRco;
     audio->headphone_output_powered = false;
+    audio->shutdown_lock = NULL;
+    audio->is_shut_down = false;
 
     return audio;
 }
@@ -790,11 +796,33 @@ static void audio_usb_change_callback(
     }
 }
 
+static void audio_power_off(Audio* audio) {
+    furi_event_loop_timer_stop(audio->idle_timer);
+    audio_power_down_headphone_output(audio);
+    if(audio_is_clock_user(audio, FuriHalUsbAudioStreamMic)) {
+        audio_power_down_mic(audio);
+    }
+    audio->is_shut_down = true;
+    FURI_LOG_I(TAG, "Shut down");
+}
+
 static void audio_thread_flags_callback(void* context) {
     Audio* audio = context;
 
     const uint32_t flags = furi_thread_flags_get();
     furi_thread_flags_clear(flags);
+
+    if(flags & AudioThreadFlagShutdown) {
+        if(!audio->is_shut_down) {
+            audio_power_off(audio);
+        }
+        api_lock_unlock(audio->shutdown_lock);
+        return;
+    }
+
+    if(audio->is_shut_down) {
+        return;
+    }
 
     if(flags & AudioThreadFlagCs43131Interrupt) {
         audio_handle_cs43131_interrupt(audio);
@@ -835,6 +863,7 @@ static void audio_thread_flags_callback(void* context) {
 
 static void audio_init(Audio* audio) {
     furi_record_create(RECORD_HEADSET_EVENTS, audio->headset_events);
+    furi_record_create(RECORD_AUDIO, audio);
 
     furi_event_loop_subscribe_thread_flags(audio->event_loop, audio_thread_flags_callback, audio);
     furi_hal_gpio_add_int_callback(&gpio_cs43131_int, audio_cs43131_interrupt_callback, audio);
@@ -884,7 +913,16 @@ static void audio_deinit(Audio* audio) {
     furi_hal_gpio_write(&gpio_cs43131_reset_n, false);
     audio_set_oscillator(Cs43131MclkSourceRco);
 
+    furi_record_destroy(RECORD_AUDIO);
     furi_record_destroy(RECORD_HEADSET_EVENTS);
+}
+
+void audio_shutdown(Audio* audio) {
+    furi_check(audio);
+
+    audio->shutdown_lock = api_lock_alloc_locked();
+    furi_thread_flags_set(audio->thread_id, AudioThreadFlagShutdown);
+    api_lock_wait_unlock_and_free(audio->shutdown_lock);
 }
 
 int32_t audio_srv(void* context) {
