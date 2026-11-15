@@ -15,6 +15,11 @@ int32_t init_task(void* context) {
 }
 
 int main(void) {
+    if(furi_hal_boot_get_mode() == FuriHalBootModeDfu) {
+        furi_hal_boot_set_mode(FuriHalBootModeNormal);
+        furi_hal_power_reset();
+    }
+
     furi_init();
 
     furi_hal_init_early();

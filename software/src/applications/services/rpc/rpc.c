@@ -1,7 +1,9 @@
 #include <applications/services/rpc/rpc.h>
-#include <applications/services/rpc/rpc_update.h>
+#include <applications/services/audio/audio.h>
 
 #include <furi.h>
+#include <furi_hal_boot.h>
+#include <furi_hal_power.h>
 #include <furi_hal_usb_cdc.h>
 #include <toolbox/version.h>
 
@@ -13,15 +15,15 @@
 
 #define TAG "RpcSrv"
 
-#define RPC_FRAME_SIZE_MAX        512
-#define RPC_RX_BUFFER_SIZE        (RPC_FRAME_SIZE_MAX + CDC_DATA_SZ)
-#define RPC_TX_STREAM_SIZE        (RPC_FRAME_SIZE_MAX * 2)
-#define RPC_TX_STREAM_TRIGGER     1
-#define RPC_FRAME_TIMEOUT_MS      500
-#define RPC_VARINT32_SIZE_MAX     5
-#define RPC_REQUEST_ID_UNKNOWN    0
-#define RPC_INTERNAL_EVENT_Q_LEN  8
-#define RPC_UPDATE_APPLY_DELAY_MS 100
+#define RPC_FRAME_SIZE_MAX             256
+#define RPC_RX_BUFFER_SIZE             (RPC_FRAME_SIZE_MAX + CDC_DATA_SZ)
+#define RPC_TX_STREAM_SIZE             (RPC_FRAME_SIZE_MAX * 2)
+#define RPC_TX_STREAM_TRIGGER          1
+#define RPC_FRAME_TIMEOUT_MS           500
+#define RPC_VARINT32_SIZE_MAX          5
+#define RPC_REQUEST_ID_UNKNOWN         0
+#define RPC_INTERNAL_EVENT_Q_LEN       8
+#define RPC_BOOTLOADER_REBOOT_DELAY_MS 100
 
 typedef enum {
     RpcInternalEventConnected,
@@ -34,7 +36,7 @@ typedef struct {
     FuriEventLoop* event_loop;
     FuriMessageQueue* internal_evt_queue;
     FuriEventLoopTimer* frame_timer;
-    FuriEventLoopTimer* update_apply_timer;
+    FuriEventLoopTimer* bootloader_reboot_timer;
     FuriStreamBuffer* tx_stream;
     bool is_connected;
     volatile bool is_currently_transmitting;
@@ -43,11 +45,10 @@ typedef struct {
     uint8_t tx_frame[RPC_FRAME_SIZE_MAX];
     adapter_RpcRequest request;
     adapter_RpcResponse response;
-    RpcUpdate update;
 } Rpc;
 
 static void rpc_frame_timer_callback(void* context);
-static void rpc_update_apply_timer_callback(void* context);
+static void rpc_bootloader_reboot_timer_callback(void* context);
 
 static Rpc* rpc_alloc(void) {
     Rpc* rpc = malloc(sizeof(Rpc));
@@ -57,20 +58,19 @@ static Rpc* rpc_alloc(void) {
         furi_message_queue_alloc(RPC_INTERNAL_EVENT_Q_LEN, sizeof(RpcInternalEvent));
     rpc->frame_timer = furi_event_loop_timer_alloc(
         rpc->event_loop, rpc_frame_timer_callback, FuriEventLoopTimerTypeOnce, rpc);
-    rpc->update_apply_timer = furi_event_loop_timer_alloc(
-        rpc->event_loop, rpc_update_apply_timer_callback, FuriEventLoopTimerTypeOnce, rpc);
+    rpc->bootloader_reboot_timer = furi_event_loop_timer_alloc(
+        rpc->event_loop, rpc_bootloader_reboot_timer_callback, FuriEventLoopTimerTypeOnce, rpc);
     rpc->tx_stream = furi_stream_buffer_alloc(RPC_TX_STREAM_SIZE, RPC_TX_STREAM_TRIGGER);
     rpc->is_connected = false;
     rpc->is_currently_transmitting = false;
     rpc->rx_frame_size = 0;
-    rpc_update_abort(&rpc->update);
 
     return rpc;
 }
 
 static void rpc_free(Rpc* rpc) {
     furi_stream_buffer_free(rpc->tx_stream);
-    furi_event_loop_timer_free(rpc->update_apply_timer);
+    furi_event_loop_timer_free(rpc->bootloader_reboot_timer);
     furi_event_loop_timer_free(rpc->frame_timer);
     furi_message_queue_free(rpc->internal_evt_queue);
     furi_event_loop_free(rpc->event_loop);
@@ -90,9 +90,16 @@ static void rpc_frame_timer_callback(void* context) {
     rpc->rx_frame_size = 0;
 }
 
-static void rpc_update_apply_timer_callback(void* context) {
-    Rpc* rpc = context;
-    rpc_update_apply(&rpc->update);
+static void rpc_bootloader_reboot_timer_callback(void* context) {
+    UNUSED(context);
+
+    Audio* audio = furi_record_open(RECORD_AUDIO);
+    audio_shutdown(audio);
+    furi_record_close(RECORD_AUDIO);
+
+    FURI_LOG_I(TAG, "Rebooting to bootloader");
+    furi_hal_boot_set_mode(FuriHalBootModeDfu);
+    furi_hal_power_reset();
 }
 
 static void rpc_maybe_send_data(Rpc* rpc) {
@@ -147,13 +154,10 @@ static void rpc_handle_version(Rpc* rpc) {
     version->target = version_get_target(NULL);
 }
 
-static void rpc_handle_update_finish(Rpc* rpc) {
-    const adapter_ErrType status = rpc_update_finish(&rpc->update);
-    rpc_send_status(rpc, rpc->request.request_id, status);
-    if(status == adapter_ErrType_ERROR_TYPE_OK) {
-        furi_event_loop_timer_start(
-            rpc->update_apply_timer, furi_ms_to_ticks(RPC_UPDATE_APPLY_DELAY_MS));
-    }
+static void rpc_handle_reboot_to_bootloader(Rpc* rpc) {
+    rpc_send_status(rpc, rpc->request.request_id, adapter_ErrType_ERROR_TYPE_OK);
+    furi_event_loop_timer_start(
+        rpc->bootloader_reboot_timer, furi_ms_to_ticks(RPC_BOOTLOADER_REBOOT_DELAY_MS));
 }
 
 static void rpc_handle_request(Rpc* rpc) {
@@ -166,16 +170,8 @@ static void rpc_handle_request(Rpc* rpc) {
         rpc_handle_version(rpc);
         rpc_send_response(rpc);
         break;
-    case adapter_RpcRequest_update_begin_tag:
-        rpc_send_status(
-            rpc, request_id, rpc_update_begin(&rpc->update, &rpc->request.payload.update_begin));
-        break;
-    case adapter_RpcRequest_update_write_tag:
-        rpc_send_status(
-            rpc, request_id, rpc_update_write(&rpc->update, &rpc->request.payload.update_write));
-        break;
-    case adapter_RpcRequest_update_finish_tag:
-        rpc_handle_update_finish(rpc);
+    case adapter_RpcRequest_reboot_to_bootloader_tag:
+        rpc_handle_reboot_to_bootloader(rpc);
         break;
     default:
         rpc_send_status(rpc, request_id, adapter_ErrType_ERROR_TYPE_BAD_REQUEST);
@@ -295,7 +291,6 @@ static void rpc_internal_event_happened(FuriEventLoopObject* object, void* conte
         rpc->is_currently_transmitting = false;
         furi_stream_buffer_reset(rpc->tx_stream);
         rpc_drop_rx_frame(rpc);
-        rpc_update_abort(&rpc->update);
         break;
 
     case RpcInternalEventConnected:
@@ -319,7 +314,7 @@ static void rpc_init(Rpc* rpc) {
 static void rpc_deinit(Rpc* rpc) {
     furi_hal_cdc_set_callbacks(NULL, NULL);
     furi_event_loop_unsubscribe(rpc->event_loop, rpc->internal_evt_queue);
-    furi_event_loop_timer_stop(rpc->update_apply_timer);
+    furi_event_loop_timer_stop(rpc->bootloader_reboot_timer);
     furi_event_loop_timer_stop(rpc->frame_timer);
 }
 

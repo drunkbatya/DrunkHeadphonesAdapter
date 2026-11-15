@@ -323,8 +323,7 @@ void policy_engine_start_dpm_request(PolicyEngine* pe) {
 }
 
 bool policy_engine_is_dual_role(const PolicyEngine* pe) {
-    return pe->config.power_role_swap && ((pe->config.mode == UsbPdPortModeDualRole) ||
-                                          (pe->config.mode == UsbPdPortModeDualRoleTrySink));
+    return pe->config.power_role_swap;
 }
 
 bool policy_engine_vbus_is(const PolicyEngine* pe, UsbPdVbusLevel level) {

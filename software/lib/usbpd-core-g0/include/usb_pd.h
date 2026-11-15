@@ -108,9 +108,16 @@ typedef struct {
 } UsbPdEvent;
 
 typedef struct {
+    uint8_t minimum_w;
+    uint8_t operational_w;
+    uint8_t maximum_w;
+} UsbPdSinkPdp;
+
+typedef struct {
     void (*on_event)(void* context, uint8_t port, const UsbPdEvent* event);
     void (*get_source_capabilities)(void* context, uint8_t port, UsbPdCapabilities* capabilities);
     void (*get_sink_capabilities)(void* context, uint8_t port, UsbPdCapabilities* capabilities);
+    void (*get_sink_pdp)(void* context, uint8_t port, UsbPdSinkPdp* pdp);
     bool (*get_pps_status)(void* context, uint8_t port, UsbPdPpsStatus* status);
     UsbPdAnswer (*evaluate_request)(void* context, uint8_t port, uint32_t rdo);
     uint32_t (*select_capability)(

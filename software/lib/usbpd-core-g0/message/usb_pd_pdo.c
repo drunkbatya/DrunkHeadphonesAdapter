@@ -13,6 +13,7 @@
 #define USB_PD_PPS_MIN_VOLTAGE_POSITION 8u
 #define USB_PD_PDO_DUAL_ROLE_POWER      (1u << 29)
 #define USB_PD_PDO_USB_SUSPEND          (1u << 28)
+#define USB_PD_PDO_HIGHER_CAPABILITY    (1u << 28)
 #define USB_PD_PDO_UNCONSTRAINED_POWER  (1u << 27)
 #define USB_PD_PDO_USB_COMMUNICATIONS   (1u << 26)
 #define USB_PD_PDO_DUAL_ROLE_DATA       (1u << 25)
@@ -146,6 +147,34 @@ bool usb_pd_pdo_is_usb_communications_capable(uint32_t pdo) {
 
 bool usb_pd_pdo_is_dual_role_data(uint32_t pdo) {
     return usb_pd_pdo_fixed_flag(pdo, USB_PD_PDO_DUAL_ROLE_DATA);
+}
+
+static uint32_t usb_pd_pdo_set_fixed_flag(uint32_t pdo, uint32_t flag, bool value) {
+    if(usb_pd_pdo_get_type(pdo) != UsbPdPdoTypeFixed) {
+        return pdo;
+    }
+    return value ? (pdo | flag) : (pdo & ~flag);
+}
+
+uint32_t usb_pd_pdo_set_dual_role_power(uint32_t pdo, bool dual_role_power) {
+    return usb_pd_pdo_set_fixed_flag(pdo, USB_PD_PDO_DUAL_ROLE_POWER, dual_role_power);
+}
+
+uint32_t usb_pd_pdo_set_higher_capability(uint32_t sink_pdo, bool higher_capability) {
+    return usb_pd_pdo_set_fixed_flag(sink_pdo, USB_PD_PDO_HIGHER_CAPABILITY, higher_capability);
+}
+
+uint32_t usb_pd_pdo_set_unconstrained_power(uint32_t pdo, bool unconstrained_power) {
+    return usb_pd_pdo_set_fixed_flag(pdo, USB_PD_PDO_UNCONSTRAINED_POWER, unconstrained_power);
+}
+
+uint32_t usb_pd_pdo_set_usb_communications_capable(uint32_t pdo, bool usb_communications_capable) {
+    return usb_pd_pdo_set_fixed_flag(
+        pdo, USB_PD_PDO_USB_COMMUNICATIONS, usb_communications_capable);
+}
+
+uint32_t usb_pd_pdo_set_dual_role_data(uint32_t pdo, bool dual_role_data) {
+    return usb_pd_pdo_set_fixed_flag(pdo, USB_PD_PDO_DUAL_ROLE_DATA, dual_role_data);
 }
 
 UsbPdFastRoleSwapCurrent usb_pd_pdo_get_fast_role_swap_current(uint32_t sink_pdo) {

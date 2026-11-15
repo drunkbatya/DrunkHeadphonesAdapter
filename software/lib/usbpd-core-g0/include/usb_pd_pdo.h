@@ -22,6 +22,11 @@ bool usb_pd_pdo_is_usb_suspend_supported(uint32_t pdo);
 bool usb_pd_pdo_is_unconstrained_power(uint32_t pdo);
 bool usb_pd_pdo_is_usb_communications_capable(uint32_t pdo);
 bool usb_pd_pdo_is_dual_role_data(uint32_t pdo);
+uint32_t usb_pd_pdo_set_dual_role_power(uint32_t pdo, bool dual_role_power);
+uint32_t usb_pd_pdo_set_higher_capability(uint32_t sink_pdo, bool higher_capability);
+uint32_t usb_pd_pdo_set_unconstrained_power(uint32_t pdo, bool unconstrained_power);
+uint32_t usb_pd_pdo_set_usb_communications_capable(uint32_t pdo, bool usb_communications_capable);
+uint32_t usb_pd_pdo_set_dual_role_data(uint32_t pdo, bool dual_role_data);
 UsbPdFastRoleSwapCurrent usb_pd_pdo_get_fast_role_swap_current(uint32_t sink_pdo);
 uint32_t
     usb_pd_pdo_set_fast_role_swap_current(uint32_t sink_pdo, UsbPdFastRoleSwapCurrent current);

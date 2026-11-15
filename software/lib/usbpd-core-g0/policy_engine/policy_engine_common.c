@@ -44,6 +44,7 @@ static uint32_t common_max_fixed_power_mw(const UsbPdCapabilities* capabilities)
 static uint32_t common_give_sink_capabilities_extended(PolicyEngine* pe) {
     uint8_t* skedb = &pe->tx_buffer[USB_PD_EXTENDED_PAYLOAD_OFFSET];
     UsbPdCapabilities sink_capabilities;
+    UsbPdSinkPdp sink_pdp;
     uint32_t sink_pdp_w;
 
     memset(&sink_capabilities, 0, sizeof(sink_capabilities));
@@ -54,6 +55,12 @@ static uint32_t common_give_sink_capabilities_extended(PolicyEngine* pe) {
     }
     sink_pdp_w = (common_max_fixed_power_mw(&sink_capabilities) + POLICY_ENGINE_MW_PER_W - 1U) /
                  POLICY_ENGINE_MW_PER_W;
+    sink_pdp.minimum_w = (uint8_t)sink_pdp_w;
+    sink_pdp.operational_w = (uint8_t)sink_pdp_w;
+    sink_pdp.maximum_w = (uint8_t)sink_pdp_w;
+    if(pe->callbacks->get_sink_pdp != NULL) {
+        pe->callbacks->get_sink_pdp(pe->context, pe->port, &sink_pdp);
+    }
     memset(skedb, 0, POLICY_ENGINE_SINK_CAPABILITIES_EXTENDED_SIZE);
     common_put_u16(&skedb[0], pe->config.identity.vendor_id);
     common_put_u16(&skedb[2], pe->config.identity.product_id);
@@ -62,9 +69,9 @@ static uint32_t common_give_sink_capabilities_extended(PolicyEngine* pe) {
     skedb[9] = pe->config.identity.hardware_version;
     skedb[POLICY_ENGINE_SKEDB_VERSION_OFFSET] = POLICY_ENGINE_SKEDB_VERSION;
     skedb[POLICY_ENGINE_SKEDB_MODES_OFFSET] = POLICY_ENGINE_SKEDB_VBUS_POWERED;
-    skedb[POLICY_ENGINE_SKEDB_MINIMUM_PDP_OFFSET] = (uint8_t)sink_pdp_w;
-    skedb[POLICY_ENGINE_SKEDB_OPERATIONAL_PDP_OFFSET] = (uint8_t)sink_pdp_w;
-    skedb[POLICY_ENGINE_SKEDB_MAXIMUM_PDP_OFFSET] = (uint8_t)sink_pdp_w;
+    skedb[POLICY_ENGINE_SKEDB_MINIMUM_PDP_OFFSET] = sink_pdp.minimum_w;
+    skedb[POLICY_ENGINE_SKEDB_OPERATIONAL_PDP_OFFSET] = sink_pdp.operational_w;
+    skedb[POLICY_ENGINE_SKEDB_MAXIMUM_PDP_OFFSET] = sink_pdp.maximum_w;
     (void)policy_engine_send_extended_message(
         pe,
         UsbPdExtendedMessageSinkCapabilitiesExtended,

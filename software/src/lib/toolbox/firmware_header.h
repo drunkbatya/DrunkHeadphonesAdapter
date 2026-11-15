@@ -1,6 +1,5 @@
 #pragma once
 
-#include <stddef.h>
 #include <stdint.h>
 
 #ifdef __cplusplus
@@ -16,8 +15,6 @@ typedef struct {
     uint32_t image_size;
     char version[FIRMWARE_HEADER_VERSION_SIZE];
 } FirmwareHeader;
-
-size_t firmware_header_get_offset(void);
 
 #ifdef __cplusplus
 }
