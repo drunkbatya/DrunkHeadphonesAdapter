@@ -24,6 +24,8 @@ jobs:
           release: '15.3.Rel2'
 
       - name: 'Build firmware'
+        with:
+          working_directory: software
         run: |
           make release
 
@@ -31,9 +33,9 @@ jobs:
         if: github.ref_type == 'tag'
         run: |
           mkdir artifacts
-          cp build/d1/release/firmware.bin artifacts/firmware-${{ github.ref_name }}.bin
-          cp build/d1/release/firmware.elf artifacts/firmware-${{ github.ref_name }}.elf
-          cp build/d1/release/firmware.map artifacts/firmware-${{ github.ref_name }}.map
+          cp software/build/d1/release/firmware.bin artifacts/firmware-${{ github.ref_name }}.bin
+          cp software/build/d1/release/firmware.elf artifacts/firmware-${{ github.ref_name }}.elf
+          cp software/build/d1/release/firmware.map artifacts/firmware-${{ github.ref_name }}.map
 
       - name: 'Make release'
         uses: softprops/action-gh-release@v3
