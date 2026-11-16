@@ -1,9 +1,7 @@
-TARGET ?= DrunkHeadphonesAdapter
+FIRMWARE_NAME ?= firmware
 HW_TARGET ?= d1
 HW_TARGET_ID ?= $(subst d,,$(HW_TARGET))
-DEBUG ?= 1
-OPT ?= -Og
-BUILD_DIR ?= build
+BUILD_ROOT ?= build
 GENERATED_DIR ?= generated
 PATCHES_DIR ?= patches
 PROTO_DIR ?= ../protobuf
@@ -14,6 +12,22 @@ JOBS ?= $(shell nproc 2>/dev/null || echo 1)
 ifeq ($(filter -j% --jobs%,$(MAKEFLAGS)),)
 MAKEFLAGS += -j$(JOBS)
 endif
+
+ifneq ($(filter release,$(MAKECMDGOALS)),)
+DEBUG := 0
+endif
+
+DEBUG ?= 1
+
+ifeq ($(DEBUG),1)
+BUILD_TYPE := debug
+OPT ?= -Og
+else
+BUILD_TYPE := release
+OPT ?= -Os
+endif
+
+BUILD_DIR := $(BUILD_ROOT)/$(HW_TARGET)/$(BUILD_TYPE)
 
 TARGET_DIR := src/targets/$(HW_TARGET)
 TARGET_MK := $(TARGET_DIR)/target.mk

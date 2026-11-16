@@ -1,0 +1,47 @@
+name: 'Build'
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+      - name: 'Checkout code'
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 1
+          submodules: 'recursive'
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: 'Install arm-none-eabi toolchain'
+        uses: carlosperate/arm-none-eabi-gcc-action@v1
+        with:
+          release: '15.3.Rel2'
+
+      - name: 'Build firmware'
+        run: |
+          make release
+
+      - name: 'Prepare release files'
+        if: github.ref_type == 'tag'
+        run: |
+          mkdir artifacts
+          cp build/d1/release/firmware.bin artifacts/firmware-${{ github.ref_name }}.bin
+          cp build/d1/release/firmware.elf artifacts/firmware-${{ github.ref_name }}.elf
+          cp build/d1/release/firmware.map artifacts/firmware-${{ github.ref_name }}.map
+
+      - name: 'Make release'
+        uses: softprops/action-gh-release@v3
+        if: github.ref_type == 'tag'
+        with:
+          prerelease: true
+          working_directory: artifacts
+          files: |
+            firmware-${{ github.ref_name }}.bin
+            firmware-${{ github.ref_name }}.elf
+            firmware-${{ github.ref_name }}.map

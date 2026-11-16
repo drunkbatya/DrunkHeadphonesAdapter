@@ -42,7 +42,7 @@ CFLAGS += -MMD -MP -MF"$(@:%.o=%.d)"
 
 LIBS := -lc -lm -lnosys
 LDFLAGS := $(MCU) -specs=nano.specs -T$(TARGET_LDSCRIPT) $(LIBS) \
-	-Wl,-Map=$(BUILD_DIR)/$(TARGET).map,--cref \
+	-Wl,-Map=$(BUILD_DIR)/$(FIRMWARE_NAME).map,--cref \
 	-Wl,--gc-sections \
 	-Wl,--wrap,_malloc_r \
 	-Wl,--wrap,_free_r \

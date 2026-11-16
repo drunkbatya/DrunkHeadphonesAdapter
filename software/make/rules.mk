@@ -27,7 +27,7 @@ $(BUILD_DIR)/%.o: %.s $(MAKE_FILES) | $(BUILD_DIR)
 	@mkdir -p $(@D)
 	@$(AS) -c $(ASFLAGS) $< -o $@
 
-$(BUILD_DIR)/$(TARGET).elf: $(OBJECTS) $(TARGET_LDSCRIPT) $(MAKE_FILES) | $(BUILD_DIR)
+$(BUILD_DIR)/$(FIRMWARE_NAME).elf: $(OBJECTS) $(TARGET_LDSCRIPT) $(MAKE_FILES) | $(BUILD_DIR)
 	@echo "\tLD\t" $@
 	@$(CC) $(OBJECTS) $(LDFLAGS) -o $@
 	@$(SZ) $@
