@@ -24,9 +24,8 @@ jobs:
           release: '15.3.Rel2'
 
       - name: 'Build firmware'
-        with:
-          working_directory: software
         run: |
+          cd software
           make release
 
       - name: 'Prepare release files'
