@@ -23,6 +23,10 @@ jobs:
         with:
           release: '15.3.Rel2'
 
+      - name: 'Install tools'
+        run: |
+          python3 -m pip install protobuf grpcio-tools
+
       - name: 'Build firmware'
         run: |
           cd software
