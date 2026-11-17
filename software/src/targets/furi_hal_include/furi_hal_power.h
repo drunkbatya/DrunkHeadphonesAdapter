@@ -8,6 +8,17 @@
 extern "C" {
 #endif
 
+typedef enum {
+    FuriHalPowerResetReasonUnknown,
+    FuriHalPowerResetReasonPowerOn,
+    FuriHalPowerResetReasonPin,
+    FuriHalPowerResetReasonSoftware,
+    FuriHalPowerResetReasonIndependentWatchdog,
+    FuriHalPowerResetReasonWindowWatchdog,
+    FuriHalPowerResetReasonLowPower,
+    FuriHalPowerResetReasonOptionBytesLoad,
+} FuriHalPowerResetReason;
+
 /** Initialize Power HAL
  */
 void furi_hal_power_init(void);
@@ -39,6 +50,8 @@ bool furi_hal_power_sleep_available(void);
 /** Go to sleep
  */
 void furi_hal_power_sleep(void);
+
+FuriHalPowerResetReason furi_hal_power_get_reset_reason(void);
 
 /** Reset device
  */

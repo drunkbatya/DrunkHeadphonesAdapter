@@ -34,6 +34,8 @@ void furi_hal_cortex_delay_us(uint32_t microseconds);
  */
 uint32_t furi_hal_cortex_instructions_per_microsecond(void);
 
+uint32_t furi_hal_cortex_get_cycle_counter(void);
+
 /** Get Timer
  *
  * @param[in]  timeout_us  The expire timeout in us

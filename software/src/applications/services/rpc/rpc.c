@@ -1,11 +1,7 @@
-#include <applications/services/rpc/rpc.h>
-#include <applications/services/audio/audio.h>
+#include <applications/services/rpc/rpc_i.h>
 
 #include <furi.h>
-#include <furi_hal_boot.h>
-#include <furi_hal_power.h>
 #include <furi_hal_usb_cdc.h>
-#include <toolbox/version.h>
 
 #include <adapter.pb.h>
 #include <pb_decode.h>
@@ -15,15 +11,16 @@
 
 #define TAG "RpcSrv"
 
-#define RPC_FRAME_SIZE_MAX             256
-#define RPC_RX_BUFFER_SIZE             (RPC_FRAME_SIZE_MAX + CDC_DATA_SZ)
-#define RPC_TX_STREAM_SIZE             (RPC_FRAME_SIZE_MAX * 2)
-#define RPC_TX_STREAM_TRIGGER          1
-#define RPC_FRAME_TIMEOUT_MS           500
-#define RPC_VARINT32_SIZE_MAX          5
-#define RPC_REQUEST_ID_UNKNOWN         0
-#define RPC_INTERNAL_EVENT_Q_LEN       8
-#define RPC_BOOTLOADER_REBOOT_DELAY_MS 100
+#define RPC_VARINT32_SIZE_MAX    5
+#define RPC_RX_FRAME_SIZE_MAX    256
+#define RPC_RX_BUFFER_SIZE       (RPC_RX_FRAME_SIZE_MAX + CDC_DATA_SZ)
+#define RPC_TX_FRAME_SIZE_MAX    (adapter_RpcResponse_size + RPC_VARINT32_SIZE_MAX)
+#define RPC_TX_STREAM_SIZE       (RPC_TX_FRAME_SIZE_MAX * 2)
+#define RPC_TX_STREAM_TRIGGER    1
+#define RPC_FRAME_TIMEOUT_MS     500
+#define RPC_REQUEST_ID_UNKNOWN   0
+#define RPC_INTERNAL_EVENT_Q_LEN 8
+#define RPC_HANDLER_COUNT_MAX    16
 
 typedef enum {
     RpcInternalEventConnected,
@@ -33,22 +30,31 @@ typedef enum {
 } RpcInternalEvent;
 
 typedef struct {
+    pb_size_t request_tag;
+    RpcRequestHandler callback;
+    void* context;
+} RpcHandler;
+
+struct Rpc {
     FuriEventLoop* event_loop;
     FuriMessageQueue* internal_evt_queue;
     FuriEventLoopTimer* frame_timer;
-    FuriEventLoopTimer* bootloader_reboot_timer;
     FuriStreamBuffer* tx_stream;
+    RpcHandler handlers[RPC_HANDLER_COUNT_MAX];
+    size_t handler_count;
+    RpcSystem* system;
+    RpcAudio* audio;
+    RpcUsbc* usbc;
     bool is_connected;
     volatile bool is_currently_transmitting;
     uint8_t rx_frame[RPC_RX_BUFFER_SIZE];
     size_t rx_frame_size;
-    uint8_t tx_frame[RPC_FRAME_SIZE_MAX];
+    uint8_t tx_frame[RPC_TX_FRAME_SIZE_MAX];
     adapter_RpcRequest request;
     adapter_RpcResponse response;
-} Rpc;
+};
 
 static void rpc_frame_timer_callback(void* context);
-static void rpc_bootloader_reboot_timer_callback(void* context);
 
 static Rpc* rpc_alloc(void) {
     Rpc* rpc = malloc(sizeof(Rpc));
@@ -58,19 +64,21 @@ static Rpc* rpc_alloc(void) {
         furi_message_queue_alloc(RPC_INTERNAL_EVENT_Q_LEN, sizeof(RpcInternalEvent));
     rpc->frame_timer = furi_event_loop_timer_alloc(
         rpc->event_loop, rpc_frame_timer_callback, FuriEventLoopTimerTypeOnce, rpc);
-    rpc->bootloader_reboot_timer = furi_event_loop_timer_alloc(
-        rpc->event_loop, rpc_bootloader_reboot_timer_callback, FuriEventLoopTimerTypeOnce, rpc);
     rpc->tx_stream = furi_stream_buffer_alloc(RPC_TX_STREAM_SIZE, RPC_TX_STREAM_TRIGGER);
-    rpc->is_connected = false;
-    rpc->is_currently_transmitting = false;
-    rpc->rx_frame_size = 0;
+
+    rpc->system = rpc_system_alloc(rpc);
+    rpc->audio = rpc_audio_alloc(rpc);
+    rpc->usbc = rpc_usbc_alloc(rpc);
 
     return rpc;
 }
 
 static void rpc_free(Rpc* rpc) {
+    rpc_usbc_free(rpc->usbc);
+    rpc_audio_free(rpc->audio);
+    rpc_system_free(rpc->system);
+
     furi_stream_buffer_free(rpc->tx_stream);
-    furi_event_loop_timer_free(rpc->bootloader_reboot_timer);
     furi_event_loop_timer_free(rpc->frame_timer);
     furi_message_queue_free(rpc->internal_evt_queue);
     furi_event_loop_free(rpc->event_loop);
@@ -90,18 +98,6 @@ static void rpc_frame_timer_callback(void* context) {
     rpc->rx_frame_size = 0;
 }
 
-static void rpc_bootloader_reboot_timer_callback(void* context) {
-    UNUSED(context);
-
-    Audio* audio = furi_record_open(RECORD_AUDIO);
-    audio_shutdown(audio);
-    furi_record_close(RECORD_AUDIO);
-
-    FURI_LOG_I(TAG, "Rebooting to bootloader");
-    furi_hal_boot_set_mode(FuriHalBootModeDfu);
-    furi_hal_power_reset();
-}
-
 static void rpc_maybe_send_data(Rpc* rpc) {
     if(rpc->is_currently_transmitting) return;
     if(!rpc->is_connected) return;
@@ -114,7 +110,33 @@ static void rpc_maybe_send_data(Rpc* rpc) {
     }
 }
 
-static void rpc_send_response(Rpc* rpc) {
+void rpc_add_handler(Rpc* rpc, pb_size_t request_tag, RpcRequestHandler handler, void* context) {
+    furi_check(rpc);
+    furi_check(handler);
+    furi_check(rpc->handler_count < COUNT_OF(rpc->handlers));
+
+    rpc->handlers[rpc->handler_count++] = (RpcHandler){
+        .request_tag = request_tag,
+        .callback = handler,
+        .context = context,
+    };
+}
+
+FuriEventLoop* rpc_get_event_loop(Rpc* rpc) {
+    furi_check(rpc);
+    return rpc->event_loop;
+}
+
+adapter_RpcResponse* rpc_begin_response(Rpc* rpc, uint32_t request_id, pb_size_t response_tag) {
+    furi_check(rpc);
+
+    rpc->response = (adapter_RpcResponse)adapter_RpcResponse_init_zero;
+    rpc->response.request_id = request_id;
+    rpc->response.which_payload = response_tag;
+    return &rpc->response;
+}
+
+void rpc_send_response(Rpc* rpc) {
     pb_ostream_t stream = pb_ostream_from_buffer(rpc->tx_frame, sizeof(rpc->tx_frame));
     if(!pb_encode_ex(&stream, adapter_RpcResponse_fields, &rpc->response, PB_ENCODE_DELIMITED)) {
         FURI_LOG_E(TAG, "Response encode failed: %s", PB_GET_ERROR(&stream));
@@ -134,49 +156,24 @@ static void rpc_send_response(Rpc* rpc) {
     rpc_maybe_send_data(rpc);
 }
 
-static void rpc_send_status(Rpc* rpc, uint32_t request_id, adapter_ErrType err_type) {
-    rpc->response = (adapter_RpcResponse)adapter_RpcResponse_init_zero;
-    rpc->response.request_id = request_id;
-    rpc->response.which_payload = adapter_RpcResponse_generic_tag;
-    rpc->response.payload.generic.err_type = err_type;
+void rpc_send_status(Rpc* rpc, uint32_t request_id, adapter_ErrType err_type) {
+    adapter_RpcResponse* response =
+        rpc_begin_response(rpc, request_id, adapter_RpcResponse_generic_tag);
+    response->payload.generic.err_type = err_type;
     rpc_send_response(rpc);
 }
 
-static void rpc_handle_version(Rpc* rpc) {
-    adapter_VersionResponse* version = &rpc->response.payload.version;
-
-    rpc->response.which_payload = adapter_RpcResponse_version_tag;
-    strlcpy(version->version, version_get_version(NULL), sizeof(version->version));
-    strlcpy(version->git_commit, version_get_githash(NULL), sizeof(version->git_commit));
-    strlcpy(version->git_branch, version_get_gitbranch(NULL), sizeof(version->git_branch));
-    strlcpy(version->build_date, version_get_builddate(NULL), sizeof(version->build_date));
-    version->dirty = version_get_dirty_flag(NULL);
-    version->target = version_get_target(NULL);
-}
-
-static void rpc_handle_reboot_to_bootloader(Rpc* rpc) {
-    rpc_send_status(rpc, rpc->request.request_id, adapter_ErrType_ERROR_TYPE_OK);
-    furi_event_loop_timer_start(
-        rpc->bootloader_reboot_timer, furi_ms_to_ticks(RPC_BOOTLOADER_REBOOT_DELAY_MS));
-}
-
 static void rpc_handle_request(Rpc* rpc) {
-    const uint32_t request_id = rpc->request.request_id;
-
-    switch(rpc->request.which_payload) {
-    case adapter_RpcRequest_version_tag:
-        rpc->response = (adapter_RpcResponse)adapter_RpcResponse_init_zero;
-        rpc->response.request_id = request_id;
-        rpc_handle_version(rpc);
-        rpc_send_response(rpc);
-        break;
-    case adapter_RpcRequest_reboot_to_bootloader_tag:
-        rpc_handle_reboot_to_bootloader(rpc);
-        break;
-    default:
-        rpc_send_status(rpc, request_id, adapter_ErrType_ERROR_TYPE_BAD_REQUEST);
-        break;
+    for(size_t i = 0; i < rpc->handler_count; i++) {
+        const RpcHandler* handler = &rpc->handlers[i];
+        if(handler->request_tag == rpc->request.which_payload) {
+            handler->callback(&rpc->request, handler->context);
+            return;
+        }
     }
+
+    FURI_LOG_E(TAG, "Request payload %u has no handler", rpc->request.which_payload);
+    rpc_send_status(rpc, rpc->request.request_id, adapter_ErrType_ERROR_TYPE_BAD_REQUEST);
 }
 
 static bool rpc_get_rx_frame_size(const Rpc* rpc, size_t* frame_size) {
@@ -200,8 +197,8 @@ static bool rpc_process_rx_frame(Rpc* rpc) {
         return false;
     }
 
-    if(frame_size > RPC_FRAME_SIZE_MAX) {
-        FURI_LOG_E(TAG, "Frame size %u exceeds %u", frame_size, RPC_FRAME_SIZE_MAX);
+    if(frame_size > RPC_RX_FRAME_SIZE_MAX) {
+        FURI_LOG_E(TAG, "Frame size %u exceeds %u", frame_size, RPC_RX_FRAME_SIZE_MAX);
         rpc_drop_rx_frame(rpc);
         rpc_send_status(rpc, RPC_REQUEST_ID_UNKNOWN, adapter_ErrType_ERROR_TYPE_BAD_REQUEST);
         return false;
@@ -314,7 +311,6 @@ static void rpc_init(Rpc* rpc) {
 static void rpc_deinit(Rpc* rpc) {
     furi_hal_cdc_set_callbacks(NULL, NULL);
     furi_event_loop_unsubscribe(rpc->event_loop, rpc->internal_evt_queue);
-    furi_event_loop_timer_stop(rpc->bootloader_reboot_timer);
     furi_event_loop_timer_stop(rpc->frame_timer);
 }
 

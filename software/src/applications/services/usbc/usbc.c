@@ -10,18 +10,33 @@ typedef enum {
     UsbcThreadFlagWakeup = (1 << 0),
 } UsbcThreadFlag;
 
-typedef struct {
+struct Usbc {
     FuriThreadId thread_id;
     FuriEventLoop* event_loop;
     FuriEventLoopTimer* process_timer;
     UsbcVbus* vbus;
     UsbcPower* power;
     UsbcPolicy* policy;
-} Usbc;
+    FuriMutex* status_mutex;
+    UsbcStatus status;
+};
 
 static void usbc_wakeup_callback(void* context) {
     Usbc* usbc = context;
     furi_thread_flags_set(usbc->thread_id, UsbcThreadFlagWakeup);
+}
+
+static void usbc_update_status(Usbc* usbc) {
+    const bool policy_changed = usbc_policy_take_status_change(usbc->policy);
+    const bool power_changed = usbc_power_take_fault_change(usbc->power);
+    const bool vbus_changed = usbc_vbus_take_level_change(usbc->vbus);
+    if(!policy_changed && !power_changed && !vbus_changed) {
+        return;
+    }
+
+    furi_check(furi_mutex_acquire(usbc->status_mutex, FuriWaitForever) == FuriStatusOk);
+    usbc_policy_fill_status(usbc->policy, &usbc->status);
+    furi_mutex_release(usbc->status_mutex);
 }
 
 static void usbc_process(Usbc* usbc) {
@@ -33,7 +48,12 @@ static void usbc_process(Usbc* usbc) {
     if(next_ms == 0) {
         furi_event_loop_timer_stop(usbc->process_timer);
         furi_thread_flags_set(usbc->thread_id, UsbcThreadFlagWakeup);
-    } else if(next_ms == UINT32_MAX) {
+        return;
+    }
+
+    usbc_update_status(usbc);
+
+    if(next_ms == UINT32_MAX) {
         furi_event_loop_timer_stop(usbc->process_timer);
     } else {
         furi_event_loop_timer_start(usbc->process_timer, furi_ms_to_ticks(next_ms));
@@ -65,22 +85,35 @@ static Usbc* usbc_alloc(void) {
     usbc->vbus = usbc_vbus_alloc(usbc_wakeup_callback, usbc);
     usbc->power = usbc_power_alloc(usbc->vbus);
     usbc->policy = usbc_policy_alloc(usbc->power, usbc->vbus, usbc_wakeup_callback, usbc);
+    usbc->status_mutex = furi_mutex_alloc(FuriMutexTypeNormal);
     usbc_platform_init(usbc->vbus);
     usbc_policy_start(usbc->policy);
     furi_event_loop_subscribe_thread_flags(usbc->event_loop, usbc_thread_flags_callback, usbc);
     furi_thread_flags_set(usbc->thread_id, UsbcThreadFlagWakeup);
+    furi_record_create(RECORD_USBC, usbc);
     return usbc;
 }
 
 static void usbc_free(Usbc* usbc) {
+    furi_record_destroy(RECORD_USBC);
     furi_event_loop_unsubscribe_thread_flags(usbc->event_loop);
     usbc_platform_deinit();
     usbc_policy_free(usbc->policy);
     usbc_power_free(usbc->power);
     usbc_vbus_free(usbc->vbus);
+    furi_mutex_free(usbc->status_mutex);
     furi_event_loop_timer_free(usbc->process_timer);
     furi_event_loop_free(usbc->event_loop);
     free(usbc);
+}
+
+void usbc_get_status(Usbc* usbc, UsbcStatus* status) {
+    furi_check(usbc);
+    furi_check(status);
+
+    furi_check(furi_mutex_acquire(usbc->status_mutex, FuriWaitForever) == FuriStatusOk);
+    *status = usbc->status;
+    furi_mutex_release(usbc->status_mutex);
 }
 
 int32_t usbc_srv(void* context) {

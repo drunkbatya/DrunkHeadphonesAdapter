@@ -58,7 +58,6 @@ typedef struct {
 } UsbcPolicyPort;
 
 typedef struct {
-    UsbPdPortMode mode;
     UsbPdCapabilities offer;
     uint32_t voltage_mv;
     uint32_t current_ma;
@@ -77,8 +76,10 @@ struct UsbcPolicy {
     UsbcPolicyWakeupCallback wakeup_callback;
     void* context;
     UsbcPolicyPort ports[UsbcPortCount];
+    UsbPdPortMode port_modes[UsbcPortCount];
     UsbcPolicyPhone phone;
     uint32_t pending_actions;
+    bool status_changed;
 };
 
 static const char* const usbc_policy_port_names[UsbcPortCount] = {
@@ -391,6 +392,7 @@ static uint32_t
 }
 
 static void usbc_policy_reset_phone(UsbcPolicy* policy) {
+    policy->status_changed = true;
     memset(&policy->phone.offer, 0, sizeof(UsbPdCapabilities));
     policy->phone.voltage_mv = USBC_POLICY_SAFE5V_MV;
     policy->phone.current_ma = 0;
@@ -406,7 +408,8 @@ static void usbc_policy_reset_phone(UsbcPolicy* policy) {
 
 static void usbc_policy_set_phone_mode(UsbcPolicy* policy, UsbPdPortMode mode) {
     FURI_LOG_I(TAG, "Phone port mode %s", (mode == UsbPdPortModeSource) ? "source" : "sink");
-    policy->phone.mode = mode;
+    policy->status_changed = true;
+    policy->port_modes[UsbcPortPhone] = mode;
     usb_pd_set_mode(UsbcPortPhone, mode);
 }
 
@@ -414,7 +417,7 @@ static void usbc_policy_update_phone_mode(UsbcPolicy* policy) {
     const UsbcPolicyPort* phone = &policy->ports[UsbcPortPhone];
     const bool charger_ready = usbc_policy_is_charger_ready(policy);
 
-    if(policy->phone.mode == UsbPdPortModeDisabled) {
+    if(policy->port_modes[UsbcPortPhone] == UsbPdPortModeDisabled) {
         return;
     }
     if(phone->attached) {
@@ -426,7 +429,7 @@ static void usbc_policy_update_phone_mode(UsbcPolicy* policy) {
         return;
     }
     const UsbPdPortMode mode = charger_ready ? UsbPdPortModeSource : UsbPdPortModeSink;
-    if(mode != policy->phone.mode) {
+    if(mode != policy->port_modes[UsbcPortPhone]) {
         usbc_policy_set_phone_mode(policy, mode);
     }
 }
@@ -790,6 +793,8 @@ static void usbc_policy_on_event(void* context, uint8_t port, const UsbPdEvent* 
     UsbcPolicyPort* policy_port = &policy->ports[port];
     const char* port_name = usbc_policy_port_names[port];
 
+    policy->status_changed = true;
+
     switch(event->type) {
     case UsbPdEventTypeAttached:
         usbc_policy_on_attached(policy, port, &event->attach);
@@ -866,6 +871,7 @@ static void usbc_policy_get_source_capabilities(
         return;
     }
     usbc_policy_build_phone_offer(policy, &policy->phone.offer);
+    policy->status_changed = true;
     usbc_policy_add_capabilities_log(
         &policy->ports[UsbcPortPhone], UsbcPolicyLogPhoneOffer, UsbcPolicyCapabilitiesOffer);
     *capabilities = policy->phone.offer;
@@ -1148,9 +1154,7 @@ void usbc_policy_start(UsbcPolicy* policy) {
             FURI_LOG_E(TAG, "%s disabled, TCPP03 faulted", usbc_policy_port_names[i]);
             config.mode = UsbPdPortModeDisabled;
         }
-        if(i == UsbcPortPhone) {
-            policy->phone.mode = config.mode;
-        }
+        policy->port_modes[i] = config.mode;
         furi_check(usb_pd_port_init(i, &config));
     }
     usbc_power_start(policy->power);
@@ -1170,4 +1174,44 @@ uint32_t usbc_policy_process(UsbcPolicy* policy) {
         next_ms = 0;
     }
     return next_ms;
+}
+
+static const UsbPdCapabilities*
+    usbc_policy_get_port_offer(const UsbcPolicy* policy, UsbcPort port) {
+    static const UsbPdCapabilities empty_offer = {0};
+
+    if(port == UsbcPortPhone) {
+        return &policy->phone.offer;
+    }
+    return &empty_offer;
+}
+
+bool usbc_policy_take_status_change(UsbcPolicy* policy) {
+    const bool status_changed = policy->status_changed;
+    policy->status_changed = false;
+    return status_changed;
+}
+
+void usbc_policy_fill_status(UsbcPolicy* policy, UsbcStatus* status) {
+    for(UsbcPort i = 0; i < UsbcPortCount; i++) {
+        const UsbcPolicyPort* policy_port = &policy->ports[i];
+        UsbcPortStatus* port_status = &status->ports[i];
+        UsbPdPortStatus pd_status;
+        usb_pd_get_port_status(i, &pd_status);
+
+        port_status->mode = policy->port_modes[i];
+        port_status->attached = policy_port->attached;
+        port_status->partner_not_pd = policy_port->partner_not_pd;
+        port_status->power_role = policy_port->power_role;
+        port_status->data_role = policy_port->data_role;
+        port_status->cc_pin = pd_status.pin;
+        port_status->partner_rp_current = policy_port->partner_rp_current;
+        port_status->spec_revision = pd_status.spec_revision;
+        port_status->vbus_level = usbc_vbus_get_level(policy->vbus, i);
+        port_status->contract = policy_port->contract;
+        port_status->partner_source_capabilities = policy_port->partner_source_capabilities;
+        port_status->partner_sink_capabilities = policy_port->partner_sink_capabilities;
+        port_status->offer = *usbc_policy_get_port_offer(policy, i);
+        port_status->tcpp03_faulted = usbc_power_is_faulted(policy->power, i);
+    }
 }

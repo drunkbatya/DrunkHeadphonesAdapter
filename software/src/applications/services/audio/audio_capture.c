@@ -73,7 +73,6 @@ AudioCapture* audio_capture_alloc(AudioCaptureErrorCallback error_callback, void
     AudioCapture* capture = malloc(sizeof(AudioCapture));
     capture->error_callback = error_callback;
     capture->error_context = context;
-    capture->running = false;
 
     return capture;
 }

@@ -126,6 +126,7 @@ struct Audio {
     AudioCapture* capture;
     AudioPlaybackError playback_error;
     volatile FuriHalI2sEvent capture_error;
+    uint32_t i2s_error_counts[FuriHalUsbAudioStreamCount];
     bool headphone_plugged;
     AudioStream streams[FuriHalUsbAudioStreamCount];
     AudioControls controls[FuriHalUsbAudioStreamCount];
@@ -136,6 +137,8 @@ struct Audio {
     Cs43131BitDepth bit_depth;
     FuriApiLock shutdown_lock;
     bool is_shut_down;
+    FuriMutex* status_mutex;
+    AudioStatus status;
 };
 
 static void audio_idle_timer_callback(void* context);
@@ -162,22 +165,14 @@ static Audio* audio_alloc(void) {
     audio->headset_events = furi_pubsub_alloc();
     audio->playback = audio_playback_alloc(audio_playback_error_callback, audio);
     audio->capture = audio_capture_alloc(audio_capture_error_callback, audio);
-    audio->headphone_plugged = false;
-    for(size_t stream = 0; stream < FuriHalUsbAudioStreamCount; stream++) {
-        audio->streams[stream].active = false;
-        audio->controls[stream].volume_reported = false;
-        audio->controls[stream].mute_reported = false;
-    }
-    audio->clock_users = 0;
     audio->mclk_source = Cs43131MclkSourceRco;
-    audio->headphone_output_powered = false;
-    audio->shutdown_lock = NULL;
-    audio->is_shut_down = false;
+    audio->status_mutex = furi_mutex_alloc(FuriMutexTypeNormal);
 
     return audio;
 }
 
 static void audio_free(Audio* audio) {
+    furi_mutex_free(audio->status_mutex);
     audio_capture_free(audio->capture);
     audio_playback_free(audio->playback);
     furi_pubsub_free(audio->headset_events);
@@ -660,6 +655,30 @@ static void audio_handle_stream_change(Audio* audio, FuriHalUsbAudioStream strea
     audio_start_pending_streams(audio);
 }
 
+static void audio_update_status(Audio* audio) {
+    AudioStatus status = {
+        .headphone_plugged = audio->headphone_plugged,
+        .headphone_output_powered = audio->headphone_output_powered,
+    };
+
+    for(size_t stream = 0; stream < FuriHalUsbAudioStreamCount; stream++) {
+        const AudioStream* audio_stream = &audio->streams[stream];
+        AudioStreamStatus* stream_status = &status.streams[stream];
+        stream_status->active = audio_stream->active;
+        if(audio_stream->active) {
+            stream_status->sample_rate = audio_stream->format.sample_rate;
+            stream_status->sample_bits = audio_get_sample_bits(audio_stream->format.sample_format);
+        }
+        stream_status->volume = furi_hal_usb_audio_get_volume(stream);
+        stream_status->muted = furi_hal_usb_audio_is_muted(stream);
+        stream_status->i2s_error_count = audio->i2s_error_counts[stream];
+    }
+
+    furi_check(furi_mutex_acquire(audio->status_mutex, FuriWaitForever) == FuriStatusOk);
+    audio->status = status;
+    furi_mutex_release(audio->status_mutex);
+}
+
 static void audio_idle_timer_callback(void* context) {
     Audio* audio = context;
 
@@ -672,6 +691,8 @@ static void audio_idle_timer_callback(void* context) {
     if(audio->clock_users == 0 && !audio_set_mclk_source(audio, Cs43131MclkSourceRco)) {
         FURI_LOG_E(TAG, "CS43131 RCO select failed");
     }
+
+    audio_update_status(audio);
 }
 
 static void audio_handle_playback_error(Audio* audio) {
@@ -680,6 +701,7 @@ static void audio_handle_playback_error(Audio* audio) {
     }
 
     const AudioPlaybackError* error = &audio->playback_error;
+    audio->i2s_error_counts[FuriHalUsbAudioStreamSpeaker]++;
     FURI_LOG_W(TAG, "Headphone I2S %s, restart", audio_i2s_error_names[error->event]);
     FURI_LOG_D(
         TAG,
@@ -695,6 +717,7 @@ static void audio_handle_capture_error(Audio* audio) {
         return;
     }
 
+    audio->i2s_error_counts[FuriHalUsbAudioStreamMic]++;
     FURI_LOG_W(TAG, "Mic I2S %s, restart", audio_i2s_error_names[audio->capture_error]);
     audio_capture_restart(audio->capture);
 }
@@ -859,6 +882,8 @@ static void audio_thread_flags_callback(void* context) {
     if(flags & AudioThreadFlagMicMute) {
         audio_handle_mic_mute(audio);
     }
+
+    audio_update_status(audio);
 }
 
 static void audio_init(Audio* audio) {
@@ -892,6 +917,8 @@ static void audio_init(Audio* audio) {
         FURI_LOG_E(TAG, "ES8327 init failed");
     }
 
+    audio_update_status(audio);
+
     // TODO: enable only in audio mode
     furi_hal_usb_enable();
 }
@@ -923,6 +950,15 @@ void audio_shutdown(Audio* audio) {
     audio->shutdown_lock = api_lock_alloc_locked();
     furi_thread_flags_set(audio->thread_id, AudioThreadFlagShutdown);
     api_lock_wait_unlock_and_free(audio->shutdown_lock);
+}
+
+void audio_get_status(Audio* audio, AudioStatus* status) {
+    furi_check(audio);
+    furi_check(status);
+
+    furi_check(furi_mutex_acquire(audio->status_mutex, FuriWaitForever) == FuriStatusOk);
+    *status = audio->status;
+    furi_mutex_release(audio->status_mutex);
 }
 
 int32_t audio_srv(void* context) {

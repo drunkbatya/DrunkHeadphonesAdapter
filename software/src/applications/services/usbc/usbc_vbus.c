@@ -28,6 +28,7 @@ struct UsbcVbus {
     UsbcVbusWakeupCallback wakeup_callback;
     void* context;
     bool adc_started;
+    bool level_changed;
     UsbcVbusPort ports[UsbcPortCount];
 };
 
@@ -118,6 +119,7 @@ static bool usbc_vbus_measure(UsbcVbus* vbus, bool notify) {
         const UsbPdVbusLevel level = usbc_vbus_classify(port, vbus_mv);
         if(level != port->level) {
             port->level = level;
+            vbus->level_changed = true;
             if(notify) {
                 usb_pd_on_vbus_changed(i);
             }
@@ -186,6 +188,12 @@ void usbc_vbus_set_contract_voltage(UsbcVbus* vbus, UsbcPort port, uint32_t volt
 
     vbus_port->edge = true;
     vbus->wakeup_callback(vbus->context);
+}
+
+bool usbc_vbus_take_level_change(UsbcVbus* vbus) {
+    const bool level_changed = vbus->level_changed;
+    vbus->level_changed = false;
+    return level_changed;
 }
 
 uint32_t usbc_vbus_process(UsbcVbus* vbus) {

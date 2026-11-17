@@ -77,7 +77,6 @@ AudioPlayback* audio_playback_alloc(AudioPlaybackErrorCallback error_callback, v
     AudioPlayback* playback = malloc(sizeof(AudioPlayback));
     playback->error_callback = error_callback;
     playback->error_context = context;
-    playback->running = false;
 
     return playback;
 }

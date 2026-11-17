@@ -18,13 +18,43 @@
 
 typedef struct {
     volatile uint8_t insomnia;
+    FuriHalPowerResetReason reset_reason;
 } FuriHalPower;
 
 static volatile FuriHalPower furi_hal_power = {
     .insomnia = 0,
+    .reset_reason = FuriHalPowerResetReasonUnknown,
 };
 
+static FuriHalPowerResetReason furi_hal_power_read_reset_reason(void) {
+    if(LL_RCC_IsActiveFlag_LPWRRST()) {
+        return FuriHalPowerResetReasonLowPower;
+    }
+    if(LL_RCC_IsActiveFlag_WWDGRST()) {
+        return FuriHalPowerResetReasonWindowWatchdog;
+    }
+    if(LL_RCC_IsActiveFlag_IWDGRST()) {
+        return FuriHalPowerResetReasonIndependentWatchdog;
+    }
+    if(LL_RCC_IsActiveFlag_SFTRST()) {
+        return FuriHalPowerResetReasonSoftware;
+    }
+    if(LL_RCC_IsActiveFlag_OBLRST()) {
+        return FuriHalPowerResetReasonOptionBytesLoad;
+    }
+    if(LL_RCC_IsActiveFlag_PWRRST()) {
+        return FuriHalPowerResetReasonPowerOn;
+    }
+    if(LL_RCC_IsActiveFlag_PINRST()) {
+        return FuriHalPowerResetReasonPin;
+    }
+    return FuriHalPowerResetReasonUnknown;
+}
+
 void furi_hal_power_init(void) {
+    furi_hal_power.reset_reason = furi_hal_power_read_reset_reason();
+    LL_RCC_ClearResetFlags();
+
     furi_hal_bus_enable(FuriHalBusPWR);
 
     LL_PWR_SetRegulVoltageScaling(LL_PWR_REGU_VOLTAGE_SCALE1);
@@ -50,6 +80,10 @@ void furi_hal_power_insomnia_exit(void) {
     furi_check(furi_hal_power.insomnia > 0);
     furi_hal_power.insomnia--;
     FURI_CRITICAL_EXIT();
+}
+
+FuriHalPowerResetReason furi_hal_power_get_reset_reason(void) {
+    return furi_hal_power.reset_reason;
 }
 
 bool furi_hal_power_sleep_available(void) {

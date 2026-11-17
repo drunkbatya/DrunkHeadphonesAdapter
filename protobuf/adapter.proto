@@ -28,12 +28,129 @@ message VersionResponse {
 message RebootToBootloaderRequest {
 }
 
+enum ResetReason {
+    RESET_REASON_UNKNOWN = 0;
+    RESET_REASON_POWER_ON = 1;
+    RESET_REASON_PIN = 2;
+    RESET_REASON_SOFTWARE = 3;
+    RESET_REASON_INDEPENDENT_WATCHDOG = 4;
+    RESET_REASON_WINDOW_WATCHDOG = 5;
+    RESET_REASON_LOW_POWER = 6;
+    RESET_REASON_OPTION_BYTES_LOAD = 7;
+}
+
+message SystemStatusRequest {
+}
+
+message SystemStatusResponse {
+    uint32 tick = 1;
+    uint32 tick_frequency_hz = 2;
+    uint32 cycle_counter = 3;
+    uint32 cycle_frequency_hz = 4;
+    uint32 isr_cycles = 5;
+    uint32 heap_total = 6;
+    uint32 heap_free = 7;
+    uint32 heap_min_free = 8;
+    ResetReason reset_reason = 9;
+}
+
+message AudioStatusRequest {
+}
+
+message AudioStreamStatus {
+    bool active = 1;
+    uint32 sample_rate = 2;
+    uint32 sample_bits = 3;
+    sint32 volume_db_x256 = 4;
+    bool muted = 5;
+    uint32 i2s_error_count = 6;
+}
+
+message AudioStatusResponse {
+    bool headphone_plugged = 1;
+    bool headphone_output_powered = 2;
+    AudioStreamStatus speaker = 3;
+    AudioStreamStatus mic = 4;
+}
+
+enum UsbcPowerRole {
+    USBC_POWER_ROLE_SINK = 0;
+    USBC_POWER_ROLE_SOURCE = 1;
+}
+
+enum UsbcDataRole {
+    USBC_DATA_ROLE_UFP = 0;
+    USBC_DATA_ROLE_DFP = 1;
+}
+
+enum UsbcCcPin {
+    USBC_CC_PIN_NONE = 0;
+    USBC_CC_PIN_CC1 = 1;
+    USBC_CC_PIN_CC2 = 2;
+}
+
+enum UsbcRpCurrent {
+    USBC_RP_CURRENT_DEFAULT = 0;
+    USBC_RP_CURRENT_1A5 = 1;
+    USBC_RP_CURRENT_3A0 = 2;
+}
+
+enum UsbcSpecRevision {
+    USBC_SPEC_REVISION_UNSPECIFIED = 0;
+    USBC_SPEC_REVISION_2 = 1;
+    USBC_SPEC_REVISION_3 = 2;
+}
+
+enum UsbcPortMode {
+    USBC_PORT_MODE_DISABLED = 0;
+    USBC_PORT_MODE_SINK = 1;
+    USBC_PORT_MODE_SOURCE = 2;
+    USBC_PORT_MODE_DUAL_ROLE = 3;
+    USBC_PORT_MODE_DUAL_ROLE_TRY_SINK = 4;
+}
+
+enum UsbcVbusLevel {
+    USBC_VBUS_LEVEL_SAFE_0V = 0;
+    USBC_VBUS_LEVEL_BELOW_SINK_DISCONNECT = 1;
+    USBC_VBUS_LEVEL_PRESENT = 2;
+    USBC_VBUS_LEVEL_ABOVE_SAFE_5V = 3;
+}
+
+message UsbcPortStatus {
+    UsbcPortMode mode = 1;
+    bool attached = 2;
+    bool partner_not_pd = 3;
+    UsbcPowerRole power_role = 4;
+    UsbcDataRole data_role = 5;
+    UsbcCcPin cc_pin = 6;
+    UsbcRpCurrent partner_rp_current = 7;
+    UsbcSpecRevision spec_revision = 8;
+    fixed32 contract_pdo = 9;
+    fixed32 contract_rdo = 10;
+    repeated fixed32 partner_source_capabilities = 11;
+    repeated fixed32 partner_sink_capabilities = 12;
+    repeated fixed32 offer = 13;
+    bool tcpp03_faulted = 14;
+    UsbcVbusLevel vbus_level = 15;
+}
+
+message UsbcStatusRequest {
+}
+
+message UsbcStatusResponse {
+    UsbcPortStatus phone = 1;
+    UsbcPortStatus charger = 2;
+}
+
 message RpcRequest {
     uint32 request_id = 1;
 
     oneof payload {
         VersionRequest version = 2;
         RebootToBootloaderRequest reboot_to_bootloader = 3;
+        SystemStatusRequest system_status = 4;
+        AudioStatusRequest audio_status = 5;
+        UsbcStatusRequest usbc_status = 6;
     }
 }
 
@@ -43,5 +160,8 @@ message RpcResponse {
     oneof payload {
         VersionResponse version = 2;
         ErrorResponse generic = 3;
+        SystemStatusResponse system_status = 4;
+        AudioStatusResponse audio_status = 5;
+        UsbcStatusResponse usbc_status = 6;
     }
 }

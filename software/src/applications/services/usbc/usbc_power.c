@@ -22,6 +22,7 @@ typedef struct {
 struct UsbcPower {
     UsbcVbus* vbus;
     UsbcPowerPort ports[UsbcPortCount];
+    bool fault_changed;
 };
 
 static const uint8_t usbc_power_addresses[UsbcPortCount] = {
@@ -113,6 +114,7 @@ static void usbc_power_log_control(UsbcPort i, const Tcpp03Control* control) {
 
 static void usbc_power_set_faulted(UsbcPower* power, UsbcPort i) {
     power->ports[i].faulted = true;
+    power->fault_changed = true;
     if(i == UsbcPortPhone) {
         furi_hal_gpio_write(&gpio_tcpp03_phone_en, false);
     }
@@ -210,4 +212,10 @@ void usbc_power_process(UsbcPower* power) {
 bool usbc_power_is_faulted(UsbcPower* power, UsbcPort port) {
     furi_check(port < UsbcPortCount);
     return power->ports[port].faulted;
+}
+
+bool usbc_power_take_fault_change(UsbcPower* power) {
+    const bool fault_changed = power->fault_changed;
+    power->fault_changed = false;
+    return fault_changed;
 }

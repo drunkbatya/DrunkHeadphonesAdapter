@@ -27,6 +27,8 @@ void usbc_power_process(UsbcPower* power);
 
 bool usbc_power_is_faulted(UsbcPower* power, UsbcPort port);
 
+bool usbc_power_take_fault_change(UsbcPower* power);
+
 #ifdef __cplusplus
 }
 #endif
