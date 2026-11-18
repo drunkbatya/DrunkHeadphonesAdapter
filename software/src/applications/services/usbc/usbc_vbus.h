@@ -15,9 +15,13 @@ typedef struct UsbcVbus UsbcVbus;
 
 typedef void (*UsbcVbusWakeupCallback)(void* context);
 
+typedef void (*UsbcVbusDropCallback)(UsbcPort port, void* context);
+
 UsbcVbus* usbc_vbus_alloc(UsbcVbusWakeupCallback wakeup_callback, void* context);
 
 void usbc_vbus_free(UsbcVbus* vbus);
+
+void usbc_vbus_set_drop_callback(UsbcVbus* vbus, UsbcVbusDropCallback drop_callback, void* context);
 
 UsbPdVbusLevel usbc_vbus_get_level(UsbcVbus* vbus, UsbcPort port);
 

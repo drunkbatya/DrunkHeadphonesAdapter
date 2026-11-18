@@ -24,6 +24,7 @@ typedef enum {
     UsbcPolicyLogPhoneOffer = (1 << 3),
     UsbcPolicyLogPhoneRequest = (1 << 4),
     UsbcPolicyLogSinkPdp = (1 << 5),
+    UsbcPolicyLogFastRoleSwap = (1 << 6),
 } UsbcPolicyLog;
 
 typedef enum {
@@ -68,6 +69,7 @@ typedef struct {
     bool request_accepted;
     bool power_role_swap_refused;
     uint32_t power_role_swap_retry_tick;
+    bool fast_role_swap;
 } UsbcPolicyPhone;
 
 struct UsbcPolicy {
@@ -80,6 +82,7 @@ struct UsbcPolicy {
     UsbcPolicyPhone phone;
     uint32_t pending_actions;
     bool status_changed;
+    volatile bool fast_role_swap_signalled;
 };
 
 static const char* const usbc_policy_port_names[UsbcPortCount] = {
@@ -95,6 +98,7 @@ static const UsbPdPortConfig usbc_policy_port_configs[UsbcPortCount] = {
             .spec_revision = UsbPdSpecRevision3,
             .power_role_swap = true,
             .data_role_swap = true,
+            .fast_role_swap_signal = true,
         },
     [UsbcPortCharger] =
         {
@@ -341,6 +345,7 @@ static void usbc_policy_get_board_sink_capabilities(
     pdo = usb_pd_pdo_set_unconstrained_power(pdo, usbc_policy_is_charger_ready(policy));
     pdo = usb_pd_pdo_set_usb_communications_capable(pdo, true);
     pdo = usb_pd_pdo_set_dual_role_data(pdo, true);
+    pdo = usb_pd_pdo_set_fast_role_swap_current(pdo, UsbPdFastRoleSwapCurrentDefault);
     capabilities->objects[0] = pdo;
     capabilities->count = 1;
 }
@@ -400,6 +405,7 @@ static void usbc_policy_reset_phone(UsbcPolicy* policy) {
     policy->phone.power_pending = false;
     policy->phone.source_on_pending = false;
     policy->phone.power_role_swap_refused = false;
+    policy->phone.fast_role_swap = false;
     policy->pending_actions &=
         ~(UsbcPolicyActionPhoneSourceCapabilities | UsbcPolicyActionPhoneDataRoleSwap |
           UsbcPolicyActionPhoneSinkCapabilities | UsbcPolicyActionPhoneHardReset |
@@ -417,7 +423,8 @@ static void usbc_policy_update_phone_mode(UsbcPolicy* policy) {
     const UsbcPolicyPort* phone = &policy->ports[UsbcPortPhone];
     const bool charger_ready = usbc_policy_is_charger_ready(policy);
 
-    if(policy->port_modes[UsbcPortPhone] == UsbPdPortModeDisabled) {
+    if((policy->port_modes[UsbcPortPhone] == UsbPdPortModeDisabled) ||
+       policy->phone.fast_role_swap || policy->fast_role_swap_signalled) {
         return;
     }
     if(phone->attached) {
@@ -609,6 +616,11 @@ static bool usbc_policy_log_port_line(UsbcPolicy* policy, UsbcPort i) {
     UsbcPolicyPort* port = &policy->ports[i];
     const char* port_name = usbc_policy_port_names[i];
 
+    if(port->pending_logs & UsbcPolicyLogFastRoleSwap) {
+        port->pending_logs &= ~UsbcPolicyLogFastRoleSwap;
+        FURI_LOG_I(TAG, "%s fast role swap signalled", port_name);
+        return true;
+    }
     if(port->pending_logs & UsbcPolicyLogSourceCapabilities) {
         if(usbc_policy_log_capabilities_line(
                port, port_name, UsbcPolicyCapabilitiesSource, &port->partner_source_capabilities)) {
@@ -673,6 +685,45 @@ static bool usbc_policy_log_line(UsbcPolicy* policy) {
         }
     }
     return false;
+}
+
+static void usbc_policy_stop_phone_source(UsbcPolicy* policy) {
+    usbc_policy_reset_phone(policy);
+    policy->phone.fast_role_swap = true;
+    policy->ports[UsbcPortPhone].pending_logs |= UsbcPolicyLogFastRoleSwap;
+    usbc_power_set(policy->power, UsbcPortPhone, UsbPdPowerSinkStandby);
+    usbc_vbus_set_contract_voltage(policy->vbus, UsbcPortPhone, USBC_POLICY_SAFE5V_MV);
+}
+
+static void usbc_policy_take_fast_role_swap_signal(UsbcPolicy* policy) {
+    FURI_CRITICAL_ENTER();
+    const bool signalled = policy->fast_role_swap_signalled;
+    policy->fast_role_swap_signalled = false;
+    FURI_CRITICAL_EXIT();
+
+    if(signalled) {
+        usbc_policy_stop_phone_source(policy);
+    }
+}
+
+static void usbc_policy_vbus_drop_callback(UsbcPort port, void* context) {
+    UsbcPolicy* policy = context;
+
+    if((port == UsbcPortCharger) && usb_pd_signal_fast_role_swap(UsbcPortPhone)) {
+        policy->fast_role_swap_signalled = true;
+    }
+}
+
+static void usbc_policy_on_charger_hard_reset(UsbcPolicy* policy) {
+    if(!usbc_policy_is_phone_sink(policy) || policy->phone.fast_role_swap) {
+        return;
+    }
+    usbc_policy_stop_phone_source(policy);
+    if(!usb_pd_signal_fast_role_swap(UsbcPortPhone)) {
+        policy->phone.fast_role_swap = false;
+        policy->ports[UsbcPortPhone].pending_logs &= ~UsbcPolicyLogFastRoleSwap;
+        usbc_policy_update_phone_mode(policy);
+    }
 }
 
 static void usbc_policy_on_attached(UsbcPolicy* policy, UsbcPort port, const UsbPdAttach* attach) {
@@ -830,6 +881,12 @@ static void usbc_policy_on_event(void* context, uint8_t port, const UsbPdEvent* 
                                      UsbPdDataRoleDfp :
                                      UsbPdDataRoleUfp;
         usbc_vbus_set_contract_voltage(policy->vbus, port, USBC_POLICY_SAFE5V_MV);
+        if(port == UsbcPortCharger) {
+            usbc_policy_on_charger_hard_reset(policy);
+        } else {
+            policy->phone.fast_role_swap = false;
+            usbc_policy_update_phone_mode(policy);
+        }
         break;
     case UsbPdEventTypeSoftReset:
         FURI_LOG_I(TAG, "%s soft reset", port_name);
@@ -849,6 +906,10 @@ static void usbc_policy_on_event(void* context, uint8_t port, const UsbPdEvent* 
         policy_port->power_role = event->power_role;
         memset(&policy_port->contract, 0, sizeof(UsbPdContract));
         policy_port->pending_logs &= ~UsbcPolicyLogContract;
+        if((port == UsbcPortPhone) && (event->type == UsbPdEventTypeFastRoleSwapped)) {
+            policy->phone.fast_role_swap = false;
+            usbc_policy_update_phone_mode(policy);
+        }
         break;
     case UsbPdEventTypeDataRoleSwapped:
         FURI_LOG_I(
@@ -1144,6 +1205,7 @@ UsbcPolicy* usbc_policy_alloc(
     policy->context = context;
     usbc_policy_reset_phone(policy);
     usb_pd_init(&usbc_policy_pd_callbacks, policy);
+    usbc_vbus_set_drop_callback(vbus, usbc_policy_vbus_drop_callback, policy);
     return policy;
 }
 
@@ -1161,10 +1223,12 @@ void usbc_policy_start(UsbcPolicy* policy) {
 }
 
 void usbc_policy_free(UsbcPolicy* policy) {
+    usbc_vbus_set_drop_callback(policy->vbus, NULL, NULL);
     free(policy);
 }
 
 uint32_t usbc_policy_process(UsbcPolicy* policy) {
+    usbc_policy_take_fast_role_swap_signal(policy);
     usbc_policy_run_actions(policy);
     uint32_t next_ms = usb_pd_process();
     if(policy->pending_actions) {

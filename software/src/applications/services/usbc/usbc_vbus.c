@@ -27,6 +27,8 @@ typedef struct {
 struct UsbcVbus {
     UsbcVbusWakeupCallback wakeup_callback;
     void* context;
+    UsbcVbusDropCallback drop_callback;
+    void* drop_context;
     bool adc_started;
     bool level_changed;
     UsbcVbusPort ports[UsbcPortCount];
@@ -77,11 +79,14 @@ static UsbPdVbusLevel usbc_vbus_classify(const UsbcVbusPort* port, uint32_t vbus
 }
 
 static void usbc_vbus_comp_callback(bool above, void* context) {
-    UNUSED(above);
     UsbcVbusPort* port = context;
+    UsbcVbus* vbus = port->vbus;
 
     port->edge = true;
-    port->vbus->wakeup_callback(port->vbus->context);
+    if(!above && vbus->drop_callback) {
+        vbus->drop_callback((UsbcPort)(port - vbus->ports), vbus->drop_context);
+    }
+    vbus->wakeup_callback(vbus->context);
 }
 
 static void usbc_vbus_set_adc_started(UsbcVbus* vbus, bool started) {
@@ -161,6 +166,13 @@ void usbc_vbus_free(UsbcVbus* vbus) {
     }
     usbc_vbus_set_adc_started(vbus, false);
     free(vbus);
+}
+
+void usbc_vbus_set_drop_callback(UsbcVbus* vbus, UsbcVbusDropCallback drop_callback, void* context) {
+    FURI_CRITICAL_ENTER();
+    vbus->drop_callback = drop_callback;
+    vbus->drop_context = context;
+    FURI_CRITICAL_EXIT();
 }
 
 UsbPdVbusLevel usbc_vbus_get_level(UsbcVbus* vbus, UsbcPort port) {

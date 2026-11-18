@@ -31,3 +31,8 @@ HAL and arcitecture core is based on ported [Flipper Zero OS](https://github.com
 git submodule update --init --recursive
 make
 ```
+
+## Hardware
+### Known errata
+#### Rev1
+Adapter cunsumes ~100mW in sleep1 mode due to FPWM mode of TPS560430XF. Need research for buck with switching frequency, e.g. LMR43610MSC5RPERQ1
