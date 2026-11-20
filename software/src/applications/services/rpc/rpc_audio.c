@@ -31,6 +31,7 @@ static void rpc_audio_handle_audio_status(const adapter_RpcRequest* request, voi
     adapter_AudioStatusResponse* audio_status = &response->payload.audio_status;
 
     audio_status->headphone_plugged = status->headphone_plugged;
+    audio_status->headset_mic_present = status->headset_mic_present;
     audio_status->headphone_output_powered = status->headphone_output_powered;
     audio_status->has_speaker = true;
     rpc_audio_fill_stream(&audio_status->speaker, &status->streams[FuriHalUsbAudioStreamSpeaker]);

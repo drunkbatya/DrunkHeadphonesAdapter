@@ -45,6 +45,7 @@ struct Rpc {
     RpcSystem* system;
     RpcAudio* audio;
     RpcUsbc* usbc;
+    RpcSettings* settings;
     bool is_connected;
     volatile bool is_currently_transmitting;
     uint8_t rx_frame[RPC_RX_BUFFER_SIZE];
@@ -69,11 +70,13 @@ static Rpc* rpc_alloc(void) {
     rpc->system = rpc_system_alloc(rpc);
     rpc->audio = rpc_audio_alloc(rpc);
     rpc->usbc = rpc_usbc_alloc(rpc);
+    rpc->settings = rpc_settings_alloc(rpc);
 
     return rpc;
 }
 
 static void rpc_free(Rpc* rpc) {
+    rpc_settings_free(rpc->settings);
     rpc_usbc_free(rpc->usbc);
     rpc_audio_free(rpc->audio);
     rpc_system_free(rpc->system);

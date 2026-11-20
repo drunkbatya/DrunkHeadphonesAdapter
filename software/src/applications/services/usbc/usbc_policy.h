@@ -1,5 +1,6 @@
 #pragma once
 
+#include <stdbool.h>
 #include <stdint.h>
 
 #include <applications/services/usbc/usbc.h>
@@ -25,6 +26,8 @@ void usbc_policy_free(UsbcPolicy* policy);
 void usbc_policy_start(UsbcPolicy* policy);
 
 uint32_t usbc_policy_process(UsbcPolicy* policy);
+
+void usbc_policy_set_usb_bypass(UsbcPolicy* policy, bool usb_bypass);
 
 bool usbc_policy_take_status_change(UsbcPolicy* policy);
 

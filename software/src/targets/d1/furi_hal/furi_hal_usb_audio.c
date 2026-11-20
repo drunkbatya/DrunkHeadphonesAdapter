@@ -52,21 +52,21 @@ typedef struct {
     uint32_t channel_config;
 } FuriHalUsbAudioJackTerminal;
 
-static const FuriHalUsbAudioJackTerminal furi_hal_usb_audio_jack_terminals[] = {
-    {
-        .entity_id = FuriHalUsbAudioEntitySpeakerOutputTerminal,
-        .channel_count = FURI_HAL_USB_AUDIO_SPEAKER_CHANNELS,
-        .channel_config = FURI_HAL_USB_AUDIO_SPEAKER_CHANNEL_CONFIG,
-    },
-    {
-        .entity_id = FuriHalUsbAudioEntityMicInputTerminal,
-        .channel_count = FURI_HAL_USB_AUDIO_MIC_CHANNELS,
-        .channel_config = FURI_HAL_USB_AUDIO_MIC_CHANNEL_CONFIG,
-    },
+static const FuriHalUsbAudioJackTerminal
+    furi_hal_usb_audio_jack_terminals[FuriHalUsbAudioStreamCount] = {
+        [FuriHalUsbAudioStreamSpeaker] =
+            {
+                .entity_id = FuriHalUsbAudioEntitySpeakerOutputTerminal,
+                .channel_count = FURI_HAL_USB_AUDIO_SPEAKER_CHANNELS,
+                .channel_config = FURI_HAL_USB_AUDIO_SPEAKER_CHANNEL_CONFIG,
+            },
+        [FuriHalUsbAudioStreamMic] =
+            {
+                .entity_id = FuriHalUsbAudioEntityMicInputTerminal,
+                .channel_count = FURI_HAL_USB_AUDIO_MIC_CHANNELS,
+                .channel_config = FURI_HAL_USB_AUDIO_MIC_CHANNEL_CONFIG,
+            },
 };
-
-#define FURI_HAL_USB_AUDIO_JACK_TERMINALS_ALL \
-    ((1UL << COUNT_OF(furi_hal_usb_audio_jack_terminals)) - 1)
 
 typedef struct {
     uint32_t reader_generation;
@@ -92,7 +92,7 @@ typedef struct {
     volatile bool bus_reset_pending;
     volatile bool speaker_readable;
     volatile bool mic_writable;
-    volatile bool jack_connected;
+    volatile bool jack_connected[FuriHalUsbAudioStreamCount];
     volatile uint32_t jack_notification_pending;
     FuriHalUsbAudioFeedback feedback;
 } FuriHalUsbAudio;
@@ -151,6 +151,7 @@ void furi_hal_usb_audio_set_config(
     furi_hal_usb_audio_apply_config(speaker, &speaker_state->clock, &speaker_state->feature_unit);
     furi_hal_usb_audio_apply_config(mic, &mic_state->clock, &mic_state->feature_unit);
     usb_audio.configured = true;
+    furi_hal_usb_audio_request_enable_update();
 }
 
 bool furi_hal_usb_audio_is_configured(void) {
@@ -342,13 +343,20 @@ void furi_hal_usb_audio_reset(void) {
     FURI_CRITICAL_EXIT();
 }
 
-void furi_hal_usb_audio_set_jack_connected(bool connected) {
+void furi_hal_usb_audio_set_jack_connected(FuriHalUsbAudioStream stream, bool connected) {
+    furi_check(stream < FuriHalUsbAudioStreamCount);
+
     FURI_CRITICAL_ENTER();
-    usb_audio.jack_connected = connected;
-    usb_audio.jack_notification_pending = FURI_HAL_USB_AUDIO_JACK_TERMINALS_ALL;
+    const bool changed = usb_audio.jack_connected[stream] != connected;
+    usb_audio.jack_connected[stream] = connected;
+    if(changed) {
+        usb_audio.jack_notification_pending |= 1UL << stream;
+    }
     FURI_CRITICAL_EXIT();
 
-    furi_hal_usb_audio_request_notification();
+    if(changed) {
+        furi_hal_usb_audio_request_notification();
+    }
 }
 
 static bool furi_hal_usb_audio_take_jack_notification(size_t* terminal_index) {
@@ -473,12 +481,11 @@ static bool furi_hal_usb_audio_is_clock_valid(const FuriHalUsbAudioClock* clock)
     furi_crash();
 }
 
-static bool furi_hal_usb_audio_get_jack_terminal(
-    uint8_t entity_id,
-    const FuriHalUsbAudioJackTerminal** terminal) {
+static bool
+    furi_hal_usb_audio_get_jack_terminal_stream(uint8_t entity_id, FuriHalUsbAudioStream* stream) {
     for(size_t i = 0; i < COUNT_OF(furi_hal_usb_audio_jack_terminals); i++) {
         if(furi_hal_usb_audio_jack_terminals[i].entity_id == entity_id) {
-            *terminal = &furi_hal_usb_audio_jack_terminals[i];
+            *stream = i;
             return true;
         }
     }
@@ -488,14 +495,15 @@ static bool furi_hal_usb_audio_get_jack_terminal(
 static bool furi_hal_usb_audio_get_jack_request(
     uint8_t rhport,
     const tusb_control_request_t* request,
-    const FuriHalUsbAudioJackTerminal* terminal) {
+    FuriHalUsbAudioStream stream) {
+    const FuriHalUsbAudioJackTerminal* terminal = &furi_hal_usb_audio_jack_terminals[stream];
     const uint8_t control_selector = TU_U16_HIGH(request->wValue);
 
     if(control_selector != AUDIO20_TE_CTRL_CONNECTOR || request->bRequest != AUDIO20_CS_REQ_CUR) {
         return false;
     }
 
-    const bool connected = usb_audio.jack_connected;
+    const bool connected = usb_audio.jack_connected[stream];
     audio20_desc_channel_cluster_t connected_channels = {
         .bNrChannels = connected ? terminal->channel_count : 0,
         .bmChannelConfig = connected ? terminal->channel_config : 0,
@@ -658,9 +666,8 @@ bool tud_audio_get_req_entity_cb(uint8_t rhport, tusb_control_request_t const* p
             rhport, p_request, &usb_audio.streams[stream].feature_unit);
     }
 
-    const FuriHalUsbAudioJackTerminal* terminal;
-    if(furi_hal_usb_audio_get_jack_terminal(entity_id, &terminal)) {
-        return furi_hal_usb_audio_get_jack_request(rhport, p_request, terminal);
+    if(furi_hal_usb_audio_get_jack_terminal_stream(entity_id, &stream)) {
+        return furi_hal_usb_audio_get_jack_request(rhport, p_request, stream);
     }
 
     return false;

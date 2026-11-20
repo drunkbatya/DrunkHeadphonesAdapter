@@ -4,9 +4,13 @@ _estack = ORIGIN(RAM) + LENGTH(RAM);
 _stack_size = 0x400;
 
 MEMORY {
-    FLASH (rx)  : ORIGIN = 0x08000000, LENGTH = 256K
-    RAM   (xrw) : ORIGIN = 0x20000000, LENGTH = 144K
+    FLASH   (rx)  : ORIGIN = 0x08000000, LENGTH = 252K
+    STORAGE (r)   : ORIGIN = 0x0803F000, LENGTH = 4K
+    RAM     (xrw) : ORIGIN = 0x20000000, LENGTH = 144K
 }
+
+_storage_start = ORIGIN(STORAGE);
+_storage_end = ORIGIN(STORAGE) + LENGTH(STORAGE);
 
 SECTIONS {
     .isr_vector : {

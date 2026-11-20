@@ -42,6 +42,12 @@ RpcUsbc* rpc_usbc_alloc(Rpc* rpc);
 
 void rpc_usbc_free(RpcUsbc* rpc_usbc);
 
+typedef struct RpcSettings RpcSettings;
+
+RpcSettings* rpc_settings_alloc(Rpc* rpc);
+
+void rpc_settings_free(RpcSettings* rpc_settings);
+
 #ifdef __cplusplus
 }
 #endif

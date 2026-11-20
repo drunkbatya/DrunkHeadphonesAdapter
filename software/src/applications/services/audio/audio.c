@@ -1,6 +1,7 @@
 #include <applications/services/audio/audio.h>
 #include <applications/services/audio/audio_capture.h>
 #include <applications/services/audio/audio_playback.h>
+#include <applications/services/settings/settings_store.h>
 
 #include <furi.h>
 #include <furi_hal.h>
@@ -12,11 +13,16 @@
 
 #define TAG "AudioSrv"
 
-#define AUDIO_IDLE_TIMEOUT_MS              30000
-#define AUDIO_OSCILLATOR_SWITCH_TURN_ON_US 200
-#define AUDIO_OSCILLATOR_STARTUP_MS        5
-#define AUDIO_PDN_DONE_POLL_PERIOD_MS      1
-#define AUDIO_VOLUME_LOG_FRACTION_SCALE    100
+#define AUDIO_IDLE_TIMEOUT_MS               30000
+#define AUDIO_OSCILLATOR_SWITCH_TURN_ON_US  200
+#define AUDIO_OSCILLATOR_STARTUP_MS         5
+#define AUDIO_PDN_DONE_POLL_PERIOD_MS       1
+#define AUDIO_VOLUME_LOG_FRACTION_SCALE     100
+#define AUDIO_MIC_DETECT_DELAY_MS           300
+#define AUDIO_MIC_DETECT_SAMPLE_COUNT       8
+#define AUDIO_MIC_DETECT_SAMPLE_PERIOD_MS   1
+#define AUDIO_MIC_PRESENT_SLEEVE_MIN_MV     200
+#define AUDIO_SPEAKER_VOLUME_OFFSET_STEP_DB 1
 
 #define AUDIO_SPEAKER_USB_VOLUME(attenuation) \
     ((int16_t)(-(attenuation) * FURI_HAL_USB_AUDIO_VOLUME_PER_DB / CS43131_VOLUME_STEPS_PER_DB))
@@ -85,6 +91,9 @@ typedef enum {
     AudioThreadFlagMicMute = (1 << 7),
     AudioThreadFlagCaptureError = (1 << 8),
     AudioThreadFlagShutdown = (1 << 9),
+    AudioThreadFlagSettings = (1 << 10),
+    AudioThreadFlagPause = (1 << 11),
+    AudioThreadFlagResume = (1 << 12),
 } AudioThreadFlag;
 
 static const uint32_t
@@ -121,13 +130,19 @@ struct Audio {
     FuriThreadId thread_id;
     FuriEventLoop* event_loop;
     FuriEventLoopTimer* idle_timer;
+    FuriEventLoopTimer* mic_detect_timer;
     FuriPubSub* headset_events;
+    SettingsStore* settings_store;
+    FuriPubSubSubscription* settings_subscription;
+    int8_t speaker_volume_offset;
     AudioPlayback* playback;
     AudioCapture* capture;
     AudioPlaybackError playback_error;
     volatile FuriHalI2sEvent capture_error;
     uint32_t i2s_error_counts[FuriHalUsbAudioStreamCount];
     bool headphone_plugged;
+    bool headset_mic_present;
+    bool mic_bias_enabled;
     AudioStream streams[FuriHalUsbAudioStreamCount];
     AudioControls controls[FuriHalUsbAudioStreamCount];
     uint32_t clock_users;
@@ -136,12 +151,16 @@ struct Audio {
     Cs43131SampleRate sample_rate;
     Cs43131BitDepth bit_depth;
     FuriApiLock shutdown_lock;
+    FuriApiLock pause_lock;
+    bool is_paused;
     bool is_shut_down;
     FuriMutex* status_mutex;
     AudioStatus status;
 };
 
 static void audio_idle_timer_callback(void* context);
+static void audio_mic_detect_timer_callback(void* context);
+static void audio_update_status(Audio* audio);
 
 static void audio_playback_error_callback(const AudioPlaybackError* error, void* context) {
     Audio* audio = context;
@@ -162,10 +181,13 @@ static Audio* audio_alloc(void) {
     audio->event_loop = furi_event_loop_alloc();
     audio->idle_timer = furi_event_loop_timer_alloc(
         audio->event_loop, audio_idle_timer_callback, FuriEventLoopTimerTypeOnce, audio);
+    audio->mic_detect_timer = furi_event_loop_timer_alloc(
+        audio->event_loop, audio_mic_detect_timer_callback, FuriEventLoopTimerTypeOnce, audio);
     audio->headset_events = furi_pubsub_alloc();
     audio->playback = audio_playback_alloc(audio_playback_error_callback, audio);
     audio->capture = audio_capture_alloc(audio_capture_error_callback, audio);
     audio->mclk_source = Cs43131MclkSourceRco;
+    audio->mic_bias_enabled = true;
     audio->status_mutex = furi_mutex_alloc(FuriMutexTypeNormal);
 
     return audio;
@@ -176,6 +198,7 @@ static void audio_free(Audio* audio) {
     audio_capture_free(audio->capture);
     audio_playback_free(audio->playback);
     furi_pubsub_free(audio->headset_events);
+    furi_event_loop_timer_free(audio->mic_detect_timer);
     furi_event_loop_timer_free(audio->idle_timer);
     furi_event_loop_free(audio->event_loop);
 
@@ -192,6 +215,63 @@ static void audio_cs43131_reset(void) {
     furi_delay_us(CS43131_RESET_PULSE_WIDTH_US);
     furi_hal_gpio_write(&gpio_cs43131_reset_n, true);
     furi_delay_us(CS43131_POWER_UP_DELAY_US);
+}
+
+static void audio_set_mic_bias_enabled(Audio* audio, bool enabled) {
+    if(audio->mic_bias_enabled == enabled) {
+        return;
+    }
+
+    furi_hal_i2c_acquire(&furi_hal_i2c_handle_internal);
+    const bool success = es8327_set_mic_bias_enabled(&furi_hal_i2c_handle_internal, enabled);
+    furi_hal_i2c_release(&furi_hal_i2c_handle_internal);
+
+    if(!success) {
+        FURI_LOG_E(TAG, "ES8327 mic bias write failed, %d", enabled);
+        return;
+    }
+    audio->mic_bias_enabled = enabled;
+}
+
+static void audio_set_headset_mic_present(Audio* audio, bool present) {
+    audio->headset_mic_present = present;
+    furi_hal_usb_audio_set_jack_connected(FuriHalUsbAudioStreamMic, present);
+}
+
+static uint32_t audio_read_headset_sleeve_mv(void) {
+    uint32_t sleeve_mv = 0;
+
+    furi_hal_adc_start();
+    for(size_t i = 0; i < AUDIO_MIC_DETECT_SAMPLE_COUNT; i++) {
+        furi_delay_ms(AUDIO_MIC_DETECT_SAMPLE_PERIOD_MS);
+        sleeve_mv = MAX(sleeve_mv, furi_hal_adc_read_mv(FuriHalAdcChannelHeadsetButtons));
+    }
+    furi_hal_adc_stop();
+
+    return sleeve_mv;
+}
+
+static void audio_detect_headset_mic(Audio* audio) {
+    if(!audio->headphone_plugged) {
+        return;
+    }
+
+    const uint32_t sleeve_mv = audio_read_headset_sleeve_mv();
+    const bool present = sleeve_mv >= AUDIO_MIC_PRESENT_SLEEVE_MIN_MV;
+    FURI_LOG_I(
+        TAG, "Headset mic %s, sleeve %lu mV", present ? "detected" : "not detected", sleeve_mv);
+
+    if(!present) {
+        audio_set_mic_bias_enabled(audio, false);
+    }
+    audio_set_headset_mic_present(audio, present);
+}
+
+static void audio_mic_detect_timer_callback(void* context) {
+    Audio* audio = context;
+
+    audio_detect_headset_mic(audio);
+    audio_update_status(audio);
 }
 
 static void audio_handle_cs43131_interrupt(Audio* audio) {
@@ -220,7 +300,16 @@ static void audio_handle_cs43131_interrupt(Audio* audio) {
 
     audio->headphone_plugged = headphone_plugged;
     FURI_LOG_I(TAG, "Headphones %s", headphone_plugged ? "plugged" : "unplugged");
-    furi_hal_usb_audio_set_jack_connected(headphone_plugged);
+    furi_hal_usb_audio_set_jack_connected(FuriHalUsbAudioStreamSpeaker, headphone_plugged);
+
+    if(headphone_plugged) {
+        furi_event_loop_timer_start(
+            audio->mic_detect_timer, furi_ms_to_ticks(AUDIO_MIC_DETECT_DELAY_MS));
+    } else {
+        furi_event_loop_timer_stop(audio->mic_detect_timer);
+        audio_set_headset_mic_present(audio, false);
+        audio_set_mic_bias_enabled(audio, true);
+    }
 
     HeadsetEvent event = headphone_plugged ? HeadsetEventPlugged : HeadsetEventUnplugged;
     furi_pubsub_publish(audio->headset_events, &event);
@@ -598,6 +687,9 @@ static void audio_start_stream(Audio* audio, FuriHalUsbAudioStream stream) {
 }
 
 static void audio_start_pending_streams(Audio* audio) {
+    if(audio->is_paused) {
+        return;
+    }
     for(size_t stream = 0; stream < FuriHalUsbAudioStreamCount; stream++) {
         if(audio->streams[stream].active && !audio_is_clock_user(audio, stream)) {
             audio_start_stream(audio, stream);
@@ -658,6 +750,7 @@ static void audio_handle_stream_change(Audio* audio, FuriHalUsbAudioStream strea
 static void audio_update_status(Audio* audio) {
     AudioStatus status = {
         .headphone_plugged = audio->headphone_plugged,
+        .headset_mic_present = audio->headset_mic_present,
         .headphone_output_powered = audio->headphone_output_powered,
     };
 
@@ -693,6 +786,35 @@ static void audio_idle_timer_callback(void* context) {
     }
 
     audio_update_status(audio);
+}
+
+static void audio_stop_streams(Audio* audio) {
+    if(audio_is_clock_user(audio, FuriHalUsbAudioStreamMic)) {
+        audio_power_down_mic(audio);
+        audio_release_clock(audio, FuriHalUsbAudioStreamMic);
+    }
+    if(audio_is_clock_user(audio, FuriHalUsbAudioStreamSpeaker)) {
+        audio_power_down_headphone_output(audio);
+        audio_release_clock(audio, FuriHalUsbAudioStreamSpeaker);
+    }
+}
+
+static void audio_handle_pause(Audio* audio) {
+    audio->is_paused = true;
+    if(!audio->is_shut_down) {
+        audio_stop_streams(audio);
+        FURI_LOG_I(TAG, "Paused");
+    }
+    api_lock_unlock(audio->pause_lock);
+}
+
+static void audio_handle_resume(Audio* audio) {
+    audio->is_paused = false;
+    if(!audio->is_shut_down) {
+        audio_start_pending_streams(audio);
+        FURI_LOG_I(TAG, "Resumed");
+    }
+    api_lock_unlock(audio->pause_lock);
 }
 
 static void audio_handle_playback_error(Audio* audio) {
@@ -754,18 +876,58 @@ static void audio_log_mute(Audio* audio, FuriHalUsbAudioStream stream, bool mute
     FURI_LOG_I(TAG, "%s %s", audio_stream_names[stream], muted ? "muted" : "unmuted");
 }
 
+static uint8_t audio_get_speaker_attenuation(int16_t usb_volume, int8_t volume_offset) {
+    const FuriHalUsbAudioVolumeRange* range = &audio_speaker_usb_config.volume_range;
+    const int32_t offset_volume =
+        volume_offset * AUDIO_SPEAKER_VOLUME_OFFSET_STEP_DB * FURI_HAL_USB_AUDIO_VOLUME_PER_DB;
+    const int32_t volume = CLAMP((int32_t)usb_volume + offset_volume, range->max, range->min);
+    return AUDIO_SPEAKER_ATTENUATION(volume);
+}
+
 static void audio_handle_speaker_volume(Audio* audio) {
     const int16_t volume = furi_hal_usb_audio_get_volume(FuriHalUsbAudioStreamSpeaker);
     audio_log_volume(audio, FuriHalUsbAudioStreamSpeaker, volume);
 
     furi_hal_i2c_acquire(&furi_hal_i2c_handle_internal);
     const bool success = cs43131_set_volume_attenuation(
-        &furi_hal_i2c_handle_internal, AUDIO_SPEAKER_ATTENUATION(volume));
+        &furi_hal_i2c_handle_internal,
+        audio_get_speaker_attenuation(volume, audio->speaker_volume_offset));
     furi_hal_i2c_release(&furi_hal_i2c_handle_internal);
 
     if(!success) {
-        FURI_LOG_E(TAG, "CS43131 volume write failed, %d", volume);
+        FURI_LOG_E(
+            TAG,
+            "CS43131 volume write failed, %d, offset %d",
+            volume,
+            audio->speaker_volume_offset);
     }
+}
+
+static bool audio_load_settings(Audio* audio) {
+    Settings settings;
+    settings_store_get(audio->settings_store, &settings);
+
+    if(audio->speaker_volume_offset == settings.speaker_volume_offset) {
+        return false;
+    }
+    audio->speaker_volume_offset = settings.speaker_volume_offset;
+    FURI_LOG_I(
+        TAG,
+        "Speaker volume offset %d dB",
+        audio->speaker_volume_offset * AUDIO_SPEAKER_VOLUME_OFFSET_STEP_DB);
+    return true;
+}
+
+static void audio_handle_settings(Audio* audio) {
+    if(audio_load_settings(audio)) {
+        audio_handle_speaker_volume(audio);
+    }
+}
+
+static void audio_settings_callback(const void* message, void* context) {
+    UNUSED(message);
+    Audio* audio = context;
+    furi_thread_flags_set(audio->thread_id, AudioThreadFlagSettings);
 }
 
 static void audio_handle_speaker_mute(Audio* audio) {
@@ -821,6 +983,7 @@ static void audio_usb_change_callback(
 
 static void audio_power_off(Audio* audio) {
     furi_event_loop_timer_stop(audio->idle_timer);
+    furi_event_loop_timer_stop(audio->mic_detect_timer);
     audio_power_down_headphone_output(audio);
     if(audio_is_clock_user(audio, FuriHalUsbAudioStreamMic)) {
         audio_power_down_mic(audio);
@@ -841,6 +1004,14 @@ static void audio_thread_flags_callback(void* context) {
         }
         api_lock_unlock(audio->shutdown_lock);
         return;
+    }
+
+    if(flags & AudioThreadFlagPause) {
+        audio_handle_pause(audio);
+    }
+
+    if(flags & AudioThreadFlagResume) {
+        audio_handle_resume(audio);
     }
 
     if(audio->is_shut_down) {
@@ -867,6 +1038,10 @@ static void audio_thread_flags_callback(void* context) {
         audio_handle_speaker_volume(audio);
     }
 
+    if(flags & AudioThreadFlagSettings) {
+        audio_handle_settings(audio);
+    }
+
     if(flags & AudioThreadFlagSpeakerMute) {
         audio_handle_speaker_mute(audio);
     }
@@ -889,6 +1064,11 @@ static void audio_thread_flags_callback(void* context) {
 static void audio_init(Audio* audio) {
     furi_record_create(RECORD_HEADSET_EVENTS, audio->headset_events);
     furi_record_create(RECORD_AUDIO, audio);
+
+    audio->settings_store = furi_record_open(RECORD_SETTINGS_STORE);
+    audio->settings_subscription = furi_pubsub_subscribe(
+        settings_store_get_pubsub(audio->settings_store), audio_settings_callback, audio);
+    audio_load_settings(audio);
 
     furi_event_loop_subscribe_thread_flags(audio->event_loop, audio_thread_flags_callback, audio);
     furi_hal_gpio_add_int_callback(&gpio_cs43131_int, audio_cs43131_interrupt_callback, audio);
@@ -918,9 +1098,6 @@ static void audio_init(Audio* audio) {
     }
 
     audio_update_status(audio);
-
-    // TODO: enable only in audio mode
-    furi_hal_usb_enable();
 }
 
 static void audio_deinit(Audio* audio) {
@@ -928,6 +1105,10 @@ static void audio_deinit(Audio* audio) {
     furi_hal_gpio_remove_int_callback(&gpio_cs43131_int);
     furi_event_loop_unsubscribe_thread_flags(audio->event_loop);
     furi_event_loop_timer_stop(audio->idle_timer);
+    furi_event_loop_timer_stop(audio->mic_detect_timer);
+    furi_pubsub_unsubscribe(
+        settings_store_get_pubsub(audio->settings_store), audio->settings_subscription);
+    furi_record_close(RECORD_SETTINGS_STORE);
 
     if(audio_playback_is_running(audio->playback)) {
         audio_playback_stop(audio->playback);
@@ -950,6 +1131,24 @@ void audio_shutdown(Audio* audio) {
     audio->shutdown_lock = api_lock_alloc_locked();
     furi_thread_flags_set(audio->thread_id, AudioThreadFlagShutdown);
     api_lock_wait_unlock_and_free(audio->shutdown_lock);
+}
+
+static void audio_send_and_wait(Audio* audio, AudioThreadFlag flag) {
+    audio->pause_lock = api_lock_alloc_locked();
+    furi_thread_flags_set(audio->thread_id, flag);
+    api_lock_wait_unlock_and_free(audio->pause_lock);
+}
+
+void audio_pause(Audio* audio) {
+    furi_check(audio);
+
+    audio_send_and_wait(audio, AudioThreadFlagPause);
+}
+
+void audio_resume(Audio* audio) {
+    furi_check(audio);
+
+    audio_send_and_wait(audio, AudioThreadFlagResume);
 }
 
 void audio_get_status(Audio* audio, AudioStatus* status) {

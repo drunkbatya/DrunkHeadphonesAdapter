@@ -28,6 +28,7 @@ typedef struct {
 
 typedef struct {
     bool headphone_plugged;
+    bool headset_mic_present;
     bool headphone_output_powered;
     AudioStreamStatus streams[FuriHalUsbAudioStreamCount];
 } AudioStatus;
@@ -35,6 +36,10 @@ typedef struct {
 typedef struct Audio Audio;
 
 void audio_shutdown(Audio* audio);
+
+void audio_pause(Audio* audio);
+
+void audio_resume(Audio* audio);
 
 void audio_get_status(Audio* audio, AudioStatus* status);
 

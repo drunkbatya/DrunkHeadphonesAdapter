@@ -1,4 +1,5 @@
 #include <applications/services/usbc/usbc.h>
+#include <applications/services/usbc/usbc_bypass.h>
 #include <applications/services/usbc/usbc_platform.h>
 #include <applications/services/usbc/usbc_policy.h>
 #include <applications/services/usbc/usbc_power.h>
@@ -17,6 +18,7 @@ struct Usbc {
     UsbcVbus* vbus;
     UsbcPower* power;
     UsbcPolicy* policy;
+    UsbcBypass* bypass;
     FuriMutex* status_mutex;
     UsbcStatus status;
 };
@@ -41,9 +43,11 @@ static void usbc_update_status(Usbc* usbc) {
 
 static void usbc_process(Usbc* usbc) {
     const uint32_t vbus_next_ms = usbc_vbus_process(usbc->vbus);
+    const uint32_t bypass_next_ms = usbc_bypass_process(usbc->bypass);
+    usbc_policy_set_usb_bypass(usbc->policy, usbc_bypass_is_enabled(usbc->bypass));
     usbc_power_process(usbc->power);
     const uint32_t policy_next_ms = usbc_policy_process(usbc->policy);
-    const uint32_t next_ms = MIN(vbus_next_ms, policy_next_ms);
+    const uint32_t next_ms = MIN(MIN(vbus_next_ms, bypass_next_ms), policy_next_ms);
 
     if(next_ms == 0) {
         furi_event_loop_timer_stop(usbc->process_timer);
@@ -85,6 +89,8 @@ static Usbc* usbc_alloc(void) {
     usbc->vbus = usbc_vbus_alloc(usbc_wakeup_callback, usbc);
     usbc->power = usbc_power_alloc(usbc->vbus);
     usbc->policy = usbc_policy_alloc(usbc->power, usbc->vbus, usbc_wakeup_callback, usbc);
+    usbc->bypass = usbc_bypass_alloc(usbc_wakeup_callback, usbc);
+    usbc_policy_set_usb_bypass(usbc->policy, usbc_bypass_is_enabled(usbc->bypass));
     usbc->status_mutex = furi_mutex_alloc(FuriMutexTypeNormal);
     usbc_platform_init(usbc->vbus);
     usbc_policy_start(usbc->policy);
@@ -98,6 +104,7 @@ static void usbc_free(Usbc* usbc) {
     furi_record_destroy(RECORD_USBC);
     furi_event_loop_unsubscribe_thread_flags(usbc->event_loop);
     usbc_platform_deinit();
+    usbc_bypass_free(usbc->bypass);
     usbc_policy_free(usbc->policy);
     usbc_power_free(usbc->power);
     usbc_vbus_free(usbc->vbus);

@@ -71,6 +71,7 @@ message AudioStatusResponse {
     bool headphone_output_powered = 2;
     AudioStreamStatus speaker = 3;
     AudioStreamStatus mic = 4;
+    bool headset_mic_present = 5;
 }
 
 enum UsbcPowerRole {
@@ -142,6 +143,41 @@ message UsbcStatusResponse {
     UsbcPortStatus charger = 2;
 }
 
+message Settings {
+    optional sint32 speaker_volume_offset = 1;
+}
+
+message SettingsGetRequest {
+}
+
+message SettingsGetResponse {
+    Settings settings = 1;
+}
+
+message SettingsSetRequest {
+    Settings settings = 1;
+}
+
+message SettingsSetResponse {
+    Settings settings = 1;
+}
+
+message SettingsSaveRequest {
+}
+
+enum SettingsSaveResult {
+    SETTINGS_SAVE_RESULT_UNSPECIFIED = 0;
+    SETTINGS_SAVE_RESULT_OK = 1;
+    SETTINGS_SAVE_RESULT_ENCODE_FAILED = 2;
+    SETTINGS_SAVE_RESULT_ERASE_FAILED = 3;
+    SETTINGS_SAVE_RESULT_WRITE_FAILED = 4;
+    SETTINGS_SAVE_RESULT_VERIFY_FAILED = 5;
+}
+
+message SettingsSaveResponse {
+    SettingsSaveResult result = 1;
+}
+
 message RpcRequest {
     uint32 request_id = 1;
 
@@ -151,6 +187,9 @@ message RpcRequest {
         SystemStatusRequest system_status = 4;
         AudioStatusRequest audio_status = 5;
         UsbcStatusRequest usbc_status = 6;
+        SettingsGetRequest settings_get = 7;
+        SettingsSetRequest settings_set = 8;
+        SettingsSaveRequest settings_save = 9;
     }
 }
 
@@ -163,5 +202,8 @@ message RpcResponse {
         SystemStatusResponse system_status = 4;
         AudioStatusResponse audio_status = 5;
         UsbcStatusResponse usbc_status = 6;
+        SettingsGetResponse settings_get = 7;
+        SettingsSetResponse settings_set = 8;
+        SettingsSaveResponse settings_save = 9;
     }
 }

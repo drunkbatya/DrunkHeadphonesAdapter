@@ -1,4 +1,5 @@
 #include <furi_hal_interrupt.h>
+#include <furi_hal_flash.h>
 #include <furi_hal_os.h>
 
 #include <furi.h>
@@ -206,6 +207,9 @@ void USART2_LPUART2_IRQHandler(void) {
 }
 
 void NMI_Handler(void) {
+    if(furi_hal_flash_handle_ecc_error()) {
+        return;
+    }
     furi_crash("NMI");
 }
 

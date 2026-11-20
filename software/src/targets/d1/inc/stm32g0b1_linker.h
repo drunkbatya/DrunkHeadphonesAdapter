@@ -29,6 +29,9 @@ extern linker_symbol_t __heap_end__; /**< RAM1 Heap end */
 
 extern linker_symbol_t _firmware_size;
 
+extern linker_symbol_t _storage_start;
+extern linker_symbol_t _storage_end;
+
 #ifdef __cplusplus
 }
 #endif

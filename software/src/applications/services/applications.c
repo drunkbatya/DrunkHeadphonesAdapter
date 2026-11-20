@@ -4,9 +4,11 @@
 #include <applications/services/input/input.h>
 #include <applications/services/media_keys/media_keys.h>
 #include <applications/services/rpc/rpc.h>
+#include <applications/services/settings/settings_store.h>
 #include <applications/services/usbc/usbc.h>
 
 const ServiceApplication SERVICE_APPLICATIONS[] = {
+    {.app = settings_store_srv, .name = "SettingsSrv", .stack_size = 1024},
     {.app = usbc_srv, .name = "UsbcSrv", .stack_size = 2048},
     {.app = input_srv, .name = "InputSrv", .stack_size = 512},
     {.app = audio_srv, .name = "AudioSrv", .stack_size = 1024},

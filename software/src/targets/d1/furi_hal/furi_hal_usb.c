@@ -192,6 +192,7 @@ typedef struct {
 typedef struct {
     FuriThread* thread;
     FuriMessageQueue* queue;
+    bool enable_requested;
     bool enabled;
     bool suspended;
     bool insomnia;
@@ -207,11 +208,12 @@ typedef enum {
     UsbEventCdcRx = (1 << 3),
     UsbEventCdcTx = (1 << 4),
     UsbEventAudioNotification = (1 << 5),
+    UsbEventAudioConfigured = (1 << 6),
 } UsbEvent;
 
 #define USB_SRV_ALL_EVENTS                                                                 \
     (UsbEventStack | UsbEventMessage | UsbEventHidReport | UsbEventCdcRx | UsbEventCdcTx | \
-     UsbEventAudioNotification)
+     UsbEventAudioNotification | UsbEventAudioConfigured)
 
 static UsbSrv usb = {0};
 
@@ -427,8 +429,6 @@ static void furi_hal_usb_send_message(UsbApiEventMessage* message) {
 }
 
 void furi_hal_usb_enable(void) {
-    furi_check(furi_hal_usb_audio_is_configured());
-
     UsbApiEventMessage msg = {
         .lock = api_lock_alloc_locked(),
         .type = UsbApiEventTypeEnable,
@@ -474,6 +474,10 @@ void furi_hal_usb_remote_wakeup(void) {
 
 void furi_hal_usb_audio_request_notification(void) {
     furi_thread_flags_set(furi_thread_get_id(usb.thread), UsbEventAudioNotification);
+}
+
+void furi_hal_usb_audio_request_enable_update(void) {
+    furi_thread_flags_set(furi_thread_get_id(usb.thread), UsbEventAudioConfigured);
 }
 
 void furi_hal_usb_cdc_request_rx(void) {
@@ -637,13 +641,23 @@ static void usb_process_enable(bool enable) {
     furi_hal_usb_update_insomnia();
 }
 
+static void usb_update_enabled(void) {
+    const bool configured = furi_hal_usb_audio_is_configured();
+    if(usb.enable_requested && !configured && !usb.enabled) {
+        FURI_LOG_D(TAG, "Enable deferred, audio not configured");
+    }
+    usb_process_enable(usb.enable_requested && configured);
+}
+
 static void usb_process_message(UsbApiEventMessage* message) {
     switch(message->type) {
     case UsbApiEventTypeEnable:
-        usb_process_enable(true);
+        usb.enable_requested = true;
+        usb_update_enabled();
         break;
     case UsbApiEventTypeDisable:
-        usb_process_enable(false);
+        usb.enable_requested = false;
+        usb_update_enabled();
         break;
     case UsbApiEventTypeSetStateCallback:
         usb.callback = message->data.state_callback.callback;
@@ -671,6 +685,10 @@ static int32_t furi_hal_usb_thread(void* context) {
             if(furi_message_queue_get(usb.queue, &message, 0) == FuriStatusOk) {
                 usb_process_message(&message);
             }
+        }
+
+        if(flags & UsbEventAudioConfigured) {
+            usb_update_enabled();
         }
 
         if(!usb.enabled) {
