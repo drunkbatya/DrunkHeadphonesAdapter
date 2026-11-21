@@ -10,10 +10,10 @@
 const ServiceApplication SERVICE_APPLICATIONS[] = {
     {.app = settings_store_srv, .name = "SettingsSrv", .stack_size = 1024},
     {.app = usbc_srv, .name = "UsbcSrv", .stack_size = 2048},
-    {.app = input_srv, .name = "InputSrv", .stack_size = 512},
+    {.app = input_srv, .name = "InputSrv", .stack_size = 1024},
     {.app = audio_srv, .name = "AudioSrv", .stack_size = 1024},
-    {.app = media_keys_srv, .name = "MediaKeysSrv", .stack_size = 512},
-    {.app = rpc_srv, .name = "RpcSrv", .stack_size = 1024},
+    {.app = media_keys_srv, .name = "MediaKeysSrv", .stack_size = 1024},
+    {.app = rpc_srv, .name = "RpcSrv", .stack_size = 2048},
 };
 
 const size_t SERVICE_APPLICATIONS_COUNT = COUNT_OF(SERVICE_APPLICATIONS);
