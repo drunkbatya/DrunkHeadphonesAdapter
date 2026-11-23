@@ -145,6 +145,7 @@ message UsbcStatusResponse {
 
 message Settings {
     optional sint32 speaker_volume_offset = 1;
+    optional uint32 mic_gain = 2;
 }
 
 message SettingsGetRequest {

@@ -72,10 +72,12 @@ bool es8327_init(const FuriHalI2cBusHandle* handle) {
         if(!es8327_write(
                handle,
                ES8327_REG_ANA_MICBIAS,
-               ES8327_ANA_MICBIAS_RES_1K | ES8327_ANA_MICBIAS_FORCE_ON |
+               ES8327_ANA_MICBIAS_RES_1K | ES8327_ANA_MICBIAS_FORCE_OFF |
                    ES8327_ANA_MICBIAS_HPSCALE_1000))
             break;
-        if(!es8327_write(handle, ES8327_REG_PGAGAIN, ES8327_PGAGAIN_MIC1_SEL)) break;
+        if(!es8327_write(
+               handle, ES8327_REG_PGAGAIN, ES8327_PGAGAIN_SE_MODE | ES8327_PGAGAIN_MIC1_SEL))
+            break;
         if(!es8327_write(handle, ES8327_REG_HPJACK_TIMER, ES8327_HPJACK_TIMER_VALUE)) break;
         if(!es8327_write(
                handle,
@@ -161,12 +163,11 @@ bool es8327_set_mic_bias_enabled(const FuriHalI2cBusHandle* handle, bool enabled
         enabled ? ES8327_ANA_MICBIAS_FORCE_ON : ES8327_ANA_MICBIAS_FORCE_OFF);
 }
 
-bool es8327_set_mic_gain(const FuriHalI2cBusHandle* handle, uint8_t gain_3db_steps) {
+bool es8327_set_mic_gain(const FuriHalI2cBusHandle* handle, uint8_t gain_steps) {
     furi_check(handle);
-    furi_check(gain_3db_steps <= ES8327_PGAGAIN_GAIN_MAX);
+    furi_check(gain_steps <= ES8327_MIC_GAIN_MAX_STEPS);
 
-    return es8327_update_bits(
-        handle, ES8327_REG_PGAGAIN, ES8327_PGAGAIN_GAIN_MASK, gain_3db_steps);
+    return es8327_update_bits(handle, ES8327_REG_PGAGAIN, ES8327_PGAGAIN_GAIN_MASK, gain_steps);
 }
 
 bool es8327_set_adc_volume(const FuriHalI2cBusHandle* handle, uint8_t volume) {

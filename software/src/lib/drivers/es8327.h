@@ -13,6 +13,9 @@ extern "C" {
 #define ES8327_ADC_VOLUME_0DB          0xBF
 #define ES8327_ADC_VOLUME_MAX          0xFF
 #define ES8327_ADC_VOLUME_STEPS_PER_DB 2
+#define ES8327_MIC_GAIN_MAX_STEPS      10
+#define ES8327_MIC_GAIN_STEP_DB        3
+#define ES8327_MIC_GAIN_SE_MODE_DB     6
 
 typedef enum {
     Es8327SampleRate44100,
@@ -38,7 +41,7 @@ bool es8327_power_down(const FuriHalI2cBusHandle* handle);
 
 bool es8327_set_mic_bias_enabled(const FuriHalI2cBusHandle* handle, bool enabled);
 
-bool es8327_set_mic_gain(const FuriHalI2cBusHandle* handle, uint8_t gain_3db_steps);
+bool es8327_set_mic_gain(const FuriHalI2cBusHandle* handle, uint8_t gain_steps);
 
 bool es8327_set_adc_volume(const FuriHalI2cBusHandle* handle, uint8_t volume);
 

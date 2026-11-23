@@ -135,6 +135,7 @@ struct Audio {
     SettingsStore* settings_store;
     FuriPubSubSubscription* settings_subscription;
     int8_t speaker_volume_offset;
+    uint8_t mic_gain;
     AudioPlayback* playback;
     AudioCapture* capture;
     AudioPlaybackError playback_error;
@@ -187,7 +188,6 @@ static Audio* audio_alloc(void) {
     audio->playback = audio_playback_alloc(audio_playback_error_callback, audio);
     audio->capture = audio_capture_alloc(audio_capture_error_callback, audio);
     audio->mclk_source = Cs43131MclkSourceRco;
-    audio->mic_bias_enabled = true;
     audio->status_mutex = furi_mutex_alloc(FuriMutexTypeNormal);
 
     return audio;
@@ -303,12 +303,13 @@ static void audio_handle_cs43131_interrupt(Audio* audio) {
     furi_hal_usb_audio_set_jack_connected(FuriHalUsbAudioStreamSpeaker, headphone_plugged);
 
     if(headphone_plugged) {
+        audio_set_mic_bias_enabled(audio, true);
         furi_event_loop_timer_start(
             audio->mic_detect_timer, furi_ms_to_ticks(AUDIO_MIC_DETECT_DELAY_MS));
     } else {
         furi_event_loop_timer_stop(audio->mic_detect_timer);
+        audio_set_mic_bias_enabled(audio, false);
         audio_set_headset_mic_present(audio, false);
-        audio_set_mic_bias_enabled(audio, true);
     }
 
     HeadsetEvent event = headphone_plugged ? HeadsetEventPlugged : HeadsetEventUnplugged;
@@ -903,24 +904,48 @@ static void audio_handle_speaker_volume(Audio* audio) {
     }
 }
 
-static bool audio_load_settings(Audio* audio) {
+static void audio_handle_mic_gain(Audio* audio) {
+    furi_hal_i2c_acquire(&furi_hal_i2c_handle_internal);
+    const bool success = es8327_set_mic_gain(&furi_hal_i2c_handle_internal, audio->mic_gain);
+    furi_hal_i2c_release(&furi_hal_i2c_handle_internal);
+
+    if(!success) {
+        FURI_LOG_E(TAG, "ES8327 mic gain write failed, %u", audio->mic_gain);
+    }
+}
+
+static void audio_load_settings(Audio* audio) {
     Settings settings;
     settings_store_get(audio->settings_store, &settings);
 
-    if(audio->speaker_volume_offset == settings.speaker_volume_offset) {
-        return false;
+    if(audio->speaker_volume_offset != settings.speaker_volume_offset) {
+        audio->speaker_volume_offset = settings.speaker_volume_offset;
+        FURI_LOG_I(
+            TAG,
+            "Speaker volume offset %d dB",
+            audio->speaker_volume_offset * AUDIO_SPEAKER_VOLUME_OFFSET_STEP_DB);
     }
-    audio->speaker_volume_offset = settings.speaker_volume_offset;
-    FURI_LOG_I(
-        TAG,
-        "Speaker volume offset %d dB",
-        audio->speaker_volume_offset * AUDIO_SPEAKER_VOLUME_OFFSET_STEP_DB);
-    return true;
+
+    if(audio->mic_gain != settings.mic_gain) {
+        audio->mic_gain = settings.mic_gain;
+        FURI_LOG_I(
+            TAG,
+            "Mic gain %u dB",
+            ES8327_MIC_GAIN_SE_MODE_DB + audio->mic_gain * ES8327_MIC_GAIN_STEP_DB);
+    }
 }
 
 static void audio_handle_settings(Audio* audio) {
-    if(audio_load_settings(audio)) {
+    const int8_t speaker_volume_offset = audio->speaker_volume_offset;
+    const uint8_t mic_gain = audio->mic_gain;
+
+    audio_load_settings(audio);
+
+    if(audio->speaker_volume_offset != speaker_volume_offset) {
         audio_handle_speaker_volume(audio);
+    }
+    if(audio->mic_gain != mic_gain) {
+        audio_handle_mic_gain(audio);
     }
 }
 
@@ -1092,6 +1117,7 @@ static void audio_init(Audio* audio) {
     }
 
     if(es8327_ready) {
+        audio_handle_mic_gain(audio);
         audio_handle_mic_volume(audio);
     } else {
         FURI_LOG_E(TAG, "ES8327 init failed");
