@@ -35,4 +35,5 @@ make
 ## Hardware
 ### Known errata
 #### Rev1
-Adapter cunsumes ~100mW in sleep1 mode due to FPWM mode of TPS560430XF. Need research for buck with switching frequency, e.g. LMR43610MSC5RPERQ1
+1. Adapter cunsumes ~100mW in sleep1 mode due to FPWM mode of TPS560430XF. Need research for buck with switching frequency, e.g. LMR43610MSC5RPERQ1
+2. Google Pixel 11 Pro XL uses audio offload on AoC what reads our feedback data around 1000 times/s but compleately ignores it. Need to replace oscilators by VCXO or DCXO

@@ -104,6 +104,15 @@ typedef struct {
 
 static FuriHalUsbAudio usb_audio = {0};
 
+static uint32_t furi_hal_usb_audio_get_nominal_feedback(uint32_t sample_rate);
+
+static void furi_hal_usb_audio_set_nominal_feedback(void) {
+    tud_audio_n_fb_set(
+        0,
+        furi_hal_usb_audio_get_nominal_feedback(
+            usb_audio.streams[FuriHalUsbAudioStreamSpeaker].clock.sample_rate));
+}
+
 static uint16_t furi_hal_usb_audio_get_speaker_fifo_count(void) {
     const tu_fifo_t* speaker_fifo = tud_audio_get_ep_out_ff();
     return tu_ff_overflow_count(speaker_fifo->depth, speaker_fifo->wr_idx, speaker_fifo->rd_idx);
@@ -340,6 +349,9 @@ static void furi_hal_usb_audio_set_alt_setting(
 
     if(stream == FuriHalUsbAudioStreamSpeaker) {
         dcd_sof_enable(FURI_HAL_USB_ROOT_PORT, alt_setting != FuriHalUsbAudioAltSettingIdle);
+        if(alt_setting == FuriHalUsbAudioAltSettingIdle) {
+            furi_hal_usb_audio_set_nominal_feedback();
+        }
     }
 
     furi_hal_usb_audio_notify(stream, FuriHalUsbAudioChangeStream);
@@ -587,6 +599,9 @@ static bool furi_hal_usb_audio_set_clock_request(
         state->clock.sample_rate = sample_rate;
         furi_hal_usb_audio_update_access();
         FURI_CRITICAL_EXIT();
+        if(stream == FuriHalUsbAudioStreamSpeaker) {
+            furi_hal_usb_audio_set_nominal_feedback();
+        }
         if(state->alt_setting != FuriHalUsbAudioAltSettingIdle) {
             furi_hal_usb_audio_notify(stream, FuriHalUsbAudioChangeStream);
         }
