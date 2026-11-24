@@ -14,6 +14,7 @@
 #define TAG "AudioSrv"
 
 #define AUDIO_IDLE_TIMEOUT_MS               30000
+#define AUDIO_PLAYBACK_STATS_PERIOD_MS      1000
 #define AUDIO_OSCILLATOR_SWITCH_TURN_ON_US  200
 #define AUDIO_OSCILLATOR_STARTUP_MS         5
 #define AUDIO_PDN_DONE_POLL_PERIOD_MS       1
@@ -131,6 +132,7 @@ struct Audio {
     FuriEventLoop* event_loop;
     FuriEventLoopTimer* idle_timer;
     FuriEventLoopTimer* mic_detect_timer;
+    FuriEventLoopTimer* playback_stats_timer;
     FuriPubSub* headset_events;
     SettingsStore* settings_store;
     FuriPubSubSubscription* settings_subscription;
@@ -161,6 +163,7 @@ struct Audio {
 
 static void audio_idle_timer_callback(void* context);
 static void audio_mic_detect_timer_callback(void* context);
+static void audio_playback_stats_timer_callback(void* context);
 static void audio_update_status(Audio* audio);
 
 static void audio_playback_error_callback(const AudioPlaybackError* error, void* context) {
@@ -184,6 +187,11 @@ static Audio* audio_alloc(void) {
         audio->event_loop, audio_idle_timer_callback, FuriEventLoopTimerTypeOnce, audio);
     audio->mic_detect_timer = furi_event_loop_timer_alloc(
         audio->event_loop, audio_mic_detect_timer_callback, FuriEventLoopTimerTypeOnce, audio);
+    audio->playback_stats_timer = furi_event_loop_timer_alloc(
+        audio->event_loop,
+        audio_playback_stats_timer_callback,
+        FuriEventLoopTimerTypePeriodic,
+        audio);
     audio->headset_events = furi_pubsub_alloc();
     audio->playback = audio_playback_alloc(audio_playback_error_callback, audio);
     audio->capture = audio_capture_alloc(audio_capture_error_callback, audio);
@@ -198,6 +206,7 @@ static void audio_free(Audio* audio) {
     audio_capture_free(audio->capture);
     audio_playback_free(audio->playback);
     furi_pubsub_free(audio->headset_events);
+    furi_event_loop_timer_free(audio->playback_stats_timer);
     furi_event_loop_timer_free(audio->mic_detect_timer);
     furi_event_loop_timer_free(audio->idle_timer);
     furi_event_loop_free(audio->event_loop);
@@ -439,6 +448,7 @@ static void audio_power_down_headphone_output(Audio* audio) {
     }
 
     if(audio_playback_is_running(audio->playback)) {
+        furi_event_loop_timer_stop(audio->playback_stats_timer);
         audio_playback_stop(audio->playback);
     }
 
@@ -559,6 +569,8 @@ static void audio_start_speaker(Audio* audio, const FuriHalUsbAudioFormat* forma
         if(!audio_configure_headphone_output(sample_rate, bit_depth)) break;
         audio->headphone_output_powered = true;
         audio_playback_start(audio->playback, format->sample_rate, format->sample_format);
+        furi_event_loop_timer_start(
+            audio->playback_stats_timer, furi_ms_to_ticks(AUDIO_PLAYBACK_STATS_PERIOD_MS));
         furi_delay_ms(CS43131_HP_POWER_UP_DELAY_MS);
         if(!audio_run_codec_step(cs43131_power_up_end)) break;
         success = true;
@@ -771,6 +783,34 @@ static void audio_update_status(Audio* audio) {
     furi_check(furi_mutex_acquire(audio->status_mutex, FuriWaitForever) == FuriStatusOk);
     audio->status = status;
     furi_mutex_release(audio->status_mutex);
+}
+
+static void audio_playback_stats_timer_callback(void* context) {
+    Audio* audio = context;
+    AudioPlaybackStats playback_stats;
+    FuriHalUsbAudioSpeakerStats usb_stats;
+
+    if(!audio_playback_is_running(audio->playback)) {
+        return;
+    }
+    audio_playback_take_stats(audio->playback, &playback_stats);
+    furi_hal_usb_audio_speaker_take_stats(&usb_stats);
+    FURI_LOG_D(
+        TAG,
+        "Speaker FIFO read %u-%u B, SOF %u-%u B, packet %u-%u B, half %u B, underruns %lu, "
+        "feedback 0x%06lX-0x%06lX, feedback resets %lu, SOF missed %lu",
+        usb_stats.fifo_read_count_min,
+        usb_stats.fifo_read_count_max,
+        usb_stats.fifo_sof_count_min,
+        usb_stats.fifo_sof_count_max,
+        usb_stats.packet_min,
+        usb_stats.packet_max,
+        playback_stats.half_size,
+        playback_stats.underruns,
+        usb_stats.feedback_min,
+        usb_stats.feedback_max,
+        usb_stats.feedback_resets,
+        usb_stats.sof_missed);
 }
 
 static void audio_idle_timer_callback(void* context) {
@@ -1132,6 +1172,7 @@ static void audio_deinit(Audio* audio) {
     furi_event_loop_unsubscribe_thread_flags(audio->event_loop);
     furi_event_loop_timer_stop(audio->idle_timer);
     furi_event_loop_timer_stop(audio->mic_detect_timer);
+    furi_event_loop_timer_stop(audio->playback_stats_timer);
     furi_pubsub_unsubscribe(
         settings_store_get_pubsub(audio->settings_store), audio->settings_subscription);
     furi_record_close(RECORD_SETTINGS_STORE);

@@ -6,6 +6,9 @@
 #include <applications/services/usbc/usbc_vbus.h>
 
 #include <furi.h>
+#include <furi_hal.h>
+
+#define USBC_WATCHDOG_FEED_MS (FURI_HAL_WATCHDOG_TIMEOUT_MIN_MS / 2)
 
 typedef enum {
     UsbcThreadFlagWakeup = (1 << 0),
@@ -15,6 +18,7 @@ struct Usbc {
     FuriThreadId thread_id;
     FuriEventLoop* event_loop;
     FuriEventLoopTimer* process_timer;
+    FuriEventLoopTimer* watchdog_timer;
     UsbcVbus* vbus;
     UsbcPower* power;
     UsbcPolicy* policy;
@@ -47,7 +51,9 @@ static void usbc_process(Usbc* usbc) {
     usbc_policy_set_usb_bypass(usbc->policy, usbc_bypass_is_enabled(usbc->bypass));
     usbc_power_process(usbc->power);
     const uint32_t policy_next_ms = usbc_policy_process(usbc->policy);
-    const uint32_t next_ms = MIN(MIN(vbus_next_ms, bypass_next_ms), policy_next_ms);
+    const uint32_t power_next_ms = usbc_power_get_next_ms(usbc->power);
+    const uint32_t next_ms =
+        MIN(MIN(vbus_next_ms, bypass_next_ms), MIN(policy_next_ms, power_next_ms));
 
     if(next_ms == 0) {
         furi_event_loop_timer_stop(usbc->process_timer);
@@ -80,14 +86,23 @@ static void usbc_process_timer_callback(void* context) {
     usbc_process(usbc);
 }
 
+static void usbc_watchdog_timer_callback(void* context) {
+    UNUSED(context);
+    furi_hal_watchdog_feed();
+}
+
 static Usbc* usbc_alloc(void) {
     Usbc* usbc = malloc(sizeof(Usbc));
     usbc->thread_id = furi_thread_get_current_id();
     usbc->event_loop = furi_event_loop_alloc();
     usbc->process_timer = furi_event_loop_timer_alloc(
         usbc->event_loop, usbc_process_timer_callback, FuriEventLoopTimerTypeOnce, usbc);
+    usbc->watchdog_timer = furi_event_loop_timer_alloc(
+        usbc->event_loop, usbc_watchdog_timer_callback, FuriEventLoopTimerTypePeriodic, usbc);
+    furi_hal_watchdog_start();
+    furi_event_loop_timer_start(usbc->watchdog_timer, furi_ms_to_ticks(USBC_WATCHDOG_FEED_MS));
     usbc->vbus = usbc_vbus_alloc(usbc_wakeup_callback, usbc);
-    usbc->power = usbc_power_alloc(usbc->vbus);
+    usbc->power = usbc_power_alloc(usbc->vbus, usbc_wakeup_callback, usbc);
     usbc->policy = usbc_policy_alloc(usbc->power, usbc->vbus, usbc_wakeup_callback, usbc);
     usbc->bypass = usbc_bypass_alloc(usbc_wakeup_callback, usbc);
     usbc_policy_set_usb_bypass(usbc->policy, usbc_bypass_is_enabled(usbc->bypass));
@@ -109,6 +124,7 @@ static void usbc_free(Usbc* usbc) {
     usbc_power_free(usbc->power);
     usbc_vbus_free(usbc->vbus);
     furi_mutex_free(usbc->status_mutex);
+    furi_event_loop_timer_free(usbc->watchdog_timer);
     furi_event_loop_timer_free(usbc->process_timer);
     furi_event_loop_free(usbc->event_loop);
     free(usbc);

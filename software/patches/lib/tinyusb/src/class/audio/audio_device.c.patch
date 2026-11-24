@@ -1,17 +1,18 @@
 --- a/src/class/audio/audio_device.c
 +++ b/src/class/audio/audio_device.c
-@@ -578,8 +578,9 @@
+@@ -578,8 +578,10 @@
  static inline bool audiod_fb_send(uint8_t func_id, bool is_isr) {
    audiod_function_t *audio = &_audiod_fct[func_id];
    uint8_t uac_version = tud_audio_n_version(func_id);
-+  bool const format_10_14 = (uac_version == 1) || (tud_speed_get() == TUSB_SPEED_FULL);
++  bool const format_10_14 =
++    (uac_version == 1) || (CFG_TUD_AUDIO_FEEDBACK_FULL_SPEED_10_14 && (tud_speed_get() == TUSB_SPEED_FULL));
    // Format the feedback value
 -  if (uac_version == 1) {
 +  if (format_10_14) {
      uint8_t *fb = (uint8_t *) audio->fb_buf;
  
      // For FS format is 10.14
-@@ -591,7 +592,7 @@
+@@ -591,7 +593,7 @@
      *audio->fb_buf = audio->feedback.value;
    }
  
@@ -20,35 +21,56 @@
  }
  
  uint32_t tud_audio_feedback_update(uint8_t func_id, uint32_t cycles) {
-@@ -1079,12 +1080,12 @@
+@@ -711,17 +713,17 @@
+     switch (i) {
+   #if CFG_TUD_AUDIO_FUNC_1_EP_OUT_SW_BUF_SZ > 0
+       case 0:
+-        tu_fifo_config(&audio->ep_out_ff, ep_out_sw_buf.buf_1, CFG_TUD_AUDIO_FUNC_1_EP_OUT_SW_BUF_SZ, true);
++        tu_fifo_config(&audio->ep_out_ff, ep_out_sw_buf.buf_1, CFG_TUD_AUDIO_FUNC_1_EP_OUT_SW_BUF_SZ, false);
+         break;
+   #endif
+   #if CFG_TUD_AUDIO > 1 && CFG_TUD_AUDIO_FUNC_2_EP_OUT_SW_BUF_SZ > 0
+       case 1:
+-        tu_fifo_config(&audio->ep_out_ff, ep_out_sw_buf.buf_2, CFG_TUD_AUDIO_FUNC_2_EP_OUT_SW_BUF_SZ, true);
++        tu_fifo_config(&audio->ep_out_ff, ep_out_sw_buf.buf_2, CFG_TUD_AUDIO_FUNC_2_EP_OUT_SW_BUF_SZ, false);
+         break;
+   #endif
+   #if CFG_TUD_AUDIO > 2 && CFG_TUD_AUDIO_FUNC_3_EP_OUT_SW_BUF_SZ > 0
+       case 2:
+-        tu_fifo_config(&audio->ep_out_ff, ep_out_sw_buf.buf_3, CFG_TUD_AUDIO_FUNC_3_EP_OUT_SW_BUF_SZ, true);
++        tu_fifo_config(&audio->ep_out_ff, ep_out_sw_buf.buf_3, CFG_TUD_AUDIO_FUNC_3_EP_OUT_SW_BUF_SZ, false);
+         break;
+   #endif
+     }
+@@ -1079,12 +1081,12 @@
      usbd_edpt_close(rhport, audio->ep_in);
    #endif
-
+ 
 -    // Clear FIFOs, since data is no longer valid
 -    tu_fifo_clear(&audio->ep_in_ff);
 -
      // Invoke callback - can be used to stop data sampling
      TU_VERIFY(tud_audio_set_itf_close_ep_cb(rhport, p_request));
-
+ 
 +    // Clear FIFOs, since data is no longer valid
 +    tu_fifo_clear(&audio->ep_in_ff);
 +
      audio->ep_in = 0;// Necessary?
-
+ 
    #if CFG_TUD_AUDIO_EP_IN_FLOW_CONTROL
-@@ -1103,12 +1104,12 @@
+@@ -1103,12 +1105,12 @@
      usbd_edpt_close(rhport, audio->ep_out);
    #endif
-
+ 
 -    // Clear FIFOs, since data is no longer valid
 -    tu_fifo_clear(&audio->ep_out_ff);
 -
      // Invoke callback - can be used to stop data sampling
      TU_VERIFY(tud_audio_set_itf_close_ep_cb(rhport, p_request));
-
+ 
 +    // Clear FIFOs, since data is no longer valid
 +    tu_fifo_clear(&audio->ep_out_ff);
 +
      audio->ep_out = 0;// Necessary?
-
+ 
      // Close corresponding feedback EP

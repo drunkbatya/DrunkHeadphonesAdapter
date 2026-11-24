@@ -21,7 +21,6 @@ bool policy_engine_request_power(uint8_t port, uint32_t rdo);
 bool policy_engine_send_source_capabilities(uint8_t port);
 bool policy_engine_send_hard_reset_request(uint8_t port);
 bool policy_engine_signal_fast_role_swap(uint8_t port);
-bool policy_engine_on_fast_role_swap_received(uint8_t port);
 void policy_engine_get_port_status(uint8_t port, UsbPdPortStatus* status);
 
 bool policy_engine_receive_queue_has_pending(uint8_t port);

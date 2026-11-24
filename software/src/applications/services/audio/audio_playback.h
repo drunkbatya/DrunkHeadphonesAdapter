@@ -18,6 +18,13 @@ typedef struct {
     size_t dma_length;
 } AudioPlaybackError;
 
+typedef struct {
+    uint32_t underruns;
+    size_t fifo_min;
+    size_t fifo_max;
+    size_t half_size;
+} AudioPlaybackStats;
+
 typedef void (*AudioPlaybackErrorCallback)(const AudioPlaybackError* error, void* context);
 
 AudioPlayback* audio_playback_alloc(AudioPlaybackErrorCallback error_callback, void* context);
@@ -34,6 +41,8 @@ void audio_playback_stop(AudioPlayback* playback);
 void audio_playback_restart(AudioPlayback* playback);
 
 bool audio_playback_is_running(const AudioPlayback* playback);
+
+void audio_playback_take_stats(AudioPlayback* playback, AudioPlaybackStats* stats);
 
 #ifdef __cplusplus
 }

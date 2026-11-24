@@ -45,10 +45,6 @@ void policy_engine_detach(uint8_t port) {
     if(pe->sourcing_vbus) {
         policy_engine_set_power(pe, UsbPdPowerSourceOff);
     }
-    if(pe->fast_role_swap_armed) {
-        pe->fast_role_swap_armed = false;
-        usb_pd_platform_set_fast_role_swap_detection(port, false);
-    }
     pe->hard_reset_in_progress = false;
     policy_engine_disable_vconn_if_sourcing(pe);
     policy_engine_discard_requests(pe);
@@ -119,21 +115,6 @@ bool policy_engine_signal_fast_role_swap(uint8_t port) {
     pe->fast_role_swap_signalled_ms = usb_pd_platform_get_tick_ms();
     pe->fast_role_swap_signalled = true;
     policy_engine_set_swap_ongoing(pe, true);
-    policy_engine_wakeup(port);
-    return true;
-}
-
-bool policy_engine_on_fast_role_swap_received(uint8_t port) {
-    PolicyEngine* pe = &policy_engines[port];
-
-    if(!pe->connected || !pe->fast_role_swap_armed ||
-       (pe->current_ams == PolicyEngineAmsFastRoleSwap) ||
-       (pe->power != PolicyEnginePowerExplicitContract) ||
-       (pe->power_role != UsbPdPowerRoleSink)) {
-        return false;
-    }
-    policy_engine_set_swap_ongoing(pe, true);
-    pe->fast_role_swap_received = true;
     policy_engine_wakeup(port);
     return true;
 }
@@ -260,7 +241,7 @@ void policy_engine_set_hard_reset_in_progress(PolicyEngine* pe, bool in_progress
 }
 
 void policy_engine_update_vbus_detection(PolicyEngine* pe) {
-    bool enabled = !pe->hard_reset_in_progress && !pe->fast_role_swap_armed;
+    bool enabled = !pe->hard_reset_in_progress;
 
     type_c_connection_set_vbus_disconnect_detection(pe->port, enabled);
     if(enabled) {
@@ -268,17 +249,8 @@ void policy_engine_update_vbus_detection(PolicyEngine* pe) {
     }
 }
 
-void policy_engine_disarm_fast_role_swap(PolicyEngine* pe) {
-    if(pe->fast_role_swap_armed) {
-        pe->fast_role_swap_armed = false;
-        usb_pd_platform_set_fast_role_swap_detection(pe->port, false);
-        policy_engine_update_vbus_detection(pe);
-    }
-}
-
 void policy_engine_stop_fast_role_swap(PolicyEngine* pe) {
     pe->fast_role_swap_signal_allowed = false;
-    policy_engine_disarm_fast_role_swap(pe);
 }
 
 void policy_engine_drop_dpm_request(PolicyEngine* pe) {
@@ -476,11 +448,7 @@ uint32_t policy_engine_start_state_timer(PolicyEngine* pe, uint32_t duration_ms)
 }
 
 uint32_t policy_engine_start_sender_response_timer(PolicyEngine* pe) {
-    uint32_t duration_ms = (pe->spec_revision == UsbPdSpecRevision3) ?
-                               POLICY_ENGINE_T_SENDER_RESPONSE :
-                               POLICY_ENGINE_T_SENDER_RESPONSE_PD2;
-
-    return policy_engine_start_state_timer(pe, duration_ms);
+    return policy_engine_start_state_timer(pe, POLICY_ENGINE_T_SENDER_RESPONSE);
 }
 
 PolicyEngineState policy_engine_hard_reset_give_up_state(PolicyEngine* pe) {

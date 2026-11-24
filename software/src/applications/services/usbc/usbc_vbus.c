@@ -12,6 +12,12 @@
 #define USBC_VBUS_SRC_NEW_MIN_PERCENT     95
 #define USBC_VBUS_SINK_PD_DROP_MV         1250
 #define USBC_VBUS_SINK_DISCONNECT_PERCENT 90
+#define USBC_VBUS_SOURCE_NEW_MAX_PERCENT  105
+#define USBC_VBUS_SOURCE_VALID_MV         500
+#define USBC_VBUS_MEASUREMENT_PERCENT     103
+#define USBC_VBUS_CEILING_SAMPLES         2
+
+#define TAG "UsbcVbus"
 
 typedef struct {
     UsbcVbus* vbus;
@@ -20,6 +26,8 @@ typedef struct {
     volatile bool edge;
     bool above;
     UsbPdVbusLevel level;
+    uint32_t vbus_mv;
+    bool above_ceiling;
     uint32_t contract_mv;
     uint32_t disconnect_mv;
 } UsbcVbusPort;
@@ -31,7 +39,15 @@ struct UsbcVbus {
     void* drop_context;
     bool adc_started;
     bool level_changed;
+    uint32_t ceiling_mv;
+    uint8_t ceiling_samples;
+    bool ceiling_violated;
     UsbcVbusPort ports[UsbcPortCount];
+};
+
+static const char* const usbc_vbus_port_names[UsbcPortCount] = {
+    [UsbcPortPhone] = "Phone",
+    [UsbcPortCharger] = "Charger",
 };
 
 static const FuriHalCompId usbc_vbus_comps[UsbcPortCount] = {
@@ -53,6 +69,12 @@ static uint32_t usbc_vbus_get_disconnect_mv(uint32_t contract_mv) {
         return USBC_VBUS_SINK_DISCONNECT_MV;
     }
     return usbc_vbus_get_sink_pd_min_mv(contract_mv) * USBC_VBUS_SINK_DISCONNECT_PERCENT / 100;
+}
+
+static uint32_t usbc_vbus_get_ceiling_mv(uint32_t voltage_mv) {
+    const uint32_t source_max_mv =
+        voltage_mv * USBC_VBUS_SOURCE_NEW_MAX_PERCENT / 100 + USBC_VBUS_SOURCE_VALID_MV;
+    return source_max_mv * USBC_VBUS_MEASUREMENT_PERCENT / 100;
 }
 
 static UsbPdVbusLevel usbc_vbus_get_stable_level(const UsbcVbusPort* port) {
@@ -113,6 +135,36 @@ static bool usbc_vbus_take_edges(UsbcVbus* vbus) {
     return edge;
 }
 
+static void usbc_vbus_check_ceiling(UsbcVbus* vbus) {
+    bool above = false;
+
+    if(vbus->ceiling_mv == 0) {
+        return;
+    }
+    for(UsbcPort i = 0; i < UsbcPortCount; i++) {
+        UsbcVbusPort* port = &vbus->ports[i];
+        const bool port_above = port->vbus_mv > vbus->ceiling_mv;
+        if(port_above && !port->above_ceiling) {
+            FURI_LOG_W(
+                TAG,
+                "%s VBUS %lu mV above %lu mV",
+                usbc_vbus_port_names[i],
+                port->vbus_mv,
+                vbus->ceiling_mv);
+        }
+        port->above_ceiling = port_above;
+        above |= port_above;
+    }
+    if(!above) {
+        vbus->ceiling_samples = 0;
+        return;
+    }
+    if(vbus->ceiling_samples < USBC_VBUS_CEILING_SAMPLES) {
+        vbus->ceiling_samples++;
+        vbus->ceiling_violated = (vbus->ceiling_samples == USBC_VBUS_CEILING_SAMPLES);
+    }
+}
+
 static bool usbc_vbus_measure(UsbcVbus* vbus, bool notify) {
     bool stable = true;
 
@@ -121,6 +173,7 @@ static bool usbc_vbus_measure(UsbcVbus* vbus, bool notify) {
         port->above = furi_hal_comp_is_above(port->comp);
 
         const uint32_t vbus_mv = furi_hal_adc_read_mv(port->adc_channel) * USBC_VBUS_DIVIDER;
+        port->vbus_mv = vbus_mv;
         const UsbPdVbusLevel level = usbc_vbus_classify(port, vbus_mv);
         if(level != port->level) {
             port->level = level;
@@ -131,6 +184,7 @@ static bool usbc_vbus_measure(UsbcVbus* vbus, bool notify) {
         }
         stable &= (level == usbc_vbus_get_stable_level(port));
     }
+    usbc_vbus_check_ceiling(vbus);
     return stable;
 }
 
@@ -208,6 +262,46 @@ bool usbc_vbus_take_level_change(UsbcVbus* vbus) {
     return level_changed;
 }
 
+void usbc_vbus_set_ceiling_voltage(UsbcVbus* vbus, uint32_t voltage_mv) {
+    const uint32_t ceiling_mv = usbc_vbus_get_ceiling_mv(voltage_mv);
+
+    if(vbus->ceiling_mv == ceiling_mv) {
+        return;
+    }
+    vbus->ceiling_mv = ceiling_mv;
+    vbus->ceiling_samples = 0;
+    vbus->ceiling_violated = false;
+    usbc_vbus_set_adc_started(vbus, true);
+    usbc_vbus_measure(vbus, true);
+}
+
+void usbc_vbus_clear_ceiling(UsbcVbus* vbus) {
+    vbus->ceiling_mv = 0;
+    vbus->ceiling_samples = 0;
+    vbus->ceiling_violated = false;
+    for(UsbcPort i = 0; i < UsbcPortCount; i++) {
+        vbus->ports[i].above_ceiling = false;
+    }
+}
+
+bool usbc_vbus_is_within_ceiling(UsbcVbus* vbus) {
+    if(vbus->ceiling_mv == 0) {
+        return false;
+    }
+    for(UsbcPort i = 0; i < UsbcPortCount; i++) {
+        if(vbus->ports[i].above_ceiling) {
+            return false;
+        }
+    }
+    return true;
+}
+
+bool usbc_vbus_take_ceiling_violation(UsbcVbus* vbus) {
+    const bool ceiling_violated = vbus->ceiling_violated;
+    vbus->ceiling_violated = false;
+    return ceiling_violated;
+}
+
 uint32_t usbc_vbus_process(UsbcVbus* vbus) {
     const bool edge = usbc_vbus_take_edges(vbus);
     if(!edge && !vbus->adc_started) {
@@ -215,7 +309,11 @@ uint32_t usbc_vbus_process(UsbcVbus* vbus) {
     }
 
     usbc_vbus_set_adc_started(vbus, true);
-    if(usbc_vbus_measure(vbus, true)) {
+    const bool stable = usbc_vbus_measure(vbus, true);
+    if(vbus->ceiling_mv != 0) {
+        return USBC_VBUS_POLL_MS;
+    }
+    if(stable) {
         usbc_vbus_set_adc_started(vbus, false);
         return UINT32_MAX;
     }

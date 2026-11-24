@@ -155,13 +155,6 @@ static void common_on_sink_capabilities(PolicyEngine* pe) {
     UsbPdEvent event;
 
     policy_engine_read_capabilities(pe, &sink_capabilities);
-    if(pe->config.fast_role_swap_detect && (pe->power_role == UsbPdPowerRoleSink) &&
-       (pe->power == PolicyEnginePowerExplicitContract) &&
-       policy_engine_sink_capabilities_request_fast_role_swap(&sink_capabilities)) {
-        pe->fast_role_swap_armed = true;
-        usb_pd_platform_set_fast_role_swap_detection(pe->port, true);
-        policy_engine_update_vbus_detection(pe);
-    }
     memset(&event, 0, sizeof(event));
     event.type = UsbPdEventTypeSinkCapabilities;
     event.capabilities = &sink_capabilities;

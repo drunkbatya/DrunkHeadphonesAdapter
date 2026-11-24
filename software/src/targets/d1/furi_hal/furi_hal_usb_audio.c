@@ -21,6 +21,7 @@
 #define FURI_HAL_USB_AUDIO_FEEDBACK_LEVEL_TARGET_MS        2
 #define FURI_HAL_USB_AUDIO_FEEDBACK_LEVEL_CORRECTION_SHIFT 10
 #define FURI_HAL_USB_AUDIO_FEEDBACK_DEVIATION_MAX          (1 << FURI_HAL_USB_AUDIO_FEEDBACK_FRACTION_BITS)
+#define FURI_HAL_USB_AUDIO_FRAME_NUMBER_MASK               0x7FF
 
 _Static_assert(
     FURI_HAL_USB_AUDIO_FEEDBACK_STEP_FRAMES* FURI_HAL_USB_AUDIO_FEEDBACK_STEP_COUNT ==
@@ -75,6 +76,10 @@ typedef struct {
     size_t step_count;
     size_t step_frame_count;
     uint32_t fifo_level_sum;
+    bool frame_number_valid;
+    uint32_t frame_number;
+    uint16_t fifo_write_index;
+    FuriHalUsbAudioSpeakerStats stats;
 } FuriHalUsbAudioFeedback;
 
 typedef struct {
@@ -98,6 +103,11 @@ typedef struct {
 } FuriHalUsbAudio;
 
 static FuriHalUsbAudio usb_audio = {0};
+
+static uint16_t furi_hal_usb_audio_get_speaker_fifo_count(void) {
+    const tu_fifo_t* speaker_fifo = tud_audio_get_ep_out_ff();
+    return tu_ff_overflow_count(speaker_fifo->depth, speaker_fifo->wr_idx, speaker_fifo->rd_idx);
+}
 
 static void furi_hal_usb_audio_check_sample_rates(
     const FuriHalUsbAudioStreamConfig* config,
@@ -274,6 +284,10 @@ size_t furi_hal_usb_audio_speaker_read(void* data, size_t size) {
     if(!usb_audio.speaker_readable) {
         return 0;
     }
+    FuriHalUsbAudioSpeakerStats* stats = &usb_audio.feedback.stats;
+    const uint16_t count = furi_hal_usb_audio_get_speaker_fifo_count();
+    stats->fifo_read_count_min = MIN(stats->fifo_read_count_min, count);
+    stats->fifo_read_count_max = MAX(stats->fifo_read_count_max, count);
     return tud_audio_read(data, (uint16_t)size);
 }
 
@@ -737,6 +751,59 @@ static size_t
     }
 }
 
+static void furi_hal_usb_audio_feedback_stats_reset(FuriHalUsbAudioSpeakerStats* stats) {
+    stats->feedback_min = UINT32_MAX;
+    stats->feedback_max = 0;
+    stats->feedback_resets = 0;
+    stats->sof_missed = 0;
+    stats->packet_min = UINT16_MAX;
+    stats->packet_max = 0;
+    stats->fifo_read_count_min = UINT16_MAX;
+    stats->fifo_read_count_max = 0;
+    stats->fifo_sof_count_min = UINT16_MAX;
+    stats->fifo_sof_count_max = 0;
+}
+
+void furi_hal_usb_audio_speaker_take_stats(FuriHalUsbAudioSpeakerStats* stats) {
+    furi_check(stats);
+
+    FURI_CRITICAL_ENTER();
+    *stats = usb_audio.feedback.stats;
+    furi_hal_usb_audio_feedback_stats_reset(&usb_audio.feedback.stats);
+    FURI_CRITICAL_EXIT();
+}
+
+static void furi_hal_usb_audio_feedback_set(
+    FuriHalUsbAudioFeedback* feedback,
+    uint8_t func_id,
+    uint32_t value) {
+    feedback->stats.feedback_min = MIN(feedback->stats.feedback_min, value);
+    feedback->stats.feedback_max = MAX(feedback->stats.feedback_max, value);
+    tud_audio_n_fb_set(func_id, value);
+}
+
+static void furi_hal_usb_audio_feedback_count_sof(
+    FuriHalUsbAudioFeedback* feedback,
+    uint32_t frame_number) {
+    const tu_fifo_t* speaker_fifo = tud_audio_get_ep_out_ff();
+    const uint16_t write_index = speaker_fifo->wr_idx;
+    if(feedback->frame_number_valid) {
+        const uint32_t frame_delta = (frame_number - feedback->frame_number) &
+                                     FURI_HAL_USB_AUDIO_FRAME_NUMBER_MASK;
+        if(frame_delta > 1) {
+            feedback->stats.sof_missed += frame_delta - 1;
+        }
+        const uint16_t packet_size =
+            (uint16_t)((write_index + 2 * speaker_fifo->depth - feedback->fifo_write_index) %
+                       (2 * speaker_fifo->depth));
+        feedback->stats.packet_min = MIN(feedback->stats.packet_min, packet_size);
+        feedback->stats.packet_max = MAX(feedback->stats.packet_max, packet_size);
+    }
+    feedback->fifo_write_index = write_index;
+    feedback->frame_number = frame_number;
+    feedback->frame_number_valid = true;
+}
+
 static void furi_hal_usb_audio_feedback_reset(FuriHalUsbAudioFeedback* feedback) {
     feedback->reader_generation = usb_audio.speaker_reader_generation;
     feedback->step_index = 0;
@@ -802,7 +869,6 @@ void tud_audio_feedback_interval_isr(
     uint8_t func_id,
     uint32_t frame_number,
     uint8_t interval_shift) {
-    UNUSED(frame_number);
     UNUSED(interval_shift);
 
     FuriHalUsbAudioFeedback* feedback = &usb_audio.feedback;
@@ -812,9 +878,14 @@ void tud_audio_feedback_interval_isr(
     if(!usb_audio.speaker_readable ||
        feedback->reader_generation != usb_audio.speaker_reader_generation) {
         furi_hal_usb_audio_feedback_reset(feedback);
+        feedback->frame_number_valid = false;
         tud_audio_n_fb_set(func_id, nominal);
         return;
     }
+    furi_hal_usb_audio_feedback_count_sof(feedback, frame_number);
+    const uint16_t sof_count = furi_hal_usb_audio_get_speaker_fifo_count();
+    feedback->stats.fifo_sof_count_min = MIN(feedback->stats.fifo_sof_count_min, sof_count);
+    feedback->stats.fifo_sof_count_max = MAX(feedback->stats.fifo_sof_count_max, sof_count);
 
     const uint32_t played_frames =
         usb_audio.speaker_played_callback(usb_audio.speaker_played_context);
@@ -828,9 +899,10 @@ void tud_audio_feedback_interval_isr(
     if(furi_hal_usb_audio_feedback_step(feedback, played_frames, nominal, &value)) {
         feedback->step_frame_count = 0;
         feedback->fifo_level_sum = 0;
-        tud_audio_n_fb_set(func_id, value);
+        furi_hal_usb_audio_feedback_set(feedback, func_id, value);
     } else {
         furi_hal_usb_audio_feedback_reset(feedback);
-        tud_audio_n_fb_set(func_id, nominal);
+        feedback->stats.feedback_resets++;
+        furi_hal_usb_audio_feedback_set(feedback, func_id, nominal);
     }
 }

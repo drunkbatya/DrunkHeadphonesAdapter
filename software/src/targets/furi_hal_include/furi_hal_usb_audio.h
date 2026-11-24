@@ -82,6 +82,21 @@ void furi_hal_usb_audio_speaker_attach(
 
 void furi_hal_usb_audio_speaker_detach(void);
 
+typedef struct {
+    uint32_t feedback_min;
+    uint32_t feedback_max;
+    uint32_t feedback_resets;
+    uint32_t sof_missed;
+    uint16_t packet_min;
+    uint16_t packet_max;
+    uint16_t fifo_read_count_min;
+    uint16_t fifo_read_count_max;
+    uint16_t fifo_sof_count_min;
+    uint16_t fifo_sof_count_max;
+} FuriHalUsbAudioSpeakerStats;
+
+void furi_hal_usb_audio_speaker_take_stats(FuriHalUsbAudioSpeakerStats* stats);
+
 size_t furi_hal_usb_audio_speaker_get_available(void);
 
 size_t furi_hal_usb_audio_speaker_read(void* data, size_t size);

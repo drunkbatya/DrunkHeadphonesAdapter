@@ -141,7 +141,3 @@ void usb_pd_on_hard_reset_sent(uint8_t port) {
 void usb_pd_on_transmit_completed(uint8_t port, bool sent) {
     protocol_layer_on_transmit_completed(port, sent);
 }
-
-bool usb_pd_on_fast_role_swap_received(uint8_t port) {
-    return policy_engine_on_fast_role_swap_received(port);
-}

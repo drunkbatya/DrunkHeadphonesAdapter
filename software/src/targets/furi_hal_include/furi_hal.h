@@ -20,6 +20,7 @@
 #include <furi_hal_serial_control.h>
 #include <furi_hal_usb.h>
 #include <furi_hal_usbpd.h>
+#include <furi_hal_watchdog.h>
 
 #ifdef __cplusplus
 extern "C" {

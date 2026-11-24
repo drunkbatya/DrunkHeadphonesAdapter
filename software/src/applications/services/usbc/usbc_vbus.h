@@ -29,6 +29,14 @@ void usbc_vbus_set_contract_voltage(UsbcVbus* vbus, UsbcPort port, uint32_t volt
 
 bool usbc_vbus_take_level_change(UsbcVbus* vbus);
 
+void usbc_vbus_set_ceiling_voltage(UsbcVbus* vbus, uint32_t voltage_mv);
+
+void usbc_vbus_clear_ceiling(UsbcVbus* vbus);
+
+bool usbc_vbus_is_within_ceiling(UsbcVbus* vbus);
+
+bool usbc_vbus_take_ceiling_violation(UsbcVbus* vbus);
+
 uint32_t usbc_vbus_process(UsbcVbus* vbus);
 
 #ifdef __cplusplus

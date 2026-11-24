@@ -1,13 +1,6 @@
 #include "policy_engine/policy_engine_i.h"
 
-#define POLICY_ENGINE_FIXED_PDO_DUAL_ROLE_POWER (1U << 29)
-
 void policy_engine_sink_handle_pending_requests(PolicyEngine* pe, PolicyEngineRxEvent* event) {
-    if(pe->fast_role_swap_received) {
-        pe->state = PolicyEngineStateFastRoleSwapSinkToSourceSend;
-        pe->fast_role_swap_received = false;
-        policy_engine_drop_dpm_request(pe);
-    }
     policy_engine_role_take_hard_reset_request(pe, event);
 }
 
@@ -140,12 +133,6 @@ static void sink_on_explicit_contract(PolicyEngine* pe) {
     policy_engine_timer_stop(&pe->pps_timer);
     if(pe->flags.requested_pps == 1U) {
         policy_engine_timer_start(pe, &pe->pps_timer, POLICY_ENGINE_T_PPS_REQUEST);
-    }
-    if(pe->config.fast_role_swap_detect && policy_engine_is_dual_role(pe) &&
-       !pe->fast_role_swap_queried && (pe->source_capabilities.count != 0u) &&
-       ((pe->source_capabilities.objects[0] & POLICY_ENGINE_FIXED_PDO_DUAL_ROLE_POWER) != 0u)) {
-        pe->fast_role_swap_queried = true;
-        pe->fast_role_swap_query_pending = true;
     }
     memset(&event, 0, sizeof(event));
     event.type = UsbPdEventTypeContract;
@@ -376,15 +363,11 @@ static uint32_t
 }
 
 static uint32_t sink_state_power_role_swap_source_on(PolicyEngine* pe) {
-    bool fast_role_swap = (pe->current_ams == PolicyEngineAmsFastRoleSwap);
-
     if(pe->flags.vbus_on_requested == 0U) {
         pe->flags.vbus_on_requested = 1U;
         policy_engine_set_power_state(pe, PolicyEnginePowerTransition);
         type_c_connection_swap_power_role(pe->port, UsbPdPowerRoleSource);
-        if(!fast_role_swap) {
-            policy_engine_set_power(pe, UsbPdPowerSourceOn);
-        }
+        policy_engine_set_power(pe, UsbPdPowerSourceOn);
         (void)policy_engine_start_state_timer(pe, POLICY_ENGINE_T_NEW_SOURCE);
     }
     if(!policy_engine_vbus_is(pe, UsbPdVbusLevelPresent)) {
@@ -426,11 +409,6 @@ static uint32_t sink_on_power_role_swap_accepted(PolicyEngine* pe, PolicyEngineR
     return next_call_ms;
 }
 
-static PolicyEngineState sink_power_role_swap_refused_state(PolicyEngine* pe) {
-    return (pe->current_ams == PolicyEngineAmsFastRoleSwap) ? PolicyEngineStateErrorRecovery :
-                                                              PolicyEngineStateReady;
-}
-
 static uint32_t
     sink_state_power_role_swap_wait_response(PolicyEngine* pe, PolicyEngineRxEvent* event) {
     uint32_t next_call_ms = POLICY_ENGINE_NEXT_CALL_DEFAULT;
@@ -442,18 +420,18 @@ static uint32_t
             break;
 
         case UsbPdControlMessageReject:
-            policy_engine_consume_message(pe, event, sink_power_role_swap_refused_state(pe));
+            policy_engine_consume_message(pe, event, PolicyEngineStateReady);
             policy_engine_answer_request(
                 pe, UsbPdRequestPowerRoleSwap, UsbPdRequestResultRejected);
             break;
 
         case UsbPdControlMessageWait:
-            policy_engine_consume_message(pe, event, sink_power_role_swap_refused_state(pe));
+            policy_engine_consume_message(pe, event, PolicyEngineStateReady);
             policy_engine_answer_request(pe, UsbPdRequestPowerRoleSwap, UsbPdRequestResultWait);
             break;
 
         case UsbPdControlMessageNotSupported:
-            policy_engine_consume_message(pe, event, sink_power_role_swap_refused_state(pe));
+            policy_engine_consume_message(pe, event, PolicyEngineStateReady);
             policy_engine_answer_request(
                 pe, UsbPdRequestPowerRoleSwap, UsbPdRequestResultNotSupported);
             break;
@@ -465,7 +443,7 @@ static uint32_t
 
     if(policy_engine_timer_is_expired(pe, &pe->state_timer)) {
         policy_engine_answer_request(pe, UsbPdRequestPowerRoleSwap, UsbPdRequestResultNoResponse);
-        pe->state = sink_power_role_swap_refused_state(pe);
+        pe->state = PolicyEngineStateReady;
         next_call_ms = POLICY_ENGINE_NEXT_CALL_NOW;
     }
     return next_call_ms;
@@ -538,18 +516,6 @@ static uint32_t
     return next_call_ms;
 }
 
-static uint32_t sink_state_fast_role_swap_send(PolicyEngine* pe) {
-    pe->current_ams = PolicyEngineAmsFastRoleSwap;
-    if(policy_engine_send_control_message(
-           pe,
-           UsbPdControlMessageFrSwap,
-           PolicyEngineStatePowerRoleSwapSinkToSourceWaitResponse,
-           POLICY_ENGINE_MESSAGE_WITHIN_AMS) != ProtocolLayerTransmitResultAcknowledged) {
-        return POLICY_ENGINE_NEXT_CALL_DEFAULT;
-    }
-    return policy_engine_start_sender_response_timer(pe);
-}
-
 uint32_t policy_engine_sink_run_state(PolicyEngine* pe, PolicyEngineRxEvent* event) {
     uint32_t next_call_ms = POLICY_ENGINE_NEXT_CALL_DEFAULT;
 
@@ -603,8 +569,6 @@ uint32_t policy_engine_sink_run_state(PolicyEngine* pe, PolicyEngineRxEvent* eve
         return sink_state_get_pps_status(pe);
     case PolicyEngineStateSinkGetPpsStatusWaitResponse:
         return sink_state_get_pps_status_wait_response(pe, event);
-    case PolicyEngineStateFastRoleSwapSinkToSourceSend:
-        return sink_state_fast_role_swap_send(pe);
     default:
         break;
     }
@@ -630,10 +594,6 @@ uint32_t policy_engine_sink_ready(PolicyEngine* pe, PolicyEngineRxEvent* event) 
         pe->state = PolicyEngineStateSinkSelectCapability;
         next_call_ms = POLICY_ENGINE_NEXT_CALL_NOW;
         pe->flags.request_first_of_ams = 1U;
-    } else if(pe->fast_role_swap_query_pending && sink_can_initiate(pe)) {
-        pe->fast_role_swap_query_pending = false;
-        pe->state = PolicyEngineStateGetSinkCap;
-        next_call_ms = POLICY_ENGINE_NEXT_CALL_NOW;
     } else if((pe->dpm_request != PolicyEngineStateDisabled) && sink_can_initiate(pe)) {
         policy_engine_start_dpm_request(pe);
         if(pe->state == PolicyEngineStateSinkSelectCapability) {

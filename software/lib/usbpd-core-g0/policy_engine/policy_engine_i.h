@@ -84,7 +84,6 @@ typedef enum {
     PolicyEngineStateVconnSwapWaitResponse = 0xA3U,
     PolicyEngineStateVconnSwapForceVconn = 0xA4U,
     PolicyEngineStateFastRoleSwapSourceToSinkEvaluate = 0xA6U,
-    PolicyEngineStateFastRoleSwapSinkToSourceSend = 0xA7U,
     PolicyEngineStateGiveSourceInfo = 0xB1U,
 } PolicyEngineState;
 
@@ -175,14 +174,10 @@ typedef struct {
     PolicyEngineFlags flags;
     bool pps_contract;
     volatile bool hard_reset_pending;
-    volatile bool fast_role_swap_received;
     volatile bool fast_role_swap_signalled;
     volatile bool fast_role_swap_signal_allowed;
-    volatile bool fast_role_swap_armed;
     volatile bool power_ready;
     uint32_t fast_role_swap_signalled_ms;
-    bool fast_role_swap_query_pending;
-    bool fast_role_swap_queried;
     bool hard_reset_by_partner;
     bool request_pending;
     UsbPdRequest active_request;
@@ -229,7 +224,6 @@ void policy_engine_set_vconn(PolicyEngine* pe, bool enabled);
 void policy_engine_set_swap_ongoing(PolicyEngine* pe, bool ongoing);
 void policy_engine_set_hard_reset_in_progress(PolicyEngine* pe, bool in_progress);
 void policy_engine_update_vbus_detection(PolicyEngine* pe);
-void policy_engine_disarm_fast_role_swap(PolicyEngine* pe);
 void policy_engine_stop_fast_role_swap(PolicyEngine* pe);
 void policy_engine_drop_dpm_request(PolicyEngine* pe);
 void policy_engine_discard_requests(PolicyEngine* pe);

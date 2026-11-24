@@ -51,7 +51,6 @@ void usb_pd_platform_set_sink_tx_ok(uint8_t port, bool ok);
 bool usb_pd_platform_is_sink_tx_ok(uint8_t port);
 
 void usb_pd_platform_send_fast_role_swap(uint8_t port);
-void usb_pd_platform_set_fast_role_swap_detection(uint8_t port, bool enabled);
 
 void usb_pd_on_cc_changed(uint8_t port);
 void usb_pd_on_vbus_changed(uint8_t port);
@@ -59,6 +58,5 @@ void usb_pd_on_message_received(uint8_t port);
 void usb_pd_on_hard_reset_received(uint8_t port);
 void usb_pd_on_hard_reset_sent(uint8_t port);
 void usb_pd_on_transmit_completed(uint8_t port, bool sent);
-bool usb_pd_on_fast_role_swap_received(uint8_t port);
 
 #endif

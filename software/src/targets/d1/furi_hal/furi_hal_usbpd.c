@@ -11,7 +11,6 @@
 #include <furi.h>
 
 #define FURI_HAL_USBPD_DMA_INSTANCE     (DMA1)
-#define FURI_HAL_USBPD_FRS_CONFIRM_US   150
 #define FURI_HAL_USBPD_SET_RD_SETTLE_US 1000
 #define FURI_HAL_USBPD_ATTACHED_INTERRUPT_MASK                                                 \
     (UCPD_IMR_TXMSGDISCIE | UCPD_IMR_TXMSGSENTIE | UCPD_IMR_HRSTDISCIE | UCPD_IMR_HRSTSENTIE | \
@@ -255,14 +254,6 @@ static void furi_hal_usbpd_isr(void* context) {
         LL_UCPD_ClearFlag_TypeCEventCC1(ucpd);
         LL_UCPD_ClearFlag_TypeCEventCC2(ucpd);
         furi_hal_usbpd_notify(id, FuriHalUsbPdEventCcChanged);
-        return;
-    }
-    if(status & UCPD_SR_FRSEVT) {
-        LL_UCPD_ClearFlag_FRS(ucpd);
-        furi_hal_cortex_delay_us(FURI_HAL_USBPD_FRS_CONFIRM_US);
-        if(ucpd->SR & (UCPD_SR_TYPEC_VSTATE_CC1 | UCPD_SR_TYPEC_VSTATE_CC2)) {
-            furi_hal_usbpd_notify(id, FuriHalUsbPdEventFastRoleSwapReceived);
-        }
     }
 }
 
@@ -370,7 +361,6 @@ void furi_hal_usbpd_set_cc_open(FuriHalUsbPdId id) {
     LL_UCPD_SetccEnable(ucpd, LL_UCPD_CCENABLE_NONE);
     furi_hal_usbpd_strobe(id);
     LL_UCPD_RxDisable(ucpd);
-    LL_UCPD_FRSDetectionDisable(ucpd);
 }
 
 void furi_hal_usbpd_get_cc(FuriHalUsbPdId id, FuriHalUsbPdCcState* cc1, FuriHalUsbPdCcState* cc2) {
@@ -444,7 +434,6 @@ void furi_hal_usbpd_stop_communication(FuriHalUsbPdId id) {
 
     port->communicating = false;
     furi_hal_usbpd_apply_cc_enable(id);
-    LL_UCPD_FRSDetectionDisable(ucpd);
     if(config->gpio_frstx) {
         furi_hal_gpio_write(config->gpio_frstx, false);
         furi_hal_gpio_init_simple(config->gpio_frstx, GpioModeOutputPushPull);
@@ -540,19 +529,4 @@ void furi_hal_usbpd_send_fast_role_swap(FuriHalUsbPdId id) {
     furi_check(id < FuriHalUsbPdIdMax);
     furi_check(furi_hal_usbpd_config[id].gpio_frstx);
     LL_UCPD_SignalFRSTX(furi_hal_usbpd_config[id].ucpd);
-}
-
-void furi_hal_usbpd_set_fast_role_swap_detection(FuriHalUsbPdId id, bool enabled) {
-    furi_check(id < FuriHalUsbPdIdMax);
-    UCPD_TypeDef* ucpd = furi_hal_usbpd_config[id].ucpd;
-
-    FURI_CRITICAL_ENTER();
-    if(enabled) {
-        LL_UCPD_FRSDetectionEnable(ucpd);
-        SET_BIT(ucpd->IMR, UCPD_IMR_FRSEVTIE);
-    } else {
-        CLEAR_BIT(ucpd->IMR, UCPD_IMR_FRSEVTIE);
-        LL_UCPD_FRSDetectionDisable(ucpd);
-    }
-    FURI_CRITICAL_EXIT();
 }

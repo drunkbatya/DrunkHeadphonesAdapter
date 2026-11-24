@@ -42,7 +42,6 @@ typedef enum {
     FuriHalUsbPdEventHardResetSent,
     FuriHalUsbPdEventTransmitSent,
     FuriHalUsbPdEventTransmitFailed,
-    FuriHalUsbPdEventFastRoleSwapReceived,
 } FuriHalUsbPdEvent;
 
 typedef void (*FuriHalUsbPdCallback)(FuriHalUsbPdEvent event, void* context);
@@ -84,8 +83,6 @@ void furi_hal_usbpd_set_sink_tx_ok(FuriHalUsbPdId id, bool ok);
 bool furi_hal_usbpd_is_sink_tx_ok(FuriHalUsbPdId id);
 
 void furi_hal_usbpd_send_fast_role_swap(FuriHalUsbPdId id);
-
-void furi_hal_usbpd_set_fast_role_swap_detection(FuriHalUsbPdId id, bool enabled);
 
 #ifdef __cplusplus
 }

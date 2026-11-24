@@ -15,6 +15,7 @@ void furi_hal_debug_enable(void) {
     // Low power mode debug
     LL_DBGMCU_EnableDBGStopMode();
     LL_DBGMCU_EnableDBGStandbyMode();
+    LL_DBGMCU_APB1_GRP1_FreezePeriph(LL_DBGMCU_APB1_GRP1_IWDG_STOP);
     // SWD GPIO
     furi_hal_gpio_init_ex(
         &gpio_swdio, GpioModeAltFunctionPushPull, GpioPullUp, GpioSpeedVeryHigh, GpioAltFn0SWD);
@@ -29,6 +30,7 @@ void furi_hal_debug_disable(void) {
     }
     LL_DBGMCU_DisableDBGStopMode();
     LL_DBGMCU_DisableDBGStandbyMode();
+    LL_DBGMCU_APB1_GRP1_UnFreezePeriph(LL_DBGMCU_APB1_GRP1_IWDG_STOP);
     furi_hal_bus_disable(FuriHalBusDBGMCU);
     // SWD GPIO
     furi_hal_gpio_init_simple(&gpio_swdio, GpioModeAnalog);

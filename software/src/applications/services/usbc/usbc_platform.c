@@ -64,9 +64,6 @@ static void usbc_platform_usbpd_callback(FuriHalUsbPdEvent event, void* context)
     case FuriHalUsbPdEventTransmitFailed:
         usb_pd_on_transmit_completed(port, false);
         break;
-    case FuriHalUsbPdEventFastRoleSwapReceived:
-        furi_check(!usb_pd_on_fast_role_swap_received(port));
-        break;
     }
 }
 
@@ -209,8 +206,4 @@ bool usb_pd_platform_is_sink_tx_ok(uint8_t port) {
 
 void usb_pd_platform_send_fast_role_swap(uint8_t port) {
     furi_hal_usbpd_send_fast_role_swap(usbc_platform_get_id(port));
-}
-
-void usb_pd_platform_set_fast_role_swap_detection(uint8_t port, bool enabled) {
-    furi_hal_usbpd_set_fast_role_swap_detection(usbc_platform_get_id(port), enabled);
 }

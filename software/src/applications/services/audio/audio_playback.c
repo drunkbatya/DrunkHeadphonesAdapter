@@ -67,6 +67,7 @@ struct AudioPlayback {
     uint32_t played_frames;
     uint32_t transferred_halves;
     bool priming;
+    AudioPlaybackStats stats;
     uint8_t usb_samples[AUDIO_PLAYBACK_USB_HALF_SIZE_MAX];
     uint16_t dma_samples[AUDIO_PLAYBACK_HALF_COUNT * AUDIO_PLAYBACK_DMA_HALF_LENGTH_MAX];
 };
@@ -100,8 +101,18 @@ static void audio_playback_repack_24bit(const AudioPlayback* playback, uint16_t*
     }
 }
 
+static void audio_playback_stats_reset(AudioPlayback* playback) {
+    playback->stats.underruns = 0;
+    playback->stats.fifo_min = SIZE_MAX;
+    playback->stats.fifo_max = 0;
+    playback->stats.half_size = playback->usb_half_size;
+}
+
 static void audio_playback_fill(AudioPlayback* playback, uint16_t* dma_half) {
     const size_t available = furi_hal_usb_audio_speaker_get_available();
+
+    playback->stats.fifo_min = MIN(playback->stats.fifo_min, available);
+    playback->stats.fifo_max = MAX(playback->stats.fifo_max, available);
 
     if(playback->priming && available >= AUDIO_PLAYBACK_PRIME_HALVES * playback->usb_half_size) {
         playback->priming = false;
@@ -109,6 +120,7 @@ static void audio_playback_fill(AudioPlayback* playback, uint16_t* dma_half) {
 
     if(!playback->priming && available < playback->usb_half_size) {
         playback->priming = true;
+        playback->stats.underruns++;
     }
 
     if(playback->priming) {
@@ -191,6 +203,7 @@ void audio_playback_start(
     playback->played_frames = 0;
     playback->transferred_halves = 0;
     playback->priming = true;
+    audio_playback_stats_reset(playback);
     memset(playback->dma_samples, 0, sizeof(playback->dma_samples));
 
     furi_hal_i2s_start(
@@ -231,4 +244,14 @@ void audio_playback_restart(AudioPlayback* playback) {
 bool audio_playback_is_running(const AudioPlayback* playback) {
     furi_check(playback);
     return playback->running;
+}
+
+void audio_playback_take_stats(AudioPlayback* playback, AudioPlaybackStats* stats) {
+    furi_check(playback);
+    furi_check(stats);
+
+    FURI_CRITICAL_ENTER();
+    *stats = playback->stats;
+    audio_playback_stats_reset(playback);
+    FURI_CRITICAL_EXIT();
 }
