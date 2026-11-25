@@ -39,8 +39,8 @@
     ((int16_t)(((adc_volume) - ES8327_ADC_VOLUME_0DB) * FURI_HAL_USB_AUDIO_VOLUME_PER_DB / \
                ES8327_ADC_VOLUME_STEPS_PER_DB))
 
-static const uint32_t audio_speaker_sample_rates[] = {44100, 48000, 88200, 96000};
-static const uint32_t audio_mic_sample_rates[] = {44100, 48000};
+static const uint32_t audio_speaker_sample_rates[] = {48000};
+static const uint32_t audio_mic_sample_rates[] = {48000};
 
 static const FuriHalUsbAudioStreamConfig audio_speaker_usb_config = {
     .sample_rates = audio_speaker_sample_rates,

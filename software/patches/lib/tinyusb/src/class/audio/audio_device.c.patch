@@ -74,3 +74,13 @@
      audio->ep_out = 0;// Necessary?
  
      // Close corresponding feedback EP
+@@ -1117,7 +1119,9 @@
+     usbd_edpt_close(rhport, audio->ep_fb);
+     #endif
+     audio->ep_fb = 0;
++    uint32_t const feedback_value = audio->feedback.value;
+     tu_memclr(&audio->feedback, sizeof(audio->feedback));
++    audio->feedback.value = feedback_value;
+   #endif
+   }
+ #endif// CFG_TUD_AUDIO_ENABLE_EP_OUT
