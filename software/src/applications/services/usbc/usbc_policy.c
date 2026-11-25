@@ -74,6 +74,7 @@ typedef struct {
     bool request_accepted;
     bool power_role_swap_refused;
     uint32_t power_role_swap_retry_tick;
+    uint32_t data_role_swap_retry_tick;
     bool fast_role_swap;
 } UsbcPolicyPhone;
 
@@ -844,6 +845,26 @@ static void
     }
 }
 
+static void
+    usbc_policy_on_phone_data_role_swap_answered(UsbcPolicy* policy, UsbPdRequestResult result) {
+    FURI_LOG_I(TAG, "Phone data role swap %s", usbc_policy_request_result_names[result]);
+    switch(result) {
+    case UsbPdRequestResultAccepted:
+    case UsbPdRequestResultRejected:
+    case UsbPdRequestResultNotSupported:
+        break;
+    case UsbPdRequestResultWait:
+    case UsbPdRequestResultNoResponse:
+        policy->phone.data_role_swap_retry_tick =
+            furi_get_tick() + furi_ms_to_ticks(USBC_POLICY_AMS_REPEAT_MS);
+        policy->pending_actions |= UsbcPolicyActionPhoneDataRoleSwap;
+        break;
+    default:
+        policy->pending_actions |= UsbcPolicyActionPhoneDataRoleSwap;
+        break;
+    }
+}
+
 static void usbc_policy_on_request_answered(
     UsbcPolicy* policy,
     UsbcPort port,
@@ -853,8 +874,7 @@ static void usbc_policy_on_request_answered(
         return;
     }
     if((port == UsbcPortPhone) && (answer->request == UsbPdRequestDataRoleSwap)) {
-        FURI_LOG_I(
-            TAG, "Phone data role swap %s", usbc_policy_request_result_names[answer->result]);
+        usbc_policy_on_phone_data_role_swap_answered(policy, answer->result);
         return;
     }
     if((port != UsbcPortCharger) || (answer->request != UsbPdRequestPower)) {
@@ -1197,6 +1217,19 @@ static bool usbc_policy_run_phone_power_role_swap(UsbcPolicy* policy) {
     return usb_pd_request(UsbcPortPhone, UsbPdRequestPowerRoleSwap);
 }
 
+static bool usbc_policy_run_phone_data_role_swap(UsbcPolicy* policy) {
+    const UsbcPolicyPort* phone = &policy->ports[UsbcPortPhone];
+
+    if(!phone->attached || (phone->contract.rdo == 0) ||
+       (phone->data_role == usbc_policy_get_phone_target_data_role(policy))) {
+        return true;
+    }
+    if((int32_t)(furi_get_tick() - policy->phone.data_role_swap_retry_tick) < 0) {
+        return false;
+    }
+    return usb_pd_request(UsbcPortPhone, UsbPdRequestDataRoleSwap);
+}
+
 static bool usbc_policy_run_action(UsbcPolicy* policy, UsbcPolicyAction action) {
     switch(action) {
     case UsbcPolicyActionChargerPower:
@@ -1208,11 +1241,7 @@ static bool usbc_policy_run_action(UsbcPolicy* policy, UsbcPolicyAction action) 
         return !usbc_policy_is_phone_sink(policy) ||
                usb_pd_send_source_capabilities(UsbcPortPhone);
     case UsbcPolicyActionPhoneDataRoleSwap:
-        return !policy->ports[UsbcPortPhone].attached ||
-               (policy->ports[UsbcPortPhone].contract.rdo == 0) ||
-               (policy->ports[UsbcPortPhone].data_role ==
-                usbc_policy_get_phone_target_data_role(policy)) ||
-               usb_pd_request(UsbcPortPhone, UsbPdRequestDataRoleSwap);
+        return usbc_policy_run_phone_data_role_swap(policy);
     case UsbcPolicyActionPhoneSinkCapabilities:
         return !usbc_policy_is_phone_sink(policy) ||
                usb_pd_request(UsbcPortPhone, UsbPdRequestSinkCapabilities);

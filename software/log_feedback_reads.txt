@@ -1,0 +1,357 @@
+ack 0x5FE680-0x60999A, feedback resets 0, SOF missed 0
+533880 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 1752-1752 B, SOF 1752-1752 B, packet 576-576 B, half 576 B, underruns 0, feedback 0x5FE680-0x5FE6C0, feedback resets 0, S0 ␛[0;32m[I][FuriHalInterrupt] ␛[0mInit OK
+2 ␛[0;32m[I][FuriHalPower] ␛[0mInit OK
+4 ␛[0;32m[I][FuriHalFlash] ␛[0mInit OK
+5 ␛[0;32m[I][FuriHalI2c] ␛[0mInit OK
+7 ␛[0;32m[I][FuriHalI2s] ␛[0mInit OK
+9 ␛[0;32m[I][FuriHalAdc] ␛[0mInit OK
+10 ␛[0;32m[I][FuriHalComp] ␛[0mInit OK
+13 ␛[0;32m[I][FuriHalUsb] ␛[0mInit OK
+14 ␛[0;32m[I][HeadphonesAdapter] ␛[0mStarting services
+17 ␛[0;34m[D][HeadphonesAdapter] ␛[0mStarting service SettingsSrv
+20 ␛[0;32m[I][SettingsStore] ␛[0mNo record at 0x0803F000, magic 0xFFFFFFFF
+23 ␛[0;32m[I][SettingsStore] ␛[0mDefaults
+25 ␛[0;34m[D][HeadphonesAdapter] ␛[0mStarting service UsbcSrv
+36 ␛[0;32m[I][UsbcPower] ␛[0mTCPP03 0x34 Hibernate, provider switch open, discharge off
+40 ␛[0;32m[I][UsbcPower] ␛[0mTCPP03 0x35 Hibernate, provider switch open, discharge off
+44 ␛[0;34m[D][FuriHalUsb] ␛[0mEnable deferred, audio not configured
+47 ␛[0;32m[I][UsbcBypass] ␛[0mUSB data on adapter
+52 ␛[0;32m[I][UsbcPower] ␛[0mTCPP03 0x34 LowPower, provider switch open, discharge off
+55 ␛[0;32m[I][UsbcPower] ␛[0mTCPP03 0x35 LowPower, provider switch open, discharge off
+61 ␛[0;34m[D][HeadphonesAdapter] ␛[0mStarting service InputSrv
+64 ␛[0;34m[D][HeadphonesAdapter] ␛[0mStarting service AudioSrv
+68 ␛[0;32m[I][AudioSrv] ␛[0mMic gain 24 dB
+70 ␛[0;32m[I][FuriHalUsb] ␛[0mUSB Enable
+77 ␛[0;34m[D][HeadphonesAdapter] ␛[0mStarting service MediaKeysSrv
+80 ␛[0;34m[D][HeadphonesAdapter] ␛[0mStarting service RpcSrv
+85 ␛[0;34m[D][AudioSrv] ␛[0mCS43131 interrupt status 0x60
+87 ␛[0;32m[I][AudioSrv] ␛[0mSpeaker volume 0.00 dB
+90 ␛[0;32m[I][AudioSrv] ␛[0mSpeaker unmuted
+92 ␛[0;32m[I][AudioSrv] ␛[0mMic volume 0.00 dB
+95 ␛[0;34m[D][AudioSrv] ␛[0mCS43131 interrupt status 0x00
+98 ␛[0;32m[I][HeadphonesAdapter] ␛[0mStartup complete
+183 ␛[0;32m[I][UsbcPolicy] ␛[0mPhone attached as sink, CC1, partner Rp 1.5A
+186 ␛[0;32m[I][UsbcPower] ␛[0mTCPP03 0x34 Normal, provider switch open, discharge off
+303 ␛[0;32m[I][UsbcPolicy] ␛[0mPhone source PDO1 0x3601905A fixed 5000 mV 900 mA, dual role power, usb suspend supported, usb communications, dual role data
+312 ␛[0;34m[D][UsbcPolicy] ␛[0mPhone power SinkStandby
+349 ␛[0;34m[D][UsbcPolicy] ␛[0mPhone power SinkNewContract
+351 ␛[0;32m[I][UsbcPolicy] ␛[0mPhone contract: PDO1 of 1 (5000 mV, up to 900 mA), requested 150 mA
+558 ␛[0;32m[I][FuriHalUsb] ␛[0mMount
+560 ␛[0;34m[D][RpcSrv] ␛[0mConnected
+570 ␛[0;32m[I][AudioSrv] ␛[0mSpeaker stream started, 96000 Hz, 16 bit
+598 ␛[0;34m[D][AudioSrv] ␛[0mHeadphone output started, 96000 Hz, 16 bit
+603 ␛[0;34m[D][AudioSrv] ␛[0mCS43131 interrupt status 0x40
+605 ␛[0;32m[I][AudioSrv] ␛[0mHeadphones plugged
+608 ␛[0;32m[I][AudioSrv] ␛[0mSpeaker stream stopped
+927 ␛[0;32m[I][AudioSrv] ␛[0mHeadset mic not detected, sleeve 3 mV
+1602 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 0-0 B, SOF 0-0 B, packet 0-0 B, underruns 0, feedback 0x000000-0x000000, feedback reads 0 sent 0x000000-0x000000, SOF missed 0
+2099 ␛[0;32m[I][AudioSrv] ␛[0mSpeaker stream started, 48000 Hz, 24 bit
+2233 ␛[0;34m[D][AudioSrv] ␛[0mCS43131 interrupt status 0x41
+2252 ␛[0;34m[D][AudioSrv] ␛[0mHeadphone output started, 48000 Hz, 24 bit
+2256 ␛[0;34m[D][AudioSrv] ␛[0mCS43131 interrupt status 0x40
+3255 ␛[0;34m[D][AudioSrv] ␛[0mFeedback start reads: 4 ms 0x2F8000, 5 ms 0x2F8000, 6 ms 0x2F8000, 7 ms 0x2F8000, 8 ms 0x2F8000, 9 ms 0x2F8000, 10 ms 0x2F8000, 11 ms 0x2F8000
+3263 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 2040-2040 B, packet 288-288 B, underruns 0, feedback 0x2F8000-0x2F8000, feedback reads 1160 sent 0x2F8000-0x2F8000, SOF missed 0
+4255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 2040-2040 B, packet 288-288 B, underruns 0, feedback 0x2FC2C0-0x2FC300, feedback reads 991 sent 0x2F8000-0x2FC300, SOF missed 0
+5192 ␛[0;32m[I][AudioSrv] ␛[0mSpeaker stream stopped
+5255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 1464-2328 B, SOF 1464-2328 B, packet 0-288 B, underruns 1, feedback 0x2FB6C0-0x2FC300, feedback reads 934 sent 0x2FB6C0-0x2FC300, SOF missed 0
+5708 ␛[0;32m[I][AudioSrv] ␛[0mSpeaker stream started, 48000 Hz, 24 bit
+6255 ␛[0;34m[D][AudioSrv] ␛[0mFeedback start reads: 3 ms 0x000000, 4 ms 0x000000, 5 ms 0x000000, 6 ms 0x000000, 7 ms 0x000000, 8 ms 0x000000, 9 ms 0x2FDF40, 10 ms 0x2FDF40
+6263 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-576 B, SOF 0-576 B, packet 0-984 B, underruns 0, feedback 0x2FDF40-0x2FF440, feedback reads 552 sent 0x000000-0x2FF440, SOF missed 515
+7255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 570-570 B, packet 288-288 B, underruns 0, feedback 0x2FF400-0x300000, feedback reads 991 sent 0x2FF400-0x300000, SOF missed 0
+8255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 570-570 B, packet 288-288 B, underruns 0, feedback 0x300000-0x300040, feedback reads 1000 sent 0x300000-0x300040, SOF missed 0
+9255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 570-570 B, packet 288-288 B, underruns 0, feedback 0x300000-0x300040, feedback reads 999 sent 0x300000-0x300040, SOF missed 0
+10255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 570-570 B, packet 288-288 B, underruns 0, feedback 0x300000-0x300040, feedback reads 1000 sent 0x300000-0x300040, SOF missed 0
+11255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 570-570 B, packet 288-288 B, underruns 0, feedback 0x300000-0x300040, feedback reads 999 sent 0x300000-0x300000, SOF missed 0
+12255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 570-570 B, packet 288-288 B, underruns 0, feedback 0x300000-0x300040, feedback reads 1000 sent 0x300000-0x300040, SOF missed 0
+13255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 570-570 B, packet 288-288 B, underruns 0, feedback 0x300000-0x300040, feedback reads 999 sent 0x300000-0x300040, SOF missed 0
+14255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 570-570 B, packet 288-288 B, underruns 0, feedback 0x300000-0x300040, feedback reads 1000 sent 0x300000-0x300040, SOF missed 0
+15255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 570-570 B, packet 288-288 B, underruns 0, feedback 0x300000-0x300040, feedback reads 1000 sent 0x300000-0x300040, SOF missed 0
+16255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 570-570 B, packet 288-288 B, underruns 0, feedback 0x300000-0x300040, feedback reads 999 sent 0x300000-0x300040, SOF missed 0
+17255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 570-570 B, packet 288-288 B, underruns 0, feedback 0x300000-0x300040, feedback reads 1000 sent 0x300000-0x300040, SOF missed 0
+18255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 570-570 B, packet 288-288 B, underruns 0, feedback 0x300000-0x300040, feedback reads 1000 sent 0x300000-0x300040, SOF missed 0
+19255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 570-570 B, packet 288-288 B, underruns 0, feedback 0x300000-0x300040, feedback reads 999 sent 0x300000-0x300040, SOF missed 0
+20255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 570-570 B, packet 288-288 B, underruns 0, feedback 0x300000-0x300040, feedback reads 1000 sent 0x300000-0x300040, SOF missed 0
+21255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 570-570 B, packet 288-288 B, underruns 0, feedback 0x300000-0x300040, feedback reads 999 sent 0x300000-0x300040, SOF missed 0
+22255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 570-570 B, packet 288-288 B, underruns 0, feedback 0x300000-0x300040, feedback reads 1000 sent 0x300000-0x300040, SOF missed 0
+23255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 570-570 B, packet 288-288 B, underruns 0, feedback 0x300000-0x300040, feedback reads 1000 sent 0x300000-0x300040, SOF missed 0
+24255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 570-570 B, packet 288-288 B, underruns 0, feedback 0x300000-0x300040, feedback reads 999 sent 0x300000-0x300040, SOF missed 0
+25255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 570-570 B, packet 288-288 B, underruns 0, feedback 0x300000-0x300040, feedback reads 1000 sent 0x300000-0x300040, SOF missed 0
+26255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 570-570 B, packet 288-288 B, underruns 0, feedback 0x300000-0x300040, feedback reads 999 sent 0x300000-0x300040, SOF missed 0
+27255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 570-570 B, packet 288-288 B, underruns 0, feedback 0x300000-0x300040, feedback reads 1000 sent 0x300000-0x300040, SOF missed 0
+28255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-858 B, SOF 570-570 B, packet 288-288 B, underruns 0, feedback 0x300000-0x300040, feedback reads 1000 sent 0x300000-0x300040, SOF missed 0
+29255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 858-858 B, SOF 570-570 B, packet 288-288 B, underruns 0, feedback 0x300000-0x300040, feedback reads 999 sent 0x300000-0x300040, SOF missed 0
+30255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 858-858 B, SOF 570-570 B, packet 288-288 B, underruns 0, feedback 0x300000-0x300040, feedback reads 1000 sent 0x300000-0x300040, SOF missed 0
+30331 ␛[0;32m[I][AudioSrv] ␛[0mSpeaker stream stopped
+31255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-858 B, SOF 282-570 B, packet 0-288 B, underruns 1, feedback 0x300040-0x300040, feedback reads 73 sent 0x300040-0x300040, SOF missed 0
+32255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 65535-0 B, SOF 65535-0 B, packet 65535-0 B, underruns 0, feedback 0xFFFFFFFF-0x000000, feedback reads 0 sent 0xFFFFFFFF-0x000000, SOF missed 0
+32835 ␛[0;32m[I][FuriHalUsb] ␛[0mSuspend, remote wakeup 1
+33255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 65535-0 B, SOF 65535-0 B, packet 65535-0 B, underruns 0, feedback 0xFFFFFFFF-0x000000, feedback reads 0 sent 0xFFFFFFFF-0x000000, SOF missed 0
+34255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 65535-0 B, SOF 65535-0 B, packet 65535-0 B, underruns 0, feedback 0xFFFFFFFF-0x000000, feedback reads 0 sent 0xFFFFFFFF-0x000000, SOF missed 0
+35255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 65535-0 B, SOF 65535-0 B, packet 65535-0 B, underruns 0, feedback 0xFFFFFFFF-0x000000, feedback reads 0 sent 0xFFFFFFFF-0x000000, SOF missed 0
+35790 ␛[0;32m[I][FuriHalUsb] ␛[0mResume
+35903 ␛[0;32m[I][AudioSrv] ␛[0mMic unmuted
+35909 ␛[0;32m[I][AudioSrv] ␛[0mSpeaker stream started, 48000 Hz, 24 bit
+36255 ␛[0;34m[D][AudioSrv] ␛[0mFeedback start reads: 6 ms 0x000000, 7 ms 0x2FFC00, 8 ms 0x2FFC00, 9 ms 0x2FFC00, 10 ms 0x2FFC00, 11 ms 0x2FFC00, 12 ms 0x2FFC00, 13 ms 0x2FFC00
+36263 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-1146 B, SOF 0-858 B, packet 0-4278 B, underruns 1, feedback 0x2FE880-0x3002C0, feedback reads 348 sent 0x000000-0x3002C0, SOF missed 663
+37255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 1146-1146 B, SOF 858-858 B, packet 288-288 B, underruns 0, feedback 0x2FE840-0x2FF400, feedback reads 992 sent 0x2FE840-0x2FF400, SOF missed 0
+38255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 1146-1146 B, SOF 858-858 B, packet 288-288 B, underruns 0, feedback 0x2FF400-0x2FF440, feedback reads 999 sent 0x2FF400-0x2FF440, SOF missed 0
+39255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 1146-1146 B, SOF 858-858 B, packet 288-288 B, underruns 0, feedback 0x2FF400-0x2FF440, feedback reads 1000 sent 0x2FF400-0x2FF440, SOF missed 0
+40255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 1146-1146 B, SOF 858-858 B, packet 288-288 B, underruns 0, feedback 0x2FF400-0x2FF440, feedback reads 1000 sent 0x2FF400-0x2FF440, SOF missed 0
+41255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 1146-1146 B, SOF 858-858 B, packet 288-288 B, underruns 0, feedback 0x2FF400-0x2FF440, feedback reads 999 sent 0x2FF400-0x2FF440, SOF missed 0
+42255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 1146-1146 B, SOF 858-858 B, packet 288-288 B, underruns 0, feedback 0x2FF400-0x2FF440, feedback reads 1000 sent 0x2FF400-0x2FF440, SOF missed 0
+43255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 1146-1146 B, SOF 858-858 B, packet 288-288 B, underruns 0, feedback 0x2FF400-0x2FF440, feedback reads 999 sent 0x2FF400-0x2FF440, SOF missed 0
+44255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 1146-1146 B, SOF 858-858 B, packet 288-288 B, underruns 0, feedback 0x2FF400-0x2FF440, feedback reads 1000 sent 0x2FF400-0x2FF440, SOF missed 0
+45255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 1146-1146 B, SOF 858-858 B, packet 288-288 B, underruns 0, feedback 0x2FF400-0x2FF440, feedback reads 1000 sent 0x2FF400-0x2FF440, SOF missed 0
+46255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 1146-1146 B, SOF 858-858 B, packet 288-288 B, underruns 0, feedback 0x2FF400-0x2FF440, feedback reads 999 sent 0x2FF400-0x2FF440, SOF missed 0
+46650 ␛[0;32m[I][AudioSrv] ␛[0mSpeaker stream stopped
+47255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-1146 B, SOF 570-858 B, packet 0-288 B, underruns 1, feedback 0x2FF400-0x2FF400, feedback reads 393 sent 0x2FF400-0x2FF400, SOF missed 0
+48255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 65535-0 B, SOF 65535-0 B, packet 65535-0 B, underruns 0, feedback 0xFFFFFFFF-0x000000, feedback reads 0 sent 0xFFFFFFFF-0x000000, SOF missed 0
+49156 ␛[0;32m[I][FuriHalUsb] ␛[0mSuspend, remote wakeup 1
+49228 ␛[0;32m[I][FuriHalUsb] ␛[0mResume
+49255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 65535-0 B, SOF 65535-0 B, packet 65535-0 B, underruns 0, feedback 0xFFFFFFFF-0x000000, feedback reads 0 sent 0xFFFFFFFF-0x000000, SOF missed 0
+49339 ␛[0;32m[I][AudioSrv] ␛[0mSpeaker stream started, 48000 Hz, 24 bit
+50255 ␛[0;34m[D][AudioSrv] ␛[0mFeedback start reads: 4 ms 0x000000, 5 ms 0x2FFC00, 6 ms 0x2FFC00, 7 ms 0x2FFC00, 8 ms 0x2FFC00, 9 ms 0x2FFC00, 10 ms 0x2FFC00, 11 ms 0x2FFC00
+50263 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-576 B, SOF 0-288 B, packet 0-1638 B, underruns 0, feedback 0x2FFC00-0x300E00, feedback reads 920 sent 0x000000-0x300E00, SOF missed 1543
+51255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 282-282 B, packet 288-288 B, underruns 0, feedback 0x300C00-0x300C80, feedback reads 991 sent 0x300C00-0x300C80, SOF missed 0
+52255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 282-282 B, packet 288-288 B, underruns 0, feedback 0x300C00-0x300C40, feedback reads 1000 sent 0x300C00-0x300C40, SOF missed 0
+53255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 282-282 B, packet 288-288 B, underruns 0, feedback 0x300C00-0x300C40, feedback reads 999 sent 0x300C00-0x300C40, SOF missed 0
+54255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 282-282 B, packet 288-288 B, underruns 0, feedback 0x300C00-0x300C40, feedback reads 1000 sent 0x300C00-0x300C40, SOF missed 0
+55255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 282-282 B, packet 288-288 B, underruns 0, feedback 0x300C00-0x300C40, feedback reads 1000 sent 0x300C00-0x300C40, SOF missed 0
+56255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 282-282 B, packet 288-288 B, underruns 0, feedback 0x300C00-0x300C40, feedback reads 999 sent 0x300C00-0x300C40, SOF missed 0
+57255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 282-282 B, packet 288-288 B, underruns 0, feedback 0x300C00-0x300C40, feedback reads 1000 sent 0x300C00-0x300C40, SOF missed 0
+58255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 282-282 B, packet 288-288 B, underruns 0, feedback 0x300C00-0x300C40, feedback reads 999 sent 0x300C00-0x300C40, SOF missed 0
+59255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 282-282 B, packet 288-288 B, underruns 0, feedback 0x300C00-0x300C40, feedback reads 1000 sent 0x300C00-0x300C40, SOF missed 0
+60255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 282-282 B, packet 288-288 B, underruns 0, feedback 0x300C00-0x300C40, feedback reads 1000 sent 0x300C00-0x300C40, SOF missed 0
+61255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 282-282 B, packet 288-288 B, underruns 0, feedback 0x300C00-0x300C40, feedback reads 999 sent 0x300C00-0x300C40, SOF missed 0
+62255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 282-282 B, packet 288-288 B, underruns 0, feedback 0x300C00-0x300C40, feedback reads 1000 sent 0x300C00-0x300C40, SOF missed 0
+63255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 282-282 B, packet 288-288 B, underruns 0, feedback 0x300C00-0x300C40, feedback reads 1000 sent 0x300C00-0x300C40, SOF missed 0
+64255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 282-282 B, packet 288-288 B, underruns 0, feedback 0x300C00-0x300C40, feedback reads 999 sent 0x300C00-0x300C40, SOF missed 0
+65255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 282-282 B, packet 288-288 B, underruns 0, feedback 0x300C00-0x300C40, feedback reads 1000 sent 0x300C00-0x300C40, SOF missed 0
+66255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 282-282 B, packet 288-288 B, underruns 0, feedback 0x300C00-0x300C40, feedback reads 999 sent 0x300C00-0x300C40, SOF missed 0
+67255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 282-282 B, packet 288-288 B, underruns 0, feedback 0x300C00-0x300C40, feedback reads 1000 sent 0x300C00-0x300C40, SOF missed 0
+68255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 282-282 B, packet 288-288 B, underruns 0, feedback 0x300C00-0x300C40, feedback reads 1000 sent 0x300C00-0x300C40, SOF missed 0
+69255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 282-282 B, packet 288-288 B, underruns 0, feedback 0x300C00-0x300C40, feedback reads 999 sent 0x300C00-0x300C40, SOF missed 0
+70255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 282-282 B, packet 288-288 B, underruns 0, feedback 0x300C00-0x300C40, feedback reads 1000 sent 0x300C00-0x300C40, SOF missed 0
+71255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 282-282 B, packet 288-288 B, underruns 0, feedback 0x300C00-0x300C40, feedback reads 1000 sent 0x300C00-0x300C40, SOF missed 0
+72255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 282-282 B, packet 288-288 B, underruns 0, feedback 0x300C00-0x300C40, feedback reads 999 sent 0x300C00-0x300C40, SOF missed 0
+73255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 282-282 B, packet 288-288 B, underruns 0, feedback 0x300C00-0x300C40, feedback reads 1000 sent 0x300C00-0x300C40, SOF missed 0
+74255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 282-282 B, packet 288-288 B, underruns 0, feedback 0x300C00-0x300C40, feedback reads 1000 sent 0x300C00-0x300C40, SOF missed 0
+75255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 282-282 B, packet 288-288 B, underruns 0, feedback 0x300C00-0x300C40, feedback reads 999 sent 0x300C00-0x300C40, SOF missed 0
+76255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 282-282 B, packet 288-288 B, underruns 0, feedback 0x300C00-0x300C00, feedback reads 1000 sent 0x300C00-0x300C40, SOF missed 0
+77255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 282-282 B, packet 288-288 B, underruns 0, feedback 0x300C00-0x300C40, feedback reads 1000 sent 0x300C00-0x300C40, SOF missed 0
+78255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 282-282 B, packet 288-288 B, underruns 0, feedback 0x300C00-0x300C40, feedback reads 999 sent 0x300C00-0x300C40, SOF missed 0
+79255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 282-282 B, packet 288-288 B, underruns 0, feedback 0x300C00-0x300C40, feedback reads 1000 sent 0x300C00-0x300C40, SOF missed 0
+80255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 282-282 B, packet 288-288 B, underruns 0, feedback 0x300C00-0x300C40, feedback reads 999 sent 0x300C00-0x300C40, SOF missed 0
+81255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 282-282 B, packet 288-288 B, underruns 0, feedback 0x300C00-0x300C40, feedback reads 1000 sent 0x300C00-0x300C40, SOF missed 0
+82255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 282-282 B, packet 288-288 B, underruns 0, feedback 0x300C00-0x300C40, feedback reads 999 sent 0x300C00-0x300C40, SOF missed 0
+83255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 282-282 B, packet 288-288 B, underruns 0, feedback 0x300C00-0x300C40, feedback reads 1000 sent 0x300C00-0x300C40, SOF missed 0
+84255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 282-282 B, packet 288-288 B, underruns 0, feedback 0x300C00-0x300C40, feedback reads 999 sent 0x300C00-0x300C40, SOF missed 0
+85255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 282-282 B, packet 288-288 B, underruns 0, feedback 0x300C00-0x300C00, feedback reads 1000 sent 0x300C00-0x300C00, SOF missed 0
+86255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 282-282 B, packet 288-288 B, underruns 0, feedback 0x300C00-0x300C40, feedback reads 999 sent 0x300C00-0x300C40, SOF missed 0
+87255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 282-282 B, packet 288-288 B, underruns 0, feedback 0x300C00-0x300C40, feedback reads 1000 sent 0x300C00-0x300C40, SOF missed 0
+88255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 282-282 B, packet 288-288 B, underruns 0, feedback 0x300C00-0x300C40, feedback reads 999 sent 0x300C00-0x300C40, SOF missed 0
+89255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 282-282 B, packet 288-288 B, underruns 0, feedback 0x300C00-0x300C40, feedback reads 1000 sent 0x300C00-0x300C40, SOF missed 0
+90255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 282-282 B, packet 288-288 B, underruns 0, feedback 0x300C00-0x300C40, feedback reads 1000 sent 0x300C00-0x300C40, SOF missed 0
+91255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 282-282 B, packet 288-288 B, underruns 0, feedback 0x300C00-0x300C40, feedback reads 1000 sent 0x300C00-0x300C40, SOF missed 0
+92255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 282-282 B, packet 288-288 B, underruns 0, feedback 0x300C00-0x300C40, feedback reads 999 sent 0x300C00-0x300C40, SOF missed 0
+93255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 282-282 B, packet 288-288 B, underruns 0, feedback 0x300C00-0x300C40, feedback reads 1000 sent 0x300C00-0x300C40, SOF missed 0
+94255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 282-282 B, packet 288-288 B, underruns 0, feedback 0x300C00-0x300C40, feedback reads 1000 sent 0x300C00-0x300C40, SOF missed 0
+95255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 282-282 B, packet 288-288 B, underruns 0, feedback 0x300C00-0x300C40, feedback reads 999 sent 0x300C00-0x300C40, SOF missed 0
+96255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 282-282 B, packet 288-288 B, underruns 0, feedback 0x300C00-0x300C40, feedback reads 1000 sent 0x300C00-0x300C40, SOF missed 0
+97255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 282-282 B, packet 288-288 B, underruns 0, feedback 0x300C00-0x300C40, feedback reads 999 sent 0x300C00-0x300C40, SOF missed 0
+98255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 282-282 B, packet 288-288 B, underruns 0, feedback 0x300C00-0x300C40, feedback reads 1000 sent 0x300C00-0x300C40, SOF missed 0
+99255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 282-282 B, packet 288-288 B, underruns 0, feedback 0x300C00-0x300C40, feedback reads 1000 sent 0x300C00-0x300C40, SOF missed 0
+100255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 282-282 B, packet 288-288 B, underruns 0, feedback 0x300C00-0x300C40, feedback reads 1000 sent 0x300C00-0x300C40, SOF missed 0
+101255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 282-282 B, packet 288-288 B, underruns 0, feedback 0x300C00-0x300C40, feedback reads 999 sent 0x300C00-0x300C40, SOF missed 0
+102255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 282-282 B, packet 288-288 B, underruns 0, feedback 0x300C00-0x300C40, feedback reads 1000 sent 0x300C00-0x300C40, SOF missed 0
+103255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 282-282 B, packet 288-288 B, underruns 0, feedback 0x300C00-0x300C40, feedback reads 999 sent 0x300C00-0x300C40, SOF missed 0
+104255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 282-282 B, packet 288-288 B, underruns 0, feedback 0x300C00-0x300C40, feedback reads 1000 sent 0x300C00-0x300C40, SOF missed 0
+105255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 282-282 B, packet 288-288 B, underruns 0, feedback 0x300C00-0x300C40, feedback reads 1000 sent 0x300C00-0x300C40, SOF missed 0
+106255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 282-570 B, packet 288-288 B, underruns 0, feedback 0x300000-0x300C40, feedback reads 999 sent 0x300000-0x300C40, SOF missed 0
+107255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 570-570 B, packet 288-288 B, underruns 0, feedback 0x300000-0x300040, feedback reads 1000 sent 0x300000-0x300040, SOF missed 0
+108255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 570-570 B, packet 288-288 B, underruns 0, feedback 0x300000-0x300040, feedback reads 999 sent 0x300000-0x300040, SOF missed 0
+109255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 570-570 B, packet 288-288 B, underruns 0, feedback 0x300000-0x300040, feedback reads 1000 sent 0x300000-0x300040, SOF missed 0
+110255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 570-570 B, packet 288-288 B, underruns 0, feedback 0x300000-0x300040, feedback reads 999 sent 0x300000-0x300040, SOF missed 0
+111255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 570-570 B, packet 288-288 B, underruns 0, feedback 0x300000-0x300040, feedback reads 1000 sent 0x300000-0x300040, SOF missed 0
+112255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 570-570 B, packet 288-288 B, underruns 0, feedback 0x300000-0x300040, feedback reads 1000 sent 0x300000-0x300040, SOF missed 0
+113255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 570-570 B, packet 288-288 B, underruns 0, feedback 0x300000-0x300040, feedback reads 999 sent 0x300000-0x300040, SOF missed 0
+114255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 570-570 B, packet 288-288 B, underruns 0, feedback 0x300000-0x300040, feedback reads 1000 sent 0x300000-0x300040, SOF missed 0
+115255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 570-570 B, packet 288-288 B, underruns 0, feedback 0x300000-0x300040, feedback reads 1000 sent 0x300000-0x300040, SOF missed 0
+116255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 570-570 B, packet 288-288 B, underruns 0, feedback 0x300000-0x300040, feedback reads 999 sent 0x300000-0x300040, SOF missed 0
+117255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 570-570 B, packet 288-288 B, underruns 0, feedback 0x300000-0x300040, feedback reads 1000 sent 0x300000-0x300040, SOF missed 0
+118255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 570-570 B, packet 288-288 B, underruns 0, feedback 0x300000-0x300040, feedback reads 1000 sent 0x300000-0x300040, SOF missed 0
+119255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 570-570 B, packet 288-288 B, underruns 0, feedback 0x300000-0x300040, feedback reads 1000 sent 0x300000-0x300040, SOF missed 0
+120255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 570-570 B, packet 288-288 B, underruns 0, feedback 0x300000-0x300040, feedback reads 1000 sent 0x300000-0x300040, SOF missed 0
+121255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 570-570 B, packet 288-288 B, underruns 0, feedback 0x300000-0x300040, feedback reads 999 sent 0x300000-0x300040, SOF missed 0
+122255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 570-570 B, packet 288-288 B, underruns 0, feedback 0x300000-0x300040, feedback reads 1000 sent 0x300000-0x300040, SOF missed 0
+123255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 570-570 B, packet 288-288 B, underruns 0, feedback 0x300000-0x300040, feedback reads 1000 sent 0x300000-0x300040, SOF missed 0
+124255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-570 B, SOF 570-570 B, packet 288-288 B, underruns 0, feedback 0x300000-0x300040, feedback reads 1000 sent 0x300000-0x300040, SOF missed 0
+124484 ␛[0;32m[I][UsbcPolicy] ␛[0mCharger attached as sink, CC1, partner Rp 1.5A
+124488 ␛[0;32m[I][UsbcPower] ␛[0mTCPP03 0x35 Normal, provider switch open, discharge off
+124683 ␛[0;32m[I][UsbcPolicy] ␛[0mCharger source PDO1 0x09019096 fixed 5000 mV 1500 mA, unconstrained power
+124689 ␛[0;32m[I][UsbcPolicy] ␛[0mCharger source PDO2 0x0002D053 fixed 9000 mV 830 mA
+124694 ␛[0;34m[D][UsbcPolicy] ␛[0mCharger power SinkStandby
+124696 ␛[0;32m[I][UsbcPolicy] ␛[0mCharger source PDO3 0x0004B032 fixed 15000 mV 500 mA
+124700 ␛[0;32m[I][UsbcPolicy] ␛[0mCharger source PDO4 0x00064025 fixed 20000 mV 370 mA
+124755 ␛[0;34m[D][UsbcPolicy] ␛[0mCharger power SinkNewContract
+124758 ␛[0;32m[I][UsbcPolicy] ␛[0mCharger contract: PDO1 of 4 (5000 mV, up to 1500 mA), requested 150 mA
+124766 ␛[0;34m[D][UsbcPolicy] ␛[0mPhone power SinkOff
+124768 ␛[0;32m[I][UsbcPolicy] ␛[0mPhone power role swap accepted
+124888 ␛[0;32m[I][UsbcPolicy] ␛[0mCharger source PDO1 0x0901912C fixed 5000 mV 3000 mA, unconstrained power
+124894 ␛[0;32m[I][UsbcPolicy] ␛[0mCharger source PDO2 0x0002D0C2 fixed 9000 mV 1940 mA
+124898 ␛[0;34m[D][UsbcPolicy] ␛[0mCharger power SinkStandby
+124901 ␛[0;32m[I][UsbcPolicy] ␛[0mCharger source PDO3 0x0004B074 fixed 15000 mV 1160 mA
+124905 ␛[0;32m[I][UsbcPolicy] ␛[0mCharger source PDO4 0x00064057 fixed 20000 mV 870 mA
+124961 ␛[0;34m[D][UsbcPolicy] ␛[0mCharger power SinkNewContract
+124963 ␛[0;32m[I][UsbcPolicy] ␛[0mCharger contract: PDO1 of 4 (5000 mV, up to 3000 mA), requested 150 mA
+124985 ␛[0;34m[D][UsbcPolicy] ␛[0mPhone power SourceOn
+124989 ␛[0;32m[I][UsbcPower] ␛[0mTCPP03 0x34 Normal, provider switch closed, discharge off
+125015 ␛[0;32m[I][UsbcPolicy] ␛[0mPhone power role source
+125020 ␛[0;32m[I][UsbcPolicy] ␛[0mPhone offer PDO1 0x2E01911D fixed 5000 mV 2850 mA, dual role power, unconstrained power, usb communications, dual role data
+125027 ␛[0;32m[I][UsbcPolicy] ␛[0mPhone offer PDO2 0x0002D0B9 fixed 9000 mV 1850 mA
+125032 ␛[0;32m[I][UsbcPolicy] ␛[0mPhone offer PDO3 0x0004B06F fixed 15000 mV 1110 mA
+125036 ␛[0;32m[I][UsbcPolicy] ␛[0mPhone offer PDO4 0x00064053 fixed 20000 mV 830 mA
+125040 ␛[0;32m[I][UsbcPolicy] ␛[0mPhone request: PDO2 of 4 (9000 mV, up to 1850 mA), 1850 mA, accepted
+125061 ␛[0;34m[D][UsbcPolicy] ␛[0mPhone power SourceNewContract
+125073 ␛[0;34m[D][UsbcPolicy] ␛[0mCharger power SinkStandby
+125145 ␛[0;34m[D][UsbcPolicy] ␛[0mCharger power SinkNewContract
+125148 ␛[0;32m[I][UsbcPolicy] ␛[0mCharger contract: PDO2 of 4 (9000 mV, up to 1940 mA), requested 1940 mA
+125154 ␛[0;32m[I][UsbcPolicy] ␛[0mPhone contract: PDO2 of 4 (9000 mV, up to 1850 mA), requested 1850 mA
+125186 ␛[0;32m[I][UsbcPolicy] ␛[0mPhone sink PDO1 0x3601912C fixed 5000 mV 3000 mA, dual role power, usb communications, dual role data
+125194 ␛[0;32m[I][UsbcPolicy] ␛[0mPhone sink PDO2 0x0002D12C fixed 9000 mV 3000 mA
+125200 ␛[0;32m[I][UsbcPolicy] ␛[0mPhone sink PDO3 0xC1A4323C pps 5000-21000 mV 3000 mA
+125204 ␛[0;34m[D][UsbcPolicy] ␛[0mCharger power SinkStandby
+125207 ␛[0;32m[I][UsbcPolicy] ␛[0mPhone sink fast role swap current None
+125210 ␛[0;32m[I][UsbcPolicy] ␛[0mCharger source PDO1 0x0901912C fixed 5000 mV 3000 mA, unconstrained power
+125215 ␛[0;32m[I][UsbcPolicy] ␛[0mCharger source PDO2 0x0002D0C2 fixed 9000 mV 1940 mA
+125219 ␛[0;32m[I][UsbcPolicy] ␛[0mCharger source PDO3 0x0004B074 fixed 15000 mV 1160 mA
+125223 ␛[0;32m[I][UsbcPolicy] ␛[0mCharger source PDO4 0x00064057 fixed 20000 mV 870 mA
+125255 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-858 B, SOF 570-570 B, packet 288-288 B, underruns 0, feedback 0x300000-0x300040, feedback reads 999 sent 0x300000-0x300040, SOF missed 0
+125266 ␛[0;34m[D][UsbcPolicy] ␛[0mCharger power SinkNewContract
+125269 ␛[0;32m[I][UsbcPolicy] ␛[0mCharger contract: PDO2 of 4 (9000 mV, up to 1940 mA), requested 1940 mA, capability mismatch
+125523 ␛[0;32m[I][AudioSrv] ␛[0mSpeaker stream stopped
+125532 ␛[0;32m[I][AudioSrv] ␛[0mSpeaker stream started, 96000 Hz, 24 bit
+125667 ␛[0;34m[D][AudioSrv] ␛[0mCS43131 interrupt status 0x41
+125686 ␛[0;34m[D][AudioSrv] ␛[0mHeadphone output started, 96000 Hz, 24 bit
+125690 ␛[0;34m[D][AudioSrv] ␛[0mCS43131 interrupt status 0x40
+125777 ␛[0;32m[I][UsbcPolicy] ␛[0mCharger sink PDP sent: minimum 17 W, operational 27 W, maximum 27 W
+125805 ␛[0;32m[I][UsbcPolicy] ␛[0mCharger source PDO1 0x0901912C fixed 5000 mV 3000 mA, unconstrained power
+125812 ␛[0;32m[I][UsbcPolicy] ␛[0mCharger source PDO2 0x0002D0BC fixed 9000 mV 1880 mA
+125816 ␛[0;34m[D][UsbcPolicy] ␛[0mCharger power SinkStandby
+125819 ␛[0;32m[I][UsbcPolicy] ␛[0mPhone offer PDO1 0x2E01911D fixed 5000 mV 2850 mA, dual role power, unconstrained power, usb communications, dual role data
+125827 ␛[0;32m[I][UsbcPolicy] ␛[0mPhone offer PDO1 0x2E01911D fixed 5000 mV 2850 mA, dual role power, unconstrained power, usb communications, dual role data
+125834 ␛[0;32m[I][UsbcPolicy] ␛[0mPhone offer PDO1 0x2E01911D fixed 5000 mV 2850 mA, dual role power, unconstrained power, usb communications, dual role data
+125844 ␛[0;32m[I][UsbcPolicy] ␛[0mPhone offer PDO1 0x2E01911D fixed 5000 mV 2850 mA, dual role power, unconstrained power, usb communications, dual role data
+125851 ␛[0;32m[I][UsbcPolicy] ␛[0mPhone offer PDO2 0x0002D0B3 fixed 9000 mV 1790 mA
+125857 ␛[0;32m[I][UsbcPolicy] ␛[0mPhone offer PDO3 0x0004B06C fixed 15000 mV 1080 mA
+125861 ␛[0;32m[I][UsbcPolicy] ␛[0mPhone offer PDO4 0x00064051 fixed 20000 mV 810 mA
+125865 ␛[0;32m[I][UsbcPolicy] ␛[0mPhone request: PDO2 of 4 (9000 mV, up to 1790 mA), 1790 mA, accepted
+125870 ␛[0;32m[I][UsbcPolicy] ␛[0mCharger source PDO3 0x0004B071 fixed 15000 mV 1130 mA
+125874 ␛[0;32m[I][UsbcPolicy] ␛[0mCharger source PDO4 0x00064055 fixed 20000 mV 850 mA
+125879 ␛[0;34m[D][UsbcPolicy] ␛[0mCharger power SinkNewContract
+125882 ␛[0;32m[I][UsbcPolicy] ␛[0mCharger contract: PDO2 of 4 (9000 mV, up to 1880 mA), requested 1880 mA, capability mismatch
+125888 ␛[0;34m[D][UsbcPolicy] ␛[0mPhone power SourceNewContract
+125892 ␛[0;32m[I][UsbcPolicy] ␛[0mPhone contract: PDO2 of 4 (9000 mV, up to 1790 mA), requested 1790 mA
+126689 ␛[0;34m[D][AudioSrv] ␛[0mFeedback start reads: 3 ms 0x5F8000, 4 ms 0x5F8000, 5 ms 0x5F8000, 6 ms 0x5F8000, 7 ms 0x5F8000, 8 ms 0x5F8000, 9 ms 0x5F8000, 10 ms 0x5F8000
+126697 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 570-2328 B, SOF 282-1752 B, packet 0-576 B, underruns 0, feedback 0x300000-0x5F8000, feedback reads 1418 sent 0x300000-0x5F8000, SOF missed 0
+127689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 1752-1752 B, packet 576-576 B, underruns 0, feedback 0x5FE680-0x5FE700, feedback reads 991 sent 0x5F8000-0x5FE700, SOF missed 0
+128689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 1752-1752 B, packet 576-576 B, underruns 0, feedback 0x5FE680-0x5FE6C0, feedback reads 1000 sent 0x5FE680-0x5FE6C0, SOF missed 0
+129689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 1752-1752 B, packet 576-576 B, underruns 0, feedback 0x5FE680-0x5FE6C0, feedback reads 1000 sent 0x5FE680-0x5FE6C0, SOF missed 0
+130689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 1752-1752 B, packet 576-576 B, underruns 0, feedback 0x5FE680-0x5FE6C0, feedback reads 999 sent 0x5FE680-0x5FE6C0, SOF missed 0
+131689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 1752-1752 B, packet 576-576 B, underruns 0, feedback 0x5FE680-0x5FE6C0, feedback reads 1000 sent 0x5FE680-0x5FE6C0, SOF missed 0
+132689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 1752-1752 B, packet 576-576 B, underruns 0, feedback 0x5FE680-0x5FE6C0, feedback reads 1000 sent 0x5FE680-0x5FE6C0, SOF missed 0
+133689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 1752-1752 B, packet 576-576 B, underruns 0, feedback 0x5FE680-0x5FE6C0, feedback reads 999 sent 0x5FE680-0x5FE6C0, SOF missed 0
+134689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 1752-1752 B, packet 576-576 B, underruns 0, feedback 0x5FE680-0x5FE6C0, feedback reads 1000 sent 0x5FE680-0x5FE6C0, SOF missed 0
+135689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 1752-1752 B, packet 576-576 B, underruns 0, feedback 0x5FE680-0x5FE6C0, feedback reads 1000 sent 0x5FE680-0x5FE6C0, SOF missed 0
+136689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 1752-1752 B, packet 576-576 B, underruns 0, feedback 0x5FE680-0x5FE6C0, feedback reads 999 sent 0x5FE680-0x5FE6C0, SOF missed 0
+137689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 1752-1752 B, packet 576-576 B, underruns 0, feedback 0x5FE680-0x5FE6C0, feedback reads 1000 sent 0x5FE680-0x5FE6C0, SOF missed 0
+138689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 1752-1752 B, packet 576-576 B, underruns 0, feedback 0x5FE680-0x5FE6C0, feedback reads 1000 sent 0x5FE680-0x5FE6C0, SOF missed 0
+139689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 1752-2328 B, packet 576-576 B, underruns 0, feedback 0x5FCEC0-0x5FE6C0, feedback reads 1000 sent 0x5FCEC0-0x5FE6C0, SOF missed 0
+140689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 2328-2328 B, packet 576-576 B, underruns 0, feedback 0x5FCE80-0x5FCEC0, feedback reads 999 sent 0x5FCE80-0x5FCEC0, SOF missed 0
+141689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 2328-2328 B, packet 576-576 B, underruns 0, feedback 0x5FCE80-0x5FCEC0, feedback reads 1000 sent 0x5FCE80-0x5FCEC0, SOF missed 0
+142689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 2328-2328 B, packet 576-576 B, underruns 0, feedback 0x5FCE80-0x5FCEC0, feedback reads 1000 sent 0x5FCE80-0x5FCEC0, SOF missed 0
+143689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 2328-2328 B, packet 576-576 B, underruns 0, feedback 0x5FCE80-0x5FCEC0, feedback reads 999 sent 0x5FCE80-0x5FCEC0, SOF missed 0
+144689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 2328-2328 B, packet 576-576 B, underruns 0, feedback 0x5FCE80-0x5FCEC0, feedback reads 1000 sent 0x5FCE80-0x5FCEC0, SOF missed 0
+145689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 2328-2328 B, packet 576-576 B, underruns 0, feedback 0x5FCE80-0x5FCEC0, feedback reads 1000 sent 0x5FCE80-0x5FCEC0, SOF missed 0
+146689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 2328-2328 B, packet 576-576 B, underruns 0, feedback 0x5FCE80-0x5FCEC0, feedback reads 999 sent 0x5FCE80-0x5FCEC0, SOF missed 0
+147689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 2328-2328 B, packet 576-576 B, underruns 0, feedback 0x5FCE80-0x5FCEC0, feedback reads 1000 sent 0x5FCE80-0x5FCEC0, SOF missed 0
+148689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 2328-2328 B, packet 576-576 B, underruns 0, feedback 0x5FCE80-0x5FCF00, feedback reads 1000 sent 0x5FCE80-0x5FCF00, SOF missed 0
+149689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 2328-2328 B, packet 576-576 B, underruns 0, feedback 0x5FCE80-0x5FCEC0, feedback reads 999 sent 0x5FCE80-0x5FCEC0, SOF missed 0
+150689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 2328-2328 B, packet 576-576 B, underruns 0, feedback 0x5FCE80-0x5FCEC0, feedback reads 1000 sent 0x5FCE80-0x5FCEC0, SOF missed 0
+151689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 2328-2328 B, packet 576-576 B, underruns 0, feedback 0x5FCE80-0x5FCEC0, feedback reads 999 sent 0x5FCE80-0x5FCEC0, SOF missed 0
+152689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 2328-2328 B, packet 576-576 B, underruns 0, feedback 0x5FCE80-0x5FCEC0, feedback reads 1000 sent 0x5FCE80-0x5FCEC0, SOF missed 0
+153689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 2328-2328 B, packet 576-576 B, underruns 0, feedback 0x5FCE80-0x5FCEC0, feedback reads 1000 sent 0x5FCE80-0x5FCEC0, SOF missed 0
+154689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 2328-2328 B, packet 576-576 B, underruns 0, feedback 0x5FCE80-0x5FCEC0, feedback reads 999 sent 0x5FCE80-0x5FCEC0, SOF missed 0
+155689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 2328-2328 B, packet 576-576 B, underruns 0, feedback 0x5FCE80-0x5FCEC0, feedback reads 1000 sent 0x5FCE80-0x5FCEC0, SOF missed 0
+156689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 2328-2328 B, packet 576-576 B, underruns 0, feedback 0x5FCE80-0x5FCEC0, feedback reads 999 sent 0x5FCE80-0x5FCEC0, SOF missed 0
+157689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 2328-2328 B, packet 576-576 B, underruns 0, feedback 0x5FCE80-0x5FCEC0, feedback reads 1000 sent 0x5FCE80-0x5FCEC0, SOF missed 0
+158689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 2328-2328 B, packet 576-576 B, underruns 0, feedback 0x5FCE80-0x5FCEC0, feedback reads 1000 sent 0x5FCE80-0x5FCEC0, SOF missed 0
+159689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 2328-2328 B, packet 576-576 B, underruns 0, feedback 0x5FCE80-0x5FCEC0, feedback reads 999 sent 0x5FCE80-0x5FCEC0, SOF missed 0
+160689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 2328-2328 B, packet 576-576 B, underruns 0, feedback 0x5FCE80-0x5FCEC0, feedback reads 1000 sent 0x5FCE80-0x5FCEC0, SOF missed 0
+161689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 2328-2328 B, packet 576-576 B, underruns 0, feedback 0x5FCE80-0x5FCEC0, feedback reads 1000 sent 0x5FCE80-0x5FCEC0, SOF missed 0
+162689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 2328-2328 B, packet 576-576 B, underruns 0, feedback 0x5FCE80-0x5FCEC0, feedback reads 999 sent 0x5FCE80-0x5FCEC0, SOF missed 0
+163689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 2328-2328 B, packet 576-576 B, underruns 0, feedback 0x5FCE80-0x5FCEC0, feedback reads 1000 sent 0x5FCE80-0x5FCEC0, SOF missed 0
+164689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 2328-2328 B, packet 576-576 B, underruns 0, feedback 0x5FCE80-0x5FCEC0, feedback reads 999 sent 0x5FCE80-0x5FCEC0, SOF missed 0
+165689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 2328-2328 B, packet 576-576 B, underruns 0, feedback 0x5FCE80-0x5FCEC0, feedback reads 1000 sent 0x5FCE80-0x5FCEC0, SOF missed 0
+166689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 2328-2328 B, packet 576-576 B, underruns 0, feedback 0x5FCE80-0x5FCEC0, feedback reads 999 sent 0x5FCE80-0x5FCEC0, SOF missed 0
+167689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 2328-2328 B, packet 576-576 B, underruns 0, feedback 0x5FCE80-0x5FCEC0, feedback reads 1000 sent 0x5FCE80-0x5FCEC0, SOF missed 0
+168689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 2328-2328 B, packet 576-576 B, underruns 0, feedback 0x5FCE80-0x5FCEC0, feedback reads 999 sent 0x5FCE80-0x5FCEC0, SOF missed 0
+169689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 2328-2328 B, packet 576-576 B, underruns 0, feedback 0x5FCE80-0x5FCEC0, feedback reads 1000 sent 0x5FCE80-0x5FCEC0, SOF missed 0
+170689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 2328-2328 B, packet 576-576 B, underruns 0, feedback 0x5FCE80-0x5FCEC0, feedback reads 1000 sent 0x5FCE80-0x5FCEC0, SOF missed 0
+171689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 2328-2328 B, packet 576-576 B, underruns 0, feedback 0x5FCE80-0x5FCEC0, feedback reads 999 sent 0x5FCE80-0x5FCEC0, SOF missed 0
+172689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 2328-2328 B, packet 576-576 B, underruns 0, feedback 0x5FCE80-0x5FCEC0, feedback reads 1000 sent 0x5FCE80-0x5FCEC0, SOF missed 0
+173689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 1752-2328 B, SOF 1752-2328 B, packet 0-576 B, underruns 0, feedback 0x5FDC40-0x5FE6C0, feedback reads 999 sent 0x5FCEC0-0x5FE6C0, SOF missed 0
+174689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 1752-1752 B, SOF 1752-1752 B, packet 576-576 B, underruns 0, feedback 0x5FE680-0x5FE6C0, feedback reads 1000 sent 0x5FE680-0x5FE6C0, SOF missed 0
+175689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 1752-1752 B, SOF 1752-1752 B, packet 576-576 B, underruns 0, feedback 0x5FE680-0x5FE6C0, feedback reads 999 sent 0x5FE680-0x5FE6C0, SOF missed 0
+176689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 1752-1752 B, SOF 1752-1752 B, packet 576-576 B, underruns 0, feedback 0x5FE680-0x5FE6C0, feedback reads 1000 sent 0x5FE680-0x5FE6C0, SOF missed 0
+177689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 1752-1752 B, SOF 1752-1752 B, packet 576-576 B, underruns 0, feedback 0x5FE680-0x5FE6C0, feedback reads 999 sent 0x5FE680-0x5FE6C0, SOF missed 0
+178689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 1752-1752 B, SOF 1752-1752 B, packet 576-576 B, underruns 0, feedback 0x5FE680-0x5FE6C0, feedback reads 1000 sent 0x5FE680-0x5FE6C0, SOF missed 0
+179689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 1752-1752 B, SOF 1752-1752 B, packet 576-576 B, underruns 0, feedback 0x5FE680-0x5FE6C0, feedback reads 1000 sent 0x5FE680-0x5FE6C0, SOF missed 0
+180689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 1752-2328 B, SOF 1752-1752 B, packet 576-576 B, underruns 0, feedback 0x5FE680-0x5FE6C0, feedback reads 999 sent 0x5FE680-0x5FE6C0, SOF missed 0
+181689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 1752-2328 B, SOF 1752-1752 B, packet 576-576 B, underruns 0, feedback 0x5FE680-0x5FE6C0, feedback reads 999 sent 0x5FE680-0x5FE6C0, SOF missed 0
+182689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 1752-1752 B, packet 576-576 B, underruns 0, feedback 0x5FE680-0x5FE6C0, feedback reads 1000 sent 0x5FE680-0x5FE6C0, SOF missed 0
+183689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 1752-1752 B, packet 576-576 B, underruns 0, feedback 0x5FE680-0x5FE6C0, feedback reads 999 sent 0x5FE680-0x5FE6C0, SOF missed 0
+184689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 1752-1752 B, packet 576-576 B, underruns 0, feedback 0x5FE680-0x5FE6C0, feedback reads 1000 sent 0x5FE680-0x5FE6C0, SOF missed 0
+185689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 1752-1752 B, packet 576-576 B, underruns 0, feedback 0x5FE680-0x5FE6C0, feedback reads 1000 sent 0x5FE680-0x5FE6C0, SOF missed 0
+186689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 1752-1752 B, packet 576-576 B, underruns 0, feedback 0x5FE680-0x5FE6C0, feedback reads 999 sent 0x5FE680-0x5FE6C0, SOF missed 0
+187689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 1752-1752 B, packet 576-576 B, underruns 0, feedback 0x5FE680-0x5FE6C0, feedback reads 1000 sent 0x5FE680-0x5FE6C0, SOF missed 0
+188689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 1752-1752 B, packet 576-576 B, underruns 0, feedback 0x5FE680-0x5FE6C0, feedback reads 1000 sent 0x5FE680-0x5FE6C0, SOF missed 0
+189689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 1752-1752 B, packet 576-576 B, underruns 0, feedback 0x5FE680-0x5FE6C0, feedback reads 999 sent 0x5FE680-0x5FE6C0, SOF missed 0
+190689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 1752-1752 B, packet 576-576 B, underruns 0, feedback 0x5FE680-0x5FE6C0, feedback reads 1000 sent 0x5FE680-0x5FE6C0, SOF missed 0
+191689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 1752-1752 B, packet 576-576 B, underruns 0, feedback 0x5FE680-0x5FE6C0, feedback reads 999 sent 0x5FE680-0x5FE6C0, SOF missed 0
+192689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 1752-1752 B, packet 576-576 B, underruns 0, feedback 0x5FE680-0x5FE6C0, feedback reads 999 sent 0x5FE680-0x5FE6C0, SOF missed 0
+193689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 1752-1752 B, packet 576-576 B, underruns 0, feedback 0x5FE680-0x5FE6C0, feedback reads 1000 sent 0x5FE680-0x5FE6C0, SOF missed 0
+194689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 1752-1752 B, packet 576-576 B, underruns 0, feedback 0x5FE680-0x5FE6C0, feedback reads 999 sent 0x5FE680-0x5FE6C0, SOF missed 0
+195689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 1752-1752 B, packet 576-576 B, underruns 0, feedback 0x5FE680-0x5FE6C0, feedback reads 1000 sent 0x5FE680-0x5FE6C0, SOF missed 0
+196016 ␛[0;32m[I][AudioSrv] ␛[0mSpeaker stream stopped
+196689 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 600-2328 B, SOF 24-1752 B, packet 0-576 B, underruns 1, feedback 0x5FE6C0-0x5FE6C0, feedback reads 322 sent 0x5FE6C0-0x5FE6C0, SOF missed 0
+197664 ␛[0;32m[I][AudioSrv] ␛[0mSpeaker stream started, 48000 Hz, 24 bit
+197799 ␛[0;34m[D][AudioSrv] ␛[0mCS43131 interrupt status 0x41
+197818 ␛[0;34m[D][AudioSrv] ␛[0mHeadphone output started, 48000 Hz, 24 bit
+197822 ␛[0;34m[D][AudioSrv] ␛[0mCS43131 interrupt status 0x40
+198821 ␛[0;34m[D][AudioSrv] ␛[0mFeedback start reads: 3 ms 0x2F8000, 4 ms 0x2F8000, 5 ms 0x2F8000, 6 ms 0x2F8000, 7 ms 0x2F8000, 8 ms 0x2F8000, 9 ms 0x2F8000, 10 ms 0x2F8000
+198829 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 2040-2040 B, packet 288-288 B, underruns 0, feedback 0x2F8000-0x2F8000, feedback reads 1162 sent 0x2F8000-0x2F8000, SOF missed 0
+199821 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 2040-2040 B, packet 288-288 B, underruns 0, feedback 0x2FC2C0-0x2FC300, feedback reads 991 sent 0x2F8000-0x2FC300, SOF missed 0
+200821 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 2040-2040 B, packet 288-288 B, underruns 0, feedback 0x2FC2C0-0x2FC300, feedback reads 1000 sent 0x2FC2C0-0x2FC300, SOF missed 0
+201821 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 2040-2040 B, packet 288-288 B, underruns 0, feedback 0x2FC2C0-0x2FC300, feedback reads 999 sent 0x2FC2C0-0x2FC300, SOF missed 0
+202821 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 2040-2040 B, packet 288-288 B, underruns 0, feedback 0x2FC2C0-0x2FC300, feedback reads 1000 sent 0x2FC2C0-0x2FC300, SOF missed 0
+203821 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 2040-2040 B, packet 288-288 B, underruns 0, feedback 0x2FC2C0-0x2FC300, feedback reads 1000 sent 0x2FC2C0-0x2FC300, SOF missed 0
+204821 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 2040-2040 B, packet 288-288 B, underruns 0, feedback 0x2FC2C0-0x2FC300, feedback reads 999 sent 0x2FC2C0-0x2FC300, SOF missed 0
+205821 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 2040-2040 B, packet 288-288 B, underruns 0, feedback 0x2FC2C0-0x2FC300, feedback reads 1000 sent 0x2FC2C0-0x2FC300, SOF missed 0
+206821 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 2040-2040 B, packet 288-288 B, underruns 0, feedback 0x2FC2C0-0x2FC300, feedback reads 999 sent 0x2FC2C0-0x2FC300, SOF missed 0
+207821 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 2040-2040 B, packet 288-288 B, underruns 0, feedback 0x2FC2C0-0x2FC300, feedback reads 1000 sent 0x2FC2C0-0x2FC300, SOF missed 0
+208821 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 2040-2040 B, packet 288-288 B, underruns 0, feedback 0x2FC2C0-0x2FC300, feedback reads 999 sent 0x2FC2C0-0x2FC300, SOF missed 0
+209821 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 2040-2040 B, packet 288-288 B, underruns 0, feedback 0x2FC2C0-0x2FC300, feedback reads 1000 sent 0x2FC2C0-0x2FC300, SOF missed 0
+210821 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 2040-2040 B, packet 288-288 B, underruns 0, feedback 0x2FC2C0-0x2FC300, feedback reads 999 sent 0x2FC2C0-0x2FC300, SOF missed 0
+211821 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 2040-2040 B, packet 288-288 B, underruns 0, feedback 0x2FC2C0-0x2FC300, feedback reads 1000 sent 0x2FC2C0-0x2FC300, SOF missed 0
+212821 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 2040-2040 B, packet 288-288 B, underruns 0, feedback 0x2FC2C0-0x2FC300, feedback reads 999 sent 0x2FC2C0-0x2FC300, SOF missed 0
+213821 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 2040-2040 B, packet 288-288 B, underruns 0, feedback 0x2FC2C0-0x2FC300, feedback reads 1000 sent 0x2FC2C0-0x2FC300, SOF missed 0
+214821 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 2328-2328 B, SOF 2040-2040 B, packet 288-288 B, underruns 0, feedback 0x2FC2C0-0x2FC300, feedback reads 999 sent 0x2FC2C0-0x2FC300, SOF missed 0
+215725 ␛[0;32m[I][AudioSrv] ␛[0mSpeaker stream stopped
+215821 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 1752-2328 B, SOF 1464-2040 B, packet 0-288 B, underruns 1, feedback 0x2FC2C0-0x2FC300, feedback reads 901 sent 0x2FC2C0-0x2FC300, SOF missed 0
+216821 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 65535-0 B, SOF 65535-0 B, packet 65535-0 B, underruns 0, feedback 0xFFFFFFFF-0x000000, feedback reads 0 sent 0xFFFFFFFF-0x000000, SOF missed 0
+217821 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 65535-0 B, SOF 65535-0 B, packet 65535-0 B, underruns 0, feedback 0xFFFFFFFF-0x000000, feedback reads 0 sent 0xFFFFFFFF-0x000000, SOF missed 0
+218228 ␛[0;32m[I][FuriHalUsb] ␛[0mSuspend, remote wakeup 1
+218821 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 65535-0 B, SOF 65535-0 B, packet 65535-0 B, underruns 0, feedback 0xFFFFFFFF-0x000000, feedback reads 0 sent 0xFFFFFFFF-0x000000, SOF missed 0
+219821 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 65535-0 B, SOF 65535-0 B, packet 65535-0 B, underruns 0, feedback 0xFFFFFFFF-0x000000, feedback reads 0 sent 0xFFFFFFFF-0x000000, SOF missed 0
+220821 ␛[0;34m[D][AudioSrv] ␛[0mSpeaker FIFO read 65535-0 B, SOF 65535-0 B, packet 65535-0 B, underruns 0, feedback 0xFFFFFFFF-0x000000, feedback reads 0 sent 0xFFFFFFFF-0x000000, SOF missed 0
