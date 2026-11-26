@@ -25,7 +25,16 @@ message VersionResponse {
     uint32 target = 6;
 }
 
-message RebootToBootloaderRequest {
+enum RebootMode {
+    REBOOT_MODE_NORMAL = 0;
+    REBOOT_MODE_BOOTLOADER = 1;
+}
+
+message RebootRequest {
+    RebootMode mode = 1;
+}
+
+message UsbBypassRequest {
 }
 
 enum ResetReason {
@@ -184,13 +193,14 @@ message RpcRequest {
 
     oneof payload {
         VersionRequest version = 2;
-        RebootToBootloaderRequest reboot_to_bootloader = 3;
+        RebootRequest reboot = 3;
         SystemStatusRequest system_status = 4;
         AudioStatusRequest audio_status = 5;
         UsbcStatusRequest usbc_status = 6;
         SettingsGetRequest settings_get = 7;
         SettingsSetRequest settings_set = 8;
         SettingsSaveRequest settings_save = 9;
+        UsbBypassRequest usb_bypass = 10;
     }
 }
 

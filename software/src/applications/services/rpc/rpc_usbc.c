@@ -5,10 +5,15 @@
 
 #include <string.h>
 
+#define TAG "RpcUsbc"
+
+#define RPC_USBC_USB_BYPASS_DELAY_MS 100
+
 struct RpcUsbc {
     Rpc* rpc;
     Usbc* usbc;
     UsbcStatus status;
+    FuriEventLoopTimer* usb_bypass_timer;
 };
 
 static const adapter_UsbcPowerRole rpc_usbc_power_roles[] = {
@@ -101,15 +106,36 @@ static void rpc_usbc_handle_usbc_status(const adapter_RpcRequest* request, void*
     rpc_send_response(rpc_usbc->rpc);
 }
 
+static void rpc_usbc_usb_bypass_timer_callback(void* context) {
+    RpcUsbc* rpc_usbc = context;
+
+    FURI_LOG_I(TAG, "Requesting temporary USB bypass");
+    usbc_request_temporary_usb_bypass(rpc_usbc->usbc);
+}
+
+static void rpc_usbc_handle_usb_bypass(const adapter_RpcRequest* request, void* context) {
+    RpcUsbc* rpc_usbc = context;
+
+    rpc_send_status(rpc_usbc->rpc, request->request_id, adapter_ErrType_ERROR_TYPE_OK);
+    furi_event_loop_timer_start(
+        rpc_usbc->usb_bypass_timer, furi_ms_to_ticks(RPC_USBC_USB_BYPASS_DELAY_MS));
+}
+
 RpcUsbc* rpc_usbc_alloc(Rpc* rpc) {
     furi_check(rpc);
 
     RpcUsbc* rpc_usbc = malloc(sizeof(RpcUsbc));
     rpc_usbc->rpc = rpc;
     rpc_usbc->usbc = furi_record_open(RECORD_USBC);
+    rpc_usbc->usb_bypass_timer = furi_event_loop_timer_alloc(
+        rpc_get_event_loop(rpc),
+        rpc_usbc_usb_bypass_timer_callback,
+        FuriEventLoopTimerTypeOnce,
+        rpc_usbc);
 
     rpc_add_handler(
         rpc, adapter_RpcRequest_usbc_status_tag, rpc_usbc_handle_usbc_status, rpc_usbc);
+    rpc_add_handler(rpc, adapter_RpcRequest_usb_bypass_tag, rpc_usbc_handle_usb_bypass, rpc_usbc);
 
     return rpc_usbc;
 }
@@ -117,6 +143,8 @@ RpcUsbc* rpc_usbc_alloc(Rpc* rpc) {
 void rpc_usbc_free(RpcUsbc* rpc_usbc) {
     furi_check(rpc_usbc);
 
+    furi_event_loop_timer_stop(rpc_usbc->usb_bypass_timer);
+    furi_event_loop_timer_free(rpc_usbc->usb_bypass_timer);
     furi_record_close(RECORD_USBC);
     free(rpc_usbc);
 }

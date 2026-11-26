@@ -39,6 +39,8 @@ typedef struct Usbc Usbc;
 
 void usbc_get_status(Usbc* usbc, UsbcStatus* status);
 
+void usbc_request_temporary_usb_bypass(Usbc* usbc);
+
 int32_t usbc_srv(void* context);
 
 #ifdef __cplusplus

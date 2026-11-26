@@ -1378,6 +1378,10 @@ void usbc_policy_set_usb_bypass(UsbcPolicy* policy, bool usb_bypass) {
     usbc_policy_update_phone_data_role(policy);
 }
 
+bool usbc_policy_is_attached(const UsbcPolicy* policy, UsbcPort port) {
+    return policy->ports[port].attached;
+}
+
 bool usbc_policy_take_status_change(UsbcPolicy* policy) {
     const bool status_changed = policy->status_changed;
     policy->status_changed = false;

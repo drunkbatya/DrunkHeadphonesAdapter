@@ -9,12 +9,13 @@
 
 #define TAG "RpcSystem"
 
-#define RPC_SYSTEM_BOOTLOADER_REBOOT_DELAY_MS 100
-#define RPC_SYSTEM_MICROSECONDS_PER_SECOND    1000000
+#define RPC_SYSTEM_REBOOT_DELAY_MS         100
+#define RPC_SYSTEM_MICROSECONDS_PER_SECOND 1000000
 
 struct RpcSystem {
     Rpc* rpc;
-    FuriEventLoopTimer* bootloader_reboot_timer;
+    FuriEventLoopTimer* reboot_timer;
+    FuriHalBootMode reboot_mode;
 };
 
 static const adapter_ResetReason rpc_system_reset_reasons[] = {
@@ -29,15 +30,18 @@ static const adapter_ResetReason rpc_system_reset_reasons[] = {
     [FuriHalPowerResetReasonOptionBytesLoad] = adapter_ResetReason_RESET_REASON_OPTION_BYTES_LOAD,
 };
 
-static void rpc_system_bootloader_reboot_timer_callback(void* context) {
-    UNUSED(context);
+static void rpc_system_reboot_timer_callback(void* context) {
+    RpcSystem* rpc_system = context;
 
     Audio* audio = furi_record_open(RECORD_AUDIO);
     audio_shutdown(audio);
     furi_record_close(RECORD_AUDIO);
 
-    FURI_LOG_I(TAG, "Rebooting to bootloader");
-    furi_hal_boot_set_mode(FuriHalBootModeDfu);
+    FURI_LOG_I(
+        TAG,
+        "Rebooting to %s",
+        (rpc_system->reboot_mode == FuriHalBootModeDfu) ? "bootloader" : "firmware");
+    furi_hal_boot_set_mode(rpc_system->reboot_mode);
     furi_hal_power_reset();
 }
 
@@ -58,14 +62,24 @@ static void rpc_system_handle_version(const adapter_RpcRequest* request, void* c
     rpc_send_response(rpc_system->rpc);
 }
 
-static void
-    rpc_system_handle_reboot_to_bootloader(const adapter_RpcRequest* request, void* context) {
+static void rpc_system_handle_reboot(const adapter_RpcRequest* request, void* context) {
     RpcSystem* rpc_system = context;
 
+    const adapter_RebootMode mode = request->payload.reboot.mode;
+    if((mode != adapter_RebootMode_REBOOT_MODE_NORMAL) &&
+       (mode != adapter_RebootMode_REBOOT_MODE_BOOTLOADER)) {
+        FURI_LOG_E(TAG, "Reboot mode %d", mode);
+        rpc_send_status(
+            rpc_system->rpc, request->request_id, adapter_ErrType_ERROR_TYPE_BAD_REQUEST);
+        return;
+    }
+
+    rpc_system->reboot_mode = (mode == adapter_RebootMode_REBOOT_MODE_BOOTLOADER) ?
+                                  FuriHalBootModeDfu :
+                                  FuriHalBootModeNormal;
     rpc_send_status(rpc_system->rpc, request->request_id, adapter_ErrType_ERROR_TYPE_OK);
     furi_event_loop_timer_start(
-        rpc_system->bootloader_reboot_timer,
-        furi_ms_to_ticks(RPC_SYSTEM_BOOTLOADER_REBOOT_DELAY_MS));
+        rpc_system->reboot_timer, furi_ms_to_ticks(RPC_SYSTEM_REBOOT_DELAY_MS));
 }
 
 static void rpc_system_handle_system_status(const adapter_RpcRequest* request, void* context) {
@@ -94,18 +108,15 @@ RpcSystem* rpc_system_alloc(Rpc* rpc) {
 
     RpcSystem* rpc_system = malloc(sizeof(RpcSystem));
     rpc_system->rpc = rpc;
-    rpc_system->bootloader_reboot_timer = furi_event_loop_timer_alloc(
+    rpc_system->reboot_timer = furi_event_loop_timer_alloc(
         rpc_get_event_loop(rpc),
-        rpc_system_bootloader_reboot_timer_callback,
+        rpc_system_reboot_timer_callback,
         FuriEventLoopTimerTypeOnce,
         rpc_system);
+    rpc_system->reboot_mode = FuriHalBootModeNormal;
 
     rpc_add_handler(rpc, adapter_RpcRequest_version_tag, rpc_system_handle_version, rpc_system);
-    rpc_add_handler(
-        rpc,
-        adapter_RpcRequest_reboot_to_bootloader_tag,
-        rpc_system_handle_reboot_to_bootloader,
-        rpc_system);
+    rpc_add_handler(rpc, adapter_RpcRequest_reboot_tag, rpc_system_handle_reboot, rpc_system);
     rpc_add_handler(
         rpc, adapter_RpcRequest_system_status_tag, rpc_system_handle_system_status, rpc_system);
 
@@ -115,7 +126,7 @@ RpcSystem* rpc_system_alloc(Rpc* rpc) {
 void rpc_system_free(RpcSystem* rpc_system) {
     furi_check(rpc_system);
 
-    furi_event_loop_timer_stop(rpc_system->bootloader_reboot_timer);
-    furi_event_loop_timer_free(rpc_system->bootloader_reboot_timer);
+    furi_event_loop_timer_stop(rpc_system->reboot_timer);
+    furi_event_loop_timer_free(rpc_system->reboot_timer);
     free(rpc_system);
 }

@@ -47,10 +47,13 @@ static void usbc_update_status(Usbc* usbc) {
 
 static void usbc_process(Usbc* usbc) {
     const uint32_t vbus_next_ms = usbc_vbus_process(usbc->vbus);
-    const uint32_t bypass_next_ms = usbc_bypass_process(usbc->bypass);
-    usbc_policy_set_usb_bypass(usbc->policy, usbc_bypass_is_enabled(usbc->bypass));
     usbc_power_process(usbc->power);
     const uint32_t policy_next_ms = usbc_policy_process(usbc->policy);
+    const uint32_t bypass_next_ms = usbc_bypass_process(
+        usbc->bypass,
+        usbc_policy_is_attached(usbc->policy, UsbcPortPhone),
+        usbc_policy_is_attached(usbc->policy, UsbcPortCharger));
+    usbc_policy_set_usb_bypass(usbc->policy, usbc_bypass_is_enabled(usbc->bypass));
     const uint32_t power_next_ms = usbc_power_get_next_ms(usbc->power);
     const uint32_t next_ms =
         MIN(MIN(vbus_next_ms, bypass_next_ms), MIN(policy_next_ms, power_next_ms));
@@ -137,6 +140,12 @@ void usbc_get_status(Usbc* usbc, UsbcStatus* status) {
     furi_check(furi_mutex_acquire(usbc->status_mutex, FuriWaitForever) == FuriStatusOk);
     *status = usbc->status;
     furi_mutex_release(usbc->status_mutex);
+}
+
+void usbc_request_temporary_usb_bypass(Usbc* usbc) {
+    furi_check(usbc);
+
+    usbc_bypass_request_temporary(usbc->bypass);
 }
 
 int32_t usbc_srv(void* context) {
